@@ -38,7 +38,7 @@ A set is an unordered collection of unique elements. Sets have the following pro
 - Elements are **unordered**: Elements in the set do not have a position or index.
 - Elements are **unique**: No elements in the set share the same value.
 
-There are functions and methods working with a set.
+There are functions and methods working with a set. Using `in` operator to check memebership is probably the most used operation in set.
 
 ## 3.5 Dictionary Basics
 
