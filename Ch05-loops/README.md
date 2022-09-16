@@ -1,6 +1,6 @@
 # Repetition Structures
 
-> A program without a loop and a structured variable isn't worth writing. - Alan J. Perlis
+Loop is what makes a program so powerful (Turing complete).
 
 - [While Loop](while-loop.ipynb): the while loop and `infinite` loop. [YouTube Video](https://youtu.be/42MhKOvWtwc).
 - [For Loop](for-loop.ipynb): sequence of data times and `for` loop. [YouTube Video](https://youtu.be/OLITHW_gXXo).
