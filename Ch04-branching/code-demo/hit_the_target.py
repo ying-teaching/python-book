@@ -1,3 +1,5 @@
+# Turtle lib doc: https://docs.python.org/3/library/turtle.html
+
 # First, make sure you understand the question.
 # Second, develop a design/plan of the solution
 # In the design, the program is divided into mutiple subtasks
@@ -8,7 +10,7 @@
 # only when the current works correctly, then you move to the next subtask
 
 # in Exam, if you program doesn't compile (has syntax error), you get no more than 20%
-# of the score. 
+# of the score.
 
 # 1. Setup the screen
 # 2. draw the target
@@ -22,13 +24,10 @@ import turtle
 import math
 
 # Named constants
-SCREEN_WIDTH = 600    # Screen width
-SCREEN_HEIGHT = 600   # Screen height
-MAX_DISTANCE = math.ceil(math.sqrt(SCREEN_WIDTH ** 2 + SCREEN_HEIGHT ** 2) / 2)
 
-TARGET_LLEFT_X = 100  # Target's lower-left X
-TARGET_LLEFT_Y = 250  # Target's lower-left Y
-TARGET_WIDTH = 25     # Width of the target
+TARGET_LLEFT_X = 200  # Target's lower-left X
+TARGET_LLEFT_Y = 300  # Target's lower-left Y
+TARGET_WIDTH = 40     # Width of the target
 
 PROJECTILE_SPEED = 1  # Projectile's animation speed
 
@@ -36,10 +35,6 @@ EAST = 0              # Angle of east direction
 NORTH = 90            # Angle of north direction
 SOUTH = 270           # Angle of south direction
 WEST = 180            # Angle of west direction
-
-# Setup the window.
-turtle.setup(SCREEN_WIDTH, SCREEN_HEIGHT)
-
 
 # Draw the target.
 turtle.hideturtle()
@@ -63,8 +58,11 @@ turtle.showturtle()
 turtle.speed(PROJECTILE_SPEED)
 
 # Get the angle and force from the user.
+width = turtle.window_width()
+height = turtle.window_height()
+max_distance = int(math.sqrt(width ** 2 + height ** 2) / 2)
+distance = int(input(f'Enter the launch distance (1-{max_distance}): '))
 angle = int(input("Enter the projectile's angle 0-360: "))
-distance = int(input(f'Enter the launch distance (1-{MAX_DISTANCE}): '))
 
 # Set the heading.
 turtle.setheading(angle)
@@ -77,10 +75,10 @@ xcor = turtle.xcor()
 ycor = turtle.ycor()
 
 # Did it hit the target?
-is_in_x = ((xcor >= TARGET_LLEFT_X) and 
-    (xcor <= (TARGET_LLEFT_X + TARGET_WIDTH)))
+is_in_x = ((xcor >= TARGET_LLEFT_X) and
+           (xcor <= (TARGET_LLEFT_X + TARGET_WIDTH)))
 is_in_y = ((ycor >= TARGET_LLEFT_Y) and
-    (ycor <= (TARGET_LLEFT_Y + TARGET_WIDTH)))
+           (ycor <= (TARGET_LLEFT_Y + TARGET_WIDTH)))
 is_hit = is_in_x and is_in_y
 
 # show message
@@ -89,4 +87,5 @@ if is_hit:
 else:
     print('You missed the target.')
 
+# this keeps the window open
 turtle.done()
