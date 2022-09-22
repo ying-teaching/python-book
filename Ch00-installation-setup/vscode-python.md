@@ -13,7 +13,7 @@ VS Code might be the best and free development tool for Python programming and i
 Go to [VS Code docs](https://code.visualstudio.com/docs) to learn and install VS Code for your operating system. It should be easy but in case you are not sure, you can check the following resources.
 
 - For Windows, follow the [VS Code on Windows](https://code.visualstudio.com/docs/setup/windows) or watch the video [How to Install VS Code 2020](https://youtu.be/7yLXtkSsRKE).
-- For Mac OS, follow the [VS Code on macOS instruction](https://code.visualstudio.com/docs/setup/mac) or watch the video [How to Install VS Code on Mac](https://youtu.be/IATbkNl8qng).
+- For Mac OS, follow the [VS Code on macOS instruction](https://code.visualstudio.com/docs/setup/mac) or watch the video [How to Install VS Code on Mac](https://youtu.be/2RoWZXcbPjw).
 
 Programmers often run VS Code from the command line. There is an extra step to enable this in Mac OS. Please follow the instruction in [launching form the command line](https://code.visualstudio.com/docs/setup/mac#_launching-from-the-command-line).
 
