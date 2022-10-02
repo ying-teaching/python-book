@@ -22,7 +22,7 @@ A classic, really good one if you have a little bit programming experience or is
 
 ## 3. Computer Systems
 
-There are two good courses to learn the computer architecture from a programmer's point of view. It might be hard for non-CS or non-EE students. You don't need to understand everything and you can learn it again after you have some programming experience. You may want to learn a little bit C programming before this coruse. 
+You should learn the computer architecture from a programmer's point of view. It might be hard for non-CS or non-EE students. You don't need to understand everything and you can learn it again after you have some programming experience. You may want to learn a little bit C programming before this coruse. 
 
 The following two should be fine for beginner.
 - [C Programming For Beginners ](https://www.udemy.com/course/c-programming-for-beginners-/). You often find good deal/coupons for Udemy course with big discount -- don't pay the full price.
