@@ -45,7 +45,7 @@ Alternatively, [Analysis of Algorithms Lectures](https://www3.cs.stonybrook.edu/
 
 ## 6 Computer Network
 
-[Computer Networking: A Top-Down Approach](https://gaia.cs.umass.edu/kurose_ross/index.php) is a good and easy to read book. The page has online lectures/labs.
+[Computer Networking: A Top-Down Approach](https://gaia.cs.umass.edu/kurose_ross/index.php) is a good and easy to read book. The site has links to online lectures/labs.
 
 
 ## 7 Database
