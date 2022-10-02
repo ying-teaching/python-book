@@ -43,19 +43,26 @@ Alternatively, [Analysis of Algorithms Lectures](https://www3.cs.stonybrook.edu/
 
 - Three pieces: [Operating Systems: Three Easy Pieces](https://pages.cs.wisc.edu/~remzi/OSTEP/). It has a free ebook. [Free Youtube lecture videos](https://www.youtube.com/playlist?list=PLDW872573QAb4bj0URobvQTD41IV6gRkx).
 
-## 6 Database
+## 6 Computer Network
+
+[Computer Networking: A Top-Down Approach](https://gaia.cs.umass.edu/kurose_ross/index.php) is a good and easy to read book. The page has online lectures/labs.
+
+
+## 7 Database
 
 There are good comments about [CMU15-445 Database Systems](https://15445.courses.cs.cmu.edu/fall2022/). They put [lectures in Youtube](https://www.youtube.com/playlist?list=PLSE8ODhjZXjaKScG3l0nuOiDTTqpfnWFf).
 
-## 7 Distributed Systems
+## 8 Distributed Systems
 
 The book [Designing Data-Intensive Applications](https://smile.amazon.com/Designing-Data-Intensive-Applications-Reliable-Maintainable-ebook/dp/B06XPJML5D/) is highly recommended. The author has [Youtube videos](https://www.youtube.com/playlist?list=PL4KdJM8LzAMecwInbBK5GJ3Anz-ts75RQ) is strongly recommended. 
 
-## 8 Language and Compilers
+## 9 Language and Compilers
 
 [Crafting Interpreters](https://craftinginterpreters.com/contents.html) is a good introdcution to compilers and is easy to read. It should be enough for most programmers.
 
+## 10 Theory of Compuation
 
+This is optional. Those who know theories can think at diffferent level of abastration. [THEORY OF COMPUTATION](https://ocw.mit.edu/courses/18-404j-theory-of-computation-fall-2020/)
 
 
 
