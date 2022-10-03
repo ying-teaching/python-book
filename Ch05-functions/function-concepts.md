@@ -268,7 +268,7 @@ greet('Alicia', prefix='Hi', last_name='Keys')
 
 Positional arguments cannot follow keyward arguments, they must be passed before keyward arguments. A function call `greet('Alicia', prefix='Hi', 'Keys')` causes a an error: `SyntaxError: positional argument follows keyword argument`.
 
-## Functions Are Ojbects
+## 4 Functions Are Ojbects
 
 A funciton is an object that has a type (class `function`), an identity (the function name) and a value (the definition of the function). As an object, it can be assigned to another variable or can be passed as an argument in function call. A function takes another function as its parameter is called a **high-order function**. The name is fancy but the concept is rather simple. 
 
@@ -288,4 +288,11 @@ list(map(d, items))
 
 Be careful that you use `double`, not `double()` in `map`. `double()` is a function call -- it is invalid because it misses its argument.
 
+## 5 Methods are Function-like Objects
 
+When you bind a function with a specific data type, it becomes a method. It helps organize functions into a group of operations that are closely related to a data type. Method is an object-oriented programming concept that will be covered later. 
+
+For now, it is enough to know an important difference between a method and a function:
+
+- You call a function using a funciton name followed by arguments in a pair of parenthese `f(arg1, arg2)`
+- You call a method using a dot notation like `data.f(arg1, arg2)` because the function is bind with some data `a`. Conceptually, you can think `data.f(arg1, arg2)` as `f(data, arg1, arg2)` -- the `data` is always the first argument.
