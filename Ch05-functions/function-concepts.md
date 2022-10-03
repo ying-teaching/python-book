@@ -119,6 +119,10 @@ def greet(name, prefix = 'Hello')
 
 When you call `greet` without giving an argument for `prefix`, it uses the `'Hello'` as the arugment value.
 
+You can use parameter names when you call a function with some arguments, these are called `keyword arguments`. It let you specify arguments in any order. For example, you can call `gree(prefix='hi', name='alic')`. 
+
+Python also supports arbitrary arugments using syntax like `*args` and `**kwargs`. For example, `print` function uses `*args` to take a number of arguments.
+
 ### 2.3 Docstring for Functions
 
 Except for trivial functions, you should write a **docstring** for the function. It can be a single line docstring, as shown in the first examples, or it can be a multi-line docstring: a summary line, followed by a blank line and detail description.

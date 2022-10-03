@@ -26,7 +26,13 @@ As shown above, you can use a funtion and define it later.
 
 ## 2 Variable Scope
 
-Every Python varaible has a scope -- it is only visible in the region it is defined.
+Every Python varaible has a scope -- it is only visible in the region it is defined. Python has three scopes:
+
+- Built-in scope: Python has some built-in names such as `int()`, `str()`, `list()` etc. 
+- Local scope: variables in a function. There are many local scopes because there are many functions.
+- Global scope: variable outside any function. 
+
+Python use a dictionary for each scope. Such a dictionary is called a **namespace** but it is an implementation detail that you can learn more in the future.
 
 ### 2.1 Local Variable
 
@@ -94,6 +100,7 @@ main()
 ```
 
 The `number` is created in the `for` loop but its scope is the `main` function. Therefore it can be used by the `print(number)` statement in the `main` function.
+
 
 ## 3 Call Stack
 
