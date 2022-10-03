@@ -146,7 +146,7 @@ print('Done')
 
 ### 2.5 The `pass` Keyword
 
-When you design a porgram, you divide your application into several functions but don't know the implementation details for some of you functions. You can use the `pass` keyword as a temporary function body. You replace it with real code when you are ready to implement it.
+When you design a porgram, you divide your application into several functions but don't know the implementation details for some of you functions. You can use the `pass` keyword as a temporary function body to write a **function stub** -- you can also print a message or return some value in the stub. You replace it with real code when you are ready to implement it.
 
 ```python
 def do_homework():
@@ -263,3 +263,25 @@ greet('Alicia', prefix='Hi', last_name='Keys')
 ```
 
 Positional arguments cannot follow keyward arguments, they must be passed before keyward arguments. A function call `greet('Alicia', prefix='Hi', 'Keys')` causes a an error: `SyntaxError: positional argument follows keyword argument`.
+
+## Functions Are Ojbects
+
+A funciton is an object that has a type (class `function`), an identity (the function name) and a value (the definition of the function). As an object, it can be assigned to another variable or can be passed as an argument in function call. A function takes another function as its parameter is called a **high-order function**. The name is fancy but the concept is rather simple. 
+
+The following is an example of higher-order function. Python's `map` function takes a function as its first parameter and a list as the 2nd parameter. The result is a `map` object that can be converted into a list using `list(m)`.
+
+```python
+def double(num):
+    return num * 2
+
+items = [1, 2, 3]
+list(map(double, items))
+
+# this also works
+d = double
+list(map(d, items))
+```
+
+Be careful that you use `double`, not `double()` in `map`. `double()` is a function call -- it is invalid because it misses its argument.
+
+
