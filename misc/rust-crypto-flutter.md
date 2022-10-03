@@ -1,12 +1,15 @@
-# Learn Web3 Development
+#  Rust, Crypto and Flutter
 
-The recommended path to learn Web3 development is to learn Rust and Crypto is as following. You can learn two section in parallel but learn materials inside each section sequentially.
+The recommended path to learn Rust and Web3 development is as following. You can learn them in parallel but learn materials inside each section sequentially.
 
 ## Rust
 
 - Read the book [The Rust Programming Language](https://doc.rust-lang.org/book/)
 - Check out the [Rust by Example](https://doc.rust-lang.org/stable/rust-by-example/)
-- Read the book [Programming Rust 2nd Edition](https://www.amazon.com/Programming-Rust-Fast-Systems-Development/dp/1492052590)
+- [Crust of Rust Videos](https://www.youtube.com/playlist?app=desktop&list=PLqbS7AVVErFiWDOAVrPt7aYmnuuOLYvOa): the series has many insights about how Rust libs are implemented.
+- [Programming Rust 2nd Edition](https://www.amazon.com/Programming-Rust-Fast-Systems-Development/dp/1492052590)
+- [Tokio Tutorial](https://tokio.rs/tokio/tutorial)
+
 
 ## Crypto
 
