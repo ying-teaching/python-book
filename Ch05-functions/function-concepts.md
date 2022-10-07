@@ -30,7 +30,7 @@ If you use two functions, the code will be
 1. leave home (this function has the statements 1 to 5)
 2. drive to shcool (this function has the statements 6 to 10)
 
-The functional version is easy to write and easy to understand. Another huge benefit is that a function name summarizes the task. It is easy to understand the two function calls if you don't care about the implementation details. You can image the pain when you have to figure out the purpose of 1,000 lines of code.
+The functional version is easy to write and easy to understand. Another huge benefit is that a function name summarizes the task. It is easy to understand the two function calls if you don't care about the implementation details. You can image the pain when you have to figure out the purpose of 1,000 lines of code. The third benefit is that it is easy to replace a function with a new function that implements new method. For example, one can take a Uber or ride a bicyle, either can acheieve the goal of going to school. 
 
 If a subtask is too complex, you can divided it into a set of subtasks agian. A function represents a subtask can be be divided into more functions. Eventually you may have a program structured as the following:
 

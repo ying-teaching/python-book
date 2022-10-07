@@ -1,5 +1,4 @@
-# List and Tuple
+# List and Dictionary
 
-- [List Note](list.ipynb)
-- [Tuple Note](tuple.md)
-- [Lists Youtube Video](https://youtu.be/tw7ror9x32s)
+- [List Note](./list.ipynb)
+- [Dictionary Note](./dictionary.ipynb)
