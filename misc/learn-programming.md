@@ -1,4 +1,4 @@
-# Learning Progressional Programming from Scratch
+# Learning Professional Programming from Scratch
 
 This article is based on [Teach Yourself Computer Science](https://teachyourselfcs.com/). For absolute beginners or students from other majors (economics, biology, communcation, etc), some supplementary materails and alternatives are added.
 
