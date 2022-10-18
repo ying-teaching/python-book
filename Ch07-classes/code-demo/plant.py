@@ -12,54 +12,67 @@ and exit.
 
 
 class Plant:
-    def __init__(self, plant_name, plant_cost):
-        self.plant_name = plant_name
-        self.plant_cost = plant_cost
+    def __init__(self, name, cost):
+        self.name = name
+        self.cost = cost
 
     def print_info(self):
-        print('Plant Information:')
-        print('   Plant name:', self.plant_name)
-        print('   Cost:', self.plant_cost)
+        print('Information:')
+        print(f'    name: {self.name}')
+        print(f'    cost: {self.cost}')
 
 
 class Flower(Plant):
-    def __init__(self, plant_name, plant_cost, color_of_flowers):
-        Plant.__init__(self, plant_name, plant_cost)
-        self.color_of_flowers = color_of_flowers
+    def __init__(self, name, cost, color):
+        super().__init__(name, cost)
+        self.color = color
 
     def print_info(self):
-        super().print_info()
-        print('   Color of flowers:', self.color_of_flowers)
+        # super().print_info()
+        print('Information:')
+        print(f'    name: {self.name}')
+        print(f'    cost: {self.cost}')
+        print(f'    color: {self.color}')
+
+# my_garden is list of plants/flowers
 
 
 def print_list(my_garden):
-    for i in range(len(my_garden)):
-        my_garden[i].print_info()
-        print()
+    for element in my_garden:
+        element.print_info()
+        print('-' * 20)
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     my_garden = []
-    user_select = input(
-        'Please input plant or flower, or done to complete: ')
+
+    plant_prompt = 'Please input plant or flower, or done to complete: '
+    user_select = input(plant_prompt)
+
     while user_select != 'done':
+
         if user_select == 'plant':
-            user_string = input('Please input name cost: ')
-            tokens = user_string.split()
+            # input plant and add to my_garden
+            user_input = input('Please input name cost: ')
+            tokens = user_input.split()
             name = tokens[0]
             cost = tokens[1]
-            my_plant = Plant(name, cost)
-            my_garden.append(my_plant)
+            plant = Plant(name, cost)
+            my_garden.append(plant)
+
         elif user_select == 'flower':
-            user_string = input('Please input name cost color: ')
-            tokens = user_string.split()
+            # input flower and add to my_garden
+            user_input = input('Please input name cost color: ')
+            tokens = user_input.split()
             name = tokens[0]
             cost = tokens[1]
             color = tokens[2]
-            my_flower = Flower(name, cost, color)
-            my_garden.append(my_flower)
+            flower = Flower(name, cost, color)
+            my_garden.append(flower)
 
-        user_select = input(
-            'Please input plant or flower, or done to complete: ')
+        else:
+            print('wrong input, try again')
+
+        user_select = input(plant_prompt)
 
     print_list(my_garden)
