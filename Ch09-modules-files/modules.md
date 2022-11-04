@@ -4,7 +4,7 @@ A Python source code file is called a **script**. For a large application, you p
 
 ## `import`
 
-A module is a Python source code file with `.py` suffix. Please follow [Python Naming Convention](https://github.com/naming-convention/naming-convention-guides/tree/master/python) for names. Modules, functions, methods, global/class/local variables use `lower_with_under` (lowercase snake casing). Classes, exceptions and constants uses `CAP_WITH_UNDER` (uppercase snake casing).
+A module is a Python source code file with `.py` suffix. Please follow [Python Naming Convention](https://github.com/naming-convention/naming-convention-guides/tree/master/python) for names. Packages, modules, functions, methods, global/class/local variables use `lower_with_under` (lowercase snake casing). Classes, exceptions and constants uses `CAP_WITH_UNDER` (uppercase snake casing).
 
 To use a function from a different module, you `import` the module. The `import` **executes** the code in the file, therefore the function/varaible definitions of the imported module are available in the importing module. If a module is imported by many modules, it is executed only in the first `import`.
 
@@ -34,7 +34,7 @@ print(f'Factorial of {n} is {result}.')
 
 You can also import several functions directly like `from utils import factorial`, then you can call `factorial(n)` without the module name prefix.
 
-## Finding Modules
+## Modules and Packages
 
 There are different types of modules:
 
@@ -44,4 +44,6 @@ There are different types of modules:
 
 When a module is imported, the `__name__` is the filename. If a module is executed as a script, the `__name__` is `__main__`.
 
-## Packages
+A directory with an `__init__.py` file defines a package that consists of many files (modeles). The `__init__.py` can be empty or has `import` statements to import its modules.
+
+The `PYTHONPATH` environment variable and `sys.path` are used to specify the searching paths when Python imports packages or modules.
