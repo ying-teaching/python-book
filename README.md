@@ -15,3 +15,11 @@ Lecture notes for Python programming. Table of Content
 - [ch10 Recursion and Plotting](./Ch10-Recursion-Plotting/)
 
 The [Misc](./misc/) has other programming materials -- may not be directly about Python.
+
+## Todo
+
+- Why learn programming?
+- Why learn Python?
+  - popular
+  - goal: easy programming
+- Programming model: Von Neumann model of computing
