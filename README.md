@@ -23,3 +23,5 @@ The [Misc](./misc/) has other programming materials -- may not be directly about
   - popular
   - goal: easy programming
 - Programming model: Von Neumann model of computing
+- Python History
+- Accurate terms
