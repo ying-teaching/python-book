@@ -15,6 +15,15 @@ This is an introduction book to Python programming. This book is unique because 
 
 ## [Ch01: Introduction to Programming](Ch01-introduction-programming/)
 
+- Why learn programming?
+- Why learn Python?
+  - popular and general
+  - community
+  - goal: easy programming
+- Programming model: Von Neumann model of computing
+- Python History
+- Accurate terms
+
 ## [Ch02: Expression and Type](Ch02-expression-type/)
 
 ## [Ch03 Branching](Ch03-branching/)
@@ -31,17 +40,6 @@ This is an introduction book to Python programming. This book is unique because 
 
 ## [Ch09 Module Files](Ch09-modules-files/)
 
-## [ch10 Recursion and Plotting](Ch10-Recursion-Plotting/)
+## [Ch10 Recursion and Plotting](Ch10-Recursion-Plotting/)
 
 The [Misc](./misc/) has other programming materials -- may not be directly about Python.
-
-## Todo
-
-- Why learn programming?
-- Why learn Python?
-  - popular and general
-  - community
-  - goal: easy programming
-- Programming model: Von Neumann model of computing
-- Python History
-- Accurate terms
