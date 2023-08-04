@@ -2,6 +2,16 @@
 
 This note explains how a program works and introduce concepts such as programming languages, compiler and interpreter.
 
+Todo
+
+- Why learn programming?
+- Why learn Python?
+  - popular and general
+  - community
+  - goal: easy programming
+- Programming model: Von Neumann model of computing
+- Python History
+
 ## How a Program Works
 
 A computer can be simplified as the following diagram:
@@ -14,7 +24,7 @@ CPU is designed to perform simple operations on pieces of data: examples include
 
 It understands instructions written in machine language, also called machine code. Each brand of CPU has its own instruction set.
 
-To carry out meaningful calculation, CPU must perform many machine-levle (low-level) operations in 0s and 1s (binary code).
+To carry out meaningful calculation, CPU must perform many machine-level (low-level) operations in 0s and 1s (binary code).
 
 ### Program Execution
 
@@ -44,15 +54,15 @@ As you can see, programs written in high-level languages must be translated into
 
 ## Compiler and Interpreter
 
-A compiler translates high-level language programs into machine language programs. Machine language programs are executable applications that can be executed by computers. Diffeernt comuputers (cell phone, PC, mainframe cmputer) may use different CPUs that execute different machine languages. It is the job of the compiler to compile the high level program into different machine code programs for different computers.
+A compiler translates high-level language programs into machine language programs. Machine language programs are executable applications that can be executed by computers. Different computers (cell phone, PC, mainframe computer) may use different CPUs that execute different machine languages. It is the job of the compiler to compile the high level program into different machine code programs for different computers.
 
-There is another way to run programs written in high-level langauges: using interpreter. An interpreter is a "machine" that translates and executes instructions in high-level language program such as Python. It interprets and executes one instrunction at a time.
+There is another way to run programs written in high-level languages: using interpreter. An interpreter is a "machine" that translates and executes instructions in high-level language program such as Python. It interprets and executes one instruction at a time.
 
 ![interpreter](./images/interpreter.png)
 
-Of course, the interpreter is a machine code program excuted in a CPU. You can think an interpreter as a **machine emulator** or **software machine** that can understand and execute high-level langugase instructions.
+Of course, the interpreter is a machine code program executed in a CPU. You can think an interpreter as a **machine emulator** or **software machine** that can understand and execute high-level languages instructions.
 
-Python is an interpreter and Python programs are interprted (executed) by Python. A program language that requires an interpreter is often called a scripting langauge. A program written in scripting language is called a script.
+Python is an interpreter and Python programs are interpreted (executed) by Python. A program language that requires an interpreter is often called a scripting language. A program written in scripting language is called a script.
 
 The key differences between a compiler and an interpreter are:
 
@@ -62,10 +72,10 @@ The key differences between a compiler and an interpreter are:
 
 ![compiler-interpreter](./images/compiler-interpreter.png)
 
-However, the boundary between a compiler and an interpreter is not clear because there are compilers such as [Cython](https://cython.org/) that compiles Python source code to machine code. Another reason is that high-level languages such as Java or C# use a virtual machine to run their code. A virtual machine is similar to an interpreter. The virtual machine code is usually called **byte code** where the real machine code is called **machine code**. The **byte code** is an **intermediate representation (IR)** because it still needs to be converted into machine code by the virtual machine. You may think the Java Virtual Machine (JVM) as an interpreter as depicted in the folloiwng diagram.
+However, the boundary between a compiler and an interpreter is not clear because there are compilers such as [Cython](https://cython.org/) that compiles Python source code to machine code. Another reason is that high-level languages such as Java or C# use a virtual machine to run their code. A virtual machine is similar to an interpreter. The virtual machine code is usually called **byte code** where the real machine code is called **machine code**. The **byte code** is an **intermediate representation (IR)** because it still needs to be converted into machine code by the virtual machine. You may think the Java Virtual Machine (JVM) as an interpreter as depicted in the following diagram.
 
-![bytecode-machinecode](./images/bytecode-machinecode.png)
-(source: [geeksforgeeks.org: Difference between Byte Code and Machine Code](https://www.geeksforgeeks.org/difference-between-byte-code-and-machine-code/))
+![byte code, machine code](./images/bytecode-machinecode.png)
+(source: [Difference between Byte Code and Machine Code](https://www.geeksforgeeks.org/difference-between-byte-code-and-machine-code/))
 
 ## Concepts of a Programming Language
 
@@ -88,10 +98,10 @@ However, the boundary between a compiler and an interpreter is not clear because
 What might happen if a program has an error
 
 - Syntactic error: This is a "Good" error because compiler/interpreter refuse to run the code. The program fails fast.
-- Semantic error: this is "Bad" error with bad consequnces:
+- Semantic error: this is "Bad" error with bad consequences:
   - The program crashes
   - The program runs forever
-  - The program appears nomral but might give wrong results. This might cause big damages.
+  - The program appears normal but might give wrong results. This might cause big damages.
 
 ### Elements of a Program
 

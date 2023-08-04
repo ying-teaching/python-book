@@ -15,14 +15,9 @@ This is an introduction book to Python programming. This book is unique because 
 
 ## [Ch01: Introduction to Programming](Ch01-introduction-programming/)
 
-- Why learn programming?
-- Why learn Python?
-  - popular and general
-  - community
-  - goal: easy programming
-- Programming model: Von Neumann model of computing
-- Python History
-- Accurate terms
+- [Introduction](Ch01-introduction-programming/introduction.md): how a computer runs programs, programming languages, compiler and interpreter.
+- [Program Design](Ch01-introduction-programming/program-design.md): the software development life cycle, flowcharts and pseudo-code.
+- [Getting Started with Python in VS Code](Ch01-introduction-programming/getting-started.md): develop and run Python programs using VS Code.
 
 ## [Ch02: Expression and Type](Ch02-expression-type/)
 
