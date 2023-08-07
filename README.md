@@ -1,11 +1,11 @@
 # Pragmatic Python Programming
 
-This is an introduction book to Python programming. Unlike most existing Python programming books, it teaches Python programming in a pragmatic way. Here the word "pragmatic" means practical and professional. People learn Python programming to solve real world problems effectively. The book teaches practical programming concepts and skills to write correct and easy-to maintain programs in the most productive way. Specifically, in addition to the basic Python programming concepts, it covers the following topics that are critical to write professional code:
+This is an introductory Python programming book for knowledge workers. Unlike most existing Python programming books, it teaches Python programming in a pragmatic way. Here the word "pragmatic" means practical and professional. Knowledge workers learn Python programming to solve real world problems. The book teaches essential programming concepts and skills to effectively write correct, easy-to maintain, and reliable production-grade code. Specifically, in addition to the basic Python programming concepts in Part I, it covers the following topics that are important for any professional developer:
 
 - best programming practices such as good naming, good design, code documentation, same level abstraction, small functions, separation of concerns, and continues refactoring.
+- type hints.
 - test driven development.
 - application tracing.
-- type hints.
 - Python performance issues and tradeoffs.
 
 ## Part I. Python Programming
@@ -32,19 +32,17 @@ This is an introduction book to Python programming. Unlike most existing Python 
 
 ### [Ch09 Module Files](Ch09-modules-files/)
 
+### Ch10 Test Driven Development
+
 ## Part II. Algorithmic Thinking
 
-### Game
+### Web Application
 
 ### [Ch10 Recursion and Plotting](Ch10-Recursion-Plotting/)
-
-### Web Application
 
 ## Part III. Pragmatic Programming
 
 ### Python Data Model and Type Hints
-
-### Test Driven Development
 
 ### Application Tracing
 
