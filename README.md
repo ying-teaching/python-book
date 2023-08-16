@@ -32,13 +32,15 @@ This is an introductory Python programming book for knowledge workers. Unlike mo
 
 ### [Ch09 Module Files](Ch09-modules-files/)
 
-### Ch10 Test Driven Development
+### [Ch10 Recursion](Ch10-recursion/)
+
+### Ch11 Test Driven Development
 
 ## Part II. Algorithmic Thinking
 
 ### Web Application
 
-### [Ch10 Recursion and Plotting](Ch10-Recursion-Plotting/)
+### A Lisp Interpreter
 
 ## Part III. Pragmatic Programming
 
@@ -46,7 +48,7 @@ This is an introductory Python programming book for knowledge workers. Unlike mo
 
 ### Application Tracing
 
-## Appendix
+## [Appendix](Appendix/)
 
 - [Command Line Interface](Appendix/command-line.md): introduction of command line tool. Please read and learn this first if you don't know CLI. It is must-to-know for a programmer.
 - [Install Python Interpreter](Appendix/install-python.md): how to install Python.
