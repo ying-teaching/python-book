@@ -41,7 +41,7 @@ Functional programming, OO programming, Logic programming, data-oriented program
 - DSL: SQL, R, Excel
 - High-level general programming
   - Simple and without static types: Python, JavaScript, Lisp.
-  - Complex and static types: C#, Kotlin, Java, Golang
+  - Complex and static types: C#, Java, Go
 - System: C, C++, Rust
 - Native: Assemble
 
