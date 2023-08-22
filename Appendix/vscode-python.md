@@ -21,7 +21,7 @@ Programmers often run VS Code from the command line. There is an extra step to e
 
 VS code has a rich set of editing features and it is extensible. Click `Help -> Welcome`, you can see the Welcome screen. It has shortcuts to create a new file, open a folder, recent projects and a lot help information.
 
-You should find time to go through the first 5 videos in [Introductory Videos](https://code.visualstudio.com/docs/getstarted/introvideos) to learn the basic functions such as user interface, extensions, shortcut keys, code editing, file operations, and settings. Though examples are JavaScript or text files, most operations are the same for other program languages. The more you know about the VS code, the more efficient you will be. You should invest time to learn it. In addition to the five vidoes, You should also read the following sections
+You should find time to go through the first 5 videos in [Introductory Videos](https://code.visualstudio.com/docs/getstarted/introvideos) to learn the basic functions such as user interface, extensions, shortcut keys, code editing, file operations, and settings. Though examples are JavaScript or text files, most operations are the same for other program languages. The more you know about the VS code, the more efficient you will be. You should invest time to learn it. In addition to the five videos, You should also read the following sections
 
 - [Tips and Tricks](https://code.visualstudio.com/docs/getstarted/tips-and-tricks)
 - [User Interface](https://code.visualstudio.com/docs/getstarted/userinterface)
