@@ -53,7 +53,7 @@ The following two videos from Microsoft VS code tema are a good introduction to 
 - [Getting Started with Python in Visual Studio Code](https://channel9.msdn.com/Shows/Visual-Studio-Toolbox/Getting-Started-with-Python-in-Visual-Studio-Code)
 - [Jupyter Notebooks in Visual Studio Code](https://channel9.msdn.com/Shows/Visual-Studio-Toolbox/Jupyter-Notebooks-in-Visual-Studio-Code)
 
-It seems that VS Code keeps improving every day and there are new features/changes that are inconsistent with the above documents and videos. But the essentail ideas are there.
+It seems that VS Code keeps improving every day and there are new features/changes that are inconsistent with the above documents and videos. But the essential ideas are there.
 
 ## Markdown Document
 
