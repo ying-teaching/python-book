@@ -2,7 +2,7 @@
 
 This is an introductory Python programming book for knowledge workers. Unlike most existing Python programming books, it teaches Python programming in a pragmatic way. Here the word "pragmatic" means practical and professional. Knowledge workers learn Python programming to solve real world problems. The book teaches essential programming concepts and skills to effectively write correct, easy-to maintain, and reliable production-grade code. Specifically, in addition to the basic Python programming concepts in Part I, it covers the following topics that are important for any professional developer:
 
-- best programming practices such as good naming, good design, code documentation, same level abstraction, small functions, separation of concerns, and continues refactoring.
+- best programming practices such as naming, design, documentation, same level abstraction, small functions, separation of concerns, and continues refactoring.
 - type hints.
 - test driven development.
 - application tracing.
@@ -11,6 +11,8 @@ This is an introductory Python programming book for knowledge workers. Unlike mo
 ## Part I. Python Programming
 
 ### [Ch01: Introduction to Programming](notes/Ch01-introduction-programming/)
+
+[Slides](slides/ch01/)
 
 ### [Ch02: Expression and Type](notes/Ch02-expression-type/)
 
@@ -48,26 +50,28 @@ This is an introductory Python programming book for knowledge workers. Unlike mo
 
 [Slides](slides/ch10/)
 
+## Part II. Pragmatic Programming
+
 ### Ch11 Test Driven Development
 
 [Slides](slides/ch11/)
 
-## Part II. Algorithmic Thinking
+### Ch12 Python Data Model
+
+### Ch13 Type Hints
+
+### Ch14 Application Tracing
+
+## Part III. Algorithmic Thinking
 
 ### Web Application
 
 ### A Lisp Interpreter
 
-## Part III. Pragmatic Programming
+## [Appendix](appendix/)
 
-### Python Data Model and Type Hints
-
-### Application Tracing
-
-## [Appendix](Appendix/)
-
-- [Command Line Interface](Appendix/command-line.md): introduction of command line tool. Please read and learn this first if you don't know CLI. It is must-to-know for a programmer.
-- [Install Python Interpreter](Appendix/install-python.md): how to install Python.
-- [Install and setup VS Code for Python Development](Appendix/vscode-python.md): how to install and setup Visual Studo Code (VS Code) for Python development.
-- [Git and GitHub](Appendix/git-and-github.md): use GitHub to manage your software source code.
-- [Misc](Appendix/Misc/): additional programming resources, not directly related to Python.
+- [Command Line Interface](appendix/command-line.md): introduction of command line tool. Please read and learn this first if you don't know CLI. It is must-to-know for a programmer.
+- [Install Python Interpreter](appendix/install-python.md): how to install Python.
+- [Install and setup VS Code for Python Development](appendix/vscode-python.md): how to install and setup Visual Studo Code (VS Code) for Python development.
+- [Git and GitHub](appendix/git-and-github.md): use GitHub to manage your software source code.
+- [Misc](appendix/Misc/): additional programming resources, not directly related to Python.
