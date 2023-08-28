@@ -5,4 +5,4 @@
 > > -- Marvin Minsky, "Why Programming Is a Good Medium for Expressing Poorly-Understood and Sloppily-Formulated Ideas"
 
 - [Introduction](introduction.md): how a computer runs programs, programming languages, compiler and interpreter.
-- [Program Design](python-crash-course.md): a crash course in Python programming.
+- [Python crash course](python-crash-course.md): a crash course in Python programming.
