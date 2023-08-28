@@ -5,5 +5,4 @@
 > > -- Marvin Minsky, "Why Programming Is a Good Medium for Expressing Poorly-Understood and Sloppily-Formulated Ideas"
 
 - [Introduction](introduction.md): how a computer runs programs, programming languages, compiler and interpreter.
-- [Program Design](program-design.md): the software development life cycle, flowcharts and pseudo-code.
-- [Getting Started with Python in VS Code](getting-started.md): develop and run Python programs using VS Code.
+- [Program Design](python-crash-course.md): a crash course in Python programming.

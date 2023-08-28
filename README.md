@@ -10,31 +10,47 @@ This is an introductory Python programming book for knowledge workers. Unlike mo
 
 ## Part I. Python Programming
 
-### [Ch01: Introduction to Programming](Ch01-introduction-programming/)
+### [Ch01: Introduction to Programming](notes/Ch01-introduction-programming/)
 
-- [Introduction](Ch01-introduction-programming/introduction.md): how a computer runs programs, programming languages, compiler and interpreter.
-- [Program Design](Ch01-introduction-programming/program-design.md): the software development life cycle, flowcharts and pseudo-code.
-- [Getting Started with Python in VS Code](Ch01-introduction-programming/getting-started.md): develop and run Python programs using VS Code.
+### [Ch02: Expression and Type](notes/Ch02-expression-type/)
 
-### [Ch02: Expression and Type](Ch02-expression-type/)
+[Slides](slides/ch02/)
 
-### [Ch03 Branching](Ch03-branching/)
+### [Ch03 Branching](notes/Ch03-branching/)
 
-### [Ch04 Loops](Ch04-loops/)
+[Slides](slides/ch03)
 
-### [Ch05 Functions](Ch05-functions/)
+### [Ch04 Loops](notes/Ch04-loops/)
 
-### [Ch06 List and Dictionary](Ch06-list-and-dictionary/)
+[Slides](slides/ch04/)
 
-### [Ch07 Classes](Ch07-classes/)
+### [Ch05 Functions](notes/notes/Ch05-functions/)
 
-### [Ch08 Exceptions](Ch08-exceptions/)
+[Slides](slides/ch05/)
 
-### [Ch09 Module Files](Ch09-modules-files/)
+### [Ch06 List and Dictionary](notes/Ch06-list-and-dictionary/)
 
-### [Ch10 Recursion](Ch10-recursion/)
+[Slides](slides/ch06/)
+
+### [Ch07 Classes](notes/Ch07-classes/)
+
+[Slides](slides/ch07/)
+
+### [Ch08 Exceptions](notes/Ch08-exceptions/)
+
+[Slides](slides/ch08/)
+
+### [Ch09 Module Files](notes/Ch09-modules-files/)
+
+[Slides](slides/ch09/)
+
+### [Ch10 Recursion](notes/Ch10-recursion/)
+
+[Slides](slides/ch10/)
 
 ### Ch11 Test Driven Development
+
+[Slides](slides/ch11/)
 
 ## Part II. Algorithmic Thinking
 
