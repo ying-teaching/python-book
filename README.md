@@ -14,51 +14,29 @@ This is an introductory Python programming book for _knowledge workers_ who are 
 
 ## Part I. Python Programming
 
-### [Ch01: Introduction to Programming](notes/Ch01-introduction-programming/)
+### [Ch01: Introduction to Programming](slides/ch01/)
 
-[Slides](slides/ch01/)
+### [Ch02: Expression and Type](slides/ch02/)
 
-### [Ch02: Expression and Type](notes/Ch02-expression-type/)
+### [Ch03 Branching](slides/ch03)
 
-[Slides](slides/ch02/)
+### [Ch04 Loops](slides/ch04/)
 
-### [Ch03 Branching](notes/Ch03-branching/)
+### [Ch05 Functions](slides/ch05/)
 
-[Slides](slides/ch03)
+### [Ch06 List and Dictionary](slides/ch06/)
 
-### [Ch04 Loops](notes/Ch04-loops/)
+### [Ch07 Classes](slides/ch07/)
 
-[Slides](slides/ch04/)
+### [Ch08 Exceptions](slides/ch08/)
 
-### [Ch05 Functions](notes/notes/Ch05-functions/)
+### [Ch09 Module Files](slides/ch09/)
 
-[Slides](slides/ch05/)
-
-### [Ch06 List and Dictionary](notes/Ch06-list-and-dictionary/)
-
-[Slides](slides/ch06/)
-
-### [Ch07 Classes](notes/Ch07-classes/)
-
-[Slides](slides/ch07/)
-
-### [Ch08 Exceptions](notes/Ch08-exceptions/)
-
-[Slides](slides/ch08/)
-
-### [Ch09 Module Files](notes/Ch09-modules-files/)
-
-[Slides](slides/ch09/)
-
-### [Ch10 Recursion](notes/Ch10-recursion/)
-
-[Slides](slides/ch10/)
+### [Ch10 Recursion](slides/ch10/)
 
 ## Part II. Pragmatic Programming
 
 ### Ch11 Test Driven Development
-
-[Slides](slides/ch11/)
 
 ### Ch12 Python Data Model
 
