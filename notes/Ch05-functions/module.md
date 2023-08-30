@@ -4,19 +4,19 @@ This section introduce the module concept, including its definition, why and how
 
 ## 1 Module: What and Why
 
-A `module` is a Pyhon code file. Or you can say a Python file is a module. A module usually consists of a set of closely-related functions.
+A `module` is a Python code file. Or you can say a Python file is a module. A module usually consists of a set of closely-related functions.
 
 Python uses three constructs to organize an application:
 
-- a funtion to group statements, in a source code file.
+- a function to group statements, in a source code file.
 - a module to group functions in a Python source code file. One file is a module.
-- a pacakge to group files, usually in one or more folders. A folder can be a package.
+- a package to group files, usually in one or more folders. A folder can be a package.
 
-The reason is rather simple, putting all functions into a single file is not appropirate for big programs. Putting functions into diffrent files are easy to read/write and easy to collaborate. Packages are used to organize a large functional area. For example, all math functions or network requests.
+The reason is rather simple, putting all functions into a single file is not appropriate for big programs. Putting functions into different files are easy to read/write and easy to collaborate. Packages are used to organize a large functional area. For example, all math functions or network requests.
 
 ## 2 Use Modules
 
-To make it simple, we put all modules in the same folder. In real applications, you may want to use foders to organize files into packages. For beginners, a fold with multiple Python scripts files/modules should be enough to write a non-trivial program.
+To make it simple, we put all modules in the same folder. In real applications, you may want to use folders to organize files into packages. For beginners, a fold with multiple Python scripts files/modules should be enough to write a non-trivial program.
 
 To use a module, you use `import module_name` to import a module. The module name is the Python script file name with the `.py` postfix. Then you can use `module_name.function_name` to call a function defined in the module.
 
@@ -107,7 +107,7 @@ PI = 3.1416
 print('PI is define')
 ```
 
-Then the `import constants` will execute the two statemens: define a variable and print a message.
+Then the `import constants` will execute the two statements: define a variable and print a message.
 
 However, if you import a file multiple times, Python only executes it once.
 
@@ -133,10 +133,10 @@ The `assert` is a Python keyword that checks the following boolean expression. I
 
 You want to run the `main` function in the command line but don't want to run the test code when a module is imported into another file. However, the above code will run `main()` when it is imported. What you need is a way to find out if a module is imported or is executed from a command line.
 
-Python provides a mechanims to distinguish the two execution modes. When the Python interpreter processes a module, it creates a special variable named `__name__`. It is a convention in Python that variable names started with `_` or `__` are used by the system. The `__name_` has two possible values:
+Python provides a mechanism to distinguish the two execution modes. When the Python interpreter processes a module, it creates a special variable named `__name__`. It is a convention in Python that variable names started with `_` or `__` are used by the system. The `__name_` has two possible values:
 
 - If a module is imported by another module, its `__name__` has a value of the module name, i.e., the filename without the `.py` postfix. For example, if the `circle` module was imported, its `__name__` has a value of `circle`.
-- If it is executed by Python interprete in command line, the `__name__` has a value of `__main__`.
+- If it is executed by Python interpreter in command line, the `__name__` has a value of `__main__`.
 
 Therefore we can change the above code as the following:
 
@@ -156,7 +156,7 @@ if __name__ == '__main__':
     main()
 ```
 
-Try to run the file in a command line and import it from another module. You should see the test output in commandline but not in the imported file.
+Try to run the file in a command line and import it from another module. You should see the test output in command line but not in the imported file.
 
 ## 6 `random`, `math` and `statistics`
 
@@ -164,15 +164,15 @@ The `random`, `math` and `statistics` are commonly used built-in modules. You im
 
 ### 6.1 `random` Module
 
-Follwing are some commonly used functions in `random` module. Check the [`random` docuemnt](https://docs.python.org/3/library/random.html) for more functions.
+Following are some commonly used functions in `random` module. Check the [`random` document](https://docs.python.org/3/library/random.html) for more functions.
 
 - `random.randint(m, n)`: generate a random integer number between `m` and `n`, inclusively.
 - `random.randrange(m, n)`: generate a random integer between `m` and `n-1`.
-- `random.random()`: generate a random float number betwen `0.0` and `1.0`, exclusively.
+- `random.random()`: generate a random float number between `0.0` and `1.0`, exclusively.
 - `random.random(x, y)`: generate a random float number between `x` and `y`, exclusively.
-- `random.seed(n)`: set the random generator with a seed `n`. For the same `n`, it genereates a fixed sequence of numbers.
+- `random.seed(n)`: set the random generator with a seed `n`. For the same `n`, it generates a fixed sequence of numbers.
 
-Below is an exmple:
+Below is an example:
 
 ```python
 import random
@@ -192,7 +192,7 @@ for count in range(10):
 
 ### 6.2 `math` Module
 
-Follwing are some commonly used functions in `math` module. Check the [`math` docuemnt](https://docs.python.org/3/library/math.html) for more functions.
+Following are some commonly used functions in `math` module. Check the [`math` document](https://docs.python.org/3/library/math.html) for more functions.
 
 - `math.pi`: the mathematical constant π = 3.141592…, to available precision.
 - `math.e`: the mathematical constant e = 2.718281…, to available precision.
@@ -202,7 +202,7 @@ Follwing are some commonly used functions in `math` module. Check the [`math` do
 
 ### 6.3 `statistics` Module
 
-Follwing are some commonly used functions in `statistics` module. Check the [`statistics` docuemnt](https://docs.python.org/3/library/statistics.html) for more functions. The `data` parameter in the following examples is a sequence of data such as a list or a range.
+Following are some commonly used functions in `statistics` module. Check the [`statistics` document](https://docs.python.org/3/library/statistics.html) for more functions. The `data` parameter in the following examples is a sequence of data such as a list or a range.
 
 - `statistics.mean(data)`: the mean of data.
 - `statistics.median(data)`: the median (middle value) of data.

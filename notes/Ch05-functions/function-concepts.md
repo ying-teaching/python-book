@@ -6,7 +6,7 @@ This section first explains what is a function and the two reasons you want to u
 
 A function is a group of statements that performs a specific task. Though there is no limit in the number of statements that you can write inside a function, it is important that a function consists of a group of closely related statements to serve a single purpose. It will make your code easy to read and maintain.
 
-Why you need functions? A simple anwser is divide and conquer. Programmers use functions to organize and reuse code. Instead of writing a long list of statements of a complex application, you can divide the application into a set of subtasks such that each task is relatively easy to be solved.
+Why you need functions? A simple answer is divide and conquer. Programmers use functions to organize and reuse code. Instead of writing a long list of statements of a complex application, you can divide the application into a set of subtasks such that each task is relatively easy to be solved.
 
 ![subtask](images/subtask.png)
 
@@ -28,11 +28,11 @@ For example, following is a list of operations that a robot performs:
 If you use two functions, the code will be
 
 1. leave home (this function has the statements 1 to 5)
-2. drive to shcool (this function has the statements 6 to 10)
+2. drive to school (this function has the statements 6 to 10)
 
-The functional version is easy to write and easy to understand. Another huge benefit is that a function name summarizes the task. It is easy to understand the two function calls if you don't care about the implementation details. You can image the pain when you have to figure out the purpose of 1,000 lines of code. The third benefit is that it is easy to replace a function with a new function that implements new method. For example, one can take a Uber or ride a bicyle, either can acheieve the goal of going to school. 
+The functional version is easy to write and easy to understand. Another huge benefit is that a function name summarizes the task. It is easy to understand the two function calls if you don't care about the implementation details. You can image the pain when you have to figure out the purpose of 1,000 lines of code. The third benefit is that it is easy to replace a function with a new function that implements new method. For example, one can take a Uber or ride a bicycle, either can achieve the goal of going to school.
 
-If a subtask is too complex, you can divided it into a set of subtasks agian. A function represents a subtask can be be divided into more functions. Eventually you may have a program structured as the following:
+If a subtask is too complex, you can divided it into a set of subtasks again. A function represents a subtask can be be divided into more functions. Eventually you may have a program structured as the following:
 
 ![structure](images/structure.png)
 
@@ -40,17 +40,17 @@ The structure is a payroll application. You can see the five subtasks at the fir
 
 Therefore divide and conquer using functions let you deal with easy-to-solve subtasks. It also makes the program structure easy to understand.
 
-Another benefit of function is code reuse. By putting a group of statements into a function, you can reuse the function with a simple function call in multiple places. Following is an exmple that three systems share a function.
+Another benefit of function is code reuse. By putting a group of statements into a function, you can reuse the function with a simple function call in multiple places. Following is an example that three systems share a function.
 
 ![reuse](images/reuse.png)
 
-An important principle in programming is Don't Repeat Yourself (DRY). Function reuse not only reduces the number of statements, it also make it easy to change the code in one place. If there is a bug in a funciton, you only need to fix the function defintion in one place and all function calls use the revised version.
+An important principle in programming is Don't Repeat Yourself (DRY). Function reuse not only reduces the number of statements, it also make it easy to change the code in one place. If there is a bug in a function, you only need to fix the function definition in one place and all function calls use the revised version.
 
-There are many other benefits in testing, collaboration etc. The two most important benefits are structured code (divide and conque) and code reuse.
+There are many other benefits in testing, collaboration etc. The two most important benefits are structured code (divide and conquer) and code reuse.
 
 ## 2 Defining a Function
 
-The syntax to define a function is rather simple in Python. Following are examples of three function defintions:
+The syntax to define a function is rather simple in Python. Following are examples of three function definitions:
 
 ```python
 # define a function: no parameter, no retrun value
@@ -85,7 +85,7 @@ def function_name3(parameter1, parameter2):
 
 ### 2.1 Function Header
 
-The first line is the `function header`. It begins with the keyword `def`, followed by a function name, an optional list of parameters enclosed in parenthese, and ends with a colon.
+The first line is the `function header`. It begins with the keyword `def`, followed by a function name, an optional list of parameters enclosed in parentheses, and ends with a colon.
 
 Python has the same set rules and styles for the function name. They are:
 
@@ -100,13 +100,13 @@ When you write more code, the naming rules and styles will become a second natur
 
 ### 2.2 Function Parameters and Default Argument
 
-A function header may have zero, one, or more `parameters` enclosed in parenthese. If there is no parameter, the function header just has a pair of parenthese. If there are two or more parameters, they are separated by a comma `,`. In the above functin headers, they are:
+A function header may have zero, one, or more `parameters` enclosed in parentheses. If there is no parameter, the function header just has a pair of parentheses. If there are two or more parameters, they are separated by a comma `,`. In the above function headers, they are:
 
 - `function_name1()`
 - `function_name2(parameter1, parameter2)`
 - `function_name3(parameter1, parameter2)`
 
-You can have as many parameters as you want, but it is not a good idea to have more than five paramters. You way want to split your function into small functions or compose parameters when there are too many parameters.
+You can have as many parameters as you want, but it is not a good idea to have more than five parameters. You way want to split your function into small functions or compose parameters when there are too many parameters.
 
 As the naming of variables and functions, you should give meaningful names to the function parameters because they are used as variables in the function code.
 
@@ -117,19 +117,19 @@ def greet(name, prefix = 'Hello')
     print(prefix, name)
 ```
 
-When you call `greet` without giving an argument for `prefix`, it uses the `'Hello'` as the arugment value.
+When you call `greet` without giving an argument for `prefix`, it uses the `'Hello'` as the argument value.
 
-You can use parameter names when you call a function with some arguments, these are called `keyword arguments`. It let you specify arguments in any order. For example, you can call `gree(prefix='hi', name='alic')`. 
+You can use parameter names when you call a function with some arguments, these are called `keyword arguments`. It let you specify arguments in any order. For example, you can call `gree(prefix='hi', name='alic')`.
 
-Python also supports arbitrary arugments using syntax like `*args` and `**kwargs`. For example, `print` function uses `*args` to take a number of arguments.
+Python also supports arbitrary arguments using syntax like `*args` and `**kwargs`. For example, `print` function uses `*args` to take a number of arguments.
 
-### 2.3 Docstring for Functions
+### 2.3 Doc string for Functions
 
-Except for trivial functions, you should write a **docstring** for the function. It can be a single line docstring, as shown in the first examples, or it can be a multi-line docstring: a summary line, followed by a blank line and detail description.
+Except for trivial functions, you should write a _doc string_ for the function. It can be a single line doc string, as shown in the first examples, or it can be a multi-line doc string: a summary line, followed by a blank line and detail description.
 
 ### 2.4 Function Body
 
-The function body is the code block indented (4 spaces, per Python coding style) below the function header. The statements in the function body are just regular statements. You can use all control statements (`if`, `for`, and `while`) in the fucntion body.
+The function body is the code block indented (4 spaces, per Python coding style) below the function header. The statements in the function body are just regular statements. You can use all control statements (`if`, `for`, and `while`) in the function body.
 
 An non-indented statement below the function header marks the end of the function body. For example:
 
@@ -150,7 +150,7 @@ print('Done')
 
 ### 2.5 The `pass` Keyword
 
-When you design a porgram, you divide your application into several functions but don't know the implementation details for some of you functions. You can use the `pass` keyword as a temporary function body to write a **function stub** -- you can also print a message or return some value in the stub. You replace it with real code when you are ready to implement it.
+When you design a program, you divide your application into several functions but don't know the implementation details for some of you functions. You can use the `pass` keyword as a temporary function body to write a **function stub** -- you can also print a message or return some value in the stub. You replace it with real code when you are ready to implement it.
 
 ```python
 def do_homework():
@@ -197,7 +197,7 @@ print(isOdd(5))
 print(isOdd(8))
 ```
 
-### 2.7 Retruning Multiple Values
+### 2.7 Returning Multiple Values
 
 It is possible to return multiple values using the `return` statement. You list the variables to be returned after the `reture` keyword and use `,` to separate the multiple values. The following is an example:
 
@@ -212,9 +212,9 @@ first_name, second_name = get_name()
 print(first_name, second_name)
 ```
 
-As you can see, you use multiple variables, seprated by `,` to retrieve the multiple returning values.
+As you can see, you use multiple variables, separated by `,` to retrieve the multiple returning values.
 
-The statement `return first, second` actaully returns a data type of `tuple`. Python uses the syntax `(e1, e2, e3,...)` to represent a tuple that have multiple elements. The `return first, second` can be written as `return (first, seond)`. We will cover tuple in later sections.
+The statement `return first, second` actually returns a data type of `tuple`. Python uses the syntax `(e1, e2, e3,...)` to represent a tuple that have multiple elements. The `return first, second` can be written as `return (first, seond)`. We will cover tuple in later sections.
 
 ## 3 Calling Function
 
@@ -228,7 +228,7 @@ def sayHi():
 sayHi()
 ```
 
-To call a function that has parameters, you need to pass an argument for each parameter in the parenthese, in the same order as they are defiend. These arguments are called `positional arguments`. For example:
+To call a function that has parameters, you need to pass an argument for each parameter in the parentheses, in the same order as they are defined. These arguments are called `positional arguments`. For example:
 
 ```python
 def greet(first_name, last_name):
@@ -242,7 +242,7 @@ You can use the parameter name to pass an argument to the function call. This is
 - `greet(first_name='Alicia', last_name='Keys')`
 - `greet(last_name='Keys', first_name='Alicia')`
 
-The keyward argument is helpful when there are several parameters and you want make them more readable.
+The keyword argument is helpful when there are several parameters and you want make them more readable.
 
 When a function has a default argument, you can use the default argument or pass a new value. For example:
 
@@ -266,11 +266,11 @@ greet(prefix='Hi', first_name='Elton', last_name='John')
 greet('Alicia', prefix='Hi', last_name='Keys')
 ```
 
-Positional arguments cannot follow keyward arguments, they must be passed before keyward arguments. A function call `greet('Alicia', prefix='Hi', 'Keys')` causes a an error: `SyntaxError: positional argument follows keyword argument`.
+Positional arguments cannot follow keyword arguments, they must be passed before keyword arguments. A function call `greet('Alicia', prefix='Hi', 'Keys')` causes a an error: `SyntaxError: positional argument follows keyword argument`.
 
-## 4 Functions Are Ojbects
+## 4 Functions Are Objects
 
-A funciton is an object that has a type (class `function`), an identity (the function name) and a value (the definition of the function). As an object, it can be assigned to another variable or can be passed as an argument in function call. A function takes another function as its parameter is called a **high-order function**. The name is fancy but the concept is rather simple. 
+A function is an object that has a type (class `function`), an identity (the function name) and a value (the definition of the function). As an object, it can be assigned to another variable or can be passed as an argument in function call. A function takes another function as its parameter is called a **high-order function**. The name is fancy but the concept is rather simple.
 
 The following is an example of higher-order function. Python's `map` function takes a function as its first parameter and a list as the 2nd parameter. The result is a `map` object that can be converted into a list using `list(m)`.
 
@@ -290,9 +290,9 @@ Be careful that you use `double`, not `double()` in `map`. `double()` is a funct
 
 ## 5 Methods are Function-like Objects
 
-When you bind a function with a specific data type, it becomes a method. It helps organize functions into a group of operations that are closely related to a data type. Method is an object-oriented programming concept that will be covered later. 
+When you bind a function with a specific data type, it becomes a method. It helps organize functions into a group of operations that are closely related to a data type. Method is an object-oriented programming concept that will be covered later.
 
 For now, it is enough to know an important difference between a method and a function:
 
-- You call a function using a funciton name followed by arguments in a pair of parenthese `f(arg1, arg2)`
+- You call a function using a function name followed by arguments in a pair of parentheses `f(arg1, arg2)`
 - You call a method using a dot notation like `data.f(arg1, arg2)` because the function is bind with some data `a`. Conceptually, you can think `data.f(arg1, arg2)` as `f(data, arg1, arg2)` -- the `data` is always the first argument.

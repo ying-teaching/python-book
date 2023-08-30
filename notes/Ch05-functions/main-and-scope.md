@@ -4,7 +4,7 @@ This section introduces the `main` function and variable scopes.
 
 ## 1 `main` Function
 
-There is a convention in Python coding: you want to use the `main` function name as the entry point of a program. A non-trivial program has many functions, however, there must be a function working as the entry point of the program. It is common to use `main` as the name of the start-up function. The `main` contains the mainline logic of a programthat calls other functions to perform top level tasks. Each top level task may call other functions to perform subtasks. Following is an example of function organization.
+There is a convention in Python coding: you want to use the `main` function name as the entry point of a program. A non-trivial program has many functions, however, there must be a function working as the entry point of the program. It is common to use `main` as the name of the start-up function. The `main` contains the mainline logic of a program that calls other functions to perform top level tasks. Each top level task may call other functions to perform subtasks. Following is an example of function organization.
 
 ![structure](images/structure.png)
 
@@ -22,15 +22,15 @@ def print_triple(number):
 main()
 ```
 
-As shown above, you can use a funtion and define it later.
+As shown above, you can use a function and define it later.
 
 ## 2 Variable Scope
 
-Every Python varaible has a scope -- it is only visible in the region it is defined. Python has three scopes:
+Every Python variable has a scope -- it is only visible in the region it is defined. Python has three scopes:
 
-- Built-in scope: Python has some built-in names such as `int()`, `str()`, `list()` etc. 
+- Built-in scope: Python has some built-in names such as `int()`, `str()`, `list()` etc.
 - Local scope: variables in a function. There are many local scopes because there are many functions.
-- Global scope: variable outside any function. 
+- Global scope: variable outside any function.
 
 Python use a dictionary for each scope. Such a dictionary is called a **namespace** but it is an implementation detail that you can learn more in the future.
 
@@ -67,9 +67,9 @@ In the above code, the `number` in `main` is a local number and is passed to `pr
 
 ### 2.3 Global Variable
 
-A variable defined in the main body of a file, i.e, not defined in a function, is called a `global variable`. It is visible and accessible to all statements inside or outside the functtions.
+A variable defined in the main body of a file, i.e, not defined in a function, is called a `global variable`. It is visible and accessible to all statements inside or outside the functions.
 
-Because a global variable is shared by all functions, you should not define and use global variables in your program because it is hard to tell where it is changed. The only resonable situation for global variable is to define constant values that is shared by all function. For example, define the math constant `PI` as the following.
+Because a global variable is shared by all functions, you should not define and use global variables in your program because it is hard to tell where it is changed. The only reasonable situation for global variable is to define constant values that is shared by all function. For example, define the math constant `PI` as the following.
 
 ```python
 PI = 3.1416
@@ -101,10 +101,9 @@ main()
 
 The `number` is created in the `for` loop but its scope is the `main` function. Therefore it can be used by the `print(number)` statement in the `main` function.
 
-
 ## 3 Call Stack
 
-Usually your program has a entry point function and the function calls other functions which call more other functions. When a function calls another function, Python intepreter saves the status of the current function in a data structure called a `call frame`, then executed the callee function. Similarly, the callee function may call another funciton and more and more, eventually, we have a so-called call stack.
+Usually your program has a entry point function and the function calls other functions which call more other functions. When a function calls another function, Python interpreter saves the status of the current function in a data structure called a `call frame`, then executed the callee function. Similarly, the callee function may call another function and more and more, eventually, we have a so-called call stack.
 
 ![call stack](images/call-stack.png)
 
@@ -137,4 +136,4 @@ def main():
 main()
 ```
 
-The `main` function calls the `bar` function that calls three more functions: `print`, `fum`, `foo`. The `print` function is called twice. When the `bar` calls `foo`, there are three functions in the statck: at the bottom, `main`, then `bar`, then, at the top, `foo`. You can debug the code to see the call stack. When a function returns, its call frame is poped up from the stack and its caller becomes the top function in the call stack. The variable `x` is a local variable in its function scope and may have different values at different time.
+The `main` function calls the `bar` function that calls three more functions: `print`, `fum`, `foo`. The `print` function is called twice. When the `bar` calls `foo`, there are three functions in the stack: at the bottom, `main`, then `bar`, then, at the top, `foo`. You can debug the code to see the call stack. When a function returns, its call frame is popped up from the stack and its caller becomes the top function in the call stack. The variable `x` is a local variable in its function scope and may have different values at different time.
