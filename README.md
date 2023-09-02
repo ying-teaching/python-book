@@ -30,15 +30,15 @@ This is an introductory Python programming book for _knowledge workers_ who are 
 
 ### [Ch08 Exceptions](slides/ch08/)
 
-### [Ch09 Module Files](slides/ch09/)
+### [Ch09 Module](slides/ch09/)
 
-### [Ch10 Recursion](slides/ch10/)
+### [Ch10 Files](slides/ch10/)
 
 ## Part II. Pragmatic Programming
 
-### Ch11 Test Driven Development
+### [Ch11 Test](slides/ch11/)
 
-### Ch12 Python Data Model
+### [Ch12 Python Data Model](slides/ch12/)
 
 ### Ch13 Type Hints
 
@@ -46,9 +46,11 @@ This is an introductory Python programming book for _knowledge workers_ who are 
 
 ## Part III. Algorithmic Thinking
 
-### Web Application
+### Ch15 Web Application
 
 ### A Lisp Interpreter
+
+### Data Science
 
 ## [Appendix](appendix/)
 

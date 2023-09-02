@@ -20,13 +20,11 @@
 
 ### [Ch09 Module Files](ch09/)
 
-### [Ch10 Recursion](ch10/)
-
 ## Part II. Pragmatic Programming
 
-### [Ch11 Test Driven Development](ch11/)
+### [Ch11 Test](ch11/)
 
-### Ch12 Python Data Model
+### [Ch12 Python Data Model](ch12/)
 
 ### Ch13 Type Hints
 
