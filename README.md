@@ -18,13 +18,13 @@ This is an introductory Python programming book for _knowledge workers_ who are 
 
 ### [Ch02: Variable and Expression](slides/ch02/)
 
-### [Ch03 Branching](slides/ch03)
+### [Ch03 Branch](slides/ch03)
 
 ### [Ch04 Loop](slides/ch04/)
 
 ### [Ch05 Functions](slides/ch05/)
 
-### [Ch06 Sequence and Collection](slides/ch06/)
+### [Ch06 Sequence and Mapping](slides/ch06/)
 
 ### [Ch07 Classes](slides/ch07/)
 
@@ -42,15 +42,17 @@ This is an introductory Python programming book for _knowledge workers_ who are 
 
 ### Ch13 Type Hints
 
-### Ch14 Application Tracing
+### Ch14 Logging
+
+### Ch15 CI/CD
 
 ## Part III. Algorithmic Thinking
 
-### Ch15 Web Application
+### Ch16 Web Application
 
-### A Lisp Interpreter
+### Ch17 A Lisp Interpreter
 
-### Data Science
+### Ch18 Data Science
 
 ## [Appendix](appendix/)
 

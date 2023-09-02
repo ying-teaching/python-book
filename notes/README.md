@@ -1,5 +1,7 @@
 # Lecture Notes
 
+> This is a work-in-progress. Please check [Slides](../slides/) for references.
+
 ## Part I. Python Programming
 
 ### [Ch01: Introduction to Programming](Ch01-introduction-programming/)
