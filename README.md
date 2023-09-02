@@ -16,19 +16,19 @@ This is an introductory Python programming book for _knowledge workers_ who are 
 
 ### [Ch01: Introduction to Programming](slides/ch01/)
 
-### [Ch02: Expression and Type](slides/ch02/)
+### [Ch02: Variable and Expression](slides/ch02/)
 
 ### [Ch03 Branching](slides/ch03)
 
-### [Ch04 Loops](slides/ch04/)
+### [Ch04 Loop](slides/ch04/)
 
 ### [Ch05 Functions](slides/ch05/)
 
-### [Ch06 List and Dictionary](slides/ch06/)
+### [Ch06 Sequence and Collection](slides/ch06/)
 
 ### [Ch07 Classes](slides/ch07/)
 
-### [Ch08 Exceptions](slides/ch08/)
+### [Ch08 Exception](slides/ch08/)
 
 ### [Ch09 Module](slides/ch09/)
 
