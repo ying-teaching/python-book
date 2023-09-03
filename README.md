@@ -24,7 +24,7 @@ This is an introductory Python programming book for _knowledge workers_ who are 
 
 ### [Ch05 Functions](slides/ch05/)
 
-### [Ch06 Sequence and Mapping](slides/ch06/)
+### [Ch06 Collection](slides/ch06/)
 
 ### [Ch07 Classes](slides/ch07/)
 
