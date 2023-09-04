@@ -1,3 +1,16 @@
 {
-  "cSpell.words": ["dunder", "getitem", "Kalwar", "radd", "repr", "Santosh"]
+  "cSpell.words": [
+    "dataclass",
+    "dunder",
+    "getattr",
+    "getattribute",
+    "getitem",
+    "Kalwar",
+    "Metaprogramming",
+    "radd",
+    "repr",
+    "Santosh",
+    "setattr",
+    "setattribute"
+  ]
 }
