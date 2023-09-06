@@ -27,3 +27,9 @@
 - performance using array, NumPy
 - functional programming: recursion (TCO), immutability, higher order functions
 - async and concurrency
+
+## Todo
+
+- Glossary
+- add property and descriptor to class
+- add code line number
