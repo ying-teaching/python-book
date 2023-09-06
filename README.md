@@ -14,29 +14,29 @@ This is an introductory Python programming book for _knowledge workers_ who are 
 
 ## Part I. Python Programming
 
-### [Ch01: Introduction to Programming](slides/ch01/)
+### [Ch01: Introduction to Programming](slides/ch01_introduction/)
 
-### [Ch02: Variable and Expression](slides/ch02/)
+### [Ch02: Variable and Expression](slides/ch02_variable/)
 
-### [Ch03 Branch](slides/ch03)
+### [Ch03 Branch](slides/ch03_branch/)
 
-### [Ch04 Loop](slides/ch04/)
+### [Ch04 Loop](slides/ch04_loop/)
 
-### [Ch05 Functions](slides/ch05/)
+### [Ch05 Function](slides/ch05_function/)
 
-### [Ch06 Collection](slides/ch06/)
+### [Ch06 Collection](slides/ch06_collection/)
 
-### [Ch07 Classes](slides/ch07/)
+### [Ch07 Class](slides/ch07_class/)
 
-### [Ch08 Exception](slides/ch08/)
+### [Ch08 Exception](slides/ch08_exception/)
 
-### [Ch09 Module](slides/ch09/)
+### [Ch09 Module](slides/ch09_module/)
 
-### [Ch10 Files](slides/ch10/)
+### [Ch10 File](slides/ch10_file/)
 
 ## Part II. Pragmatic Programming
 
-### [Ch11 Test](slides/ch11/)
+### [Ch11 Test](slides/ch11_test/)
 
 ### [Ch12 Python Data Model](slides/ch12/)
 
