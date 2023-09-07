@@ -1,16 +1,22 @@
 {
   "cSpell.words": [
+    "asgi",
     "dataclass",
     "dunder",
     "getattr",
     "getattribute",
     "getitem",
     "Kalwar",
+    "kwargs",
     "Metaprogramming",
     "radd",
     "repr",
+    "runserver",
     "Santosh",
     "setattr",
-    "setattribute"
+    "setattribute",
+    "startapp",
+    "startproject",
+    "wsgi"
   ]
 }
