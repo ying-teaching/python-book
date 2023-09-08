@@ -1,13 +1,17 @@
 {
   "cSpell.words": [
     "asgi",
+    "contenttypes",
+    "createsuperuser",
     "dataclass",
+    "dbshell",
     "dunder",
     "getattr",
     "getattribute",
     "getitem",
     "Kalwar",
     "kwargs",
+    "makemigrations",
     "Metaprogramming",
     "radd",
     "repr",
@@ -15,8 +19,11 @@
     "Santosh",
     "setattr",
     "setattribute",
+    "showmigrations",
+    "sqlmigrate",
     "startapp",
     "startproject",
+    "staticfiles",
     "wsgi"
   ]
 }
