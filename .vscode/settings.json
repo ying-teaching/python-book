@@ -24,6 +24,7 @@
     "startapp",
     "startproject",
     "staticfiles",
+    "URLCONF",
     "wsgi"
   ]
 }
