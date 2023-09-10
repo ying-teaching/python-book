@@ -12,6 +12,18 @@ This is an introductory Python programming book for _knowledge workers_ who are 
 - application tracing.
 - Python performance issues and tradeoffs.
 
+## Jupyter Notebook Slides
+
+You can show all slides in a browser by defining the following shell function in shell initialization script. For example, add it to `~/.zshrc` for `zsh`.
+
+```sh
+s() {
+  jupyter nbconvert $1 --to slides --post serve --SlidesExporter.reveal_scroll=True
+}
+```
+
+Then run `s file.ipynb` to do slide show in a browser.
+
 ## Part I. Python Programming
 
 ### [Ch01: Introduction to Programming](slides/ch01_introduction/)
