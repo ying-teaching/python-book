@@ -36,15 +36,15 @@ This is an introductory Python programming book for _knowledge workers_ who are 
 
 ## Part II. Pragmatic Programming
 
-### [Ch11 Test](slides/ch11_test/)
+### [Ch11 Test and CI/CD](slides/ch11_test/)
 
 ### [Ch12 Python Data Model](slides/ch12/)
 
-### Ch13 Type Hints
+### Ch13 Logging (TBC)
 
-### Ch14 Logging
+### Ch14 Type Hints (TBC)
 
-### Ch15 CI/CD
+### Ch15 Performance (TBC)
 
 ## Part III. Algorithmic Thinking
 
@@ -52,7 +52,7 @@ This is an introductory Python programming book for _knowledge workers_ who are 
 
 ### Ch17 A Lisp Interpreter
 
-### Ch18 Data Science
+### Ch18 Data Science (TBC)
 
 ## [Appendix](appendix/)
 
