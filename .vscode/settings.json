@@ -15,6 +15,7 @@
     "makemigrations",
     "Metaprogramming",
     "nbconvert",
+    "PEMDAS",
     "println",
     "radd",
     "repr",
