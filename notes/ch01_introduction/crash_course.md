@@ -289,8 +289,224 @@ print(f"The circumference of radius {radius:.2f} is {circumference:.4f}.")
 
 ## 8 Branches and Loops
 
+### 8.1 Branches
+
+Branches allow you to execute different code blocks based on conditions.
+In Python, you can use the `if`, `elif`, and `else` statements to create branching logic.
+
+```python
+if condition:
+    # Code to run if condition is True
+elif another_condition:
+    # Code to run if another_condition is True
+else:
+    # Code to run if none of the conditions are True
+```
+
+In the following code, you evaluate multiple conditions sequentially and execute the corresponding code block for the first condition that is true. If none of the conditions are true, the else block is executed.
+
+```python
+# display a message and take user input
+score_input = input("Please input your score: ")
+# convert input text into an integer
+score = int(score_input)
+if score >= 900:
+    grade = "A"
+elif score >= 800:
+    grade = "B"
+else:
+    grade = "C"
+result = f"Grade is {grade}."
+print(result)
+```
+
+### 8.2 While Loop
+
+While loops repeatedly execute a block of code as long as a certain condition is `True`. It's essential for scenarios where the number of iterations is uncertain and depends on runtime conditions.
+Syntax:
+
+```python
+while condition:
+    # Code to execute while the condition is True
+```
+
+The logic of the `while` statement is as the following:
+
+1. The condition is evaluated. If it's True, the code block inside the loop is executed.
+2. After the code block execution, the condition is re-evaluated.
+3. If the condition is still True, the code block is executed again.
+4. This process continues until the condition becomes False. At that point, the loop exits, and the program continues executing the next line of code after the loop.
+
+Below is an example:
+
+```python
+score_input = input("Please input your score: ")
+score = int(score_input)
+while score < 900:
+    print("Please keep studying and practicing....")
+    score_input = input("Please input new score: ")
+    score = int(score_input)
+
+print("Great, you made it!")
+```
+
+Be cautious when using while loops. If the condition never becomes False, you'll end up with an infinite loop, which means the loop will keep running indefinitely. This can freeze your program and potentially crash your computer.
+
 ## 9 Composite Data
+
+Composite data in Python refers to the combination of multiple data elements into a single data structure. Python provides several built-in data structures to work with composite data, including strings, lists, dictionaries, and so on. These structures allow you to organize, store, and manipulate related data in a coherent manner.
+
+Following are data you often see in real world:
+
+- A class has 50 students.
+- Each student has name, age, major, and GPA.
+- An AI model may use billions of record.
+- and so on ...
+
+### 9.1 Lists
+
+Python provides several built-in data structures to work with composite data, `list` is often used as a collection of items. There are other composite types to be covered later.
+
+You can create a list by enclosing a comma-separated sequence of values within square brackets `[]`. List elements are accessed using index values in a pair of square bracket, starting from `0` for the first element. If the index is out of range, your code crashes with an `IndexError` exception. An _exception_ gives the type of an error.
+
+```python
+scores = [930, 790, 367, 827]
+grades = ["A", "B", "C", "D", "F"]
+
+# access individual item
+print(scores[0])
+print(grades[4])
+
+# oops, an IndexError
+print(grades[6])
+```
+
+### 9.2 For Loop
+
+The `for` loop is a fundamental control flow statement in Python used for iterating over sequences, such as lists, strings, dictionaries, and more.
+Syntax:
+
+```python
+for element in sequence:
+    # Code to execute for each element
+```
+
+The processing logic of the `for` loop is as following:
+
+1. The for loop initializes the loop variable (element) with the first element of the sequence.
+2. The code block inside the loop is executed using the current value of the loop variable (element).
+3. After the code block execution, the loop variable is updated to the next element in the sequence.
+4. Steps 2 and 3 are repeated for each element in the sequence until the loop reaches the end of the sequence.
+
+```python
+scores = [930, 790, 367, 827]
+# in each iteration of this for loop
+# the score is assigned the next value in the list
+# starting from index 0 to the last one.
+for score in scores:
+    if score >= 900:
+        print(f"Great, you got an A.")
+else:
+    difference = 900 - score
+    print(f"You need {difference} points to get an A.")
+print("Done.")
+```
+
+### 9.3 Dictionary
+
+Dictionaries are another important data structure in Python. Unlike lists, which use numerical indices to access elements, dictionaries use keys to access their values. This makes dictionaries highly efficient for looking up and storing data associated with specific identifiers. Dictionaries are often referred to as `"key-value" pairs`, where each key is associated with a corresponding value.
+
+Dictionaries are created using curly braces `{}`. Each key-value pair is separated by a colon : and individual pairs are separated by commas `,`.
+
+You can use `dictionary[key]` to access the value of a key. Use `for` loop to access every key in a dictionary.
+
+```python
+student = {"Name": "Alice", "Age": 20, "Major": "IS"}
+
+# use a key to read or change a dictionary value
+print(student["Name"])
+student["Age"] = 21
+print(student["Age"])
+
+# iterate every key
+for key in student:
+    message = f"Key {key} has a value of {student[key]}"
+    print(message)
+```
 
 ## 10 Functions
 
-## 11 Summary
+Functions are a fundamental concept in Python (and programming in general) that allow you to organize and reuse blocks of code.
+
+You want define a function that can be reused for different reasons:
+
+- No redundant code.
+- Function name shows its purpose.
+- It can be used in other places.
+
+Following is a function definition and its use.
+
+```python
+import math
+# define a function with a parameter radius
+# the body is a code block to do the real work
+def get_circumference(radius):
+    diameter = 2 * radius
+    circumference = math.pi * diameter
+    return circumference
+
+radiuses = [1, 5, 10]
+for radius in radiuses:
+    # here the radius is the argument of the function call
+    circumference = get_circumference(radius)
+    print(f"The circumference is {circumference:.4f}.")
+```
+
+A function is a self-contained block of code that can take inputs (_parameters_), perform a specific task, and return an output (_return value_). Following are key function concepts/terms used in this book:
+
+1. Function Name: Describes the purpose or action that the function performs. It's used to call the function and execute its code.
+2. Function Call: Involves executing the function by appending a pair of parentheses after the function name. This triggers the function's code to run.
+3. Parameters: These are placeholders in the function definition that specify the type and order of inputs the function expects. They act as local variables within the function body.
+4. Arguments: Actual values provided when calling a function. These values are passed to the function's parameters and used within the function's code.
+5. Function Body: A code block within the function definition. It contains the instructions and logic that define the function's behavior.
+6. Return Value: The result or output of a function call. It's the value that the function sends back to the caller when the function completes its execution.
+
+## 11 Objects
+
+In Python, all data are objects. Every object has a type that determines the valid operations of the object. You can use built-in function `type()` to get an object’s type. For example:
+
+```python
+type("hi") # <class 'str'>
+type(3) # <class 'int'>
+```
+
+Function defined inside a type is called a _method_. You call a method using the _dot notation_.
+
+An object may contain data that is called an _attribute_. You use a dot notation to access an attribute.
+
+For example, the `math` module is an object that has an object called `pi`.
+
+```python
+print("hi".title())  # Hi
+
+import math
+
+print(math.pi)  # 3.141592653589793
+```
+
+## 12 Summary
+
+This chapter gives a crash course of fundamental Python programming concepts.
+
+- Arithmetic and Logic Operations: Mathematical and comparison operations that manipulate and evaluate values.
+- Variables: Named containers for storing data, allowing referencing and manipulation.
+- Control flow
+  - Sequential Execution: Code executed line by line, top to bottom, in the order written.
+  - Branch: Conditional statements enabling different paths based on conditions.
+  - Loop: Repetitive execution of code as long as certain conditions are met.
+- Composite Data:Structures for combining multiple data elements into one, like lists and dictionaries.
+- Function: A reusable block of code encapsulating a task, with parameters and return values.
+
+Everything else is nice/bad-to-have optional: they are there to provide handy functions.
+
+Using these concepts/tools to solve problems is called _computational_ or _algorithmic_ thinking.

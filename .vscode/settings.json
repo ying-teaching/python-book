@@ -6,6 +6,7 @@
     "dataclass",
     "dbshell",
     "dunder",
+    "elif",
     "getattr",
     "getattribute",
     "getitem",
