@@ -32,17 +32,21 @@ Then run `s file.ipynb` to do slide show in a browser. Run `sto` to convert all 
 
 ## Part I. Python Programming
 
-### [Ch01: Introduction to Programming](slides/ch01_introduction/)
+### [Ch01: Introduction to Programming](slides/ch01_introduction/crash_course.ipynb)
 
 ### [Ch02: Variable and Expression](slides/ch02_variable/)
 
-### [Ch03 Branch](slides/ch03_branch/)
+- [Variables](slides/ch02_variable/variables.ipynb).
+- [Expression and Statements](slides/ch02_variable/expression_statement.ipynb)
+- [Turtle Introduction](slides/ch02_variable/turtle_introduction.ipynb)
 
-### [Ch04 Loop](slides/ch04_loop/)
+### [Ch03 Branch](slides/ch03_branch/branch.ipynb)
 
-### [Ch05 Function](slides/ch05_function/)
+### [Ch04 Loop](slides/ch04_loop/loop.ipynb)
 
-### [Ch06 Collection](slides/ch06_collection/)
+### [Ch05 Function](slides/ch05_function/funciton.ipynb)
+
+### [Ch06 Collection](slides/ch06_collection/collection.ipynb)
 
 ### [Ch07 Class](slides/ch07_class/)
 
