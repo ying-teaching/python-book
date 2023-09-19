@@ -19,6 +19,8 @@
     "namedtuple",
     "nbconvert",
     "PEMDAS",
+    "pendown",
+    "penup",
     "popitem",
     "println",
     "radd",
