@@ -24,20 +24,20 @@ nav:
       - 'Chapter 3: Branch': ch03_branch/notes/branch.md
       - 'Chapter 4: Loop': ch04_loop/notes/loop.md
       - 'Chapter 5: Function': ch05_function/notes/function.md
-      - 'Chapter 6': TBD
-      - 'Chapter 7': TBD
-      - 'Chapter 8': TBD
-      - 'Chapter 9': TBD
-      - 'Chapter 10': TBD
+      - 'Chapter 6': tbc.md
+      - 'Chapter 7': tbc.md
+      - 'Chapter 8': tbc.md
+      - 'Chapter 9': tbc.md
+      - 'Chapter 10': tbc.md
   - 'Part II. Pragmatic Programming':
-      - 'Chapter 11: Test': TBD
-      - 'Chapter 12: Data Model': TBD
-      - 'Chapter 13: Log (TBC)': TBD
-      - 'Chapter 14: Type (TBC)': TBD
-      - 'Chapter 15: Performance (TBC)': TBD
+      - 'Chapter 11: Test': tbc.md
+      - 'Chapter 12: Data Model': tbc.md
+      - 'Chapter 13: Log': tbc.md
+      - 'Chapter 14: Type': tbc.md
+      - 'Chapter 15: Performance': tbc.md
   - 'Part III. Algorithm Thinking':
-      - 'Chapter 16: A Web Site': TBD
-      - 'Chapter 17: A Lisp Interpreter': TBD
+      - 'Chapter 16: A Web Site': tbc.md
+      - 'Chapter 17: A Lisp Interpreter': tbc.md
   - Appendix:
       - 'Development Tools':
           - 'Command Line Interface': appendix/command_line.md
