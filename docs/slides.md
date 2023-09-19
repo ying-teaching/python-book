@@ -14,7 +14,7 @@
 
 ### [Ch04 Loop](ch04_loop/slides/loop.slides.html){:target="\_blank"}
 
-### [Ch05 Function](ch05_function/slides/funciton.slides.html){:target="\_blank"}
+### [Ch05 Function](ch05_function/slides/function.slides.html){:target="\_blank"}
 
 ### Ch06 Collection
 

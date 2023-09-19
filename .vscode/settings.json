@@ -20,6 +20,7 @@
     "mkdocs",
     "namedtuple",
     "nbconvert",
+    "parameterless",
     "PEMDAS",
     "pendown",
     "penup",
