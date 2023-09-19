@@ -1,1 +1,54 @@
 site_name: My Docs
+
+site_name: Pragmatic Python Programming
+
+theme:
+  name: material
+  features:
+    - navigation.sections
+    - navigation.expand
+
+exclude_docs: |
+  *.ipynb
+
+nav:
+  - Home: index.md
+  - Slides: slides.md
+  - 'Part I. Python Programming':
+      - 'Chapter 1: Introduction':
+          - 'Introduction': 'ch01_introduction/notes/introduction.md'
+          - 'Python Crash Course': 'ch01_introduction/notes/crash_course.md'
+            
+
+markdown_extensions:
+  # Python Markdown
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - toc:
+      permalink: true
+
+  # Python Markdown Extensions
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
