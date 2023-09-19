@@ -6,7 +6,6 @@ theme:
   name: material
   features:
     - navigation.sections
-    - navigation.expand
 
 exclude_docs: |
   *.ipynb
@@ -16,9 +15,39 @@ nav:
   - Slides: slides.md
   - 'Part I. Python Programming':
       - 'Chapter 1: Introduction':
-          - 'Introduction': 'ch01_introduction/notes/introduction.md'
-          - 'Python Crash Course': 'ch01_introduction/notes/crash_course.md'
-            
+          - ch01_introduction/notes/introduction.md
+          - ch01_introduction/notes/crash_course.md
+      - 'Chapter 2: Variable and Expression':
+          - ch02_variable/notes/variables.md
+          - ch02_variable/notes/expression_statement.md
+          - ch02_variable/notes/turtle_introduction.md
+      - 'Chapter 3: Branch': ch03_branch/notes/branch.md
+      - 'Chapter 4: Loop': ch04_loop/notes/loop.md
+      - 'Chapter 5: Function': ch05_function/notes/function.md
+      - 'Chapter 6': TBD
+      - 'Chapter 7': TBD
+      - 'Chapter 8': TBD
+      - 'Chapter 9': TBD
+      - 'Chapter 10': TBD
+  - 'Part II. Pragmatic Programming':
+      - 'Chapter 11: Test': TBD
+      - 'Chapter 12: Data Model': TBD
+      - 'Chapter 13: Log (TBC)': TBD
+      - 'Chapter 14: Type (TBC)': TBD
+      - 'Chapter 15: Performance (TBC)': TBD
+  - 'Part III. Algorithm Thinking':
+      - 'Chapter 16: A Web Site': TBD
+      - 'Chapter 17: A Lisp Interpreter': TBD
+  - Appendix:
+      - 'Development Tools':
+          - 'Command Line Interface': appendix/command_line.md
+          - 'Python Installation': appendix/install_python.md
+          - 'VS Code': appendix/vscode_python.md
+          - 'Git and GitHub': appendix/git_and_github.md
+      - 'Learn Programming':
+          - 'Learn Programming': appendix/misc/learn_programming.md
+          - 'Rust and Cryptography': appendix/misc/rust_cryptography.md
+
 
 markdown_extensions:
   # Python Markdown

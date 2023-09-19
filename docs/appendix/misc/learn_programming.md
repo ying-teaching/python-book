@@ -1,6 +1,6 @@
 # Professional Programming
 
-This part is based on [Teach Yourself Computer Science](https://teachyourselfcs.com/). For absolute beginners or students from other majors (economics, biology, communcation, etc), some supplementary materials and alternatives are added.
+This part is based on [Teach Yourself Computer Science](https://teachyourselfcs.com/). For absolute beginners or students from other majors (economics, biology, communication, etc), some supplementary materials and alternatives are added.
 
 ## 1. The Missing Semester of Your CS Education
 
