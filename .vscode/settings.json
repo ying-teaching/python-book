@@ -17,6 +17,7 @@
     "mainloop",
     "makemigrations",
     "Metaprogramming",
+    "mkdocs",
     "namedtuple",
     "nbconvert",
     "PEMDAS",
