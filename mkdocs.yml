@@ -1,4 +1,7 @@
 site_name: Professional Python Programming
+site_url: https://pythonbook.org
+repo_url: https://github.com/ying-teaching/python-book
+repo_name: 'GitHub'
 
 theme:
   name: material
