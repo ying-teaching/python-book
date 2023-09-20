@@ -1,4 +1,4 @@
-# Slides
+# Presentation Slides
 
 ## Part I. Python Programming
 
@@ -28,7 +28,7 @@
 
 ### Ch10 File (TBC)
 
-## Part II. Pragmatic Programming
+## Part II. Professional Programming
 
 ### Ch11 Test and CI/CD (TBC)
 

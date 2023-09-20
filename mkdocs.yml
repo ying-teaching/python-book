@@ -1,6 +1,4 @@
-site_name: My Docs
-
-site_name: Pragmatic Python Programming
+site_name: Professional Python Programming
 
 theme:
   name: material
@@ -12,7 +10,7 @@ exclude_docs: |
 
 nav:
   - Home: index.md
-  - Slides: slides.md
+  - 'Presentation Slides': slides.md
   - 'Part I. Python Programming':
       - 'Chapter 1: Introduction':
           - ch01_introduction/notes/introduction.md
@@ -29,7 +27,7 @@ nav:
       - 'Chapter 8 Exception (TBC)': tbc.md
       - 'Chapter 9 Module (TBC)': tbc.md
       - 'Chapter 10 File (TBC)': tbc.md
-  - 'Part II. Pragmatic Programming':
+  - 'Part II. Professional Programming':
       - 'Chapter 11: Test (TBC)': tbc.md
       - 'Chapter 12: Data Model (TBC)': tbc.md
       - 'Chapter 13: Log (TBC)': tbc.md
@@ -49,7 +47,6 @@ nav:
       - 'Learn Programming':
           - 'Learn Programming': appendix/misc/learn_programming.md
           - 'Rust and Cryptography': appendix/misc/rust_cryptography.md
-
 
 markdown_extensions:
   # Python Markdown

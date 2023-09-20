@@ -1,4 +1,10 @@
-# Pragmatic Python Programming
+# Professional Python Programming
+
+This repository has both notes, slides, and code for learning professional Python Programming.
+
+The notes are in markdown format. The slides are in Jupyter notebook format.
+
+The site is built with [Material for Mkdocs](https://squidfunk.github.io/mkdocs-material/).
 
 ## Jupyter Notebook Slides
 
