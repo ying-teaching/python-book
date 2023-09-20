@@ -17,3 +17,7 @@ In addition to the basic Python programming concepts in Part I, it covers the fo
 - test driven development.
 - application tracing.
 - Python performance issues and tradeoffs.
+
+## Acknowledgements
+
+This online book is made with the fantastic [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/).

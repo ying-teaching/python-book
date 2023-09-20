@@ -7,6 +7,7 @@ theme:
   name: material
   features:
     - navigation.sections
+    - navigation.footer
 
 exclude_docs: |
   *.ipynb
@@ -83,3 +84,7 @@ markdown_extensions:
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.tilde
+
+copyright: Copyright &copy; 2023 Ying Liu
+extra:
+  generator: false
