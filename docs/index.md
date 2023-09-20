@@ -2,7 +2,7 @@
 
 ## Presentation Slides
 
-It has a set of [presentation slides](slides.md).
+Here is the set of [presentation slides](slides.md) that gives a high level summary and highlights of important topics of the content.
 
 ## Why Another Python Book?
 
