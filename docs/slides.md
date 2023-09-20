@@ -16,21 +16,21 @@
 
 ### [Ch05 Function](ch05_function/slides/function.slides.html){:target="\_blank"}
 
-### Ch06 Collection
+### Ch06 Collection (TBC)
 
-### Ch07 Class
+### Ch07 Class (TBC)
 
-### Ch08 Exception
+### Ch08 Exception (TBC)
 
-### Ch09 Module
+### Ch09 Module (TBC)
 
-### Ch10 File
+### Ch10 File (TBC)
 
 ## Part II. Pragmatic Programming
 
-### Ch11 Test and CI/CD
+### Ch11 Test and CI/CD (TBC)
 
-### Ch12 Python Data Model
+### Ch12 Python Data Model (TBC)
 
 ### Ch13 Logging (TBC)
 
@@ -42,6 +42,9 @@
 
 ### Ch16 Web Application
 
-### Ch17 A Lisp Interpreter
+- [Basic Django](ch16_django/slides/basic_django.slides.html){:target="\_blank"}.
+- [Advanced Django](ch16_django/slides/advanced_django.slides.html){:target="\_blank"}.
+
+### Ch17 A Lisp Interpreter (TBC)
 
 ### Ch18 Data Science (TBC)

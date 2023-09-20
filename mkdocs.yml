@@ -24,20 +24,22 @@ nav:
       - 'Chapter 3: Branch': ch03_branch/notes/branch.md
       - 'Chapter 4: Loop': ch04_loop/notes/loop.md
       - 'Chapter 5: Function': ch05_function/notes/function.md
-      - 'Chapter 6': tbc.md
-      - 'Chapter 7': tbc.md
-      - 'Chapter 8': tbc.md
-      - 'Chapter 9': tbc.md
-      - 'Chapter 10': tbc.md
+      - 'Chapter 6 Collection (TBC)': tbc.md
+      - 'Chapter 7 Class (TBC)': tbc.md
+      - 'Chapter 8 Exception (TBC)': tbc.md
+      - 'Chapter 9 Module (TBC)': tbc.md
+      - 'Chapter 10 File (TBC)': tbc.md
   - 'Part II. Pragmatic Programming':
-      - 'Chapter 11: Test': tbc.md
-      - 'Chapter 12: Data Model': tbc.md
-      - 'Chapter 13: Log': tbc.md
-      - 'Chapter 14: Type': tbc.md
-      - 'Chapter 15: Performance': tbc.md
+      - 'Chapter 11: Test (TBC)': tbc.md
+      - 'Chapter 12: Data Model (TBC)': tbc.md
+      - 'Chapter 13: Log (TBC)': tbc.md
+      - 'Chapter 14: Type (TBC)': tbc.md
+      - 'Chapter 15: Performance (TBC)': tbc.md
   - 'Part III. Algorithm Thinking':
-      - 'Chapter 16: A Web Site': tbc.md
-      - 'Chapter 17: A Lisp Interpreter': tbc.md
+      - 'Chapter 16: A Web Site':
+          - ch16_django/notes/basic_django.md
+          - ch16_django/notes/advanced_django.md
+      - 'Chapter 17: A Lisp Interpreter (TBC)': tbc.md
   - Appendix:
       - 'Development Tools':
           - 'Command Line Interface': appendix/command_line.md
