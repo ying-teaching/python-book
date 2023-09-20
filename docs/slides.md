@@ -2,7 +2,7 @@
 
 ## Part I. Python Programming
 
-### [Ch01: Introduction to Programming](ch01_introduction/slides/crash_course.slides.html){:target="\_blank"}
+- [Python Crash Course](ch01_introduction/slides/crash_course.slides.html){:target="\_blank"}
 
 ### Ch02: Variable and Expression
 
