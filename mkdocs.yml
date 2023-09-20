@@ -14,7 +14,6 @@ exclude_docs: |
 
 nav:
   - Home: index.md
-  - 'Presentation Slides': slides.md
   - 'Part I. Python Programming':
       - 'Chapter 1: Introduction':
           - ch01_introduction/notes/introduction.md
