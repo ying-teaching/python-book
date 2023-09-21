@@ -6,6 +6,7 @@
     "createsuperuser",
     "dataclass",
     "dbshell",
+    "deepcopy",
     "dunder",
     "elif",
     "getattr",

@@ -7,6 +7,7 @@
 - Value
 - Variable
 - Tuple
+- Mutability
 
 ## Object Definition
 
@@ -21,7 +22,7 @@ Every Python data is represented as an object or a relation of objects. A number
 
 Objects may have relations such as a student (an object) has two attributes: a name (an object) and birthday (an object).
 
-### Mutability
+### Value Mutability
 
 An object has an identity, a type and a value.
 
@@ -246,7 +247,7 @@ Use the most meaningful name in the context !!!
 
 Use snake_case naming convention for multi-word name.
 
-Use UPPERCAS_NAME for constants.
+Use UPPERCASE_NAME for constants.
 
 ```python
 # good names
@@ -288,7 +289,7 @@ When the RHS is a variable, the LHS variable is _bound_ to the referred object i
 - `name = "Trey`: binds a label to a string object.
 
 ![Variable Labels](../images/variable.png)
-[Image source](https://www.pythonmorsels.com/pointers/)
+[Image source](https://www.pythonmorsels.com/pointers/).
 
 ### More Examples
 
@@ -462,6 +463,135 @@ def get_max_min(numbers):
     return max(numbers), min(numbers)
 
 print(get_max_min(scores)) # output (90, 67)
+```
+
+## Mutability
+
+Python data can be one of two types: mutable data and immutable data.
+
+- Immutable data can not be changed. Every time you want to change it, you get a new data.
+- Mutable data can be changed. Whenever you change a mutable data, all variables point to the data can see the change.
+
+Knowing the mutability of the data is important because mutable data can cause hard-to-find bugs in your software.
+
+### Immutable Data Types
+
+The built-in data types `int`, `float`, `string` and `tuple` are immutable data types,i.e., you can not change the data once it is created.
+
+For example, all methods of a string that change the string will return a new string. The old string stays untouched. In the following code, the original and its alias have the same original value. Both the `upper()` and `replace()` methods create a new string.
+
+```python
+original_name = 'Alice'
+original_alias = original_name
+
+uppercase_name = original_name.upper()
+replaced_name = original_name.replace('ce', 'da')
+
+print(f'Original name: {original_name}. Uppercase name: {uppercase_name}')
+print(f'Original alias: {original_alias}. Replaced name: {replaced_name}')
+```
+
+### Mutable Data Types
+
+The built-in types such as `list`, `dictionary` and `set` are mutable types. They have methods that change the original data. In the following code, once the list of original names changes, all the variables pointing to the data can see the changes.
+
+```python
+original_names = ['Alice', 'Bob', 'Cindy']
+original_alias = original_names
+
+original_names.append('David')
+appended_names = original_names
+
+original_names.reverse()
+reversed_names = original_names
+
+print(f'Original names: {original_names}. Appended names: {appended_names}')
+print(f'Original alias: {original_alias}. Reversed names: {reversed_names}')
+```
+
+### Copy Data
+
+Sharing mutable data could be dangerous because you may accidentally change the data that used by another variable. If you want to use and change data, it is a good idea to make a copy of the original data.
+
+```python
+l1 = [1, 2, 3]
+l2 = l1
+
+l3 = l1.copy()
+
+l1[2] = 'three'
+
+print(l1, l2, l3)
+```
+
+In the above code, we have `l1` and `l2` point to the same list and `l3` is a copy of `l1`. When `l1` changes, both `l1` and `l2` change but `l3` is not changed.
+
+![Mutable list](../images/mutable-list.png)
+
+### Shallow Copy
+
+The copy of list is a shallow copy. If you have nested mutable data inside a list, it is still shared at the nested level. Below is an example where `l1` and `l2` have the same value because they refer to the same object. The third element of `l3` is changed because the nested list is a mutable object. The shallow copy only copies the reference to the third element that stays the same but the object value can be changed.
+
+```python
+list1 = [1, 2, [3, 4]]
+list2 = list1
+
+list3 = list1.copy()
+
+list1[1] = 20
+list1[2].append(5)
+
+print(list1, list2, list3)
+```
+
+### Deep Copy
+
+To fix the shallow copy issue, use the `copy.deepcopy` from the `copy` module to make deep a copy.
+
+```python
+import copy
+
+list1 = [1, 2, [3, 4]]
+list2 = list1
+
+list3 = copy.deepcopy(list1)
+
+list1[1] = 20
+list1[2].append(5)
+
+print(list1, list2, list3)
+```
+
+### Mutable Data as Argument
+
+When a variable of mutable data is passed as an argument, the data could be changed inside a function. Changing input data in place makes the code hard to understand. It may introduce bugs.
+
+```python
+def test(numbers):
+    numbers[2] = 'three'
+    print(numbers)
+
+list1 = [1, 2, 3]
+test(list1)
+print(list1)
+```
+
+### The Fix
+
+To fix it, you should pass a deep copy or make a deep copy inside the function. It might hurt the performance but safety is more important than performance in most cases.
+
+```python
+import copy
+def test(numbers):
+    copied_numbers = copy.deepcopy(numbers)
+
+    # do whatever you want with the copied data
+    copied_numbers[2] = 'three'
+    print(numbers)
+
+list1 = [1, 2, 3]
+test(list1)
+print(list1)
 ```
 
 ## Summary

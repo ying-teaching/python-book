@@ -7449,6 +7449,7 @@ main {
 <li>Value</li>
 <li>Variable</li>
 <li>Tuple</li>
+<li>Mutability</li>
 </ul>
 </div>
 </div>
@@ -8066,7 +8067,7 @@ Image source: <a href="https://www.pythonmorsels.com/pointers/">https://www.pyth
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Type-Conversion">Type Conversion<a class="anchor-link" href="#Type-Conversion">¶</a></h3><p>You often need to convert an object to a different type. For example, all <code>input()</code> function outputs are strings. If you need a number, you should call <code>int()</code> or <code>float()</code> to convert it to a desired type. Similary, you can convert a number into a string uisng the <code>str()</code> function.</p>
+<h3 id="Type-Conversion">Type Conversion<a class="anchor-link" href="#Type-Conversion">¶</a></h3><p>You often need to convert an object to a different type. For example, all <code>input()</code> function outputs are strings. If you need a number, you should call <code>int()</code> or <code>float()</code> to convert it to a desired type. Similarly, you can convert a number into a string using the <code>str()</code> function.</p>
 </div>
 </div>
 </div>
@@ -8106,7 +8107,7 @@ Image source: <a href="https://www.pythonmorsels.com/pointers/">https://www.pyth
 <h3 id="Value-and-Variable">Value and Variable<a class="anchor-link" href="#Value-and-Variable">¶</a></h3><p>In programming, it is often important to distinguish an object and its references.</p>
 <p>An object is a single piece of data that has a unique identity and a fixed type.</p>
 <p>An object may have many references. A variable is a reference to an object.</p>
-<p>In most computation, data, object and value are interchangable because a valid computation only cares about the value.</p>
+<p>In most computation, data, object and value are interchangeable because a valid computation only cares about the value.</p>
 <p>In Python, an object is used in two syntactic form: a literal value or a reference. People often use values and variables to mean objects and use object in a specific context: object-orient programming.</p>
 </div>
 </div>
@@ -8118,7 +8119,7 @@ Image source: <a href="https://www.pythonmorsels.com/pointers/">https://www.pyth
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="None">None<a class="anchor-link" href="#None">¶</a></h2><p>Python has a special type <code>NoneType</code> that has only a single value <code>None</code>. It means <em>"no value" or *"missing value"</em>. For example, if a function doesn't return a value, it has an implicity return value of <code>None</code>.</p>
+<h2 id="None">None<a class="anchor-link" href="#None">¶</a></h2><p>Python has a special type <code>NoneType</code> that has only a single value <code>None</code>. It means <em>"no value" or *"missing value"</em>. For example, if a function doesn't return a value, it has an implicit return value of <code>None</code>.</p>
 <p>Please use <code>is</code> or <code>is not</code> to determine if a variable is <code>None</code> or not.</p>
 </div>
 </div>
@@ -8237,8 +8238,8 @@ Image source: <a href="https://www.pythonmorsels.com/pointers/">https://www.pyth
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Tuple-Use-Cases">Tuple Use Cases<a class="anchor-link" href="#Tuple-Use-Cases">¶</a></h3><p>It is a rule of thumb that if is possible, please use an immutable value. You have the peace of mind that the value can be used in mutiple places and stays the same.</p>
-<p>In so-called funcitonal programming, a best practice is that a function only has immutable values as its arguments, it is easier to use and easier to reason about than a function that has mutable values.</p>
+<h3 id="Tuple-Use-Cases">Tuple Use Cases<a class="anchor-link" href="#Tuple-Use-Cases">¶</a></h3><p>It is a rule of thumb that if is possible, please use an immutable value. You have the peace of mind that the value can be used in multiple places and stays the same.</p>
+<p>In so-called functional programming, a best practice is that a function only has immutable values as its arguments, it is easier to use and easier to reason about than a function that has mutable values.</p>
 <p>Tuple is often used as function return value to represent multiple return results.</p>
 </div>
 </div>
@@ -8269,14 +8270,276 @@ Image source: <a href="https://www.pythonmorsels.com/pointers/">https://www.pyth
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Mutability">Mutability<a class="anchor-link" href="#Mutability">¶</a></h2><p>Python data can be one of two types: mutable data and immutable data.</p>
+<ul>
+<li>Immutable data can not be changed. Every time you want to change it, you get a new data.</li>
+<li>Mutable data can be changed. Whenever you change a mutable data, all variables point to the data can see the change.</li>
+</ul>
+<p>Knowing the mutability of the data is important because mutable data can cause hard-to-find bugs in your software.</p>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Immutable-Data-Types">Immutable Data Types<a class="anchor-link" href="#Immutable-Data-Types">¶</a></h3><p>The built-in data types <code>int</code>, <code>float</code>, <code>string</code> and <code>tuple</code> are immutable data types,i.e., you can not change the data once it is created.</p>
+<p>For example, all methods of a string that change the string will return a new string. The old string stays untouched. In the following code, the original and its alias have the same original value. Both the <code>upper()</code> and <code>replace()</code> methods create a new string.</p>
+</div>
+</div>
+</div>
+</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">original_name</span> <span class="o">=</span> <span class="s1">'Alice'</span>
+<span class="n">original_alias</span> <span class="o">=</span> <span class="n">original_name</span>
+
+<span class="n">uppercase_name</span> <span class="o">=</span> <span class="n">original_name</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+<span class="n">replaced_name</span> <span class="o">=</span> <span class="n">original_name</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">'ce'</span><span class="p">,</span> <span class="s1">'da'</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Original name: </span><span class="si">{</span><span class="n">original_name</span><span class="si">}</span><span class="s1">. Uppercase name: </span><span class="si">{</span><span class="n">uppercase_name</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Original alias: </span><span class="si">{</span><span class="n">original_alias</span><span class="si">}</span><span class="s1">. Replaced name: </span><span class="si">{</span><span class="n">replaced_name</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Mutable-Data-Types">Mutable Data Types<a class="anchor-link" href="#Mutable-Data-Types">¶</a></h3><p>The built-in types such as <code>list</code>, <code>dictionary</code> and <code>set</code> are mutable types. They have methods that change the original data. In the following code, once the list of original names changes, all the variables pointing to the data can see the changes.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">original_names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'Alice'</span><span class="p">,</span> <span class="s1">'Bob'</span><span class="p">,</span> <span class="s1">'Cindy'</span><span class="p">]</span>
+<span class="n">original_alias</span> <span class="o">=</span> <span class="n">original_names</span>
+
+<span class="n">original_names</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">'David'</span><span class="p">)</span>
+<span class="n">appended_names</span> <span class="o">=</span> <span class="n">original_names</span>
+
+<span class="n">original_names</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>
+<span class="n">reversed_names</span> <span class="o">=</span> <span class="n">original_names</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Original names: </span><span class="si">{</span><span class="n">original_names</span><span class="si">}</span><span class="s1">. Appended names: </span><span class="si">{</span><span class="n">appended_names</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Original alias: </span><span class="si">{</span><span class="n">original_alias</span><span class="si">}</span><span class="s1">. Reversed names: </span><span class="si">{</span><span class="n">reversed_names</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Copy-Data">Copy Data<a class="anchor-link" href="#Copy-Data">¶</a></h3><p>Sharing mutable data could be dangerous because you may accidentally change the data that used by another variable. If you want to use and change data, it is a good idea to make a copy of the original data.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">l1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">l2</span> <span class="o">=</span> <span class="n">l1</span>
+
+<span class="n">l3</span> <span class="o">=</span> <span class="n">l1</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="n">l1</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'three'</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">l1</span><span class="p">,</span> <span class="n">l2</span><span class="p">,</span> <span class="n">l3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>In the above code, we have <code>l1</code> and <code>l2</code> point to the same list and <code>l3</code> is a copy of <code>l1</code>. When <code>l1</code> changes, both <code>l1</code> and <code>l2</code> change but <code>l3</code> is not changed.</p>
+<p><img alt="Mutable list" src="../images/mutable-list.png"/></p>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Shallow-Copy">Shallow Copy<a class="anchor-link" href="#Shallow-Copy">¶</a></h3><p>The copy of list is a shallow copy. If you have nested mutable data inside a list, it is still shared at the nested level. Below is an example where <code>l1</code> and <code>l2</code> have the same value because they refer to the same object. The third element of <code>l3</code> is changed because the nested list is a mutable object. The shallow copy only copies the reference to the third element that stays the same but the object value can be changed.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">list1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]]</span>
+<span class="n">list2</span> <span class="o">=</span> <span class="n">list1</span>
+
+<span class="n">list3</span> <span class="o">=</span> <span class="n">list1</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="n">list1</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="n">list1</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">list1</span><span class="p">,</span> <span class="n">list2</span><span class="p">,</span> <span class="n">list3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Deep-Copy">Deep Copy<a class="anchor-link" href="#Deep-Copy">¶</a></h3><p>To fix the shallow copy issue, use the <code>copy.deepcopy</code> from the <code>copy</code> module to make deep a copy.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">copy</span>
+
+<span class="n">list1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]]</span>
+<span class="n">list2</span> <span class="o">=</span> <span class="n">list1</span>
+
+<span class="n">list3</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">list1</span><span class="p">)</span>
+
+<span class="n">list1</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="n">list1</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">list1</span><span class="p">,</span> <span class="n">list2</span><span class="p">,</span> <span class="n">list3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Mutable-Data-as-Argument">Mutable Data as Argument<a class="anchor-link" href="#Mutable-Data-as-Argument">¶</a></h3><p>When a variable of mutable data is passed as an argument, the data could be changed inside a function. Changing input data in place makes the code hard to understand. It may introduce bugs.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">test</span><span class="p">(</span><span class="n">numbers</span><span class="p">):</span>
+    <span class="n">numbers</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'three'</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span>
+
+<span class="n">list1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">test</span><span class="p">(</span><span class="n">list1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">list1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="The-Fix">The Fix<a class="anchor-link" href="#The-Fix">¶</a></h3><p>To fix it, you should pass a deep copy or make a deep copy inside the function. It might hurt the performance but safety is more important than performance in most cases.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">copy</span>
+<span class="k">def</span> <span class="nf">test</span><span class="p">(</span><span class="n">numbers</span><span class="p">):</span>
+    <span class="n">copied_numbers</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span>
+
+    <span class="c1"># do whatever you want with the copied data</span>
+    <span class="n">copied_numbers</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'three'</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span>
+
+<span class="n">list1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">test</span><span class="p">(</span><span class="n">list1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">list1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="Summary">Summary<a class="anchor-link" href="#Summary">¶</a></h2><p>Python is a high-level PL that hides the memory details.</p>
 <p>However, these concepts are important to write correct Python Code:</p>
 <ul>
 <li>An object's type and identity are fixed once it is created.</li>
-<li>An object's type determines the operatoins and mutablity of the object's value.</li>
+<li>An object's type determines the operations and mutability of the object's value.</li>
 <li>Variables are references/binds to objects.</li>
-<li>Variables may refere different objects in different time.</li>
-<li>Assignment or function parameter create aliases that refer to the same corrrespnding RHS/argument object.</li>
+<li>Variables may refer to different objects in different time.</li>
+<li>Assignment or function parameter create aliases that refer to the same corresponding RHS/argument object.</li>
 </ul>
 </div>
 </div>
