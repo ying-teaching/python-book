@@ -32,7 +32,7 @@ nav:
       - 'Chapter 10 File (TBC)': tbc.md
   - 'Part II. Professional Programming':
       - 'Chapter 11: Test (TBC)': tbc.md
-      - 'Chapter 12: Data Model (TBC)': tbc.md
+      - 'Chapter 12: Data Model': ch12_data_model/notes/data_model.md
       - 'Chapter 13: Log (TBC)': tbc.md
       - 'Chapter 14: Type (TBC)': tbc.md
       - 'Chapter 15: Performance (TBC)': tbc.md

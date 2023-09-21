@@ -32,7 +32,7 @@
 
 ### Ch11 Test and CI/CD (TBC)
 
-### Ch12 Python Data Model (TBC)
+### [Ch12 Python Data Model](ch12_data_model/slides/data_model.slides.html){:target="\_blank"}
 
 ### Ch13 Logging (TBC)
 
