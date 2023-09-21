@@ -42,11 +42,9 @@
 
 ## Part III. Algorithmic Thinking
 
-### Ch16 Web Application
+### Ch16 A Web Site
 
 - [Basic Django](ch16_django/slides/basic_django.slides.html){:target="\_blank"}.
 - [Advanced Django](ch16_django/slides/advanced_django.slides.html){:target="\_blank"}.
 
 ### Ch17 A Lisp Interpreter (TBC)
-
-### Ch18 Data Science (TBC)
