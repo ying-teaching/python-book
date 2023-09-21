@@ -2,7 +2,7 @@
 
 ## Presentation Slides
 
-[The presentation slides](slides.md) that gives a high level summary and highlights of important topics of the content.
+[The presentation slides](slides.md) gives a high level summary and highlights of important topics of the content.
 
 ## Why Another Python Book?
 
