@@ -6,6 +6,13 @@ The notes are in markdown format. The slides are in Jupyter notebook format.
 
 The site is built with [Material for Mkdocs](https://squidfunk.github.io/mkdocs-material/).
 
+## Writing Tools
+
+The following VSCode extensions are use to write the book.
+
+- [Code Spell Checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker): A basic spell checker that works both with markdown and code.
+- [markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint): it is a markdown checking tools to encourage standards the consistency for markdown files.
+
 ## Jupyter Notebook Files
 
 The Jupyter Notebook files are used to create two types of files:
