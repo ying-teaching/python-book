@@ -18,7 +18,7 @@
 
 ### [Ch05 Function](ch05_function/slides/function.slides.html){:target="\_blank"}
 
-### Ch06 Collection (TBC)
+### [Ch06 Collection](ch06_collection/slides/collection.slides.html){:target="\_blank"}
 
 ### Ch07 Class (TBC)
 

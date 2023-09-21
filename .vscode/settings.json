@@ -12,6 +12,7 @@
     "getattribute",
     "getitem",
     "ipynb",
+    "islower",
     "Kalwar",
     "kwargs",
     "mainloop",
@@ -37,6 +38,7 @@
     "startapp",
     "startproject",
     "staticfiles",
+    "substr",
     "URLCONF",
     "wsgi"
   ]
