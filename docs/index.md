@@ -8,7 +8,7 @@
 
 > Programming today is a race between software engineers striving to build bigger and better idiot-proof programs, and the Universe trying to produce bigger and better idiots. So far, the Universe is winning. - Rick Cook
 
-This is an introductory Python programming book for _knowledge workers_ who are professional data analysts or application developers. Unlike most existing Python programming books, it teaches Python programming in a professional way. Here the word "professional" means the Pythonic way of coding. Knowledge workers learn Python programming to solve real world problems. The book teaches essential programming concepts and skills to effectively write professional programs that are correct, easy to maintain, easy to test and has reasonable performance.
+This is an introductory Python programming book for _knowledge workers_ who are professional data analysts or application developers. Unlike most existing Python programming books, it teaches Python programming in a professional way. Here the word "professional" means the Pythonic way of programming bigger and better idiot-proof applications. Knowledge workers learn Python programming to solve non-trivial real world problems. The book teaches essential programming concepts and skills to effectively write professional programs that are correct, easy to maintain, easy to test and has reasonable performance.
 
 ## Features
 
