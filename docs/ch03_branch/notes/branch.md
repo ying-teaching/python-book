@@ -70,7 +70,7 @@ print(f'Double of {number} is {number * 2}')
 
 It is common for people to take some actions if a condition is true and take some other actions if the same condition is false. For example, in a Pass/Fail class, if a student's score is greater than or equal to 60 point, the grade is `Pass`, otherwise, the grade is `Fail`. The two-branch decision can be depicted using the following flow chart:
 
-![if-else-statement](..images/if-else-statement.jpg)
+![if-else-statement](../images/if-else-statement.jpg)
 
 ### The `if-else` Syntax
 
