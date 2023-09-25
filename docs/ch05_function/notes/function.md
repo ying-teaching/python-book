@@ -12,41 +12,38 @@
 
 A function is a group of statements that performs a specific task. Though there is no limit in the number of statements that you can write inside a function, it is important that a function consists of a group of closely related statements to serve a single purpose. It will make your code easy to read and maintain.
 
-### Why Function?
+## Why Function?
 
-Why you need functions? A simple answer is divide and conquer. Programmers use functions to organize and reuse code. Instead of writing a long list of statements of a complex application, you can divide the application into a set of subtasks such that each task is relatively easy to be solved.
+Programmers use functions primarily for two purposes
+
+- to reuse code
+- to organize code
+
+When you define a function, it can be used in many places. Code reuse improves productivity and quality because you only need to write and maintain a single copy of the function.
+
+Organization is about divide and conquer. Instead of writing a long list of statements of a complex application, you can divide the application into a set of subtasks such that each task is relatively easy to be solved.
+
+### Divide and Conquer
+
+In the following diagram, instead of a long list of statements on the left, you can organize statements into a set of functions that each function perform a single subtask. It helps you to design the program because at one moment you only need to solve a relatively simpler subtask.
 
 ![subtask](../images/subtask.png)
 
-In the above diagram, instead of a long list of statements on the left, you can organize statements into a set of functions that each function perform a single subtask. It helps you to design the program because at one moment you only need to solve a relatively simpler subtask.
-
 ### An Example of Divide and Conquer
 
-For example, following is a list of operations that a robot performs:
-
-1. unplug from charger
-2. walk to the house door
-3. open the house door
-4. walk out the house door
-5. close the house door
-6. walk to the car
-7. open the car door
-8. sit in the car
-9. close the car door
-10. drive the car to Beach Dr
-
-If you use two functions, the code will be
-
-1. leave home (this function has the statements 1 to 5)
-2. drive to school (this function has the statements 6 to 10)
+| A list of statements                                                                                                                                                                                                                                                  | Statements in Functions                                                                                                   |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| 1. unplug from charger <br> 2. walk to the house door <br>3. open the house door <br>4. walk out the house door<br>5. close the house door<br>6. walk to the car<br>7. open the car door<br>8. sit in the car<br>9. close the car door<br>10. drive the car to school | 1. leave home (this function has the statements 1 to 5)<br><br>2. go to school (this function has the statements 6 to 10) |
 
 ### Function Benefits
 
-The functional version is easy to write and easy to understand. Small tasks are easy to write, easy to test/debug, and easy to maintain.
+- Small tasks are easy to write, easy to test/debug, and easy to maintain.
 
-Another huge benefit is that a function name summarizes the task. It is easy to understand the two function calls by their names if you don't care about the implementation details.You can image the pain when you have to figure out the purpose of 1,000 lines of code.
+- The function version is also easy to share, you can share both small tasks in different situations.
 
-The third benefit is that it is easy to replace a function with a new function that implements new method. For example, one can take a Uber or ride a bicycle, either can achieve the goal of going to school.
+- Another big benefit is that a function name summarizes the task. It is easy to understand the two function calls by their names if you don't care about the implementation details. You can image the pain when you have to figure out the purpose of 1,000 lines of code.
+
+- Furthermore, it is easy to replace a function with a new function that implements new method. For example, one can take a Uber or ride a bicycle for the 2nd task, either can achieve the goal of going to school.
 
 ### Multiple Levels
 
@@ -60,13 +57,11 @@ Therefore divide and conquer using functions let you deal with easy-to-solve sub
 
 ### Don't Repeat Yourself (DRY)
 
-Another benefit of function is code reuse. By putting a group of statements into a function, you can reuse the function with a simple function call in multiple places. Following is an example that three systems share a function.
-
-![reuse](../images/reuse.png)
-
 An important principle in programming is Don't Repeat Yourself (DRY). Function reuse not only reduces the number of statements, it also make it easy to change the code in one place. If there is a bug in a function, you only need to fix the function definition in one place and all function calls use the revised version.
 
-There are many other benefits in testing, collaboration etc. The two most important benefits are structured code (divide and conquer) and code reuse.
+There are many other benefits in testing, collaboration etc. Following is an example that three systems share a function.
+
+![reuse](../images/reuse.png)
 
 ## Defining a Function
 
@@ -112,16 +107,13 @@ The first line is the `function header`. It begins with the keyword `def`, follo
 
 `def function_name3(parameter1, parameter2):`
 
-Python has the same set rules and styles for the function name. They are:
+### Function Name Rules
 
-- You cannot use keyword as a function name
-- A function name must start with an underscore or a letter in the ranges of `'a'` to `'z'` or `'A'` to `'Z'`.
-- After the first character, you may use an underscore, any letter in the ranges of `'a'` to `'z'` or `'A'` to `'Z'`, any digit 0 to 9.
-- A function name is case sensitive and cannot contain spaces.
+Python has a set of identifier rules and recommended styles for function names. Python uses so called _Python Enhancement Proposal (PEP)_ to define language features and recommended practices. [PEP8](https://peps.python.org/pep-0008/) defines style guide for Python code.
+
+- A function name must be an valid identifier.
 - Python suggests snake_casing as function name: lower case words separated by an underscore.
 - It is a best practice to use a verb or a verb pluses a none for a function name. For example, `prepare`, `do_homework`, `print_message`.
-
-When you write more code, the naming rules and styles will become a second nature to you.
 
 ### Function Parameters
 
@@ -133,7 +125,7 @@ A function header may have zero, one, or more `parameters` enclosed in parenthes
 
 You can have as many parameters as you want, but it is not a good idea to have more than five parameters. You way want to split your function into small functions or compose parameters when there are too many parameters.
 
-As the naming of variables and functions, you should give meaningful names to the function parameters because they are used as variables in the function code.
+Similar to the naming of variables and functions, you should give meaningful names to the function parameters because they are used as variables in the function code.
 
 ### Default Argument
 
@@ -150,27 +142,53 @@ greet('Alicia', 'Keys')
 greet('Bob', 'Dylan', 'Hi')
 ```
 
-### Positional Argument and Keyword Argument
+### Positional Argument
 
-Normally, arguments are passed to functions based on their position and without parameter names are called `positional arguments`. For example: `greet("hi", "Alice")`.
+Normally, arguments are passed to functions based on their position and without parameter names are called `positional arguments`. The following calls use positional arguments.
 
-You can use parameter names when you call a function with some arguments, these are called _keyword arguments_. It let you specify arguments in any order. For example, you can call `greet(prefix='hi', name='bob')` or `greet(name='bob', prefix='hi')`.
+```python
 
-### Parameter Types
+def greet(first_name, last_name, prefix='Hello'):
+    print(f'{prefix} {first_name} {last_name}')
 
-Python has five kinds of parameter:
+greet('Alicia', 'Keys')
+greet('Bob', 'Dylan', 'Hi')
+```
+
+### Keyword Argument
+
+You can use parameter names when you call a function with some arguments, these are called _keyword arguments_. It let you specify arguments in any order.
+
+However, if you mix positional arguments and keyword arguments, you must specify positional arguments first.
+
+```python
+
+def greet(first_name, last_name, prefix="Hello"):
+    print(f"{prefix} {first_name} {last_name}")
+
+greet(first_name="BoB", last_name = "Dylan")
+greet("Bob", prefix="hi", last_name = "Dylan")
+```
+
+### Five Parameter Types
 
 - positional-or-keyword: this is default and the most common parameter type. An argument passed positionally or as a keyword argument. For example: `def greet(message, name='alice')`
-- positional-only: you can specify that arguments can only be passed by position, i.e., cannot be a keyword argument, by putting a `/` in a function definition. For example, `def func(pos_only1, pos_only2, /, positional_or_keyword): ...`
-- keyword-only: putting the `*` to mark following parameters are keyword-only. For example: `def func(arg, *, kw_only1, kw_only2): ...`.
 - var-positional: prepending a `*` with a parameter makes it _variable positional parameter_. It can take an arbitrary sequence of positional arguments. For example: `def func(foo, *args)`.
 - var-keyword: prepending the `**` with a parameter makes it _variable keyword parameter_. It can take an arbitrary sequence of keyword arguments. For example: `def func(foo, **kwargs)`.
+- positional-only: you can specify that arguments can only be passed by position, i.e., cannot be a keyword argument, by putting a `/` in a function definition. For example, `def func(pos_only1, pos_only2, /, positional_or_keyword): ...`
+- keyword-only: putting the `*` to mark following parameters are keyword-only. For example: `def func(arg, *, kw_only1, kw_only2): ...`.
 
-You often need var-positional and var-keyword parameters. For example, the built-in `print()` function can print an arbitrary sequence of values. Examples will be given in the function call section.
+### Var-Positional and Var-keyword Parameters
+
+You often need var-positional and var-keyword parameters because it makes the code very flexible.
+
+For example, the built-in `print()` function can print an arbitrary sequence of values.
+
+You will see more examples.
 
 ### Function Body
 
-The function body is the code block indented (4 spaces, per Python coding style) below the function header. The statements in the function body are just regular statements. You can use all control statements (`if`, `for`, and `while`) in the function body.
+The **function body** is the code block indented (4 spaces, per Python coding style) below the function header. The statements in the function body are just regular statements. You can use all control statements (`if`, `for`, and `while`) in the function body.
 
 A non-indented statement below the function header marks the end of the function body. You should use a blank line separate a function and the statements before and after it.
 
@@ -190,7 +208,7 @@ print('Done')
 
 Except for trivial functions, you should write a docstring for the function. It can be a single line doc string, as shown in the above examples, or it can be a multi-line doc string: a summary line, followed by a blank line and detail description.
 
-Python uses so called _Python Enhancement Proposal (PEP)_ to define language features and recommended practices. Docstring format is defined in [PEP 257 - Docstring Conventions](https://peps.python.org/pep-0257/). The following is an example from the document.
+Docstring format is defined in [PEP 257 - Docstring Conventions](https://peps.python.org/pep-0257/). The following is an example from the document.
 
 ```python
 def complex(real=0.0, imaginary=0.0):
@@ -211,6 +229,7 @@ def complex(real=0.0, imaginary=0.0):
 When you design a program, you divide your application into several functions but don't know the implementation details for some of you functions. You can use the `pass` keyword or `...` value as a temporary function body to write a **function stub** -- you can also print a message or return some value in the stub. You replace it with real code when you are ready to implement it.
 
 ```python
+# recommended
 def do_homework():
     pass
 
@@ -224,9 +243,7 @@ def do_homework3(): ...
 
 Some functions perform operations without returning a value, they are called `void functions`. The `void` means **nothing**. A function that only prints a message is a void function. The function `exit()` takes no argument and is a void function. It exits the program execution.
 
-Many functions perform some computation and return a value as its result. These are `value-returning` functions. You use the `return expression` in a function to return a value and complete the function. A function body may have multiple `return` statements.
-
-Following are two examples of function definition.
+Many functions perform some computation and return a value as its result. These are `value-returning` functions. You use the `return expression` in a function to return a value and complete the function. A function body may have multiple `return` statements. Following are two examples of function definition.
 
 ```python
 def add(number1, number2):
@@ -309,7 +326,9 @@ Inside a function call, the var-positional argument, often named as `*args`, is 
 - iterate using `for item in args`
 - unpack using assignment: `val1, val2, *rest = args`. Here `*rest` is a tuple that has the rest of elements in `args`.
 
-You can pass a number of arguments. Alternatively, you can pass a list, a tuple, or any sequential object as the argument of `*arg`. However, you need to put a `*` before the object.
+You can pass a number of arguments.
+
+Alternatively, you can pass a list, a tuple, or any sequential object as the argument of `*arg`. However, you need to put a `*` before the object.
 
 ```python
 # here the number is a mandatory argument
@@ -352,7 +371,9 @@ Similarly, inside a function call, the variable keyword argument, often named as
 - iterate using `for keyword in kwargs` or `for key, value in kwargs.items()`
 - unpack using assignment: `(keyword1, value1), (keyword2, value2) = args`
 
-You can pass a number of keyword arguments. Alternatively, you can pass a dictionary as the argument of `*arg`. However, you need to put a `**` before the dictionary object.
+You can pass a number of keyword arguments.
+
+Alternatively, you can pass a dictionary as the argument of `*arg`. However, you need to put a `**` before the dictionary object.
 
 ```python
 def print_values(**kwargs):
@@ -365,6 +386,10 @@ print_values(
             name3="Cindy",
             name4="David",
         )
+
+## use a dictionary argument
+names = {"name1": "Alice", "name2": "Bob"}
+print_values(**names)
 ```
 
 ## Functions Are Objects
@@ -389,8 +414,8 @@ items = [1, 2, 3]
 list(map(double, items))
 
 # this also works
-d = double
-list(map(d, items))
+operator = double
+list(map(operator, items))
 ```
 
 ### Methods are Function-like Objects
@@ -399,12 +424,14 @@ When you bind a function with a specific data type, it becomes a method. It help
 
 For now, it is enough to know an important difference between a method and a function:
 
-- You call a function using a function name followed by arguments in a pair of parentheses `f(arg1, arg2)`
-- You call a method using a dot notation like `data.f(arg1, arg2)` because the function is bind with some data `a`. Conceptually, you can think `data.f(arg1, arg2)` as `f(data, arg1, arg2)` -- the `data` is always the first argument.
+- You call a function using a function name followed by arguments in a pair of parentheses `function(arg1, arg2)`
+- You call a method using a dot notation like `my_object.method(arg1, arg2)` because the function is bind with some object `my_object`. Conceptually, you can think `my_object.method(arg1, arg2)` as `method(my_object, arg1, arg2)` -- the `my_object` is always the first argument for a method.
 
 ### The `main` Function
 
-There is a convention in Python coding: you want to use the `main` function name as the entry point of a program. A non-trivial program has many functions, however, there must be a function working as the entry point of the program. It is common to use `main` as the name of the start-up function. The `main` contains the mainline logic of a program that calls other functions to perform top level tasks. Each top level task may call other functions to perform subtasks. Following is an example of function organization.
+There is a convention in Python coding: you want to use the `main` function name as the entry point of a program. A non-trivial program has many functions, however, there must be a function working as the entry point of the program.
+
+The `main` contains the mainline logic of a program that calls other functions to perform top level tasks. Each top level task may call other functions to perform subtasks. Following is an example of function organization.
 
 ![structure](../images/structure.png)
 
@@ -440,6 +467,8 @@ A variable defined inside a function can be used in the function after it is def
 
 The function parameters are also local variables. You can use them inside the function as locally defined variables. Assigning a parameter to another value doesn't affect the corresponding argument.
 
+### A Local Variable Example
+
 In the following code, the `number` in `main` is a local number and is passed to `print_triple` function. Inside the `print_triple` function, the `number` is a local variable -- a totally different one from the `number` in `main`. The program assigns it to a different value of `126`. In the `main` function, it still has a value of `42`.
 
 ```python
@@ -461,7 +490,7 @@ main()
 
 A variable defined in the main body of a file, i.e, not defined in a function, is called a `global variable`. It is visible and accessible to all statements inside or outside the functions.
 
-Because a global variable is shared by all functions, you should not define and use global variables in your program because it is hard to tell where it is changed. The only reasonable situation for global variable is to define constant values that is shared by all function. For example, define the math constant `PI` as the following.
+Because a global variable is shared by all functions, you should not define and use global variables in your program because it is hard to tell where it is changed. The only reasonable situation for global variable is to define constant values that is shared by all function.
 
 ```python
 PI = 3.1416
@@ -479,7 +508,9 @@ main()
 
 ### Control Statements Don't Create a Namespace
 
-The scope for variables defined in control statements `if`, `for` and `while` is its enclosing function. If they are not defined in a function (very rare), they are in the global scope. Below is an example where the `number` is created in the `for` loop but its scope is the `main` function. Therefore it can be used by the `print(number)` statement in the `main` function.
+The scope for variables defined in control statements `if`, `for` and `while` is its enclosing function.
+
+If they are not defined in a function (very rare), they are in the global scope. Below is an example where the `number` is created in the `for` loop but its scope is the `main` function. Therefore it can be used by the `print(number)` statement in the `main` function.
 
 ```python
 def main():
@@ -493,21 +524,11 @@ main()
 
 ## Call Stack
 
-Usually your program has a entry point function and the function calls other functions which call more other functions. When a function calls another function, Python interpreter saves the status of the current function in a data structure called a `call frame`, then executed the callee function. Similarly, the callee function may call another function and more and more, eventually, we have a so-called call stack.
+Usually your program has a entry point function and the function calls other functions which call more other functions. When a function calls another function, Python interpreter saves the status of the current function in a data structure called a **call frame**, then executed the callee function.
+
+Similarly, the callee function may call another function and more and more, eventually, we have a so-called call stack.
 
 ![call stack](../images/call-stack.png)
-
-### Call Frames
-
-The `main` function calls the `bar` function that calls three more functions: `print`, `fum`, `foo`.
-
-The `print` function is called twice.
-
-When the `bar` calls `foo`, there are three functions in the stack: at the bottom, `main`, then `bar`, then, at the top, `foo`.
-
-You can debug the code to see the call stack. When a function returns, its call frame is popped up from the stack and its caller becomes the top function in the call stack.
-
-The variable `x` is a local variable in its function scope and may have different values at different time.
 
 ```python
 def foo():
@@ -535,6 +556,16 @@ def main():
 
 main()
 ```
+
+### An Example of Call Frames
+
+The `main` function calls the `bar` function that calls three more functions: `print`, `fum`, `foo`.
+
+When the `bar` calls `foo`, there are three functions in the stack: at the bottom, `main`, then `bar`, then, at the top, `foo`.
+
+You can debug the code to see the call stack. When a function returns, its call frame is popped up from the stack and its caller becomes the top function in the call stack.
+
+The variable `x` is a local variable in its function scope and may have different values at different time.
 
 ## Recursive Function
 
@@ -566,6 +597,4 @@ def count_down2(number):
     print('Done.')
 
 count_down2(3)
-
-# exercise, code a count_up function with loop and recursive function
 ```
