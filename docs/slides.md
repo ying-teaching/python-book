@@ -10,7 +10,7 @@
 
 - [Variables](ch02_variable/slides/variables.slides.html){:target="\_blank"}.
 - [Expression and Statements](ch02_variable/slides/expression_statement.slides.html){:target="\_blank"}
-- [Turtle Introduction](slides/ch02_variable/slides/turtle_introduction.slides.html){:target="\_blank"}
+- [Turtle Introduction](ch02_variable/slides/turtle_introduction.slides.html){:target="\_blank"}
 
 ### [Ch03 Branch](ch03_branch/slides/branch.slides.html){:target="\_blank"}
 
