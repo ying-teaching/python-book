@@ -10,7 +10,7 @@ MAX_DISTANCE = math.ceil(math.sqrt(SCREEN_HEIGHT**2 + SCREEN_HEIGHT**2) / 2)
 
 TARGET_LOWER_LEFT_X = 100  # Target's lower-left X
 TARGET_LOWER_LEFT_Y = 100  # Target's lower-left Y
-TARGET_WIDTH = 100  # Width of the target
+TARGET_WIDTH = 50  # Width of the target
 
 SPEED = 0  # Projectile's animation speed
 
