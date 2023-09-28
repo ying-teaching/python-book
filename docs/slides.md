@@ -33,7 +33,7 @@
 
 ### Ch10 File (TBC)
 
-### [Ch11 Python Data Model](ch12_data_model/slides/data_model.slides.html){:target="\_blank"}
+### [Ch11 Python Data Model](ch11_data_model/slides/data_model.slides.html){:target="\_blank"}
 
 ## Part III. Algorithmic Thinking
 

@@ -26,14 +26,14 @@ nav:
       - 'Chapter 4: Loop': ch04_loop/notes/loop.md
       - 'Chapter 5: Function': ch05_function/notes/function.md
       - 'Chapter 6 Collection': ch06_collection/notes/collection.md
-      - 'Chapter 7 Class'
-        - ch07_class/notes/basic_class.md)
-        - ch07_class/notes/advanced_class.md)
+      - 'Chapter 7 Class':
+          - ch07_class/notes/basic_class.md
+          - ch07_class/notes/advanced_class.md
   - 'Part II. Advanced Python Programming':
       - 'Chapter 8 Exception (TBC)': tbc.md
       - 'Chapter 9 Module (TBC)': tbc.md
       - 'Chapter 10 File (TBC)': tbc.md
-      - 'Chapter 11: Data Model': ch12_data_model/notes/data_model.md
+      - 'Chapter 11: Data Model': ch11_data_model/notes/data_model.md
   - 'Part III. Algorithm Thinking':
       - 'Chapter 12: A Web Site':
           - ch12_django/notes/basic_django.md
