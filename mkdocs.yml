@@ -14,7 +14,7 @@ exclude_docs: |
 
 nav:
   - Home: index.md
-  - 'Part I. Python Programming':
+  - 'Part I. Fundamental Python Programming':
       - 'Chapter 1: Introduction':
           - ch01_introduction/notes/introduction.md
           - ch01_introduction/notes/crash_course.md
@@ -29,20 +29,16 @@ nav:
       - 'Chapter 7 Class'
         - ch07_class/notes/basic_class.md)
         - ch07_class/notes/advanced_class.md)
+  - 'Part II. Advanced Python Programming':
       - 'Chapter 8 Exception (TBC)': tbc.md
       - 'Chapter 9 Module (TBC)': tbc.md
       - 'Chapter 10 File (TBC)': tbc.md
-  - 'Part II. Professional Programming':
-      - 'Chapter 11: Test (TBC)': tbc.md
-      - 'Chapter 12: Data Model': ch12_data_model/notes/data_model.md
-      - 'Chapter 13: Log (TBC)': tbc.md
-      - 'Chapter 14: Type (TBC)': tbc.md
-      - 'Chapter 15: Performance (TBC)': tbc.md
+      - 'Chapter 11: Data Model': ch12_data_model/notes/data_model.md
   - 'Part III. Algorithm Thinking':
-      - 'Chapter 16: A Web Site':
-          - ch16_django/notes/basic_django.md
-          - ch16_django/notes/advanced_django.md
-      - 'Chapter 17: A Lisp Interpreter (TBC)': tbc.md
+      - 'Chapter 12: A Web Site':
+          - ch12_django/notes/basic_django.md
+          - ch12_django/notes/advanced_django.md
+      - 'Chapter 13: A Lisp Interpreter (TBC)': tbc.md
   - Appendix:
       - 'Development Tools':
           - 'Command Line Interface': appendix/command_line.md

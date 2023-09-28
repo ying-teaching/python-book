@@ -1,6 +1,6 @@
 # Presentation Slides
 
-## Part I. Python Programming
+## Part I. Fundamental Python Programming
 
 ### Ch01: Introduction to Programming
 
@@ -25,29 +25,21 @@
 - [Basic Class](ch07_class/slides/basic_class.slides.html)
 - [Advanced Class](ch07_class/slides/advanced_class.slides.html)
 
+## Part II. Advanced Programming
+
 ### Ch08 Exception (TBC)
 
 ### Ch09 Module (TBC)
 
 ### Ch10 File (TBC)
 
-## Part II. Professional Programming
-
-### Ch11 Test and CI/CD (TBC)
-
-### [Ch12 Python Data Model](ch12_data_model/slides/data_model.slides.html){:target="\_blank"}
-
-### Ch13 Logging (TBC)
-
-### Ch14 Type Hints (TBC)
-
-### Ch15 Performance (TBC)
+### [Ch11 Python Data Model](ch12_data_model/slides/data_model.slides.html){:target="\_blank"}
 
 ## Part III. Algorithmic Thinking
 
-### Ch16 A Web Site
+### Ch12 A Web Site
 
-- [Basic Django](ch16_django/slides/basic_django.slides.html){:target="\_blank"}.
-- [Advanced Django](ch16_django/slides/advanced_django.slides.html){:target="\_blank"}.
+- [Basic Django](ch12_django/slides/basic_django.slides.html){:target="\_blank"}.
+- [Advanced Django](ch12_django/slides/advanced_django.slides.html){:target="\_blank"}.
 
-### Ch17 A Lisp Interpreter (TBC)
+### Ch13 A Lisp Interpreter (TBC)
