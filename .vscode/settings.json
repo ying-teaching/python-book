@@ -1,10 +1,12 @@
 {
   "cSpell.words": [
     "asgi",
+    "classmethod",
     "contenttypes",
     "courseware",
     "createsuperuser",
     "dataclass",
+    "dataclasses",
     "dbshell",
     "deepcopy",
     "dunder",
@@ -13,6 +15,7 @@
     "getattribute",
     "getitem",
     "ipynb",
+    "isinstance",
     "islower",
     "Kalwar",
     "kwargs",

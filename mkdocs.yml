@@ -26,7 +26,9 @@ nav:
       - 'Chapter 4: Loop': ch04_loop/notes/loop.md
       - 'Chapter 5: Function': ch05_function/notes/function.md
       - 'Chapter 6 Collection': ch06_collection/notes/collection.md
-      - 'Chapter 7 Class (TBC)': tbc.md
+      - 'Chapter 7 Class'
+        - ch07_class/notes/basic_class.md)
+        - ch07_class/notes/advanced_class.md)
       - 'Chapter 8 Exception (TBC)': tbc.md
       - 'Chapter 9 Module (TBC)': tbc.md
       - 'Chapter 10 File (TBC)': tbc.md

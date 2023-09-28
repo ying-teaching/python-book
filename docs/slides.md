@@ -20,7 +20,10 @@
 
 ### [Ch06 Collection](ch06_collection/slides/collection.slides.html){:target="\_blank"}
 
-### Ch07 Class (TBC)
+### Ch07 Class
+
+- [Basic Class](ch07_class/slides/basic_class.slides.html)
+- [Advanced Class](ch07_class/slides/advanced_class.slides.html)
 
 ### Ch08 Exception (TBC)
 
