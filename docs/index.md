@@ -1,8 +1,10 @@
 # Professional Python Programming
 
-## Presentation Slides
+## Presentation Slides and Code
 
-[The presentation slides](slides.md) gives a high level summary and highlights of important topics of the content.
+The [presentation slides](slides.md) gives a high level summary and highlights of important topics of the content.
+
+The [code samples](code.md) has a list of sample code.
 
 ## Why Another Python Book?
 
