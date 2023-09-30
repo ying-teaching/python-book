@@ -1,3 +1,8 @@
+---
+hide:
+  - navigation
+---
+
 # Presentation Slides
 
 ## Part I. Fundamental Python Programming

@@ -1,3 +1,8 @@
+---
+hide:
+  - navigation
+---
+
 # Code Samples
 
 ## Chapter 4 Loop

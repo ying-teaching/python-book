@@ -6,7 +6,9 @@ repo_name: 'GitHub'
 theme:
   name: material
   features:
+    - navigation.tabs
     - navigation.sections
+    - navigation.top
     - navigation.footer
 
 exclude_docs: |
@@ -14,31 +16,34 @@ exclude_docs: |
 
 nav:
   - Home: index.md
-  - 'Part I. Fundamental Python Programming':
-      - 'Chapter 1: Introduction':
-          - ch01_introduction/notes/introduction.md
-          - ch01_introduction/notes/crash_course.md
-      - 'Chapter 2: Variable and Expression':
-          - ch02_variable/notes/variables.md
-          - ch02_variable/notes/expression_statement.md
-          - ch02_variable/notes/turtle_introduction.md
-      - 'Chapter 3: Branch': ch03_branch/notes/branch.md
-      - 'Chapter 4: Loop': ch04_loop/notes/loop.md
-      - 'Chapter 5: Function': ch05_function/notes/function.md
-      - 'Chapter 6 Collection': ch06_collection/notes/collection.md
-      - 'Chapter 7 Class':
-          - ch07_class/notes/basic_class.md
-          - ch07_class/notes/advanced_class.md
-  - 'Part II. Advanced Python Programming':
-      - 'Chapter 8 Exception (TBC)': tbc.md
-      - 'Chapter 9 Module (TBC)': tbc.md
-      - 'Chapter 10 File (TBC)': tbc.md
-      - 'Chapter 11: Data Model': ch11_data_model/notes/data_model.md
-  - 'Part III. Algorithm Thinking':
-      - 'Chapter 12: A Web Site':
-          - ch12_django/notes/basic_django.md
-          - ch12_django/notes/advanced_django.md
-      - 'Chapter 13: A Lisp Interpreter (TBC)': tbc.md
+  - Book:
+      - 'Part I. Fundamental Python Programming':
+          - 'Chapter 1: Introduction':
+              - ch01_introduction/notes/introduction.md
+              - ch01_introduction/notes/crash_course.md
+          - 'Chapter 2: Variable and Expression':
+              - ch02_variable/notes/variables.md
+              - ch02_variable/notes/expression_statement.md
+              - ch02_variable/notes/turtle_introduction.md
+          - 'Chapter 3: Branch': ch03_branch/notes/branch.md
+          - 'Chapter 4: Loop': ch04_loop/notes/loop.md
+          - 'Chapter 5: Function': ch05_function/notes/function.md
+          - 'Chapter 6 Collection': ch06_collection/notes/collection.md
+          - 'Chapter 7 Class':
+              - ch07_class/notes/basic_class.md
+              - ch07_class/notes/advanced_class.md
+      - 'Part II. Advanced Python Programming':
+          - 'Chapter 8 Exception (TBC)': tbc.md
+          - 'Chapter 9 Module (TBC)': tbc.md
+          - 'Chapter 10 File (TBC)': tbc.md
+          - 'Chapter 11: Data Model': ch11_data_model/notes/data_model.md
+      - 'Part III. Algorithm Thinking':
+          - 'Chapter 12: A Web Site':
+              - ch12_django/notes/basic_django.md
+              - ch12_django/notes/advanced_django.md
+          - 'Chapter 13: A Lisp Interpreter (TBC)': tbc.md
+  - Slides: slides.md
+  - Code: code.md
   - Appendix:
       - 'Development Tools':
           - 'Command Line Interface': appendix/command_line.md
