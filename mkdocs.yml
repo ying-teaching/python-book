@@ -6,6 +6,7 @@ repo_name: 'GitHub'
 theme:
   name: material
   features:
+    - navigation.instant
     - navigation.tabs
     - navigation.sections
     - navigation.top
