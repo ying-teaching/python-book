@@ -32,7 +32,7 @@ hide:
 
 ## Part II. Advanced Programming
 
-### Chapter 8 Exception (TBC)
+### [Chapter 8 Exception](ch08_exception/slides/exception.slides.html){:target="\_blank"}
 
 ### Chapter 9 Module (TBC)
 

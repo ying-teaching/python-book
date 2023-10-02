@@ -46,6 +46,7 @@
     "startswith",
     "staticfiles",
     "substr",
+    "Traceback",
     "URLCONF",
     "wsgi"
   ]

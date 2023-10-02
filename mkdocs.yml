@@ -35,7 +35,7 @@ nav:
               - ch07_class/notes/basic_class.md
               - ch07_class/notes/advanced_class.md
       - 'Part II. Advanced Python Programming':
-          - 'Chapter 8 Exception (TBC)': tbc.md
+          - 'Chapter 8 Exception': ch08_exception/notes/exception.md
           - 'Chapter 9 Module (TBC)': tbc.md
           - 'Chapter 10 File (TBC)': tbc.md
           - 'Chapter 11: Data Model': ch11_data_model/notes/data_model.md
