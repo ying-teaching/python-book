@@ -34,7 +34,7 @@ hide:
 
 ### [Chapter 8 Exception](ch08_exception/slides/exception.slides.html){:target="\_blank"}
 
-### Chapter 9 Module (TBC)
+### [Chapter 9 Module](ch09_module/slides/module.slides.html){:target="\_blank"}
 
 ### Chapter 10 File (TBC)
 
@@ -46,5 +46,3 @@ hide:
 
 - [Basic Django](ch12_django/slides/basic_django.slides.html){:target="\_blank"}.
 - [Advanced Django](ch12_django/slides/advanced_django.slides.html){:target="\_blank"}.
-
-### Chapter 13 A Lisp Interpreter (TBC)

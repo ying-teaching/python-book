@@ -33,6 +33,7 @@
     "popitem",
     "println",
     "Pylance",
+    "PYTHONPATH",
     "radd",
     "repr",
     "runserver",

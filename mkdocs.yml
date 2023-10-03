@@ -36,14 +36,13 @@ nav:
               - ch07_class/notes/advanced_class.md
       - 'Part II. Advanced Python Programming':
           - 'Chapter 8 Exception': ch08_exception/notes/exception.md
-          - 'Chapter 9 Module (TBC)': tbc.md
+          - 'Chapter 9 Module': ch09_module/notes/module.md
           - 'Chapter 10 File (TBC)': tbc.md
           - 'Chapter 11: Data Model': ch11_data_model/notes/data_model.md
       - 'Part III. Algorithm Thinking':
           - 'Chapter 12: A Web Site':
               - ch12_django/notes/basic_django.md
               - ch12_django/notes/advanced_django.md
-          - 'Chapter 13: A Lisp Interpreter (TBC)': tbc.md
   - Slides: slides.md
   - Code: code.md
   - Appendix:
