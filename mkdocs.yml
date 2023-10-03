@@ -37,7 +37,7 @@ nav:
       - 'Part II. Advanced Python Programming':
           - 'Chapter 8 Exception': ch08_exception/notes/exception.md
           - 'Chapter 9 Module': ch09_module/notes/module.md
-          - 'Chapter 10 File (TBC)': tbc.md
+          - 'Chapter 10 File': ch10_file/notes/file.md
           - 'Chapter 11: Data Model': ch11_data_model/notes/data_model.md
       - 'Part III. Algorithm Thinking':
           - 'Chapter 12: A Web Site':

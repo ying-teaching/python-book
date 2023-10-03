@@ -36,7 +36,7 @@ hide:
 
 ### [Chapter 9 Module](ch09_module/slides/module.slides.html){:target="\_blank"}
 
-### Chapter 10 File (TBC)
+### [Chapter 10 File](ch10_file/sldies/file.slides.html){:target="\_blank"}
 
 ### [Chapter 11 Python Data Model](ch11_data_model/slides/data_model.slides.html){:target="\_blank"}
 

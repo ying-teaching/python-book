@@ -23,6 +23,10 @@ hide:
 
 - [Palindrome and a better version](https://github.com/ying-teaching/python-book/tree/main/docs/ch08_exception/code/){:target="\_blank"}
 
+## Chapter 10 File
+
+- [Read Binary](https://github.com/ying-teaching/python-book/tree/main/docs/ch10_file/code/){:target="\_blank"}
+
 ## Chapter 12 A Web Site
 
 - [Demo site](https://github.com/ying-teaching/python-book/tree/main/docs/ch12_django/code/my_site){:target="\_blank"}
