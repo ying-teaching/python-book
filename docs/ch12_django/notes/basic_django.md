@@ -1,4 +1,4 @@
-# Basic Django
+# Django
 
 - Get Started
 - Database
@@ -39,11 +39,25 @@ To quit the server, type `CONTROL-C` in the terminal.
 
 ### Creating an App
 
-A Django project usually contains multiple apps (applications). Each app is a web site for a specific business domain functions.
+A Django project has multiple [Applications](https://docs.djangoproject.com/en/4.2/ref/applications/).
+
+Each application is Python package that contains functions of subdomain the website.
+
+An application consists of models, views, templates, static files, URLs, etc.
 
 For example, Django creates a default `admin` app during the project creation. Web administrators use the admin app to manage the web site.
 
 To create an app named `polls`, run the command: `python3 manage.py startapp polls`.
+
+### Application Configuration
+
+Create an `app.py` inside the application package.
+
+Defines a subclass of `AppConfig`
+
+Configure settings such as `name`, `verbose_name` in the configuration class.
+
+Then add the class to the `INSTALLED_APPS` in the `setting.py` file in the project's main package.
 
 ### The App Folder
 

@@ -7507,9 +7507,25 @@ main {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Creating-an-App">Creating an App<a class="anchor-link" href="#Creating-an-App">¶</a></h3><p>A Django project usually contains multiple apps (applications). Each app is a web site for a specific business domain functions.</p>
+<h3 id="Creating-an-App">Creating an App<a class="anchor-link" href="#Creating-an-App">¶</a></h3><p>A Django project has multiple <a href="https://docs.djangoproject.com/en/4.2/ref/applications/">Applications</a>.</p>
+<p>Each application is Python package that contains functions of subdomain the website.</p>
+<p>An application consists of models, views, templates, static files, URLs, etc.</p>
 <p>For example, Django creates a default <code>admin</code> app during the project creation. Web administrators use the admin app to manage the web site.</p>
 <p>To create an app named <code>polls</code>, run the command: <code>python3 manage.py startapp polls</code>.</p>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Application-Configuration">Application Configuration<a class="anchor-link" href="#Application-Configuration">¶</a></h3><p>Create an <code>app.py</code> inside the application package.</p>
+<p>Defines a subclass of <code>AppConfig</code></p>
+<p>Configure settings such as <code>name</code>, <code>verbose_name</code> in the configuration class.</p>
+<p>Then add the class to the <code>INSTALLED_APPS</code> in the <code>setting.py</code> file in the project's main package.</p>
 </div>
 </div>
 </div>
