@@ -1,13 +1,23 @@
 # Django
 
-- Get Started
+- HTTPS Overview
+- Getting Started
 - Database
 - Model
 - View
 - Form
 - Generic View
 
-## Get Started
+## HTTPS Overview
+
+- [Introduction Video](https://youtu.be/d_QPZPo2PLc)
+- HTTPS handles authentication and encryption
+- A Web page has three types of contents:
+  - HTML: the structure data
+  - CSS: the style
+  - Javascript: the behavior
+
+## Getting Started
 
 First, use `python3 -m pip install django` to install the Django package.
 
@@ -108,6 +118,7 @@ from django.http import HttpResponse
 
 def index(request):
     return HttpResponse("Hello, World!")
+
 ```
 
 ```python
@@ -119,6 +130,7 @@ from . import views
 urlpatterns = [
     path("", views.index, name="index"),
 ]
+
 ```
 
 ```python
@@ -130,6 +142,7 @@ urlpatterns = [
     path("polls/", include("polls.urls")),
     path("admin/", admin.site.urls),
 ]
+
 ```
 
 ### The `path()` and `include()` Function
@@ -341,6 +354,7 @@ from django.contrib import admin
 from .models import Question
 
 admin.site.register(Question)
+
 ```
 
 ## View
@@ -371,6 +385,7 @@ def results(request, question_id):
 def vote(request, question_id):
     response = f"Vote view for {question_id}"
     return HttpResponse(response)
+
 ```
 
 ```python
@@ -389,6 +404,7 @@ urlpatterns = [
     # ex: /polls/5/vote/
     path("<int:question_id>/vote/", views.vote, name="vote"),
 ]
+
 ```
 
 ### Django Template
@@ -410,6 +426,7 @@ Django use `{}` to include data and logic. The data is also called the _context_
 {% else %}
 <p>No polls are available.</p>
 {% endif %}
+
 ```
 
 ### The `index` View
@@ -430,6 +447,7 @@ def index(request):
         "latest_question_list": latest_question_list,
     }
     return HttpResponse(template.render(context, request))
+
 ```
 
 ### The `render()` Shortcut
@@ -448,6 +466,7 @@ def index(request):
     latest_question_list = Question.objects.order_by("-publish_date")[:5]
     context = {"latest_question_list": latest_question_list}
     return render(request, "polls/index.html", context)
+
 ```
 
 ### Rasing an Error
@@ -464,6 +483,7 @@ The detail view uses a `polls/detail.html` template whose context is, not a surp
   <li>{{ choice.choice_text }}</li>
   {% endfor %}
 </ul>
+
 ```
 
 ```python
@@ -476,6 +496,7 @@ from .models import Question
 def detail(request, question_id):
     question = get_object_or_404(Question, pk=question_id)
     return render(request, "polls/detail.html", {"question": question})
+
 ```
 
 ### Removing Hardcoded URLs
@@ -537,6 +558,7 @@ It specifies the target path using the template tag `{% url 'polls:vote' questio
 
   <input type="submit" value="Vote">
 </form>
+
 ```
 
 ### Handle Form Data
@@ -579,6 +601,7 @@ def vote(request, question_id):
         selected_choice.save()
 
         return HttpResponseRedirect(reverse("polls:results", args=(question.id,)))
+
 ```
 
 ### The `results` View
@@ -595,6 +618,7 @@ from django.shortcuts import get_object_or_404, render
 def results(request, question_id):
     question = get_object_or_404(Question, pk=question_id)
     return render(request, "polls/results.html", {"question": question})
+
 ```
 
 ### The `results` Template
@@ -612,6 +636,7 @@ The `results` template defines the content of the view. Django template comes wi
 </ul>
 
 <a href="{% url 'polls:detail' question.id %}">Vote again?</a>
+
 ```
 
 ## Generic View
@@ -667,6 +692,7 @@ class ResultsView(generic.DetailView):
     template_name = "polls/results.html"
 
 ...
+
 ```
 
 ### Amend URLs
@@ -693,4 +719,5 @@ urlpatterns = [
     path("<int:pk>/results/", views.ResultsView.as_view(), name="results"),
     path("<int:question_id>/vote/", views.vote, name="vote"),
 ]
+
 ```
