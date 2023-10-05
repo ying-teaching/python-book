@@ -39,6 +39,8 @@ Then you access its variables and functions using the dot notation: `my_module.f
 
 Alternatively, you can import identifiers directly using the syntax: `from my_module import foo`. Then you can use the identifier without the module name like `foo()`. You can import one or more identifiers.
 
+You can give imported identifier an alias like `from my_module import foo as bar`, then you can use `bar` in place of `foo`.
+
 ### `__name__`
 
 When a module is imported, the `__name__` is the filename.
@@ -122,13 +124,15 @@ For example, for the previous package example, you can use
 
 ### Relative Import in Package
 
-Inside a package, you can also use relative path to import a module. A relative import must starts with a `.` for modules in the current directory, or `..` for parent directory, or `...` for parent's parent directory.
+Inside a package, you can also use relative path to import a module. A relative import must use the `from ... import ...` syntax and start with a `.` for modules in the current directory, or `..` for parent directory, or `...` for parent's parent directory.
 
-- in `my_package.module1`, you can use `import .nested_package.sub_module1` or `from .nested_package import sub_module1`
-- in `nested_package.sub_module2`, you can use `import ../module1` or `from .. import module1`.
+- in `my_package.module1`, you can use `from .nested_package import sub_module1`
+- in `nested_package.sub_module2`, you can use `from .. import module1` or `from ..module1 import something`.
 - in `nested_package.sub_module2`, you can use `from . import sub_module1` or `from .sub_module1 import something`.
 
-The last example is special for a package, i.e., a directory with a `__init__.py` file, to import modules in the same directory, you cannot use `import sub_module1` or `from sub_module1 import something`.
+The last example is special for a package, i.e., a directory with a `__init__.py` file.
+
+If a module is the program entry or is not in a package, to import modules in the same directory, you use `import sub_module1` or `from sub_module1 import something`, as shown in the previous example code `from utils import PI, factorial`.
 
 ### Module and Path
 
@@ -148,5 +152,6 @@ import sys
 print(sys.path)
 
 # a sample output in MacOS
-# ['', '/Library/Frameworks/Python.framework/Versions/3.11/lib/python311.zip', '/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11', '/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/lib-dynload', '/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages']
+# ['', '/Library/Frameworks/Python.framework/Versions/3.11/lib/python311.zip', '/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11', '/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/lib-dynload', '/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages'
+
 ```
