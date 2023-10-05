@@ -7631,11 +7631,23 @@ main {
 <li><code>import my_package.module1</code> or <code>from my_package import module1</code></li>
 <li><code>import my_package.nested_package.sub_module2</code> or <code>from my_package.nested_package import sub_module2</code></li>
 </ul>
-<p>You can also use relative path to import a module:</p>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Relative-Import-in-Package">Relative Import in Package<a class="anchor-link" href="#Relative-Import-in-Package">¶</a></h3><p>Inside a package, you can also use relative path to import a module. A relative import must starts with a <code>.</code> for modules in the current directory, or <code>..</code> for parent directory, or <code>...</code> for parent's parent directory.</p>
 <ul>
-<li>in <code>my_package.module1</code>, you can use <code>import nested_package.sub_module1</code> or <code>from nested_package import sub_module1</code></li>
+<li>in <code>my_package.module1</code>, you can use <code>import .nested_package.sub_module1</code> or <code>from .nested_package import sub_module1</code></li>
 <li>in <code>nested_package.sub_module2</code>, you can use <code>import ../module1</code> or <code>from .. import module1</code>.</li>
+<li>in <code>nested_package.sub_module2</code>, you can use <code>from . import sub_module1</code> or <code>from .sub_module1 import something</code>.</li>
 </ul>
+<p>The last example is special for a package, i.e., a directory with a <code>__init__.py</code> file, to import modules in the same directory, you cannot use <code>import sub_module1</code> or <code>from sub_module1 import something</code>.</p>
 </div>
 </div>
 </div>
