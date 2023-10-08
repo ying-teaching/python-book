@@ -5,7 +5,7 @@
 <meta content="chrome=1" http-equiv="X-UA-Compatible"/>
 <meta content="yes" name="apple-mobile-web-app-capable"/>
 <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/>
-<title>basic_django slides</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script><script type="module">
+<title>django_crash_course slides</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script><script type="module">
   import mermaid from 'https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.2.3/mermaid.esm.min.mjs';
   mermaid.initialize({ startOnLoad: true });
 </script>
@@ -7440,14 +7440,47 @@ main {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Basic-Django">Basic Django<a class="anchor-link" href="#Basic-Django">¶</a></h1><ul>
+<h1 id="Django-Crash-Course">Django Crash Course<a class="anchor-link" href="#Django-Crash-Course">¶</a></h1><ul>
+<li>HTTPS Overview</li>
 <li>Getting Started</li>
 <li>Database</li>
 <li>Model</li>
+<li>Template</li>
 <li>View</li>
 <li>Form</li>
-<li>Generic View</li>
+<li>CRUD Operations</li>
 </ul>
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="HTTPS-Overview">HTTPS Overview<a class="anchor-link" href="#HTTPS-Overview">¶</a></h2><ul>
+<li><a href="https://youtu.be/d_QPZPo2PLc">Introduction Video</a></li>
+<li>HTTPS handles authentication and encryption</li>
+<li>A Web page has three types of contents:<ul>
+<li>HTML: the structure data</li>
+<li>CSS: the style</li>
+<li>Javascript: the behavior</li>
+</ul>
+</li>
+<li><a href="https://thenextweb.com/news/learn-html-css-in-15-minutes">Learn HTML &amp; CSS in 15 minutes</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 </div>
 </div>
 </div>
@@ -7460,7 +7493,7 @@ main {
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="Getting-Started">Getting Started<a class="anchor-link" href="#Getting-Started">¶</a></h2><p>First, use <code>python3 -m pip install django</code> to install the Django package.</p>
 <p>Django comes with many tools such as <code>django-admin</code> to make development simple and quick.</p>
-<p>To create a project, run the following command: <code>django-admin startproject my_site</code>.</p>
+<p>To create a project, run the following command: <code>django-admin startproject todo_site</code>.</p>
 </div>
 </div>
 </div>
@@ -7471,11 +7504,11 @@ main {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Initial-Project">Initial Project<a class="anchor-link" href="#Initial-Project">¶</a></h3><p>The command creates a <code>my_site</code> project folder with following folders and files:</p>
+<h3 id="Initial-Project">Initial Project<a class="anchor-link" href="#Initial-Project">¶</a></h3><p>The command creates a <code>todo_site</code> project folder with following folders and files:</p>
 <ul>
 <li><code>manage.py</code>: it is a thin wrapper around <code>django-admin</code>. It uses the settings of the current project. You use <code>django-admin</code> to create projects and apps, then use <code>manage.py</code> to perform the rest administration tasks.</li>
-<li><code>my_site</code>: it is the package folder for the project. It has the following files<ul>
-<li><code>__init__.py</code>: it is an empty file to flag the parent folder as a Python package.</li>
+<li><code>todo_site</code>: it is the package folder for the project. It has the following files<ul>
+<li><code>__init__.py</code>: it is an empty file to flag the current folder as a Python package.</li>
 <li><code>asgi.py</code>: it is an entry point file for ASGI (Asynchronous Server Gateway Interface) web server. ASGI support asynchronous operations that might have better performance for certain applications at the cost of complex code and logic. Most Web applications don't use it.</li>
 <li><code>setting.py</code>: it contains settings (configurations) for this project. For example, you should change the <code>TIME_ZONE = "America/Los_Angeles"</code> if your site is located iLos Angeles, CA, USA. You can find valid time zone names in <a href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones">Time Zone List</a>.</li>
 <li><code>urls.py</code>: it configures the URL paths of the project.</li>
@@ -7494,7 +7527,7 @@ main {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3 id="Dev-Server">Dev Server<a class="anchor-link" href="#Dev-Server">¶</a></h3><p>Django has a built-in WSGI web server for the development. You can run it with the initial project.</p>
-<p>Inside <code>my_site</code> project folder (not the nested <code>my_site</code> package folder), run <code>python3 manage.py runserver</code>, you can check the initial web site at <code>http://127.0.0.1:8000/</code> or <code>http://locahost:8000/</code>.</p>
+<p>Inside <code>todo_site</code> project folder (not the nested <code>my_site</code> package folder), run <code>python3 manage.py runserver</code>, you can check the initial web site at <code>http://127.0.0.1:8000/</code> or <code>http://locahost:8000/</code>.</p>
 <p>The built-in development server monitors file changes and rebuilt the project when there is a change in the project source code files.</p>
 <p>To quit the server,  type <code>CONTROL-C</code> in the terminal.</p>
 </div>
@@ -7507,11 +7540,11 @@ main {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Creating-an-App">Creating an App<a class="anchor-link" href="#Creating-an-App">¶</a></h3><p>A Django project has multiple <a href="https://docs.djangoproject.com/en/4.2/ref/applications/">Applications</a>.</p>
+<h3 id="Creating-an-App">Creating an App<a class="anchor-link" href="#Creating-an-App">¶</a></h3><p>A Django project has multiple <a href="https://docs.djangoproject.com/en/4.2/ref/applications/">applications</a>.</p>
 <p>Each application is Python package that contains functions of subdomain the website.</p>
 <p>An application consists of models, views, templates, static files, URLs, etc.</p>
 <p>For example, Django creates a default <code>admin</code> app during the project creation. Web administrators use the admin app to manage the web site.</p>
-<p>To create an app named <code>polls</code>, run the command: <code>python3 manage.py startapp polls</code>.</p>
+<p>To create an app named <code>tasks</code>, run the command: <code>python3 manage.py startapp tasks</code>.</p>
 </div>
 </div>
 </div>
@@ -7530,7 +7563,7 @@ main {
 <li><code>migrations</code> folder is used to store database migration files.</li>
 <li><code>models.py</code> the data models used by the app.</li>
 <li><code>tests.py</code> the testing file</li>
-<li><code>views.py</code> the <em>view</em> code to process HTTP requests and return HTTP responses.</li>
+<li><code>views.py</code> views are used to process HTTP requests and return HTTP responses.</li>
 </ul>
 </div>
 </div>
@@ -7542,29 +7575,9 @@ main {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Application-Configuration">Application Configuration<a class="anchor-link" href="#Application-Configuration">¶</a></h3><p>Create an <code>app.py</code> inside the application package.</p>
-<p>Defines a subclass of <code>AppConfig</code></p>
-<p>Configure settings such as <code>name</code>, <code>verbose_name</code> in the configuration class.</p>
-<p>Then add the <code>polls</code> app to the <code>INSTALLED_APPS</code> in the <code>setting.py</code> file in the project's main package.</p>
-</div>
-</div>
-</div>
-</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-python"><pre><span></span><span class="kn">from</span> <span class="nn">django.apps</span> <span class="kn">import</span> <span class="n">AppConfig</span>
-
-
-<span class="k">class</span> <span class="nc">PollsConfig</span><span class="p">(</span><span class="n">AppConfig</span><span class="p">):</span>
-    <span class="n">default_auto_field</span> <span class="o">=</span> <span class="s1">'django.db.models.BigAutoField'</span>
-    <span class="n">name</span> <span class="o">=</span> <span class="s1">'polls'</span>
-</pre></div>
-</div>
+<h3 id="Application-Configuration">Application Configuration<a class="anchor-link" href="#Application-Configuration">¶</a></h3><p>There is an <code>apps.py</code> configuration file in an application package.</p>
+<p>It defines a subclass of <code>AppConfig</code></p>
+<p>It configures settings such as <code>name</code>, <code>verbose_name</code> in the configuration class.</p>
 </div>
 </div>
 </div>
@@ -7575,112 +7588,40 @@ main {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="What's-a-View">What's a View<a class="anchor-link" href="#What's-a-View">¶</a></h3><p>In Django, a view is associated with a URL pattern, i.e., Django maps URL patterns to views.</p>
-<p>If a specific HTTP URL matches a view's URL pattern, the view usually performs the following functions:</p>
+<h3 id="MVT">MVT<a class="anchor-link" href="#MVT">¶</a></h3><p>Django uses a Model-View-Template (MVT) architecture.</p>
 <ul>
-<li>processes HTTP requests.</li>
-<li>performs business logic based on request arguments.</li>
-<li>uses templates to render the response content.</li>
+<li>Model: a model is a class the defines<ul>
+<li>the structure of a domain data.</li>
+<li>the data operations.</li>
+</ul>
+</li>
+<li>View: a view is a function or a class that handles HTTP request, performs business logic, and returns a response.</li>
+<li>Template: a template defines the structure or layout of the user interface. A view fills templates with data to create the final response.</li>
+</ul>
+<p>Following is the <a href="https://www.dothedev.com/blog/amp/what-is-django-used-for/">Django workflow</a>:</p>
+<p><img alt="flow" src="../images/django_flow.jpg"/></p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="The-Django-Workflow">The Django Workflow<a class="anchor-link" href="#The-Django-Workflow">¶</a></h3><p>The Django framework</p>
+<ul>
+<li>uses an HTTP server to accept HTTP request</li>
+<li>resolves an HTTP request URL to a view</li>
+<li>passes the HTTP request as the input to a view</li>
+</ul>
+<p>The View</p>
+<ul>
+<li>process data based on the HTTP request.</li>
+<li>uses templates to render the response data.</li>
 <li>returns responses in different format such as HTML, JSON, or others.</li>
 </ul>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Add-the-First-View">Add the First View<a class="anchor-link" href="#Add-the-First-View">¶</a></h3><p>As a tradition, you want to say "Hello World!" to an HTTP request. There are three basic steps:</p>
-<ul>
-<li>create a view that return a message as an HTTP response.</li>
-<li>map an app-specific URL to the view.</li>
-<li>include the app-specific URL map in the root URL mapping.</li>
-</ul>
-<p>If you run the dev server and access <code>http://127.0.0.1:8000/polls/</code>, you should see the message "Hello World!".</p>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-python"><pre><span></span><span class="c1"># polls/views.py</span>
-<span class="kn">from</span> <span class="nn">django.http</span> <span class="kn">import</span> <span class="n">HttpResponse</span>
-
-<span class="k">def</span> <span class="nf">index</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="s2">"Hello, World!"</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-python"><pre><span></span><span class="c1"># polls/urls.py</span>
-<span class="kn">from</span> <span class="nn">django.urls</span> <span class="kn">import</span> <span class="n">path</span>
-
-<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">views</span>
-
-<span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="n">path</span><span class="p">(</span><span class="s2">""</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">"index"</span><span class="p">),</span>
-<span class="p">]</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-python"><pre><span></span><span class="c1"># my_site/urls.py</span>
-<span class="kn">from</span> <span class="nn">django.contrib</span> <span class="kn">import</span> <span class="n">admin</span>
-<span class="kn">from</span> <span class="nn">django.urls</span> <span class="kn">import</span> <span class="n">include</span><span class="p">,</span> <span class="n">path</span>
-
-<span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="n">path</span><span class="p">(</span><span class="s2">"polls/"</span><span class="p">,</span> <span class="n">include</span><span class="p">(</span><span class="s2">"polls.urls"</span><span class="p">)),</span>
-    <span class="n">path</span><span class="p">(</span><span class="s2">"admin/"</span><span class="p">,</span> <span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">urls</span><span class="p">),</span>
-<span class="p">]</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="The-path()-and-include()-Function">The <code>path()</code> and <code>include()</code> Function<a class="anchor-link" href="#The-path()-and-include()-Function">¶</a></h3><p>The <code>path()</code> function maps URLs to views or defines nested URL patterns. It has two required arguments and two optional arguments.</p>
-<ul>
-<li><code>route</code>: is a string that contains a URL pattern.</li>
-<li><code>view</code>: is the view use to process the URL request.</li>
-<li><code>kwargs</code>: are arbitrary keyword arguments passed to the view.</li>
-<li><code>name</code>: is the name of this URL path. Then this path is used elsewhere, you can use the name to refer the path.</li>
-</ul>
-<p>The code <code>path("", views.index, name="index")</code> maps the empty string to the <code>views.index</code> view. The path has a name of <code>index</code>.</p>
-<p>The <code>include()</code> function allows nested paths. Except the built-in <code>admin.site.urls</code>, you use <code>include()</code> when you include other URL patterns.</p>
-<p>The <code>path("polls/", include("polls.urls")),</code> puts all polls url patterns defined in <code>polls/urls.py</code> under the <code>polls/</code> path.</p>
-<p>The <code>ROOT_URLCONF = "my_site.urls"</code> in <code>my_site/settings.py</code> specifies the URL configuration file for the root path. Django starts path matching from the this file.</p>
 </div>
 </div>
 </div>
@@ -7691,10 +7632,11 @@ main {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Database">Database<a class="anchor-link" href="#Database">¶</a></h2><p>Django uses relational database to store application data that is defined by models.</p>
+<h2 id="Database">Database<a class="anchor-link" href="#Database">¶</a></h2><p>Django uses relational database to store application data that is defined by <strong>models</strong>.</p>
 <p>A model defines the table schema.</p>
 <p>Django provides built-in CRUD operations for data.</p>
-<p>Django supports a number of relational database engines. You can change database setup in the project <code>settings.py</code> file.</p>
+<p>Django supports a number of relational database engines.</p>
+<p>You can change database setup in the project <code>settings.py</code> file.</p>
 </div>
 </div>
 </div>
@@ -7733,40 +7675,6 @@ main {
 </div>
 </div>
 </div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Built-in-Apps">Built-in Apps<a class="anchor-link" href="#Built-in-Apps">¶</a></h3><p>Django framework comes with a number of built-in apps that provide common services for a typical web site. The <code>INSTALLED_APPS</code> item in <code>settings.py</code> has the list of activated applications:</p>
-<ul>
-<li><code>django.contrib.admin</code>: The administration site for this project.</li>
-<li><code>django.contrib.auth</code>: an app provides built-in support authentication.</li>
-<li><code>django.contrib.contenttypes</code>: an app provides built-in support for content types.</li>
-<li><code>django.contrib.sessions</code>: an app provides built-in support for session management.</li>
-<li><code>django.contrib.messages</code>: an app provides built-in support for messaging.</li>
-<li><code>django.contrib.staticfiles</code>: an app provides built-in support for managing static files.</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Initialize-Database-for-Built-in-Apps">Initialize Database for Built-in Apps<a class="anchor-link" href="#Initialize-Database-for-Built-in-Apps">¶</a></h3><p>Django has built-in migrations for built-in apps thus there is no need to run create migrations for built-in apps.</p>
-<p>To see the built-in migrations, run <code>python3 manage.py showmigrations</code></p>
-<p>To initialize database for built-in apps who use models, run <code>python3 manage.py migrate</code>. The command applies migrations that create tables and initialization data for activated built-in apps.</p>
-<p>For those who are familiar with database administration, you can use <code>django-admin dbshell</code> or <code>python3 manage.py dbshell</code> to run the command-line client for the specified database engine.</p>
-<p>For SQLite, this runs <code>sqlite3</code> command line client, also called a <em>shell</em>.</p>
-</div>
-</div>
-</div>
 </div></section></section><section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
@@ -7787,21 +7695,7 @@ main {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Creating-Models">Creating Models<a class="anchor-link" href="#Creating-Models">¶</a></h3><p>In the polls app, there are two models: <em>Question</em> and <em>Choice</em>. Adding following definitions in <code>polls/models.py</code> file.</p>
-<ul>
-<li>Each class inherits from <code>models.Model</code> class that provides many data access methods.</li>
-<li>Each field is defined as a class attribute.</li>
-<li>Each field is a descriptor defined in <code>models</code>.<ul>
-<li>a defined class attribute is read/set as an instance attribute</li>
-<li>there are different descriptor types such as <code>CharField</code>, <code>DataTimeField</code>, and so on.</li>
-</ul>
-</li>
-<li>The <code>models.ForeignKey</code> defines a foreign key that links an instance of <code>Choice</code> to an instance of <code>Question</code>.<ul>
-<li>It is a one-to-many relationship: one instance of <code>Question</code> is mapped to more than one instances of <code>Choice</code>.</li>
-<li>The <code>on_delete</code> means that if an instance of <code>Question</code> is deleted, all its associated instances of <code>Choice</code> are deleted automatically.</li>
-</ul>
-</li>
-</ul>
+<h3 id="Creating-Models">Creating Models<a class="anchor-link" href="#Creating-Models">¶</a></h3><p>In the <code>tasks</code> app, there is one models: <code>Task</code>. Adding following class definition in <code>tasks/models.py</code> file.</p>
 </div>
 </div>
 </div>
@@ -7813,30 +7707,13 @@ main {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-python"><pre><span></span><span class="kn">import</span> <span class="nn">datetime</span>
-
-<span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">models</span>
-<span class="kn">from</span> <span class="nn">django.utils</span> <span class="kn">import</span> <span class="n">timezone</span>
+<div class="highlight hl-python"><pre><span></span><span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">models</span>
 
 
-<span class="k">class</span> <span class="nc">Question</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
-    <span class="n">question_text</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
-    <span class="n">publish_date</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DateTimeField</span><span class="p">(</span><span class="s2">"date published"</span><span class="p">)</span>
-
-    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">question_text</span>
-
-    <span class="k">def</span> <span class="nf">was_published_recently</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">publish_date</span> <span class="o">&gt;=</span> <span class="n">timezone</span><span class="o">.</span><span class="n">now</span><span class="p">()</span> <span class="o">-</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-
-
-<span class="k">class</span> <span class="nc">Choice</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
-    <span class="n">question</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="n">Question</span><span class="p">,</span> <span class="n">on_delete</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">CASCADE</span><span class="p">)</span>
-    <span class="n">choice_text</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
-    <span class="n">votes</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">IntegerField</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-
-    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">choice_text</span>
+<span class="k">class</span> <span class="nc">Task</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">null</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">description</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">TextField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s2">""</span><span class="p">)</span>
+    <span class="n">is_done</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">BooleanField</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -7850,111 +7727,10 @@ main {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3 id="Install-the-App">Install the App<a class="anchor-link" href="#Install-the-App">¶</a></h3><p>Django creates table schema and database access API based on app model definitions.</p>
-<p>You need to add the configuration class of polls app, i.e., <code>"polls.apps.PollsConfig",</code> to top of the list in the <code>INSTALLED_APPS</code> item in the project setting file.</p>
-<p>Then create migration from the app models using command <code>python3 manage.py makemigrations polls</code>. It creates a migration file in <code>polls/migrations/0001_initial.py</code> that has the migration code.</p>
-<p>You can use the command <code>python3 manage.py sqlmigrate polls 0001</code> to check the SQL statements that to be applied to the database.</p>
+<p>You need to add the <code>tasks</code> app to the list in the <code>INSTALLED_APPS</code> item in the project's <code>settings.py</code> file.</p>
+<p>Then create migration from the app models using command <code>python3 manage.py makemigrations tasks</code>. It creates a migration file in <code>polls/migrations/0001_initial.py</code> that has the migration code.</p>
+<p>You can use the command <code>python3 manage.py sqlmigrate tasks 0001</code> to check the SQL statements that to be applied to the database.</p>
 <p>Finally, run <code>python3 manage.py migrate</code> to apply the migration that creates the database tables.</p>
-<p>In your database shell (<code>python3 manage.py dbshell</code>), run <code>.tables</code> to list all created tables. The two tables for <code>polls</code> app are: <code>polls_question</code> and <code>polls_choice</code>, i.e., app name, underscore, and model class name, all in lower cases.</p>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Django-Data-API">Django Data API<a class="anchor-link" href="#Django-Data-API">¶</a></h3><p>The <code>models.Model</code> class provides database access methods for all model classes. The Django <a href="https://docs.djangoproject.com/en/4.2/topics/db/queries/">Making queries document</a> has many examples.</p>
-<p>Django provides a Python shell to interact with the project. Run <code>python3 manage.py shell</code> to execute the project Python shell.</p>
-<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">polls.models</span> <span class="kn">import</span> <span class="n">Choice</span><span class="p">,</span> <span class="n">Question</span>
-<span class="kn">from</span> <span class="nn">django.utils</span> <span class="kn">import</span> <span class="n">timezone</span>
-
-<span class="c1"># create an object, save to database, query its attributes</span>
-<span class="n">q</span> <span class="o">=</span> <span class="n">Question</span><span class="p">(</span><span class="n">question_text</span><span class="o">=</span><span class="s2">"How are you?"</span><span class="p">,</span> <span class="n">publish_date</span><span class="o">=</span><span class="n">timezone</span><span class="o">.</span><span class="n">now</span><span class="p">())</span>
-<span class="n">q</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
-<span class="n">q</span><span class="o">.</span><span class="n">id</span>   <span class="c1"># 1</span>
-<span class="n">q</span><span class="o">.</span><span class="n">question_text</span> <span class="c1"># "How are you?"</span>
-
-<span class="c1"># update the record with new question text</span>
-<span class="n">q</span><span class="o">.</span><span class="n">question_text</span> <span class="o">=</span> <span class="s2">"How old are you?"</span>
-<span class="n">q</span><span class="o">.</span><span class="n">save</span><span class="p">()</span> 
-
-<span class="c1"># get all questions in the database</span>
-<span class="n">Question</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span> <span class="c1"># &lt;QuerySet [&lt;How old are you?&gt;]&gt;</span>
-
-<span class="c1"># query by id</span>
-<span class="n">q</span> <span class="o">=</span> <span class="n">Question</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">pk</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">q</span><span class="o">.</span><span class="n">was_published_recently</span><span class="p">()</span> <span class="c1"># True</span>
-
-<span class="c1"># the choice table can be accessed from a question</span>
-<span class="n">q</span><span class="o">.</span><span class="n">choice_set</span><span class="o">.</span><span class="n">all</span><span class="p">()</span> <span class="c1"># &lt;QuerySet []&gt;</span>
-
-<span class="c1"># create three choices </span>
-<span class="n">c1</span> <span class="o">=</span> <span class="n">q</span><span class="o">.</span><span class="n">choice_set</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">choice_text</span><span class="o">=</span><span class="s2">"28"</span><span class="p">,</span> <span class="n">votes</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">c2</span> <span class="o">=</span> <span class="n">q</span><span class="o">.</span><span class="n">choice_set</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">choice_text</span><span class="o">=</span><span class="s2">"35"</span><span class="p">,</span> <span class="n">votes</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">c3</span> <span class="o">=</span> <span class="n">q</span><span class="o">.</span><span class="n">choice_set</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">choice_text</span><span class="o">=</span><span class="s2">"15"</span><span class="p">,</span> <span class="n">votes</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-
-<span class="c1"># query choice attribute</span>
-<span class="n">c3</span><span class="o">.</span><span class="n">question</span> <span class="c1"># &lt;Question: How old are you?&gt;</span>
-
-<span class="c1"># query choices from its question</span>
-<span class="n">q</span><span class="o">.</span><span class="n">choice_set</span><span class="o">.</span><span class="n">all</span><span class="p">()</span> <span class="c1"># &lt;QuerySet [&lt;Choice: 28&gt;, &lt;Choice: 35&gt;, &lt;Choice: 15&gt;]&gt;</span>
-
-<span class="n">q</span><span class="o">.</span><span class="n">choice_set</span><span class="o">.</span><span class="n">count</span><span class="p">()</span> <span class="c1"># 3</span>
-
-<span class="c1"># delete one, it returns the number of objects deleted and a dictionary with the number of deletions per object type.</span>
-<span class="n">c2</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span> <span class="c1"># (1, {'polls.Choice': 1})</span>
-
-<span class="c1"># how many left</span>
-<span class="n">q</span><span class="o">.</span><span class="n">choice_set</span><span class="o">.</span><span class="n">count</span><span class="p">()</span> <span class="c1"># 2</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Django-Admin">Django Admin<a class="anchor-link" href="#Django-Admin">¶</a></h3><p>Django provides the ``django.contrib.admin` app to administrate the project. This is an internal site used by Web administrator.</p>
-<p>You need to create a administrator account to use it.</p>
-<p>Run <code>python manage.py createsuperuser</code> to create an account by filling username, email address and password.</p>
-<p>Then you can access the internal admin site using <code>http://localhost:8000/admin</code>. By default, you can only manage users and groups after login.</p>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Manage-Models">Manage Models<a class="anchor-link" href="#Manage-Models">¶</a></h3><p>To let administrator to manage your app models, you need to register the models.</p>
-<p>In <code>polls/admin.py</code>, add following lines and you can manage the registered models.</p>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-python"><pre><span></span><span class="c1"># polls/admin.py</span>
-
-<span class="kn">from</span> <span class="nn">django.contrib</span> <span class="kn">import</span> <span class="n">admin</span>
-
-<span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">Choice</span><span class="p">,</span> <span class="n">Question</span>
-
-<span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">register</span><span class="p">([</span><span class="n">Question</span><span class="p">,</span> <span class="n">Choice</span><span class="p">])</span>
-</pre></div>
-</div>
 </div>
 </div>
 </div>
@@ -7965,76 +7741,10 @@ main {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="View">View<a class="anchor-link" href="#View">¶</a></h2><p>A Django view processes requests and returns a <code>HttpResponse</code> object or raises an exception. To generate response content, it may use a template system. Django comes with a default template engine but you can use other engines.</p>
-<p>From a developer's point of view, a view is a function or class that create Web pages.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Create-Views">Create Views<a class="anchor-link" href="#Create-Views">¶</a></h3><p>There are two steps to create a view: define the view function/class and configure an URL pattern for the view.</p>
-<p>After adding the following code, run the command <code>python3 manage.py runserver</code> to check that the URLs and views work.</p>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-python"><pre><span></span><span class="c1"># polls/view.py</span>
-
-<span class="k">def</span> <span class="nf">detail</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">question_id</span><span class="p">):</span>
-    <span class="n">response</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"Detail view for </span><span class="si">{</span><span class="n">question_id</span><span class="si">}</span><span class="s2">"</span>
-    <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
-
-
-<span class="k">def</span> <span class="nf">results</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">question_id</span><span class="p">):</span>
-    <span class="n">response</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"Results view for </span><span class="si">{</span><span class="n">question_id</span><span class="si">}</span><span class="s2">"</span>
-    <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
-
-
-<span class="k">def</span> <span class="nf">vote</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">question_id</span><span class="p">):</span>
-    <span class="n">response</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"Vote view for </span><span class="si">{</span><span class="n">question_id</span><span class="si">}</span><span class="s2">"</span>
-    <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-python"><pre><span></span><span class="c1"># polls/urls.py</span>
-<span class="kn">from</span> <span class="nn">django.urls</span> <span class="kn">import</span> <span class="n">path</span>
-
-<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">views</span>
-
-<span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="c1"># ex: /polls/</span>
-    <span class="n">path</span><span class="p">(</span><span class="s2">""</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">"index"</span><span class="p">),</span>
-    <span class="c1"># ex: /polls/5/</span>
-    <span class="n">path</span><span class="p">(</span><span class="s2">"&lt;int:question_id&gt;/"</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">detail</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">"detail"</span><span class="p">),</span>
-    <span class="c1"># ex: /polls/5/results/</span>
-    <span class="n">path</span><span class="p">(</span><span class="s2">"&lt;int:question_id&gt;/results/"</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">results</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">"results"</span><span class="p">),</span>
-    <span class="c1"># ex: /polls/5/vote/</span>
-    <span class="n">path</span><span class="p">(</span><span class="s2">"&lt;int:question_id&gt;/vote/"</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">vote</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">"vote"</span><span class="p">),</span>
-<span class="p">]</span>
-</pre></div>
-</div>
+<h2 id="Template">Template<a class="anchor-link" href="#Template">¶</a></h2><p>A typical web site has many pages that have a similar layout and display style.</p>
+<p>A web page may have many static components.</p>
+<p>Django uses template to render web pages.</p>
+<p>A template defines static content and provides <strong>blocks</strong> that can be inherited and replaced by other templates.</p>
 </div>
 </div>
 </div>
@@ -8045,72 +7755,11 @@ main {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Django-Template">Django Template<a class="anchor-link" href="#Django-Template">¶</a></h3><p>A template has static content and placeholders or logic controls of dynamic data. A template uses special syntax for data display and logic controls.</p>
-<p>By default, Django find templates in the <code>templates</code> directory of each app. It is a best practice to put a template in a folder in the <code>templates</code> directory because you may have utility templates such as layouts. For example, the path for polls app's <code>index.html</code> template file is <code>templates/polls/index.html</code>. You use the name <code>polls/index.html</code> to load the template into a view.</p>
-<p>Django use <strong>template expression</strong> <code>{{ }}</code> for data output and <strong>template tag</strong> <code>{% %}</code> for rendering logic. The data is also called the <em>context</em> of the template. The <code>templates/polls/index.html</code> uses the <code>latest_question_list</code> context to create the HTML content.</p>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-python"><pre><span></span><span class="o">&lt;</span><span class="err">!</span><span class="o">--</span> <span class="n">polls</span><span class="o">/</span><span class="n">templates</span><span class="o">/</span><span class="n">polls</span><span class="o">/</span><span class="n">index</span><span class="o">.</span><span class="n">html</span> <span class="o">--&gt;</span>
-<span class="p">{</span><span class="o">%</span> <span class="k">if</span> <span class="n">latest_question_list</span> <span class="o">%</span><span class="p">}</span>
-<span class="o">&lt;</span><span class="n">ul</span><span class="o">&gt;</span>
-  <span class="p">{</span><span class="o">%</span> <span class="k">for</span> <span class="n">question</span> <span class="ow">in</span> <span class="n">latest_question_list</span> <span class="o">%</span><span class="p">}</span>
-  <span class="o">&lt;</span><span class="n">li</span><span class="o">&gt;&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s2">"/polls/{{ question.id }}/"</span><span class="o">&gt;</span><span class="p">{{</span> <span class="n">question</span><span class="o">.</span><span class="n">question_text</span> <span class="p">}}</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;&lt;/</span><span class="n">li</span><span class="o">&gt;</span>
-  <span class="p">{</span><span class="o">%</span> <span class="n">endfor</span> <span class="o">%</span><span class="p">}</span>
-<span class="o">&lt;/</span><span class="n">ul</span><span class="o">&gt;</span>
-<span class="p">{</span><span class="o">%</span> <span class="k">else</span> <span class="o">%</span><span class="p">}</span>
-<span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">No</span> <span class="n">polls</span> <span class="n">are</span> <span class="n">available</span><span class="o">.&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
-<span class="p">{</span><span class="o">%</span> <span class="n">endif</span> <span class="o">%</span><span class="p">}</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="The-index-View">The <code>index</code> View<a class="anchor-link" href="#The-index-View">¶</a></h3><p>The <code>index</code> view fetches data from database and render the template into HTML response page.</p>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-python"><pre><span></span><span class="kn">from</span> <span class="nn">django.http</span> <span class="kn">import</span> <span class="n">HttpResponse</span>
-<span class="kn">from</span> <span class="nn">django.template</span> <span class="kn">import</span> <span class="n">loader</span>
-
-<span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">Question</span>
-
-
-<span class="k">def</span> <span class="nf">index</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
-    <span class="n">latest_question_list</span> <span class="o">=</span> <span class="n">Question</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">order_by</span><span class="p">(</span><span class="s2">"-publish_date"</span><span class="p">)[:</span><span class="mi">5</span><span class="p">]</span>
-    <span class="n">template</span> <span class="o">=</span> <span class="n">loader</span><span class="o">.</span><span class="n">get_template</span><span class="p">(</span><span class="s2">"polls/index.html"</span><span class="p">)</span>
-    <span class="n">context</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s2">"latest_question_list"</span><span class="p">:</span> <span class="n">latest_question_list</span><span class="p">,</span>
-    <span class="p">}</span>
-    
-    <span class="n">response</span> <span class="o">=</span> <span class="n">template</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">request</span><span class="p">)</span>
-
-    <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
-</pre></div>
-</div>
+<h3 id="A-Base-Template">A Base Template<a class="anchor-link" href="#A-Base-Template">¶</a></h3><p>In the project directory, create a <code>templates</code> directory and a <code>base.html</code> in it.</p>
+<p>Set <code>"DIRS": [BASE_DIR / "templates"],</code> in <code>TEMPLATES</code> item in project <code>settings.py</code> file. Django will search the directory for template files.</p>
+<p>The <code>base.html</code> uses <a href="https://getbootstrap.com/">Bootstrap</a> to provide CSS styles for web page. It also provides many <a href="https://icons.getbootstrap.com/">icons</a>.</p>
+<p>It defines a <code>content</code> block that can be replaced by other templates.</p>
+<p>Tips: in VS Code, use <code>!</code> and a tab to create an initial page content.</p>
 </div>
 </div>
 </div>
@@ -8121,31 +7770,23 @@ main {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="The-render()-Shortcut">The <code>render()</code> Shortcut<a class="anchor-link" href="#The-render()-Shortcut">¶</a></h3><p>Python is famous for its expressiveness and simplicity. The previous code is good enough for many programming languages, but Python can do much better.</p>
-<p>It is a common pattern to load a template file, apply a context and return an <code>HttpResponse</code> object. Django provides a shortcut <code>render()</code> function to apply a context to a template and return an <code>HttpResponse</code> object.</p>
-<p>The previous code could be simplified as the following:</p>
-</div>
-</div>
-</div>
-</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-python"><pre><span></span><span class="kn">from</span> <span class="nn">django.shortcuts</span> <span class="kn">import</span> <span class="n">render</span>
+<!DOCTYPE html>
 
-<span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">Question</span>
-
-
-<span class="k">def</span> <span class="nf">index</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
-    <span class="n">latest_question_list</span> <span class="o">=</span> <span class="n">Question</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">order_by</span><span class="p">(</span><span class="s2">"-publish_date"</span><span class="p">)[:</span><span class="mi">5</span><span class="p">]</span>
-    <span class="n">context</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"latest_question_list"</span><span class="p">:</span> <span class="n">latest_question_list</span><span class="p">}</span>
-    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s2">"polls/index.html"</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span>
-</pre></div>
-</div>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" rel="stylesheet"/>
+<!-- Option 1: Include in HTML -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" rel="stylesheet"/>
+<title>Todo List</title>
+</head>
+<body>
+<div class="container">
+    {% block content %}{% endblock content %}
+  </div>
+</body>
+</html>
 </div>
 </div>
 </div>
@@ -8156,27 +7797,8 @@ main {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="The-Detail-View-Template">The Detail View Template<a class="anchor-link" href="#The-Detail-View-Template">¶</a></h3><p>The detail view uses a <code>polls/detail.html</code> template whose context is, not a surprise, a question.</p>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-python"><pre><span></span><span class="o">&lt;</span><span class="err">!</span><span class="o">--</span> <span class="n">polls</span><span class="o">/</span><span class="n">templates</span><span class="o">/</span><span class="n">polls</span><span class="o">/</span><span class="n">detail</span><span class="o">.</span><span class="n">html</span> <span class="o">--&gt;</span>
-<span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="p">{{</span> <span class="n">question</span><span class="o">.</span><span class="n">question_text</span> <span class="p">}}</span><span class="o">&lt;/</span><span class="n">h1</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">ul</span><span class="o">&gt;</span>
-  <span class="p">{</span><span class="o">%</span> <span class="k">for</span> <span class="n">choice</span> <span class="ow">in</span> <span class="n">question</span><span class="o">.</span><span class="n">choice_set</span><span class="o">.</span><span class="n">all</span> <span class="o">%</span><span class="p">}</span>
-  <span class="o">&lt;</span><span class="n">li</span><span class="o">&gt;</span><span class="p">{{</span> <span class="n">choice</span><span class="o">.</span><span class="n">choice_text</span> <span class="p">}}</span><span class="o">&lt;/</span><span class="n">li</span><span class="o">&gt;</span>
-  <span class="p">{</span><span class="o">%</span> <span class="n">endfor</span> <span class="o">%</span><span class="p">}</span>
-<span class="o">&lt;/</span><span class="n">ul</span><span class="o">&gt;</span>
-</pre></div>
-</div>
+<h3 id="The-Home-Template">The Home Template<a class="anchor-link" href="#The-Home-Template">¶</a></h3><p>Each app can have many template files. The <code>"APP_DIRS": True,</code> in the <code>TEMPLATES</code> item of project setting file means you can define app templates in app's <code>templates</code> directory.</p>
+<p>Create <code>tasks/templates/tasks/task_list.html</code> with the following content. Django has conventions about directory structure and filename. Using a <code>&lt;model_name&gt;_list.html</code> saves a configuration in a view class that uses the template.</p>
 </div>
 </div>
 </div>
@@ -8187,58 +7809,10 @@ main {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Rasing-an-Error">Rasing an Error<a class="anchor-link" href="#Rasing-an-Error">¶</a></h3><p>However, if Django couldn't find the question for the specified id, it makes sense to raise a 404 exception to let the user know that the requested object is not found.</p>
-<p>Try both <code>http://localhost:8000/polls/1/</code> and <code>http://localhost:8000/polls/2023/</code>.</p>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-python"><pre><span></span><span class="c1"># polls/views.py</span>
-
-<span class="kn">from</span> <span class="nn">django.shortcuts</span> <span class="kn">import</span> <span class="n">get_object_or_404</span><span class="p">,</span> <span class="n">render</span>
-
-<span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">Question</span>
-
-<span class="k">def</span> <span class="nf">detail</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">question_id</span><span class="p">):</span>
-    <span class="n">question</span> <span class="o">=</span> <span class="n">get_object_or_404</span><span class="p">(</span><span class="n">Question</span><span class="p">,</span> <span class="n">pk</span><span class="o">=</span><span class="n">question_id</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s2">"polls/detail.html"</span><span class="p">,</span> <span class="p">{</span><span class="s2">"question"</span><span class="p">:</span> <span class="n">question</span><span class="p">})</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Removing-Hardcoded-URLs">Removing Hardcoded URLs<a class="anchor-link" href="#Removing-Hardcoded-URLs">¶</a></h3><p>The <code>polls/index.html</code> template has a hardcoded URL link for each question: <code>&lt;a href="/polls/{{ question.id }}/"&gt;{{ question.question_text }}&lt;/a&gt;</code>.</p>
-<p>The path pattern <code>&lt;int:question_id&gt;/</code> is defined in <code>polls.urls</code> module. The pattern may change during the development, for example, <code>changed/&lt;int:question_id&gt;/whatever</code>. Then the hardcoded URL link in template will be broken.</p>
-<p>To remove hardcoded URLs and to have a single source of path definition, you can use path name and <code>{% url ... %}</code> template tag.</p>
-<p>The link becomes <code>&lt;a href="{% url 'detail' question.id %}"&gt;{{ question.question_text }}&lt;/a&gt;</code></p>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="URL-Namespaces">URL Namespaces<a class="anchor-link" href="#URL-Namespaces">¶</a></h3><p>The link such as <code>"{% url 'detail' question.id %}"</code> works well if you only have one <code>detail</code> view. If there are more than one <code>detail</code> view in different apps, Django cannot differentiate them.</p>
-<p>As a best practice, it is better to give each app an URL namespace. It is done by setting <code>app_name</code> in an app's <code>urls.py</code> file.</p>
-<p>Adding <code>app_name = "polls"</code> to the <code>polls/urls.py</code> file before the definition of URL patterns.</p>
-<p>With the new namespace, the link in <code>polls/index.html</code> becomes <code>&lt;a href="{% url 'polls:detail' question.id %}"&gt;{{ question.question_text }}&lt;/a&gt;</code></p>
+<p>{% extends "base.html" %}</p>
+<p>{% block content %}</p>
+<h1>Todo Tasks</h1>
+<p>{% endblock content %}</p>
 </div>
 </div>
 </div>
@@ -8249,14 +7823,12 @@ main {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Form">Form<a class="anchor-link" href="#Form">¶</a></h2><p>A Web browser is a client that send request to a Web server and displays an HTML page returned from the server. The client can send data to the backend server using a Web <em>form</em>.</p>
-<p>The <code>&lt;form&gt;...&lt;/form&gt;</code> tag specifies a number of things to submit data:</p>
+<h2 id="View">View<a class="anchor-link" href="#View">¶</a></h2><p>Typically, a Django view takes an HTTP requests, loads and processes application data, generates a HTTP response using a template, then returns a <code>HttpResponse</code> object or raises an exception.</p>
+<p>There are three steps to create a view:</p>
 <ul>
-<li>a URL: the target view for this data input.</li>
-<li>an action: an HTML action, default is <code>post</code>.</li>
-<li>CSRF token: a unique token generated by the server to protect server from <em>Cross Site Request Forgeries</em> attack.</li>
-<li>One or more data fields and labels to let user input data.</li>
-<li>A submit button.</li>
+<li>create a template that is used to render the response.</li>
+<li>define the view function/class that process data and render response.</li>
+<li>configure an URL pattern for the view.</li>
 </ul>
 </div>
 </div>
@@ -8268,8 +7840,9 @@ main {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Create-a-Form">Create a Form<a class="anchor-link" href="#Create-a-Form">¶</a></h3><p>The polls app creates a form in <code>detail</code> view to submit vote for a question.</p>
-<p>It specifies the target path using the template tag <code>{% url 'polls:vote' question.id %}</code>. The view is specified with a special syntax of <code>'polls:vote'</code>.</p>
+<h3 id="The-Home-View">The Home View<a class="anchor-link" href="#The-Home-View">¶</a></h3><p>Django is famous for its simplicity and rich built-in features because it provides many functions and classes for common tasks.</p>
+<p>It is common to show a list of objects. Django has a so-called <strong>generic view class</strong> <code>ListView</code> as a super class for such views.</p>
+<p>The home view shows a list of tasks, the view definition in <code>tasks/views.py</code> is very simple. By specifying <code>model = Task</code>, the view gets tasks from database and render the <code>task_list.html</code> with list of tasks.</p>
 </div>
 </div>
 </div>
@@ -8281,150 +7854,126 @@ main {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-python"><pre><span></span><span class="o">&lt;</span><span class="err">!</span><span class="o">--</span> <span class="n">polls</span><span class="o">/</span><span class="n">template</span><span class="o">/</span><span class="n">polls</span><span class="o">/</span><span class="n">detail</span><span class="o">.</span><span class="n">html</span> <span class="o">--&gt;</span>
-<span class="o">&lt;</span><span class="n">form</span> <span class="n">action</span><span class="o">=</span><span class="s2">"{</span><span class="si">% u</span><span class="s2">rl 'polls:vote' question.id %}"</span> <span class="n">method</span><span class="o">=</span><span class="s2">"post"</span><span class="o">&gt;</span>
+<div class="highlight hl-python"><pre><span></span><span class="kn">from</span> <span class="nn">django.views.generic</span> <span class="kn">import</span> <span class="n">ListView</span>
+
+<span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">Task</span>
+
+
+<span class="k">class</span> <span class="nc">TaskListView</span><span class="p">(</span><span class="n">ListView</span><span class="p">):</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">Task</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Set-URLs">Set URLs<a class="anchor-link" href="#Set-URLs">¶</a></h3><p>You need to set two types of URLs</p>
+<ul>
+<li>the <code>tasks</code> app URLs: create a below <code>tasks/urls.py</code> file.</li>
+<li>link the <code>tasks</code> URLs to the project root URLs. Add <code>path("", include("tasks.urls")),</code> as the first item to the <code>urlpatterns</code> in <code>todo_site/urls.py</code>.</li>
+</ul>
+<p>Now you should be able to see the <code>Todo Tasks</code> H1 header in the homepage.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-python"><pre><span></span><span class="c1"># tasks/urls.py</span>
+
+<span class="kn">from</span> <span class="nn">django.urls</span> <span class="kn">import</span> <span class="n">path</span>
+
+<span class="kn">from</span> <span class="nn">.views</span> <span class="kn">import</span> <span class="n">TaskListView</span>
+
+<span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">path</span><span class="p">(</span><span class="s2">""</span><span class="p">,</span> <span class="n">TaskListView</span><span class="o">.</span><span class="n">as_view</span><span class="p">(),</span> <span class="n">name</span><span class="o">=</span><span class="s2">"task_list"</span><span class="p">),</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Form">Form<a class="anchor-link" href="#Form">¶</a></h2><p>A web page uses forms to display widgets such as input box, dropdown list, radio button etc to get user inputs.</p>
+<p>Forms are used to create a new object and to update an existing object.</p>
+<p>Again, Python provides help class to make it easy to create forms.</p>
+<p>To define a form class, use the <code>ModelForm</code> super class, then specify the data model and data fields used in form template file.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-python"><pre><span></span><span class="c1"># tasks/test_form.py</span>
+
+<span class="kn">from</span> <span class="nn">django.forms</span> <span class="kn">import</span> <span class="n">ModelForm</span>
+<span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">Task</span>
+
+
+<span class="k">class</span> <span class="nc">TaskForm</span><span class="p">(</span><span class="n">ModelForm</span><span class="p">):</span>
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">Task</span>
+        <span class="n">fields</span> <span class="o">=</span> <span class="s2">"__all__"</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Form-Template">Form Template<a class="anchor-link" href="#Form-Template">¶</a></h3><p>A form template uses a form class to create/update object.</p>
+<p>To make it simple, use <code>&lt;model_name&gt;_form.html</code> as the form template name.</p>
+<p>Create <code>tasks/templates/tasks/task_form.html</code>.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-python"><pre><span></span><span class="p">{</span><span class="o">%</span> <span class="n">extends</span> <span class="s2">"base.html"</span> <span class="o">%</span><span class="p">}</span>
+
+<span class="p">{</span><span class="o">%</span> <span class="n">block</span> <span class="n">content</span> <span class="o">%</span><span class="p">}</span>
+
+<span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="n">Create</span> <span class="n">a</span> <span class="n">Task</span> <span class="n">v2</span><span class="o">&lt;/</span><span class="n">h1</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">form</span> <span class="n">method</span><span class="o">=</span><span class="s2">"post"</span><span class="o">&gt;</span>
   <span class="p">{</span><span class="o">%</span> <span class="n">csrf_token</span> <span class="o">%</span><span class="p">}</span>
-  <span class="o">&lt;</span><span class="n">fieldset</span><span class="o">&gt;</span>
-    <span class="o">&lt;</span><span class="n">legend</span><span class="o">&gt;</span>
-      <span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="p">{{</span> <span class="n">question</span><span class="o">.</span><span class="n">question_text</span> <span class="p">}}</span><span class="o">&lt;/</span><span class="n">h1</span><span class="o">&gt;</span>
-    <span class="o">&lt;/</span><span class="n">legend</span><span class="o">&gt;</span>
-    
-    <span class="p">{</span><span class="o">%</span> <span class="k">if</span> <span class="n">error_message</span> <span class="o">%</span><span class="p">}</span>
-      <span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;&lt;</span><span class="n">strong</span><span class="o">&gt;</span><span class="p">{{</span> <span class="n">error_message</span> <span class="p">}}</span><span class="o">&lt;/</span><span class="n">strong</span><span class="o">&gt;&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
-    <span class="p">{</span><span class="o">%</span> <span class="n">endif</span> <span class="o">%</span><span class="p">}</span>
-    
-    <span class="p">{</span><span class="o">%</span> <span class="k">for</span> <span class="n">choice</span> <span class="ow">in</span> <span class="n">question</span><span class="o">.</span><span class="n">choice_set</span><span class="o">.</span><span class="n">all</span> <span class="o">%</span><span class="p">}</span>
-      <span class="o">&lt;</span><span class="nb">input</span> <span class="nb">type</span><span class="o">=</span><span class="s2">"radio"</span> <span class="n">name</span><span class="o">=</span><span class="s2">"choice"</span> <span class="nb">id</span><span class="o">=</span><span class="s2">"choice{{ forloop.counter }}"</span> <span class="n">value</span><span class="o">=</span><span class="s2">"{{ choice.id }}"</span><span class="o">&gt;</span>
-      <span class="o">&lt;</span><span class="n">label</span> <span class="k">for</span><span class="o">=</span><span class="s2">"choice{{ forloop.counter }}"</span><span class="o">&gt;</span><span class="p">{{</span> <span class="n">choice</span><span class="o">.</span><span class="n">choice_text</span> <span class="p">}}</span><span class="o">&lt;/</span><span class="n">label</span><span class="o">&gt;&lt;</span><span class="n">br</span><span class="o">&gt;</span>
-    <span class="p">{</span><span class="o">%</span> <span class="n">endfor</span> <span class="o">%</span><span class="p">}</span>
-  <span class="o">&lt;/</span><span class="n">fieldset</span><span class="o">&gt;</span>
-
-  <span class="o">&lt;</span><span class="nb">input</span> <span class="nb">type</span><span class="o">=</span><span class="s2">"submit"</span> <span class="n">value</span><span class="o">=</span><span class="s2">"Vote"</span><span class="o">&gt;</span>
+  <span class="p">{{</span> <span class="n">form</span><span class="o">.</span><span class="n">as_p</span> <span class="p">}}</span>
+  <span class="o">&lt;</span><span class="nb">input</span> <span class="nb">type</span><span class="o">=</span><span class="s2">"submit"</span> <span class="o">/&gt;</span>
 <span class="o">&lt;/</span><span class="n">form</span><span class="o">&gt;</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Handle-Form-Data">Handle Form Data<a class="anchor-link" href="#Handle-Form-Data">¶</a></h3><p>The <code>detail</code> view defines a form submitted to the <code>vote</code> view for a question.</p>
-<p>Because the input field has a name <code>"choice"</code>, you can fetch the value using this name <code>request.POST["choice]</code>.</p>
-<p>A user may click <code>Back</code> button in Browser after submission, it is a best practice to alway return an <code>HttpResponseRedirect</code> after successfully dealing with posted data.</p>
-<p>The <code>HttpResponseRedirect</code> uses a redirect URL. When you need a URL from a view name, you can use <code>reverse()</code> function. The <code>reverse("polls:results", args=(question.id,))</code></p>
-</div>
-</div>
-</div>
-</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-python"><pre><span></span><span class="c1"># polls/views.py</span>
 
-<span class="kn">from</span> <span class="nn">django.http</span> <span class="kn">import</span> <span class="n">HttpResponse</span><span class="p">,</span> <span class="n">HttpResponseRedirect</span>
-<span class="kn">from</span> <span class="nn">django.shortcuts</span> <span class="kn">import</span> <span class="n">get_object_or_404</span><span class="p">,</span> <span class="n">render</span>
-<span class="kn">from</span> <span class="nn">django.urls</span> <span class="kn">import</span> <span class="n">reverse</span>
-
-<span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">Choice</span><span class="p">,</span> <span class="n">Question</span>
-
-<span class="o">...</span>
-
-<span class="k">def</span> <span class="nf">vote</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">question_id</span><span class="p">):</span>
-    <span class="n">question</span> <span class="o">=</span> <span class="n">get_object_or_404</span><span class="p">(</span><span class="n">Question</span><span class="p">,</span> <span class="n">pk</span><span class="o">=</span><span class="n">question_id</span><span class="p">)</span>
-    <span class="k">try</span><span class="p">:</span>
-        <span class="n">choice_key</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">[</span><span class="s2">"choice"</span><span class="p">]</span>
-        <span class="n">selected_choice</span> <span class="o">=</span> <span class="n">question</span><span class="o">.</span><span class="n">choice_set</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">pk</span><span class="o">=</span><span class="n">choice_key</span><span class="p">)</span>
-    <span class="k">except</span> <span class="p">(</span><span class="ne">KeyError</span><span class="p">,</span> <span class="n">Choice</span><span class="o">.</span><span class="n">DoesNotExist</span><span class="p">):</span>
-        <span class="c1"># Redisplay the question voting form.</span>
-        <span class="k">return</span> <span class="n">render</span><span class="p">(</span>
-            <span class="n">request</span><span class="p">,</span>
-            <span class="s2">"polls/detail.html"</span><span class="p">,</span>
-            <span class="p">{</span>
-                <span class="s2">"question"</span><span class="p">:</span> <span class="n">question</span><span class="p">,</span>
-                <span class="s2">"error_message"</span><span class="p">:</span> <span class="s2">"You didn't select a choice."</span><span class="p">,</span>
-            <span class="p">},</span>
-        <span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">selected_choice</span><span class="o">.</span><span class="n">votes</span> <span class="o">+=</span> <span class="mi">1</span>
-        <span class="n">selected_choice</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
-        
-        <span class="k">return</span> <span class="n">HttpResponseRedirect</span><span class="p">(</span><span class="n">reverse</span><span class="p">(</span><span class="s2">"polls:results"</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">question</span><span class="o">.</span><span class="n">id</span><span class="p">,)))</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="The-results-Template">The <code>results</code> Template<a class="anchor-link" href="#The-results-Template">¶</a></h3><p>The <code>results</code> template defines the content of the view. Django template comes with a <code>pluralize</code> <strong>filter</strong> that you can apply to an object to transform its value. It adds a plural suffix, often <code>"s"</code> if the value is not <code>1</code>, <code>"1"</code>, or an object of length <code>1</code></p>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-python"><pre><span></span><span class="o">&lt;</span><span class="err">!</span><span class="o">--</span> <span class="n">polls</span><span class="o">/</span><span class="n">templates</span><span class="o">/</span><span class="n">polls</span><span class="o">/</span><span class="n">results</span><span class="o">.</span><span class="n">html</span> <span class="o">--&gt;</span>
-<span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="p">{{</span> <span class="n">question</span><span class="o">.</span><span class="n">question_text</span> <span class="p">}}</span><span class="o">&lt;/</span><span class="n">h1</span><span class="o">&gt;</span>
-
-<span class="o">&lt;</span><span class="n">ul</span><span class="o">&gt;</span>
-  <span class="p">{</span><span class="o">%</span> <span class="k">for</span> <span class="n">choice</span> <span class="ow">in</span> <span class="n">question</span><span class="o">.</span><span class="n">choice_set</span><span class="o">.</span><span class="n">all</span> <span class="o">%</span><span class="p">}</span>
-  <span class="o">&lt;</span><span class="n">li</span><span class="o">&gt;</span><span class="p">{{</span> <span class="n">choice</span><span class="o">.</span><span class="n">choice_text</span> <span class="p">}}</span> <span class="o">--</span> <span class="p">{{</span> <span class="n">choice</span><span class="o">.</span><span class="n">votes</span> <span class="p">}}</span> <span class="n">vote</span><span class="p">{{</span> <span class="n">choice</span><span class="o">.</span><span class="n">votes</span><span class="o">|</span><span class="n">pluralize</span> <span class="p">}}</span><span class="o">&lt;/</span><span class="n">li</span><span class="o">&gt;</span>
-  <span class="p">{</span><span class="o">%</span> <span class="n">endfor</span> <span class="o">%</span><span class="p">}</span>
-<span class="o">&lt;/</span><span class="n">ul</span><span class="o">&gt;</span>
-
-<span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s2">"{</span><span class="si">% u</span><span class="s2">rl 'polls:detail' question.id %}"</span><span class="o">&gt;</span><span class="n">Vote</span> <span class="n">again</span><span class="err">?</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="The-results-View">The <code>results</code> View<a class="anchor-link" href="#The-results-View">¶</a></h3><p>The <code>results</code> shows the voted results for a question.</p>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-python"><pre><span></span><span class="c1"># polls/view.py</span>
-
-<span class="kn">from</span> <span class="nn">django.shortcuts</span> <span class="kn">import</span> <span class="n">get_object_or_404</span><span class="p">,</span> <span class="n">render</span>
-
-<span class="o">...</span>
-
-<span class="k">def</span> <span class="nf">results</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">question_id</span><span class="p">):</span>
-    <span class="n">question</span> <span class="o">=</span> <span class="n">get_object_or_404</span><span class="p">(</span><span class="n">Question</span><span class="p">,</span> <span class="n">pk</span><span class="o">=</span><span class="n">question_id</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s2">"polls/results.html"</span><span class="p">,</span> <span class="p">{</span><span class="s2">"question"</span><span class="p">:</span> <span class="n">question</span><span class="p">})</span>
+<span class="p">{</span><span class="o">%</span> <span class="n">endblock</span> <span class="n">content</span> <span class="o">%</span><span class="p">}</span>
 </pre></div>
 </div>
 </div>
@@ -8437,14 +7986,14 @@ main {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Generic-View">Generic View<a class="anchor-link" href="#Generic-View">¶</a></h2><p>Python is famous for its simplicity. Most view functions can be simplified with <strong>view classes</strong> that inherit common process logic from so-called <strong>generic view classes</strong>.</p>
-<p>Two common patterns in development are</p>
+<h2 id="CRUD-Operations">CRUD Operations<a class="anchor-link" href="#CRUD-Operations">¶</a></h2><p>CRUD stands for Create, Read, Update and Delete, four common object operations.</p>
+<p>It is not a surprise that Django provides four generic classes as base classes for CRUD views:</p>
 <ul>
-<li>displaying a list of objects</li>
-<li>showing the details of an object</li>
+<li><code>CreateView</code>: create an object</li>
+<li><code>DetailView</code>: show object attributes</li>
+<li><code>UpdateView</code>: update object attributes</li>
+<li><code>DeleteView</code>: delete an object</li>
 </ul>
-<p>Django abstract these into so-called generic views to remove redundant code.</p>
-<p>To use generic views, you define view classes that inherit from an appropriate generic view. Django will do the heavy lifting and let you customize the view behavior.</p>
 </div>
 </div>
 </div>
@@ -8455,14 +8004,22 @@ main {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="View-Classes">View Classes<a class="anchor-link" href="#View-Classes">¶</a></h3><p>In the <code>polls</code> app, the <code>index</code> view displays a list of questions. You define a <code>IndexView</code> that inherits from <code>generic.ListView</code>.</p>
-<p>The <code>detail</code> view and <code>results</code> view display the details of an object. You define <code>DetailView</code> and <code>ResultView</code> that inherit from <code>generic.DetailView</code>.</p>
-<p>Both generic views will retrieve the objects from database and apply them to the corresponding templates.</p>
-<p>You can customize the generic views by define methods in your views. For example, the <code>IndexView</code> fetches the list of objects in a specific order.</p>
+<h3 id="Create-Operation">Create Operation<a class="anchor-link" href="#Create-Operation">¶</a></h3><ul>
+<li>View<ul>
+<li>Define a <code>TaskCreateView</code> subclass of <code>CreateView</code> in <code>views.py</code>.</li>
+<li>Set its <code>model</code>, <code>form_class</code>, and <code>success_url</code>.</li>
+<li>Use <code>reverse_lazy()</code> to get home URL at runtime.</li>
+</ul>
+</li>
+<li>Url<ul>
+<li>Add <code>path("create/", TaskCreateView.as_view(), name="task_create"),</code> to <code>urlpatterns</code> in <code>tasks/urls.py</code></li>
+</ul>
+</li>
+</ul>
 </div>
 </div>
 </div>
-</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8470,35 +8027,16 @@ main {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-python"><pre><span></span><span class="c1"># polls/views.py</span>
+<div class="highlight hl-python"><pre><span></span><span class="kn">from</span> <span class="nn">django.views.generic</span> <span class="kn">import</span> <span class="n">CreateView</span>
 
-<span class="kn">from</span> <span class="nn">django.http</span> <span class="kn">import</span> <span class="n">HttpResponseRedirect</span>
-<span class="kn">from</span> <span class="nn">django.shortcuts</span> <span class="kn">import</span> <span class="n">get_object_or_404</span><span class="p">,</span> <span class="n">render</span>
-<span class="kn">from</span> <span class="nn">django.urls</span> <span class="kn">import</span> <span class="n">reverse</span>
-<span class="kn">from</span> <span class="nn">django.views</span> <span class="kn">import</span> <span class="n">generic</span>
+<span class="kn">from</span> <span class="nn">django.urls</span> <span class="kn">import</span> <span class="n">reverse_lazy</span>
+<span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">Task</span>
+<span class="kn">from</span> <span class="nn">.task_form</span> <span class="kn">import</span> <span class="n">TaskForm</span>
 
-<span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">Choice</span><span class="p">,</span> <span class="n">Question</span>
-
-
-<span class="k">class</span> <span class="nc">IndexView</span><span class="p">(</span><span class="n">generic</span><span class="o">.</span><span class="n">ListView</span><span class="p">):</span>
-    <span class="n">template_name</span> <span class="o">=</span> <span class="s2">"polls/index.html"</span>
-    <span class="n">context_object_name</span> <span class="o">=</span> <span class="s2">"latest_question_list"</span>
-
-    <span class="k">def</span> <span class="nf">get_queryset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">"""Return the last five published questions."""</span>
-        <span class="k">return</span> <span class="n">Question</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">order_by</span><span class="p">(</span><span class="s2">"-publish_date"</span><span class="p">)[:</span><span class="mi">5</span><span class="p">]</span>
-
-
-<span class="k">class</span> <span class="nc">DetailView</span><span class="p">(</span><span class="n">generic</span><span class="o">.</span><span class="n">DetailView</span><span class="p">):</span>
-    <span class="n">model</span> <span class="o">=</span> <span class="n">Question</span>
-    <span class="n">template_name</span> <span class="o">=</span> <span class="s2">"polls/detail.html"</span>
-
-
-<span class="k">class</span> <span class="nc">ResultsView</span><span class="p">(</span><span class="n">generic</span><span class="o">.</span><span class="n">DetailView</span><span class="p">):</span>
-    <span class="n">model</span> <span class="o">=</span> <span class="n">Question</span>
-    <span class="n">template_name</span> <span class="o">=</span> <span class="s2">"polls/results.html"</span>
-
-<span class="o">...</span>
+<span class="k">class</span> <span class="nc">TaskCreateView</span><span class="p">(</span><span class="n">CreateView</span><span class="p">):</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">Task</span>
+    <span class="n">form_class</span> <span class="o">=</span> <span class="n">TaskForm</span>
+    <span class="n">success_url</span> <span class="o">=</span> <span class="n">reverse_lazy</span><span class="p">(</span><span class="s2">"task_list"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -8511,10 +8049,11 @@ main {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Amend-URLs">Amend URLs<a class="anchor-link" href="#Amend-URLs">¶</a></h3><p>The generic views have many naming conventions for templates and URL paths.</p>
-<p>For example, the default template name for a model is <code>&lt;model_name&gt;_list.html</code>. If you don't use the default name, you should set the <code>template_name</code> class attribute.</p>
-<p>By convention, Django uses <code>pk</code> as the generic name as the parameter for object key. <code>pk</code> is an abbreviation of <code>Primary Key</code> that is an unique key in relational database table.</p>
-<p>Each view class has an <code>as_view()</code> method that create an instance of the class.</p>
+<h3 id="Revise-Home-Template">Revise Home Template<a class="anchor-link" href="#Revise-Home-Template">¶</a></h3><p>Add two components in <code>tasks/templates/tasks/task_list.html</code>:</p>
+<ul>
+<li>A link to <code>task_create</code> url</li>
+<li>A table that shows a list of tasks. The list of tasks is the context object that could be accessed as <code>task_list</code> or <code>object_list</code>.</li>
+</ul>
 </div>
 </div>
 </div>
@@ -8526,19 +8065,37 @@ main {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-python"><pre><span></span><span class="c1"># polls/urls.py</span>
+<div class="highlight hl-python"><pre><span></span><span class="p">{</span><span class="o">%</span> <span class="n">extends</span> <span class="s2">"base.html"</span> <span class="o">%</span><span class="p">}</span>
 
-<span class="kn">from</span> <span class="nn">django.urls</span> <span class="kn">import</span> <span class="n">path</span>
+<span class="p">{</span><span class="o">%</span> <span class="n">block</span> <span class="n">content</span> <span class="o">%</span><span class="p">}</span>
 
-<span class="kn">from</span> <span class="nn">.views</span> <span class="kn">import</span> <span class="n">IndexView</span><span class="p">,</span> <span class="n">DetailView</span><span class="p">,</span> <span class="n">ResultsView</span><span class="p">,</span> <span class="n">vote</span>
+<span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="n">Todo</span> <span class="n">Tasks</span><span class="o">&lt;/</span><span class="n">h1</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s2">"{</span><span class="si">% u</span><span class="s2">rl 'task_create' %}"</span><span class="o">&gt;</span><span class="n">Add</span> <span class="n">Task</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span>
 
-<span class="n">app_name</span> <span class="o">=</span> <span class="s2">"polls"</span>
-<span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="n">path</span><span class="p">(</span><span class="s2">""</span><span class="p">,</span> <span class="n">IndexView</span><span class="o">.</span><span class="n">as_view</span><span class="p">(),</span> <span class="n">name</span><span class="o">=</span><span class="s2">"index"</span><span class="p">),</span>
-    <span class="n">path</span><span class="p">(</span><span class="s2">"&lt;int:pk&gt;/"</span><span class="p">,</span> <span class="n">DetailView</span><span class="o">.</span><span class="n">as_view</span><span class="p">(),</span> <span class="n">name</span><span class="o">=</span><span class="s2">"detail"</span><span class="p">),</span>
-    <span class="n">path</span><span class="p">(</span><span class="s2">"&lt;int:pk&gt;/results/"</span><span class="p">,</span> <span class="n">ResultsView</span><span class="o">.</span><span class="n">as_view</span><span class="p">(),</span> <span class="n">name</span><span class="o">=</span><span class="s2">"results"</span><span class="p">),</span>
-    <span class="n">path</span><span class="p">(</span><span class="s2">"&lt;int:question_id&gt;/vote/"</span><span class="p">,</span> <span class="n">vote</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">"vote"</span><span class="p">),</span>
-<span class="p">]</span>
+<span class="o">&lt;</span><span class="n">table</span> <span class="n">class</span><span class="o">=</span><span class="s2">"table table-striped"</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">thead</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">tr</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="n">th</span><span class="o">&gt;</span><span class="n">Task</span><span class="o">&lt;/</span><span class="n">th</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="n">th</span><span class="o">&gt;</span><span class="n">Done</span><span class="err">?</span><span class="o">&lt;/</span><span class="n">th</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="n">th</span><span class="o">&gt;</span><span class="n">Action</span><span class="o">&lt;/</span><span class="n">th</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="n">tr</span><span class="o">&gt;</span>
+  <span class="o">&lt;/</span><span class="n">thead</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">tbody</span><span class="o">&gt;</span>
+    <span class="p">{</span><span class="o">%</span> <span class="k">for</span> <span class="n">task</span> <span class="ow">in</span> <span class="n">task_list</span> <span class="o">%</span><span class="p">}</span>
+    <span class="o">&lt;</span><span class="n">tr</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="n">td</span><span class="o">&gt;</span>
+        <span class="p">{{</span> <span class="n">task</span><span class="o">.</span><span class="n">name</span> <span class="p">}}</span>
+      <span class="o">&lt;/</span><span class="n">td</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="n">td</span><span class="o">&gt;</span>
+        <span class="p">{</span><span class="o">%</span> <span class="k">if</span> <span class="n">task</span><span class="o">.</span><span class="n">is_done</span> <span class="o">%</span><span class="p">}</span><span class="n">Yes</span><span class="p">{</span><span class="o">%</span> <span class="k">else</span> <span class="o">%</span><span class="p">}</span><span class="n">No</span><span class="p">{</span><span class="o">%</span> <span class="n">endif</span> <span class="o">%</span><span class="p">}</span>
+      <span class="o">&lt;/</span><span class="n">td</span><span class="o">&gt;</span>
+
+    <span class="o">&lt;/</span><span class="n">tr</span><span class="o">&gt;</span>
+    <span class="p">{</span><span class="o">%</span> <span class="n">endfor</span> <span class="o">%</span><span class="p">}</span>
+  <span class="o">&lt;/</span><span class="n">tbody</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">table</span><span class="o">&gt;</span>
+
+<span class="p">{</span><span class="o">%</span> <span class="n">endblock</span> <span class="n">content</span> <span class="o">%</span><span class="p">}</span>
 </pre></div>
 </div>
 </div>
@@ -8551,9 +8108,24 @@ main {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="The-Home-URL">The Home URL<a class="anchor-link" href="#The-Home-URL">¶</a></h3><p>Django provides a default home page if you don't define any URLs.</p>
-<p>When you define any URL, you should also define the home page URL.</p>
-<p>The following code redirect the home URL to an app view.</p>
+<h3 id="Read-Operation">Read Operation<a class="anchor-link" href="#Read-Operation">¶</a></h3><ul>
+<li>View<ul>
+<li>Define a <code>TaskDetailView</code> subclass of <code>DetailView</code> in <code>views.py</code>.</li>
+</ul>
+</li>
+<li>Template<ul>
+<li>Create <code>tasks/templates/tasks/task_detail.html</code> template</li>
+</ul>
+</li>
+<li>Url<ul>
+<li>Add <code>path("tasks/&lt;int:pk&gt;/", TaskDetailView.as_view(), name="task_detail"),</code> to <code>urlpatterns</code> in <code>tasks/urls.py</code></li>
+</ul>
+</li>
+<li>Link from home view<ul>
+<li>Add a link in <code>tasks/templates/tasks/task_list.html</code> for each task.</li>
+</ul>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -8565,20 +8137,212 @@ main {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-python"><pre><span></span><span class="kn">from</span> <span class="nn">django.contrib</span> <span class="kn">import</span> <span class="n">admin</span>
-<span class="kn">from</span> <span class="nn">django.http</span> <span class="kn">import</span> <span class="n">HttpResponseRedirect</span>
-<span class="kn">from</span> <span class="nn">django.urls</span> <span class="kn">import</span> <span class="n">include</span><span class="p">,</span> <span class="n">path</span>
+<div class="highlight hl-python"><pre><span></span><span class="kn">from</span> <span class="nn">django.views.generic</span> <span class="kn">import</span> <span class="n">DetailView</span>
 
 
-<span class="k">def</span> <span class="nf">redirect_home</span><span class="p">(</span><span class="n">_request</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">HttpResponseRedirect</span><span class="p">(</span><span class="s2">"polls/"</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">TaskDetailView</span><span class="p">(</span><span class="n">DetailView</span><span class="p">):</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">Task</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-python"><pre><span></span><span class="p">{</span><span class="o">%</span> <span class="n">extends</span> <span class="s2">"base.html"</span> <span class="o">%</span><span class="p">}</span>
+
+<span class="p">{</span><span class="o">%</span> <span class="n">block</span> <span class="n">content</span> <span class="o">%</span><span class="p">}</span>
+
+<span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="p">{{</span> <span class="n">task</span><span class="o">.</span><span class="n">name</span> <span class="p">}}</span><span class="o">&lt;/</span><span class="n">h1</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="p">{{</span> <span class="n">task</span><span class="o">.</span><span class="n">description</span> <span class="p">}}</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">Completed</span><span class="p">:</span> <span class="p">{</span><span class="o">%</span> <span class="k">if</span> <span class="n">task</span><span class="o">.</span><span class="n">is_done</span> <span class="o">%</span><span class="p">}</span><span class="n">Yes</span><span class="p">{</span><span class="o">%</span> <span class="k">else</span> <span class="o">%</span><span class="p">}</span><span class="n">No</span><span class="p">{</span><span class="o">%</span> <span class="n">endif</span> <span class="o">%</span><span class="p">}</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+
+<span class="o">&lt;</span><span class="n">a</span> <span class="n">class</span><span class="o">=</span><span class="s2">"btn btn-info"</span> <span class="n">href</span><span class="o">=</span><span class="s2">"{</span><span class="si">% u</span><span class="s2">rl 'task_list' %}"</span> <span class="n">role</span><span class="o">=</span><span class="s2">"button"</span><span class="o">&gt;</span><span class="n">Home</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span>
+
+<span class="p">{</span><span class="o">%</span> <span class="n">endblock</span> <span class="n">content</span> <span class="o">%</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-python"><pre><span></span><span class="o">&lt;</span><span class="err">!</span><span class="o">--</span> <span class="n">add</span> <span class="n">a</span> <span class="n">link</span> <span class="k">for</span> <span class="n">each</span> <span class="n">task</span> <span class="n">before</span> <span class="n">the</span> <span class="o">&lt;</span><span class="n">td</span><span class="o">&gt;</span> <span class="n">cell</span> <span class="n">of</span> <span class="n">task</span> <span class="n">name</span>  <span class="o">--&gt;</span>
+<span class="o">&lt;</span><span class="n">a</span> <span class="n">class</span><span class="o">=</span><span class="s2">"icon-link"</span> <span class="n">href</span><span class="o">=</span><span class="s2">"{</span><span class="si">% u</span><span class="s2">rl 'task_detail' task.pk %}"</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">i</span> <span class="n">class</span><span class="o">=</span><span class="s2">"bi bi-pencil"</span><span class="o">&gt;&lt;/</span><span class="n">i</span><span class="o">&gt;</span> <span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span>
+<span class="o">&amp;</span><span class="n">nbsp</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Update-Operation">Update Operation<a class="anchor-link" href="#Update-Operation">¶</a></h3><ul>
+<li>View<ul>
+<li>Define a <code>TaskUpdateView</code> subclass of <code>UpdateView</code> in <code>views.py</code>.</li>
+<li>Set its <code>model</code>, <code>form_class</code>, and <code>success_url</code>.</li>
+<li>Use <code>reverse_lazy()</code> to get home URL at runtime.</li>
+</ul>
+</li>
+<li>Url<ul>
+<li>Add <code>path("tasks/&lt;int:pk&gt;/update/", TaskUpdateView.as_view(), name="task_update"),</code> to <code>urlpatterns</code> in <code>tasks/urls.py</code>.</li>
+</ul>
+</li>
+<li>A link from task detail view</li>
+</ul>
+</div>
+</div>
+</div>
+</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-python"><pre><span></span><span class="kn">from</span> <span class="nn">django.views.generic</span> <span class="kn">import</span> <span class="n">UpdateView</span>
+
+<span class="k">class</span> <span class="nc">TaskUpdateView</span><span class="p">(</span><span class="n">UpdateView</span><span class="p">):</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">Task</span>
+    <span class="n">form_class</span> <span class="o">=</span> <span class="n">TaskForm</span>
+    <span class="n">success_url</span> <span class="o">=</span> <span class="n">reverse_lazy</span><span class="p">(</span><span class="s2">"task_list"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-python"><pre><span></span><span class="p">{</span><span class="o">%</span> <span class="n">extends</span> <span class="s2">"base.html"</span> <span class="o">%</span><span class="p">}</span>
+
+<span class="p">{</span><span class="o">%</span> <span class="n">block</span> <span class="n">content</span> <span class="o">%</span><span class="p">}</span>
+
+<span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="p">{{</span> <span class="n">task</span><span class="o">.</span><span class="n">name</span> <span class="p">}}</span><span class="o">&lt;/</span><span class="n">h1</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="p">{{</span> <span class="n">task</span><span class="o">.</span><span class="n">description</span> <span class="p">}}</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">Completed</span><span class="p">:</span> <span class="p">{</span><span class="o">%</span> <span class="k">if</span> <span class="n">task</span><span class="o">.</span><span class="n">is_done</span> <span class="o">%</span><span class="p">}</span><span class="n">Yes</span><span class="p">{</span><span class="o">%</span> <span class="k">else</span> <span class="o">%</span><span class="p">}</span><span class="n">No</span><span class="p">{</span><span class="o">%</span> <span class="n">endif</span> <span class="o">%</span><span class="p">}</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">br</span> <span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s2">"{</span><span class="si">% u</span><span class="s2">rl 'task_update' task.pk %}"</span><span class="o">&gt;</span><span class="n">Edit</span> <span class="n">task</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span>
+
+<span class="p">{</span><span class="o">%</span> <span class="n">endblock</span> <span class="n">content</span> <span class="o">%</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Delete-Operation">Delete Operation<a class="anchor-link" href="#Delete-Operation">¶</a></h3><ul>
+<li>View<ul>
+<li>Define a <code>TaskDeleteView</code> subclass of <code>DeleteView</code> in <code>views.py</code>.</li>
+</ul>
+</li>
+<li>Template<ul>
+<li>Create <code>tasks/templates/tasks/task_confirm_delete.html</code> template</li>
+</ul>
+</li>
+<li>Url<ul>
+<li>Add <code>path("tasks/&lt;int:pk&gt;/delete/", TaskDeleteView.as_view(), name="task_delete"),</code> to <code>urlpatterns</code> in <code>tasks/urls.py</code></li>
+</ul>
+</li>
+<li>Link from home view and detail view for each task</li>
+</ul>
+</div>
+</div>
+</div>
+</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-python"><pre><span></span><span class="kn">from</span> <span class="nn">django.views.generic</span> <span class="kn">import</span> <span class="n">DeleteView</span>
+
+<span class="kn">from</span> <span class="nn">django.urls</span> <span class="kn">import</span> <span class="n">reverse_lazy</span>
 
 
-<span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="n">path</span><span class="p">(</span><span class="s2">""</span><span class="p">,</span> <span class="n">redirect_home</span><span class="p">),</span>
-    <span class="n">path</span><span class="p">(</span><span class="s2">"polls/"</span><span class="p">,</span> <span class="n">include</span><span class="p">(</span><span class="s2">"polls.urls"</span><span class="p">)),</span>
-    <span class="n">path</span><span class="p">(</span><span class="s2">"admin/"</span><span class="p">,</span> <span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">urls</span><span class="p">),</span>
-<span class="p">]</span>
+<span class="k">class</span> <span class="nc">TaskDeleteView</span><span class="p">(</span><span class="n">DeleteView</span><span class="p">):</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">Task</span>
+    <span class="n">success_url</span> <span class="o">=</span> <span class="n">reverse_lazy</span><span class="p">(</span><span class="s2">"task_list"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-python"><pre><span></span><span class="p">{</span><span class="o">%</span> <span class="n">extends</span> <span class="s2">"base.html"</span> <span class="o">%</span><span class="p">}</span>
+
+<span class="p">{</span><span class="o">%</span> <span class="n">block</span> <span class="n">content</span> <span class="o">%</span><span class="p">}</span>
+<span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="n">Confirm</span> <span class="n">Delete</span> <span class="n">V3</span><span class="o">&lt;/</span><span class="n">h1</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">Are</span> <span class="n">you</span> <span class="n">sure</span> <span class="n">you</span> <span class="n">want</span> <span class="n">to</span> <span class="n">delete</span> <span class="n">task</span> <span class="s2">"{{ task.name }}"</span><span class="err">?</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">form</span> <span class="n">method</span><span class="o">=</span><span class="s2">"post"</span><span class="o">&gt;</span>
+  <span class="p">{</span><span class="o">%</span> <span class="n">csrf_token</span> <span class="o">%</span><span class="p">}</span>
+  <span class="o">&lt;</span><span class="n">button</span> <span class="nb">type</span><span class="o">=</span><span class="s2">"submit"</span><span class="o">&gt;</span><span class="n">Delete</span><span class="o">&lt;/</span><span class="n">button</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s2">"{</span><span class="si">% u</span><span class="s2">rl 'task_list' %}"</span><span class="o">&gt;</span><span class="n">Cancel</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">form</span><span class="o">&gt;</span>
+
+<span class="p">{</span><span class="o">%</span> <span class="n">endblock</span> <span class="n">content</span> <span class="o">%</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-python"><pre><span></span><span class="o">&lt;</span><span class="err">!</span><span class="o">--</span> <span class="ow">in</span> <span class="n">task_list</span><span class="o">.</span><span class="n">html</span><span class="p">,</span> <span class="n">before</span> <span class="n">each</span> <span class="n">task</span> <span class="n">name</span> <span class="o">--&gt;</span>
+
+<span class="o">&lt;</span><span class="n">a</span> <span class="n">class</span><span class="o">=</span><span class="s2">"icon-link"</span> <span class="n">href</span><span class="o">=</span><span class="s2">"{</span><span class="si">% u</span><span class="s2">rl 'task_delete' task.pk %}"</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">i</span> <span class="n">class</span><span class="o">=</span><span class="s2">"bi bi-trash"</span><span class="o">&gt;&lt;/</span><span class="n">i</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span>
+<span class="o">&amp;</span><span class="n">nbsp</span><span class="p">;</span>
+
+
+<span class="o">&lt;</span><span class="err">!</span><span class="o">--</span> <span class="ow">in</span> <span class="n">task_detail</span><span class="o">.</span><span class="n">html</span><span class="p">,</span> <span class="n">before</span> <span class="n">edit</span> <span class="n">link</span> <span class="o">--&gt;</span>
+<span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s2">"{</span><span class="si">% u</span><span class="s2">rl 'task_delete' task.pk %}"</span><span class="o">&gt;</span><span class="n">Delete</span> <span class="n">task</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span>
 </pre></div>
 </div>
 </div>

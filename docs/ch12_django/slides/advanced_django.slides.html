@@ -7444,8 +7444,9 @@ main {
 <li>Unit Test</li>
 <li>View Test</li>
 <li>View</li>
+<li>Generic Display View</li>
 <li>Template</li>
-<li>Forms</li>
+<li>Form</li>
 </ul>
 </div>
 </div>
@@ -7775,6 +7776,67 @@ main {
 <li>define specific HTTP methods (GET, POST, etc.) instead of functional-style conditional branching.</li>
 </ul>
 <p>Please check <a href="https://docs.djangoproject.com/en/4.2/topics/class-based-views/">Class-based views document</a> for more details.</p>
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Generic-Display-View">Generic Display View<a class="anchor-link" href="#Generic-Display-View">¶</a></h2><p>Django provides two common generic views to display data:</p>
+<ul>
+<li><code>ListView</code>: shows a list of objects.</li>
+<li><code>DetailView</code>: shows attributes of an object.</li>
+</ul>
+<p>You can inherit from these generic views to display a list of objects or attributes of a specific object.</p>
+<p>If you follow the naming pattern, the code is very simple.</p>
+<p>You can customize the view by overriding attributes or methods of the views.</p>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="The-ListView-Class">The <code>ListView</code> Class<a class="anchor-link" href="#The-ListView-Class">¶</a></h3><p>In Django, the <code>ListView</code> generic class view performs the following common functions:</p>
+<ul>
+<li>setting the data model in <code>model</code> attribute.</li>
+<li>retrieving a list of objects via <code>get_queryset()</code> method.</li>
+<li>assigning the list of objects as the context object to an attribute specified by <code>context_object_name</code>. By default, the context object is the <code>object_list</code> attribute.</li>
+<li>rendering the list with a templated specified by <code>template_name</code> attribute.</li>
+</ul>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Template-for-ListView">Template for <code>ListView</code><a class="anchor-link" href="#Template-for-ListView">¶</a></h3><p>The default template name for a <code>ListView</code> is <code>&lt;model_name&gt;_list.html</code> where the <code>&lt;model_name&gt;</code> is the name of the object model.</p>
+<p>For <code>model=Question</code> attribute, the default template is <code>question_list.html</code>. Use <code>template_name</code> to specify a different template file.</p>
+<p>The template can use the default context object <code>object_list</code> if it is not overridden by the <code>context_object_name</code> in the list view class.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="The-DetailView-Class">The <code>DetailView</code> Class<a class="anchor-link" href="#The-DetailView-Class">¶</a></h3><p>Similar to the <code>ListView</code>, the <code>DetailView</code> generic class uses an instance of its <code>model</code>.</p>
+<p>By default the object uses the lowercase <code>&lt;model_name&gt;</code> as the context object.</p>
+<p>The default template is <code>&lt;model_name&gt;_detail.html</code>.</p>
 </div>
 </div>
 </div>
