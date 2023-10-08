@@ -44,5 +44,6 @@ hide:
 
 ### Chapter 12 A Web Site
 
+- [Django Crash Course](ch12_django/slides/django_crash_course.slides.html){:target="\_blank"}
 - [Basic Django](ch12_django/slides/basic_django.slides.html){:target="\_blank"}
 - [Advanced Django](ch12_django/slides/advanced_django.slides.html){:target="\_blank"}

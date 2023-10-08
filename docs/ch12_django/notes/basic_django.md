@@ -1,22 +1,11 @@
-# Django
+# Basic Django
 
-- HTTPS Overview
 - Getting Started
 - Database
 - Model
 - View
 - Form
 - Generic View
-
-## HTTPS Overview
-
-- [Introduction Video](https://youtu.be/d_QPZPo2PLc)
-- HTTPS handles authentication and encryption
-- A Web page has three types of contents:
-  - HTML: the structure data
-  - CSS: the style
-  - Javascript: the behavior
-- [Learn HTML & CSS in 15 minutes](https://thenextweb.com/news/learn-html-css-in-15-minutes)
 
 ## Getting Started
 
@@ -60,16 +49,6 @@ For example, Django creates a default `admin` app during the project creation. W
 
 To create an app named `polls`, run the command: `python3 manage.py startapp polls`.
 
-### Application Configuration
-
-Create an `app.py` inside the application package.
-
-Defines a subclass of `AppConfig`
-
-Configure settings such as `name`, `verbose_name` in the configuration class.
-
-Then add the class to the `INSTALLED_APPS` in the `setting.py` file in the project's main package.
-
 ### The App Folder
 
 The creating app command creates a `polls` folder that has the following files:
@@ -82,19 +61,25 @@ The creating app command creates a `polls` folder that has the following files:
 - `tests.py` the testing file
 - `views.py` the _view_ code to process HTTP requests and return HTTP responses.
 
-### MVT
+### Application Configuration
 
-Django uses a Model-View-Template (MVT) architecture.
+Create an `app.py` inside the application package.
 
-- Model: a model is a class the defines
-  - the structure of a domain data.
-  - the data operations.
-- View: a view is a function or a class that handles HTTP request, performs business logic, and returns a response.
-- Template: a template defines the structure or layout of the user interface. A view fills templates with data to create the final response.
+Defines a subclass of `AppConfig`
 
-Following is the [Django workflow](https://www.dothedev.com/blog/amp/what-is-django-used-for/):
+Configure settings such as `name`, `verbose_name` in the configuration class.
 
-![flow](../images/django_flow.jpg)
+Then add the `polls` app to the `INSTALLED_APPS` in the `setting.py` file in the project's main package.
+
+```python
+from django.apps import AppConfig
+
+
+class PollsConfig(AppConfig):
+    default_auto_field = 'django.db.models.BigAutoField'
+    name = 'polls'
+
+```
 
 ### What's a View
 

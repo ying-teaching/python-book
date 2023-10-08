@@ -41,6 +41,7 @@ nav:
           - 'Chapter 11: Data Model': ch11_data_model/notes/data_model.md
       - 'Part III. Algorithm Thinking':
           - 'Chapter 12: A Web Site':
+              - ch12_django/notes/django_crash_course.md
               - ch12_django/notes/basic_django.md
               - ch12_django/notes/advanced_django.md
   - Slides: slides.md

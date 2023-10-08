@@ -29,4 +29,5 @@ hide:
 
 ## Chapter 12 A Web Site
 
-- [Demo site](https://github.com/ying-teaching/python-book/tree/main/docs/ch12_django/code/my_site){:target="\_blank"}
+- [Todo Site](https://github.com/ying-teaching/python-book/tree/main/docs/ch12_django/code/todo_site){:target="\_blank"}
+- [My Site](https://github.com/ying-teaching/python-book/tree/main/docs/ch12_django/code/my_site){:target="\_blank"}

@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Todo Tasks</h1>
+<a href="{% url 'task_create' %}">Add Task</a>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Task</th>
+      <th>Done?</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for task in task_list %}
+    <tr>
+      <td>
+        <a class="icon-link" href="{% url 'task_detail' task.pk %}">
+          <i class="bi bi-pencil"></i> </a>
+        &nbsp;
+
+        <a class="icon-link" href="{% url 'task_delete' task.pk %}">
+          <i class="bi bi-trash"></i>
+        </a>
+        &nbsp;
+
+        {{ task.name }}
+      </td>
+      <td>
+        {% if task.is_done %}Yes{% else %}No{% endif %}
+      </td>
+
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock content %}

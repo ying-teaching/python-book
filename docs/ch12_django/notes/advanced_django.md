@@ -3,8 +3,9 @@
 - Unit Test
 - View Test
 - View
+- Generic Display View
 - Template
-- Forms
+- Form
 
 ## Test
 
@@ -155,6 +156,7 @@ class QuestionDetailViewTests(TestCase):
         url = reverse("polls:detail", args=(past_question.id,))
         response = self.client.get(url)
         self.assertContains(response, past_question.question_text)
+
 ```
 
 ## View
@@ -230,6 +232,7 @@ class AboutView(TemplateView):
 urlpatterns = [
     path("about/", AboutView.as_view()),
 ]
+
 ```
 
 ### Class-based or Function-based View?
@@ -240,6 +243,44 @@ Compared to a view function, a view class is preferred because it can
 - define specific HTTP methods (GET, POST, etc.) instead of functional-style conditional branching.
 
 Please check [Class-based views document](https://docs.djangoproject.com/en/4.2/topics/class-based-views/) for more details.
+
+## Generic Display View
+
+Django provides two common generic views to display data:
+
+- `ListView`: shows a list of objects.
+- `DetailView`: shows attributes of an object.
+
+You can inherit from these generic views to display a list of objects or attributes of a specific object.
+
+If you follow the naming pattern, the code is very simple.
+
+You can customize the view by overriding attributes or methods of the views.
+
+### The `ListView` Class
+
+In Django, the `ListView` generic class view performs the following common functions:
+
+- setting the data model in `model` attribute.
+- retrieving a list of objects via `get_queryset()` method.
+- assigning the list of objects as the context object to an attribute specified by `context_object_name`. By default, the context object is the `object_list` attribute.
+- rendering the list with a templated specified by `template_name` attribute.
+
+### Template for `ListView`
+
+The default template name for a `ListView` is `<model_name>_list.html` where the `<model_name>` is the name of the object model.
+
+For `model=Question` attribute, the default template is `question_list.html`. Use `template_name` to specify a different template file.
+
+The template can use the default context object `object_list` if it is not overridden by the `context_object_name` in the list view class.
+
+### The `DetailView` Class
+
+Similar to the `ListView`, the `DetailView` generic class uses an instance of its `model`.
+
+By default the object uses the lowercase `<model_name>` as the context object.
+
+The default template is `<model_name>_detail.html`.
 
 ## Template
 
@@ -330,6 +371,7 @@ from django import forms
 
 class NameForm(forms.Form):
     your_name = forms.CharField(label="Your name", max_length=100)
+
 ```
 
 ### Form UI
@@ -371,4 +413,5 @@ def get_name(request):
         form = NameForm()
 
     return render(request, "name.html", {"form": form})
+
 ```
