@@ -7445,6 +7445,7 @@ main {
 <ul>
 <li>built-in collection types that can contain multiple elements</li>
 <li>creating new collections from existing ones</li>
+<li>creating classes that contain data collection</li>
 </ul>
 </div>
 </div>
@@ -7501,7 +7502,7 @@ main {
 <h2 id="1-String">1 String<a class="anchor-link" href="#1-String">¶</a></h2><p>A string is a sequence of characters.</p>
 <p>A string is an immutable object.</p>
 <p>A programmer creates a string literal by surrounding text with single or double quotes, such as <code>'MARY'</code>, <code>"MARY"</code>, <code>'41'</code>, or <code>"41"</code>.</p>
-<p>An empty string is a sequence type with 0 elements, created with two quotes. Ex: <code>my_str = ''</code>.</p>
+<p>An empty string is a sequence type with 0 elements, created with a pair of single/double quotes. Ex: <code>my_str = ""</code> or <code>my_str=''</code>.</p>
 <p>Python use backslash <code>\</code> to escape special characters. For example: <code>"\n"</code> represents a newline character. It is also used to escape a slash or quotation symbols. For example: <code>"a slash \\ and an escaped \" double quotation mark.</code></p>
 </div>
 </div>
@@ -8200,7 +8201,7 @@ main {
 </div>
 </div>
 </div>
-</div>
+</div></section></section><section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -8517,7 +8518,7 @@ main {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">month_days</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'Jan'</span><span class="p">:</span> <span class="mi">31</span><span class="p">,</span> <span class="s1">'Apr'</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s1">'Jul'</span><span class="p">:</span> <span class="mi">31</span><span class="p">}</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">month_days</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"Jan"</span><span class="p">:</span> <span class="mi">31</span><span class="p">,</span> <span class="s2">"Apr"</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s2">"Jul"</span><span class="p">:</span> <span class="mi">31</span><span class="p">}</span>
 
 <span class="k">for</span> <span class="n">month</span> <span class="ow">in</span> <span class="n">month_days</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">month</span><span class="si">}</span><span class="s1"> has </span><span class="si">{</span><span class="n">month_days</span><span class="p">[</span><span class="n">month</span><span class="p">]</span><span class="si">}</span><span class="s1"> days'</span><span class="p">)</span>
@@ -8549,9 +8550,10 @@ main {
 <h3 id="4.5-More-Methods">4.5 More Methods<a class="anchor-link" href="#4.5-More-Methods">¶</a></h3><p>The dictionary has more methods. The following is a list of commonly-used methods. Try them.</p>
 <ul>
 <li><code>clear</code>: clear all elements</li>
-<li><code>pop</code>: return the value and remove the key-value pair. For example: <code>month_days.pop('Jan')</code>.</li>
+<li><code>pop</code>: return the value and remove the key-value pair. For example: <code>month_days.pop("Jan")</code>.</li>
 <li><code>popitem</code>: remove the latest inserted element the dictionary, return the removed element. For example: <code>month_days.popitem()</code>.</li>
 </ul>
+<p>You can also use built-in <code>del</code> operator to remove a key-value pair without return value. For example: <code>del month_days["Jan"]</code></p>
 <p>Exercise: please write a phone book program that lets users to input and query phone book by first name or phone number. The search should be case-insensitive.</p>
 </div>
 </div>
@@ -8568,7 +8570,8 @@ main {
 <li>List/set/dictionary comprehension: create a list/set/dictionary from an iterable object.</li>
 <li>Generator expression: create an iterable object from a sequence object.</li>
 </ul>
-<p>An <code>iterable</code> object is a collection object or something that you can apply the <code>for</code> loop. For example, <code>range(5)</code>.</p>
+<p>An <code>iterable</code> object is a collection object or something that you can apply the <code>for</code> loop. For example, <code>range(5)</code> is an iterable object.</p>
+<p>The advantage of <code>iterable</code> is that it is <strong>lazy</strong>, generating one value at a time. <code>range(1_000_000_000)</code> doesn't create one billion numbers when it is initialized, it generate one number in each <code>for</code> loop. Thus it doesn't need memory for all numbers.</p>
 </div>
 </div>
 </div>
@@ -8723,12 +8726,12 @@ main {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [20]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">squares</span><span class="p">(</span><span class="n">size</span><span class="p">):</span>
@@ -8737,21 +8740,8 @@ main {
 
 
 <span class="n">five_squares</span> <span class="o">=</span> <span class="p">[</span><span class="n">square</span> <span class="k">for</span> <span class="n">square</span> <span class="ow">in</span> <span class="n">squares</span><span class="p">(</span><span class="mi">5</span><span class="p">)]</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">five_squares</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">five_squares</span><span class="p">)</span> <span class="c1"># [0, 1, 4, 9, 16]</span>
 </pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>[0, 1, 4, 9, 16]
-</pre>
 </div>
 </div>
 </div>
