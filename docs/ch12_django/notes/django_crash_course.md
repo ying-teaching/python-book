@@ -200,30 +200,34 @@ It defines a `content` block that can be replaced by other templates.
 
 Tips: in VS Code, use `!` and a tab to create an initial page content.
 
-```html
+```python
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
-      crossorigin="anonymous"
-    />
-    <!-- Option 1: Include in HTML -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
-    />
-    <title>Todo List</title>
-  </head>
 
-  <body>
-    <div class="container">{% block content %}{% endblock content %}</div>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- This link includes bootstrap css CDN to all pages. -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+    crossorigin="anonymous">
+
+  <!-- This link includes bootstrap icons CDN to all pages. -->
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+  <title>Todo List</title>
+</head>
+
+<body>
+  <div class="container">
+    {% block content %}{% endblock content %}
+  </div>
+</body>
+
 </html>
+
 ```
 
 ### The Home Template
@@ -233,7 +237,9 @@ Each app can have many template files. The `"APP_DIRS": True,` in the `TEMPLATES
 Create `tasks/templates/tasks/task_list.html` with the following content. Django has conventions about directory structure and filename. Using a `<model_name>_list.html` saves a configuration in a view class that uses the template.
 
 ```html
-{% extends "base.html" %} {% block content %}
+{% extends "base.html" %}
+
+{% block content %}
 
 <h1>Todo Tasks</h1>
 
@@ -273,7 +279,7 @@ class TaskListView(ListView):
 
 You need to set two types of URLs
 
-- the `tasks` app URLs: create a below `tasks/urls.py` file.
+- the `tasks` app URLs: create a path as shown `tasks/urls.py` file - as shown below.
 - link the `tasks` URLs to the project root URLs. Add `path("", include("tasks.urls")),` as the first item to the `urlpatterns` in `todo_site/urls.py`.
 
 Now you should be able to see the `Todo Tasks` H1 header in the homepage.
