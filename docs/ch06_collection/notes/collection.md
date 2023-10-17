@@ -419,7 +419,7 @@ print(top)
 
 ```
 
-## 2 Tuple
+## 3 Tuple
 
 A tuple consists of a number of values separated by commas.
 
@@ -491,7 +491,7 @@ alice[1] += 42
 
 ```
 
-## 3 Set
+## 4 Set
 
 A set is an _unordered_ collection of _unique_ elements. Sets have the following properties:
 
@@ -507,7 +507,7 @@ But you don't access individual set elements as you do with a list or a tuple.
 
 You often use `in` operator to check membership. Set is unique in its support of many set operations like union, intersection, difference, and symmetric difference.
 
-### 3.1 Create a Set
+### 4.1 Create a Set
 
 There are two ways to create a set:
 
@@ -526,7 +526,7 @@ print(odds) # 1, 3, 5
 
 ```
 
-### 3.2 Immutable Elements in Set
+### 4.2 Immutable Elements in Set
 
 Set is kind of special because it is an mutable object but all its elements must be immutable.
 
@@ -551,7 +551,7 @@ my_set = {odds_2, evens_2}
 
 ```
 
-### 3.3 Set Operations
+### 4.3 Set Operations
 
 Using `in` or `not in` operator to check membership.
 
@@ -580,7 +580,7 @@ print(fruits - more_fruits) # {'orange', 'banana'}
 
 ```
 
-## 4 Dictionary
+## 5 Dictionary
 
 A dictionary is an _unordered_ collection of elements where each element has two parts: a key and a value. Or you can say that an element is a key-value pair.
 
@@ -588,7 +588,7 @@ The key can be any object as long as it is _immutable_. Common key types include
 
 People use dictionaries to store key-value pairs thus it is easy to find out a value. For example, you use `student_id` to retrieve a student object.
 
-### 4.1 Create a Dictionary
+### 5.1 Create a Dictionary
 
 You use `{}` to create a dictionary. The `{}` creates an empty dictionary. You can use a dictionary variable as a boolean expression to check if it is empty. To create elements, create a sequence of `key: value` pairs separated by `,`.
 
@@ -614,7 +614,7 @@ print(my_dict)
 
 ```
 
-### 4.2 Read or Write a Dictionary Element
+### 5.2 Read or Write a Dictionary Element
 
 You uses the `dictionary_name[key]` to access an individual element.
 
@@ -645,7 +645,7 @@ name_nobody = students[404]
 
 ```
 
-### 4.3 Other Operations
+### 5.3 Other Operations
 
 The built-in `len` function tells how many elements in a dictionary.
 
@@ -675,7 +675,7 @@ print(month_days)
 
 ```
 
-### 4.4 Iterate a Dictionary
+### 5.4 Iterate a Dictionary
 
 - You can use `for key in dictionary_name:` to iterate over all keys of a dictionary. Then you use `dictionary_name[key]` to access each value.
 - The `items` method returns a sequence of key-value pairs. Therefore, you can use `for key, value in dictionary_name.items():` to iterate over a dictionary.
@@ -703,7 +703,7 @@ print()
 
 ```
 
-### 4.5 More Methods
+### 5.5 More Methods
 
 The dictionary has more methods. The following is a list of commonly-used methods. Try them.
 
@@ -715,7 +715,7 @@ You can also use built-in `del` operator to remove a key-value pair without retu
 
 Exercise: please write a phone book program that lets users to input and query phone book by first name or phone number. The search should be case-insensitive.
 
-## 5 Creating New Collections From Existing Ones
+## 6 Creating New Collections From Existing Ones
 
 Python provides two convenient constructs to create new collections:
 
@@ -726,7 +726,7 @@ An `iterable` object is a collection object or something that you can apply the 
 
 The advantage of `iterable` is that it is **lazy**, generating one value at a time. `range(1_000_000_000)` doesn't create one billion numbers when it is initialized, it generate one number in each `for` loop. Thus it doesn't need memory for all numbers.
 
-### 5.1 Motivation
+### 6.1 Motivation
 
 When you want to create a list from a sequence with simple computation, you can use a list comprehension to simplify the code.
 
@@ -754,7 +754,7 @@ print(roots)
 
 ```
 
-### 5.2 List Comprehension
+### 6.2 List Comprehension
 
 Python let you use list comprehension to simplify the code. The list comprehension has a syntax like `[expression for member in iterable]`.
 
@@ -767,7 +767,7 @@ print(roots)
 
 ```
 
-### 5.3 Filtering Elements
+### 6.3 Filtering Elements
 
 You can use list comprehension with an additional `if condition` construct to filter out the elements.
 
@@ -777,7 +777,7 @@ print(lower_letters) # ['e', 'l', 'l', 'o', 'o', 'r', 'l', 'd']
 
 ```
 
-### 5.4 Set and Dictionary Comprehensions
+### 6.4 Set and Dictionary Comprehensions
 
 Similar to a list comprehension, you can create a set or a dictionary from an iterable object.
 
@@ -793,7 +793,7 @@ print(squares) # {0: 0, 1: 1, 2: 4, 3: 9, 4: 16}
 
 ```
 
-### 5.5 Generator Object
+## 7 Generator Object
 
 A generator object is an iterable object that you can use in a `for` loop.
 
@@ -812,7 +812,7 @@ print(five_squares) # [0, 1, 4, 9, 16]
 
 ```
 
-### 5.6 Why Generator?
+### 7.1 Why Generator?
 
 The reason for having generator function and generator objects is the so-called _lazy_ computation.
 
@@ -822,7 +822,7 @@ Suppose that you have one billion data records, it is impossible or inefficient 
 - you don't need a large memory to hold all records.
 - you might stop processing the rest of data for certain conditions.
 
-### 5.7 Generator Expression
+### 7.2 Generator Expression
 
 Instead of using a generator function, you can use a generator expression to create a generator object from an iterable object.
 
