@@ -6,6 +6,7 @@ Python provides three types of language constructs to support collection operati
 
 - built-in collection types that can contain multiple elements
 - creating new collections from existing ones
+- creating classes that contain data collection
 
 ## Data Types
 
@@ -35,7 +36,7 @@ A string is an immutable object.
 
 A programmer creates a string literal by surrounding text with single or double quotes, such as `'MARY'`, `"MARY"`, `'41'`, or `"41"`.
 
-An empty string is a sequence type with 0 elements, created with two quotes. Ex: `my_str = ''`.
+An empty string is a sequence type with 0 elements, created with a pair of single/double quotes. Ex: `my_str = ""` or `my_str=''`.
 
 Python use backslash `\` to escape special characters. For example: `"\n"` represents a newline character. It is also used to escape a slash or quotation symbols. For example: `"a slash \\ and an escaped \" double quotation mark.`
 
@@ -63,6 +64,7 @@ print("H" in text, "hi" in text) # True False
 for char in text:
     print(char, end=" ")
 # H e l l o   W o r l d
+
 ```
 
 ### 1.2 Slicing
@@ -85,6 +87,7 @@ print(text[2:]) # from index 2 to end: "llo world"
 print(text[0:3]) # first three: "hel"
 print(text[::4]) # every fourth character: "hor"
 print(text[3::2]) # from index 3, every other characters: "l ol"
+
 ```
 
 ### 1.3 Common String Methods
@@ -117,6 +120,7 @@ print(text.replace("world", "alice")) # hello alice
 
 # join a list of strings together with the desired separator string
 print(", ".join(["alice", "bob", "cindy"])) # alice, bob, cindy
+
 ```
 
 ## 2 List
@@ -149,6 +153,7 @@ letters = list('abc')
 # print can print a list directly
 print(generated_numbers)
 print(letters)
+
 ```
 
 ### 2.2 Basic Operations
@@ -182,6 +187,7 @@ print(numbers[-1], numbers[-2], numbers[-3])
 
 # oops, IndexError if the index is out of range
 print(numbers[5])
+
 ```
 
 ### 2.2.2 Unpack a List
@@ -239,7 +245,6 @@ while index < len(numbers):
     print(f'Index: {index}, Value: {numbers[index]}')
     index += 1
 
-
 ```
 
 ### 2.2.4 Slicing a List
@@ -266,6 +271,7 @@ print(f'Weekends version 2 are {weekends}')
 
 odd_days = days[::2]
 print(f'Odd days are {odd_days}')
+
 ```
 
 ### 2.3 List and Built-in Operations
@@ -308,6 +314,7 @@ smallest = min(numbers)
 biggest = max(numbers)
 total = sum(numbers)
 print(f'Length: {length}, Min: {smallest}, Max: {biggest}, Sum: {total}')
+
 ```
 
 ### 2.4 List Methods
@@ -345,6 +352,7 @@ numbers.sort()
 print(numbers) # [3, 5, 7, 42, 50]
 print(n2)
 print(n3)
+
 ```
 
 ### 2.5 Nested List
@@ -356,6 +364,7 @@ numbers = [1, [2, 3], [4, 5, 6]]
 numbers[1].append(42)
 del numbers[2][2]
 print(numbers)
+
 ```
 
 ### 2.6 List as Mutable Argument
@@ -389,6 +398,7 @@ print(f"before call scores are {scores}")
 
 report_sum2(scores)
 print(f"after call scores are {scores}")
+
 ```
 
 ### 2.7 A Stack
@@ -406,9 +416,10 @@ numbers.append(37)
 numbers.append(42)
 top = numbers.pop()
 print(top)
+
 ```
 
-## 2 Tuple
+## 3 Tuple
 
 A tuple consists of a number of values separated by commas.
 
@@ -455,6 +466,7 @@ print(first, second, rest)
 
 first, _ = numbers
 print(first) # 1
+
 ```
 
 ### Tuple Is Immutable, But
@@ -476,9 +488,10 @@ print(alice) # ('Alice', [3, 4, 5, 42])
 # both give TypeError:  you cannot using the assignment to change tuple element
 alice[0] = "Bob"
 alice[1] += 42
+
 ```
 
-## 3 Set
+## 4 Set
 
 A set is an _unordered_ collection of _unique_ elements. Sets have the following properties:
 
@@ -494,7 +507,7 @@ But you don't access individual set elements as you do with a list or a tuple.
 
 You often use `in` operator to check membership. Set is unique in its support of many set operations like union, intersection, difference, and symmetric difference.
 
-### 3.1 Create a Set
+### 4.1 Create a Set
 
 There are two ways to create a set:
 
@@ -513,7 +526,7 @@ print(odds) # 1, 3, 5
 
 ```
 
-### 3.2 Immutable Elements in Set
+### 4.2 Immutable Elements in Set
 
 Set is kind of special because it is an mutable object but all its elements must be immutable.
 
@@ -527,6 +540,7 @@ evens = [2, 4]
 
 # TypeError because mutable object
 my_set = {odds, evens}
+
 ```
 
 ```python
@@ -534,9 +548,10 @@ my_set = {odds, evens}
 odds_2 = (1, 3, 5)
 evens_2 = (2, 4)
 my_set = {odds_2, evens_2}
+
 ```
 
-### 3.3 Set Operations
+### 4.3 Set Operations
 
 Using `in` or `not in` operator to check membership.
 
@@ -565,7 +580,7 @@ print(fruits - more_fruits) # {'orange', 'banana'}
 
 ```
 
-## 4 Dictionary
+## 5 Dictionary
 
 A dictionary is an _unordered_ collection of elements where each element has two parts: a key and a value. Or you can say that an element is a key-value pair.
 
@@ -573,7 +588,7 @@ The key can be any object as long as it is _immutable_. Common key types include
 
 People use dictionaries to store key-value pairs thus it is easy to find out a value. For example, you use `student_id` to retrieve a student object.
 
-### 4.1 Create a Dictionary
+### 5.1 Create a Dictionary
 
 You use `{}` to create a dictionary. The `{}` creates an empty dictionary. You can use a dictionary variable as a boolean expression to check if it is empty. To create elements, create a sequence of `key: value` pairs separated by `,`.
 
@@ -596,9 +611,10 @@ print(students)
 
 my_dict = dict(A='alice', B='Bob')
 print(my_dict)
+
 ```
 
-### 4.2 Read or Write a Dictionary Element
+### 5.2 Read or Write a Dictionary Element
 
 You uses the `dictionary_name[key]` to access an individual element.
 
@@ -626,9 +642,10 @@ print(students)
 
 # reading a value for a non-exist key throws a KeyError exception
 name_nobody = students[404]
+
 ```
 
-### 4.3 Other Operations
+### 5.3 Other Operations
 
 The built-in `len` function tells how many elements in a dictionary.
 
@@ -655,9 +672,10 @@ if 'Jan' in month_days:
 # throw a KeyError exception because the key doesn't exist
 del month_days['Jan']
 print(month_days)
+
 ```
 
-### 4.4 Iterate a Dictionary
+### 5.4 Iterate a Dictionary
 
 - You can use `for key in dictionary_name:` to iterate over all keys of a dictionary. Then you use `dictionary_name[key]` to access each value.
 - The `items` method returns a sequence of key-value pairs. Therefore, you can use `for key, value in dictionary_name.items():` to iterate over a dictionary.
@@ -665,7 +683,7 @@ print(month_days)
 - The `keys()` method returns all keys.
 
 ```python
-month_days = {'Jan': 31, 'Apr': 30, 'Jul': 31}
+month_days = {"Jan": 31, "Apr": 30, "Jul": 31}
 
 for month in month_days:
     print(f'{month} has {month_days[month]} days')
@@ -682,28 +700,33 @@ print()
 for key in month_days.keys():
     print(f'Month key is {key}', end='; ')
 print()
+
 ```
 
-### 4.5 More Methods
+### 5.5 More Methods
 
 The dictionary has more methods. The following is a list of commonly-used methods. Try them.
 
 - `clear`: clear all elements
-- `pop`: return the value and remove the key-value pair. For example: `month_days.pop('Jan')`.
+- `pop`: return the value and remove the key-value pair. For example: `month_days.pop("Jan")`.
 - `popitem`: remove the latest inserted element the dictionary, return the removed element. For example: `month_days.popitem()`.
+
+You can also use built-in `del` operator to remove a key-value pair without return value. For example: `del month_days["Jan"]`
 
 Exercise: please write a phone book program that lets users to input and query phone book by first name or phone number. The search should be case-insensitive.
 
-## 5 Creating New Collections From Existing Ones
+## 6 Creating New Collections From Existing Ones
 
 Python provides two convenient constructs to create new collections:
 
 - List/set/dictionary comprehension: create a list/set/dictionary from an iterable object.
 - Generator expression: create an iterable object from a sequence object.
 
-An `iterable` object is a collection object or something that you can apply the `for` loop. For example, `range(5)`.
+An `iterable` object is a collection object or something that you can apply the `for` loop. For example, `range(5)` is an iterable object.
 
-### 5.1 Motivation
+The advantage of `iterable` is that it is **lazy**, generating one value at a time. `range(1_000_000_000)` doesn't create one billion numbers when it is initialized, it generate one number in each `for` loop. Thus it doesn't need memory for all numbers.
+
+### 6.1 Motivation
 
 When you want to create a list from a sequence with simple computation, you can use a list comprehension to simplify the code.
 
@@ -717,6 +740,7 @@ for number in range(5):
     roots.append(math.sqrt(number))
 
 print(roots)
+
 ```
 
 ```python
@@ -727,9 +751,10 @@ numbers = range(5)
 # you need to use list() to get the list result
 roots = list(map(math.sqrt, numbers))
 print(roots)
+
 ```
 
-### 5.2 List Comprehension
+### 6.2 List Comprehension
 
 Python let you use list comprehension to simplify the code. The list comprehension has a syntax like `[expression for member in iterable]`.
 
@@ -739,18 +764,20 @@ import math
 roots = [math.sqrt(number) for number in range(5)]
 
 print(roots)
+
 ```
 
-### 5.3 Filtering Elements
+### 6.3 Filtering Elements
 
 You can use list comprehension with an additional `if condition` construct to filter out the elements.
 
 ```python
 lower_letters = [char for char in "Hello World" if char.islower()]
 print(lower_letters) # ['e', 'l', 'l', 'o', 'o', 'r', 'l', 'd']
+
 ```
 
-### 5.4 Set and Dictionary Comprehensions
+### 6.4 Set and Dictionary Comprehensions
 
 Similar to a list comprehension, you can create a set or a dictionary from an iterable object.
 
@@ -763,9 +790,10 @@ print(lower_letters) # {'d', 'e', 'r', 'l', 'o'}
 
 squares = { number: number * number for number in range(5)}
 print(squares) # {0: 0, 1: 1, 2: 4, 3: 9, 4: 16}
+
 ```
 
-### 5.5 Generator Object
+## 7 Generator Object
 
 A generator object is an iterable object that you can use in a `for` loop.
 
@@ -781,9 +809,10 @@ def squares(size):
 
 five_squares = [square for square in squares(5)]
 print(five_squares) # [0, 1, 4, 9, 16]
+
 ```
 
-### 5.6 Why Generator?
+### 7.1 Why Generator?
 
 The reason for having generator function and generator objects is the so-called _lazy_ computation.
 
@@ -793,7 +822,7 @@ Suppose that you have one billion data records, it is impossible or inefficient 
 - you don't need a large memory to hold all records.
 - you might stop processing the rest of data for certain conditions.
 
-### 5.7 Generator Expression
+### 7.2 Generator Expression
 
 Instead of using a generator function, you can use a generator expression to create a generator object from an iterable object.
 
@@ -807,4 +836,5 @@ for square in squares:
     print(square, end=", ")
 
 # output: 0, 1, 4, 9, 16,
+
 ```

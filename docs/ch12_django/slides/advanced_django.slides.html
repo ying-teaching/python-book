@@ -7440,16 +7440,18 @@ main {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Testing-and-Logging">Testing and Logging<a class="anchor-link" href="#Testing-and-Logging">¶</a></h1><ul>
+<h1 id="Advanced-Django">Advanced Django<a class="anchor-link" href="#Advanced-Django">¶</a></h1><ul>
 <li>Unit Test</li>
 <li>View Test</li>
-<li>Logging</li>
-<li>Monitoring</li>
+<li>View</li>
+<li>Generic Display View</li>
+<li>Template</li>
+<li>Form</li>
 </ul>
 </div>
 </div>
 </div>
-</div>
+</div></section></section><section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -7461,7 +7463,7 @@ main {
 </div>
 </div>
 </div>
-</div>
+</div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -7474,7 +7476,7 @@ main {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7524,7 +7526,7 @@ main {
 </div>
 </div>
 </div>
-</div>
+</div></section></section><section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -7535,7 +7537,7 @@ main {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7632,6 +7634,423 @@ main {
         <span class="n">url</span> <span class="o">=</span> <span class="n">reverse</span><span class="p">(</span><span class="s2">"polls:detail"</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">past_question</span><span class="o">.</span><span class="n">id</span><span class="p">,))</span>
         <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">assertContains</span><span class="p">(</span><span class="n">response</span><span class="p">,</span> <span class="n">past_question</span><span class="o">.</span><span class="n">question_text</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="View">View<a class="anchor-link" href="#View">¶</a></h2><p><a href="https://docs.djangoproject.com/en/4.2/#the-view-layer">View</a> is the processing logic that takes user requests and returns responses. It has the following components</p>
+<ul>
+<li>URLs</li>
+<li>View Functions</li>
+<li>View Classes</li>
+<li>Middleware</li>
+</ul>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="URLs">URLs<a class="anchor-link" href="#URLs">¶</a></h3><p>An elegant URL scheme is important for a high-quality web site.</p>
+<p>Each site and each app have an <code>urs.py</code> that defines <code>urlpatterns</code> to map URL paths to views. Check <a href="https://docs.djangoproject.com/en/4.2/topics/http/urls/">URLs document</a> for details.</p>
+<p>An URL path supports typed named parts that are passed as kwargs arguments to the matching view.</p>
+<p>An URL path supports pattern matches and customized argument converters.</p>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="URL-Examples">URL Examples<a class="anchor-link" href="#URL-Examples">¶</a></h3><p>For the URL pattern</p>
+<ul>
+<li><code>path("blogs/&lt;int:year&gt;/&lt;int:month&gt;/", my_view)</code></li>
+</ul>
+<p>For a request of</p>
+<ul>
+<li><code>/blogs/2023/11</code></li>
+</ul>
+<p><code>my_view</code> will be called as as</p>
+<ul>
+<li><code>my_view(request, year=2023, month=11)</code></li>
+</ul>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="View-Functions">View Functions<a class="anchor-link" href="#View-Functions">¶</a></h3><p>A view function takes HTTP requests and return web responses.</p>
+<p>Please check <a href="https://docs.djangoproject.com/en/4.2/ref/request-response/">Request and response objects document</a> for request and response object details.</p>
+<p>A response can be an HTML page, a plain text, a redirect, a 404 error, a JSON data, an image...</p>
+<p>You can use view decorators to restrict allowed HTTP methods or add other features such as compression and caching.</p>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="View-Classes">View Classes<a class="anchor-link" href="#View-Classes">¶</a></h3><p>A view class is a callable because it defines <code>__call__</code> special method.</p>
+<p>A view class inherits from a provided generic base class that handles most common logics. Following are some common generic classes</p>
+<ul>
+<li><code>View</code> handles URL linking, HTTP method dispatching.</li>
+<li><code>RedirectView</code> handles an HTTP redirect</li>
+<li><code>TemplateView</code> handles template rendering.</li>
+</ul>
+<p>In many cases, you don't need to define a subclass, just use the provided generic views with specific arguments.</p>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="A-View-Class-Example">A View Class Example<a class="anchor-link" href="#A-View-Class-Example">¶</a></h3>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-python"><pre><span></span><span class="c1"># Use the generic view directly</span>
+<span class="kn">from</span> <span class="nn">django.urls</span> <span class="kn">import</span> <span class="n">path</span>
+<span class="kn">from</span> <span class="nn">django.views.generic</span> <span class="kn">import</span> <span class="n">TemplateView</span>
+
+<span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">path</span><span class="p">(</span><span class="s2">"about/"</span><span class="p">,</span> <span class="n">TemplateView</span><span class="o">.</span><span class="n">as_view</span><span class="p">(</span><span class="n">template_name</span><span class="o">=</span><span class="s2">"about.html"</span><span class="p">)),</span>
+<span class="p">]</span>
+
+<span class="c1"># Or create a subclass</span>
+<span class="k">class</span> <span class="nc">AboutView</span><span class="p">(</span><span class="n">TemplateView</span><span class="p">):</span>
+    <span class="n">template_name</span> <span class="o">=</span> <span class="s2">"about.html"</span>
+
+<span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">path</span><span class="p">(</span><span class="s2">"about/"</span><span class="p">,</span> <span class="n">AboutView</span><span class="o">.</span><span class="n">as_view</span><span class="p">()),</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Class-based-or-Function-based-View?">Class-based or Function-based View?<a class="anchor-link" href="#Class-based-or-Function-based-View?">¶</a></h3><p>Compared to a view function, a view class is preferred because it can</p>
+<ul>
+<li>share common code in super classes.</li>
+<li>define specific HTTP methods (GET, POST, etc.) instead of functional-style conditional branching.</li>
+</ul>
+<p>Please check <a href="https://docs.djangoproject.com/en/4.2/topics/class-based-views/">Class-based views document</a> for more details.</p>
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Generic-Display-View">Generic Display View<a class="anchor-link" href="#Generic-Display-View">¶</a></h2><p>Django provides two common generic views to display data:</p>
+<ul>
+<li><code>ListView</code>: shows a list of objects.</li>
+<li><code>DetailView</code>: shows attributes of an object.</li>
+</ul>
+<p>You can inherit from these generic views to display a list of objects or attributes of a specific object.</p>
+<p>If you follow the naming pattern, the code is very simple.</p>
+<p>You can customize the view by overriding attributes or methods of the views.</p>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="The-ListView-Class">The <code>ListView</code> Class<a class="anchor-link" href="#The-ListView-Class">¶</a></h3><p>In Django, the <code>ListView</code> generic class view performs the following common functions:</p>
+<ul>
+<li>setting the data model in <code>model</code> attribute.</li>
+<li>retrieving a list of objects via <code>get_queryset()</code> method.</li>
+<li>assigning the list of objects as the context object to an attribute specified by <code>context_object_name</code>. By default, the context object is the <code>object_list</code> attribute.</li>
+<li>rendering the list with a templated specified by <code>template_name</code> attribute.</li>
+</ul>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Template-for-ListView">Template for <code>ListView</code><a class="anchor-link" href="#Template-for-ListView">¶</a></h3><p>The default template name for a <code>ListView</code> is <code>&lt;model_name&gt;_list.html</code> where the <code>&lt;model_name&gt;</code> is the name of the object model.</p>
+<p>For <code>model=Question</code> attribute, the default template is <code>question_list.html</code>. Use <code>template_name</code> to specify a different template file.</p>
+<p>The template can use the default context object <code>object_list</code> if it is not overridden by the <code>context_object_name</code> in the list view class.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="The-DetailView-Class">The <code>DetailView</code> Class<a class="anchor-link" href="#The-DetailView-Class">¶</a></h3><p>Similar to the <code>ListView</code>, the <code>DetailView</code> generic class uses an instance of its <code>model</code>.</p>
+<p>By default the object uses the lowercase <code>&lt;model_name&gt;</code> as the context object.</p>
+<p>The default template is <code>&lt;model_name&gt;_detail.html</code>.</p>
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Template">Template<a class="anchor-link" href="#Template">¶</a></h2><p>A template contains the static parts of the desired HTML output as well as some special syntax describing how dynamic content will be inserted.</p>
+<p>Django use templates to create HTML from data. Django supports different template engines. It comes with a built-in one called <strong>Django Template Language</strong> (DTL) and Jinja2 engine.</p>
+<p>DTL is used by Django’s contrib apps such as <code>admin</code> and others.</p>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Django-Template-Language-(DTL)">Django Template Language (DTL)<a class="anchor-link" href="#Django-Template-Language-(DTL)">¶</a></h3><p>A Django template is a text document or a Python string marked-up using the Django template language. It is rendered with a context. Rendering replaces variables with their values, which are looked up in the context, and executes tags. Everything else is output as is.</p>
+<p>Basic constructs are:</p>
+<ul>
+<li>expression: <code>{{ }}</code></li>
+<li>tag: <code>{% %}</code></li>
+<li>comment: <code>{# #}</code></li>
+</ul>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Variables">Variables<a class="anchor-link" href="#Variables">¶</a></h3><p>A context is a dict-like object mapping keys to values. A variable outputs a value from the context. Variables are surrounded by <code>{{</code> and <code>}}</code>. Attributes and index lookups are implemented with a dot notation.</p>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Tags">Tags<a class="anchor-link" href="#Tags">¶</a></h3><p>Tags provide logic in the rendering process. Tags are surrounded by <code>{%</code> and <code>%}</code>. For example: <code>{% csrf_token %}</code></p>
+<p>Please check <a href="https://docs.djangoproject.com/en/4.2/ref/templates/builtins/#built-in-tag-reference">built-in tag reference</a>.</p>
+<p>Most tags accept arguments. For example: <code>{% cycle 'odd' 'even' %}</code>.</p>
+<p>Some tags require beginning and ending tags. For example: <code>{% if user.is_authenticated %}Hello, {{ user.username }}.{% endif %}</code>.</p>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Common-Tags">Common Tags<a class="anchor-link" href="#Common-Tags">¶</a></h3><ul>
+<li><code>block</code> and <code>extends</code>: used in template inheritance</li>
+<li><code>comment</code>: multi-line comments ignored by Django</li>
+<li><code>debug</code>: for debug info</li>
+<li><code>filter</code>: content transformation</li>
+<li><code>for in</code> and <code>empty</code>: looping</li>
+<li><code>if</code>: <code>in</code>, <code>not in</code>, <code>is</code>, <code>is not</code>, comparison and logic operations</li>
+<li><code>include</code>: render another template, optionally passing keyword arguments.</li>
+<li><code>lorem</code>: random text with specified length.</li>
+<li><code>now</code>: current date and/or time</li>
+<li><code>regroup as</code>: grouping</li>
+<li><code>url</code>: create links from names</li>
+</ul>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Filters">Filters<a class="anchor-link" href="#Filters">¶</a></h3><p>Filters <code>|</code> transform the values of variables and tag arguments.</p>
+<p>Django provides many filter functions such as <code>random</code>, <code>pluralize</code>, <code>title</code>, <code>slice</code>, <code>join</code> etc.</p>
+<p>Please check <a href="https://docs.djangoproject.com/en/4.2/ref/templates/builtins/#built-in-filter-reference">Built-in filter reference</a> for full list.</p>
+<p><a href="https://docs.djangoproject.com/en/4.2/ref/contrib/humanize/"><code>django.contrib.humanize¶</code></a> provides filters for adding a "human touch" to data.</p>
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Forms">Forms<a class="anchor-link" href="#Forms">¶</a></h2><p>You can encode simple data like a page number into the URL paths.</p>
+<p>HTML form provides an UI for rich data input including text, password, date, radio button, dropdown list and etc.</p>
+<p>Django provides many utility functions to build form from data and process form data.</p>
+<p>Please check <a href="https://docs.djangoproject.com/en/4.2/#forms">Forms document</a> for details.</p>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Django-Form-Class">Django Form Class<a class="anchor-link" href="#Django-Form-Class">¶</a></h3><p>The <code>Form</code> class describes <strong>form fields</strong> and corresponding <strong>UI widget</strong>.</p>
+<p>Form fields are classes that manage form data and perform validation in form submission.</p>
+<p>Each form field is represented as an HTML input widget.</p>
+<p>A form can be empty or pre-populated with default/existing data.</p>
+<p><code>ModelForm</code> is a subclass of <code>Form</code>. <code>ModelForm</code> make it very simple to build form from a <code>Model</code> class.</p>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="A-Form-Example">A Form Example<a class="anchor-link" href="#A-Form-Example">¶</a></h3><p>The following code defines a form with a single text field that has a maximum length of <code>100</code>.</p>
+<p>If all field values are valid, the <code>is_valid</code> is <code>True</code> and form data will be in the <code>cleaned_data</code> attribute.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-python"><pre><span></span><span class="kn">from</span> <span class="nn">django</span> <span class="kn">import</span> <span class="n">forms</span>
+
+<span class="k">class</span> <span class="nc">NameForm</span><span class="p">(</span><span class="n">forms</span><span class="o">.</span><span class="n">Form</span><span class="p">):</span>
+    <span class="n">your_name</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s2">"Your name"</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Form-UI">Form UI<a class="anchor-link" href="#Form-UI">¶</a></h3><p>The form class only defines form fields. The form instance must be inside the HTML <code>&lt;form&gt;</code> element.</p>
+<p>Let's put it into <code>name.html</code> file and link them in a <code>render</code> function.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-python"><pre><span></span><span class="o">&lt;</span><span class="n">form</span> <span class="n">action</span><span class="o">=</span><span class="s2">"/your-name/"</span> <span class="n">method</span><span class="o">=</span><span class="s2">"post"</span><span class="o">&gt;</span>
+  <span class="p">{</span><span class="o">%</span> <span class="n">csrf_token</span> <span class="o">%</span><span class="p">}</span>
+  <span class="p">{{</span> <span class="n">form</span> <span class="p">}}</span>
+  <span class="o">&lt;</span><span class="nb">input</span> <span class="nb">type</span><span class="o">=</span><span class="s2">"submit"</span> <span class="n">value</span><span class="o">=</span><span class="s2">"Submit"</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">form</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-python"><pre><span></span><span class="kn">from</span> <span class="nn">django.http</span> <span class="kn">import</span> <span class="n">HttpResponseRedirect</span>
+<span class="kn">from</span> <span class="nn">django.shortcuts</span> <span class="kn">import</span> <span class="n">render</span>
+
+<span class="kn">from</span> <span class="nn">.forms</span> <span class="kn">import</span> <span class="n">NameForm</span>
+
+
+<span class="k">def</span> <span class="nf">get_name</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="c1"># if this is a POST request we need to process the form data</span>
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s2">"POST"</span><span class="p">:</span>
+        <span class="c1"># create a form instance and populate it with data from the request:</span>
+        <span class="n">form</span> <span class="o">=</span> <span class="n">NameForm</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">)</span>
+        <span class="c1"># check whether it's valid:</span>
+        <span class="k">if</span> <span class="n">form</span><span class="o">.</span><span class="n">is_valid</span><span class="p">():</span>
+            <span class="c1"># process the data in form.cleaned_data as required</span>
+            <span class="c1"># ...</span>
+            <span class="c1"># redirect to a new URL:</span>
+            <span class="k">return</span> <span class="n">HttpResponseRedirect</span><span class="p">(</span><span class="s2">"/thanks/"</span><span class="p">)</span>
+
+    <span class="c1"># if a GET (or any other method) we'll create a blank form</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">form</span> <span class="o">=</span> <span class="n">NameForm</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s2">"name.html"</span><span class="p">,</span> <span class="p">{</span><span class="s2">"form"</span><span class="p">:</span> <span class="n">form</span><span class="p">})</span>
 </pre></div>
 </div>
 </div>

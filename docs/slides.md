@@ -34,9 +34,9 @@ hide:
 
 ### [Chapter 8 Exception](ch08_exception/slides/exception.slides.html){:target="\_blank"}
 
-### Chapter 9 Module (TBC)
+### [Chapter 9 Module](ch09_module/slides/module.slides.html){:target="\_blank"}
 
-### Chapter 10 File (TBC)
+### [Chapter 10 File](ch10_file/slides/file.slides.html){:target="\_blank"}
 
 ### [Chapter 11 Python Data Model](ch11_data_model/slides/data_model.slides.html){:target="\_blank"}
 
@@ -44,7 +44,6 @@ hide:
 
 ### Chapter 12 A Web Site
 
-- [Basic Django](ch12_django/slides/basic_django.slides.html){:target="\_blank"}.
-- [Advanced Django](ch12_django/slides/advanced_django.slides.html){:target="\_blank"}.
-
-### Chapter 13 A Lisp Interpreter (TBC)
+- [Django Crash Course](ch12_django/slides/django_crash_course.slides.html){:target="\_blank"}
+- [Basic Django](ch12_django/slides/basic_django.slides.html){:target="\_blank"}
+- [Advanced Django](ch12_django/slides/advanced_django.slides.html){:target="\_blank"}

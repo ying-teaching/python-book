@@ -1,13 +1,13 @@
 # Basic Django
 
-- Get Started
+- Getting Started
 - Database
 - Model
 - View
 - Form
 - Generic View
 
-## Get Started
+## Getting Started
 
 First, use `python3 -m pip install django` to install the Django package.
 
@@ -23,7 +23,7 @@ The command creates a `my_site` project folder with following folders and files:
 - `my_site`: it is the package folder for the project. It has the following files
   - `__init__.py`: it is an empty file to flag the parent folder as a Python package.
   - `asgi.py`: it is an entry point file for ASGI (Asynchronous Server Gateway Interface) web server. ASGI support asynchronous operations that might have better performance for certain applications at the cost of complex code and logic. Most Web applications don't use it.
-  - `setting.py`: it contains settings (configurations) for this project. For example, you should change the `TIME_ZONE` if your site is not located in `UTC` time zone.
+  - `setting.py`: it contains settings (configurations) for this project. For example, you should change the `TIME_ZONE = "America/Los_Angeles"` if your site is located iLos Angeles, CA, USA. You can find valid time zone names in [Time Zone List](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
   - `urls.py`: it configures the URL paths of the project.
   - `wsgi.py`: it is an entry point file for WSGI (Web Server Gateway Interface) web server. Most Python Web applications use it.
 
@@ -39,7 +39,11 @@ To quit the server, type `CONTROL-C` in the terminal.
 
 ### Creating an App
 
-A Django project usually contains multiple apps (applications). Each app is a web site for a specific business domain functions.
+A Django project has multiple [Applications](https://docs.djangoproject.com/en/4.2/ref/applications/).
+
+Each application is Python package that contains functions of subdomain the website.
+
+An application consists of models, views, templates, static files, URLs, etc.
 
 For example, Django creates a default `admin` app during the project creation. Web administrators use the admin app to manage the web site.
 
@@ -57,19 +61,25 @@ The creating app command creates a `polls` folder that has the following files:
 - `tests.py` the testing file
 - `views.py` the _view_ code to process HTTP requests and return HTTP responses.
 
-### MVT
+### Application Configuration
 
-Django uses a Model-View-Template (MVT) architecture.
+Create an `app.py` inside the application package.
 
-- Model: a model is a class the defines
-  - the structure of a domain data.
-  - the data operations.
-- View: a view is a function or a class that handles HTTP request, performs business logic, and returns a response.
-- Template: a template defines the structure or layout of the user interface. A view fills templates with data to create the final response.
+Defines a subclass of `AppConfig`
 
-Following is the [Django workflow](https://www.dothedev.com/blog/amp/what-is-django-used-for/):
+Configure settings such as `name`, `verbose_name` in the configuration class.
 
-![flow](../images/django_flow.jpg)
+Then add the `polls` app to the `INSTALLED_APPS` in the `setting.py` file in the project's main package.
+
+```python
+from django.apps import AppConfig
+
+
+class PollsConfig(AppConfig):
+    default_auto_field = 'django.db.models.BigAutoField'
+    name = 'polls'
+
+```
 
 ### What's a View
 
@@ -84,7 +94,11 @@ If a specific HTTP URL matches a view's URL pattern, the view usually performs t
 
 ### Add the First View
 
-As a tradition, you want to say "Hello World!" to an HTTP request. Following are codes in different files.
+As a tradition, you want to say "Hello World!" to an HTTP request. There are three basic steps:
+
+- create a view that return a message as an HTTP response.
+- map an app-specific URL to the view.
+- include the app-specific URL map in the root URL mapping.
 
 If you run the dev server and access `http://127.0.0.1:8000/polls/`, you should see the message "Hello World!".
 
@@ -94,6 +108,7 @@ from django.http import HttpResponse
 
 def index(request):
     return HttpResponse("Hello, World!")
+
 ```
 
 ```python
@@ -105,6 +120,7 @@ from . import views
 urlpatterns = [
     path("", views.index, name="index"),
 ]
+
 ```
 
 ```python
@@ -116,6 +132,7 @@ urlpatterns = [
     path("polls/", include("polls.urls")),
     path("admin/", admin.site.urls),
 ]
+
 ```
 
 ### The `path()` and `include()` Function
@@ -324,9 +341,10 @@ In `polls/admin.py`, add following lines and you can manage the registered model
 
 from django.contrib import admin
 
-from .models import Question
+from .models import Choice, Question
 
-admin.site.register(Question)
+admin.site.register([Question, Choice])
+
 ```
 
 ## View
@@ -357,6 +375,7 @@ def results(request, question_id):
 def vote(request, question_id):
     response = f"Vote view for {question_id}"
     return HttpResponse(response)
+
 ```
 
 ```python
@@ -375,6 +394,7 @@ urlpatterns = [
     # ex: /polls/5/vote/
     path("<int:question_id>/vote/", views.vote, name="vote"),
 ]
+
 ```
 
 ### Django Template
@@ -383,7 +403,7 @@ A template has static content and placeholders or logic controls of dynamic data
 
 By default, Django find templates in the `templates` directory of each app. It is a best practice to put a template in a folder in the `templates` directory because you may have utility templates such as layouts. For example, the path for polls app's `index.html` template file is `templates/polls/index.html`. You use the name `polls/index.html` to load the template into a view.
 
-Django use `{}` to include data and logic. The data is also called the _context_ of the template. The `templates/polls/index.html` uses the `latest_question_list` context to create the HTML content.
+Django use **template expression** `{{ }}` for data output and **template tag** `{% %}` for rendering logic. The data is also called the _context_ of the template. The `templates/polls/index.html` uses the `latest_question_list` context to create the HTML content.
 
 ```python
 <!-- polls/templates/polls/index.html -->
@@ -396,6 +416,7 @@ Django use `{}` to include data and logic. The data is also called the _context_
 {% else %}
 <p>No polls are available.</p>
 {% endif %}
+
 ```
 
 ### The `index` View
@@ -415,10 +436,16 @@ def index(request):
     context = {
         "latest_question_list": latest_question_list,
     }
-    return HttpResponse(template.render(context, request))
+
+    response = template.render(context, request)
+
+    return HttpResponse(response)
+
 ```
 
 ### The `render()` Shortcut
+
+Python is famous for its expressiveness and simplicity. The previous code is good enough for many programming languages, but Python can do much better.
 
 It is a common pattern to load a template file, apply a context and return an `HttpResponse` object. Django provides a shortcut `render()` function to apply a context to a template and return an `HttpResponse` object.
 
@@ -434,11 +461,10 @@ def index(request):
     latest_question_list = Question.objects.order_by("-publish_date")[:5]
     context = {"latest_question_list": latest_question_list}
     return render(request, "polls/index.html", context)
+
 ```
 
-### Rasing an Error
-
-In the detail view, if Django couldn't find the question for the specified id, it makes sense to raise a 404 exception to let the user know that the requested object is not found.
+### The Detail View Template
 
 The detail view uses a `polls/detail.html` template whose context is, not a surprise, a question.
 
@@ -450,7 +476,14 @@ The detail view uses a `polls/detail.html` template whose context is, not a surp
   <li>{{ choice.choice_text }}</li>
   {% endfor %}
 </ul>
+
 ```
+
+### Rasing an Error
+
+However, if Django couldn't find the question for the specified id, it makes sense to raise a 404 exception to let the user know that the requested object is not found.
+
+Try both `http://localhost:8000/polls/1/` and `http://localhost:8000/polls/2023/`.
 
 ```python
 # polls/views.py
@@ -462,6 +495,7 @@ from .models import Question
 def detail(request, question_id):
     question = get_object_or_404(Question, pk=question_id)
     return render(request, "polls/detail.html", {"question": question})
+
 ```
 
 ### Removing Hardcoded URLs
@@ -523,6 +557,7 @@ It specifies the target path using the template tag `{% url 'polls:vote' questio
 
   <input type="submit" value="Vote">
 </form>
+
 ```
 
 ### Handle Form Data
@@ -549,7 +584,8 @@ from .models import Choice, Question
 def vote(request, question_id):
     question = get_object_or_404(Question, pk=question_id)
     try:
-        selected_choice = question.choice_set.get(pk=request.POST["choice"])
+        choice_key = request.POST["choice"]
+        selected_choice = question.choice_set.get(pk=choice_key)
     except (KeyError, Choice.DoesNotExist):
         # Redisplay the question voting form.
         return render(
@@ -565,6 +601,25 @@ def vote(request, question_id):
         selected_choice.save()
 
         return HttpResponseRedirect(reverse("polls:results", args=(question.id,)))
+
+```
+
+### The `results` Template
+
+The `results` template defines the content of the view. Django template comes with a `pluralize` **filter** that you can apply to an object to transform its value. It adds a plural suffix, often `"s"` if the value is not `1`, `"1"`, or an object of length `1`
+
+```python
+<!-- polls/templates/polls/results.html -->
+<h1>{{ question.question_text }}</h1>
+
+<ul>
+  {% for choice in question.choice_set.all %}
+  <li>{{ choice.choice_text }} -- {{ choice.votes }} vote{{ choice.votes|pluralize }}</li>
+  {% endfor %}
+</ul>
+
+<a href="{% url 'polls:detail' question.id %}">Vote again?</a>
+
 ```
 
 ### The `results` View
@@ -581,28 +636,12 @@ from django.shortcuts import get_object_or_404, render
 def results(request, question_id):
     question = get_object_or_404(Question, pk=question_id)
     return render(request, "polls/results.html", {"question": question})
-```
 
-### The `results` Template
-
-The `results` template defines the content of the view. Django template comes with a `pluralize` filter that you can apply to an object to transform its value. It adds a plural suffix, often `"s"` if the value is not `1`, `"1"`, or an object of length `1`
-
-```python
-<!-- polls/templates/polls/results.html -->
-<h1>{{ question.question_text }}</h1>
-
-<ul>
-  {% for choice in question.choice_set.all %}
-  <li>{{ choice.choice_text }} -- {{ choice.votes }} vote{{ choice.votes|pluralize }}</li>
-  {% endfor %}
-</ul>
-
-<a href="{% url 'polls:detail' question.id %}">Vote again?</a>
 ```
 
 ## Generic View
 
-Django provides many utility functions/classes to simplify Web development.
+Python is famous for its simplicity. Most view functions can be simplified with **view classes** that inherit common process logic from so-called **generic view classes**.
 
 Two common patterns in development are
 
@@ -653,6 +692,7 @@ class ResultsView(generic.DetailView):
     template_name = "polls/results.html"
 
 ...
+
 ```
 
 ### Amend URLs
@@ -670,13 +710,40 @@ Each view class has an `as_view()` method that create an instance of the class.
 
 from django.urls import path
 
-from . import views
+from .views import IndexView, DetailView, ResultsView, vote
 
 app_name = "polls"
 urlpatterns = [
-    path("", views.IndexView.as_view(), name="index"),
-    path("<int:pk>/", views.DetailView.as_view(), name="detail"),
-    path("<int:pk>/results/", views.ResultsView.as_view(), name="results"),
-    path("<int:question_id>/vote/", views.vote, name="vote"),
+    path("", IndexView.as_view(), name="index"),
+    path("<int:pk>/", DetailView.as_view(), name="detail"),
+    path("<int:pk>/results/", ResultsView.as_view(), name="results"),
+    path("<int:question_id>/vote/", vote, name="vote"),
 ]
+
+```
+
+### The Home URL
+
+Django provides a default home page if you don't define any URLs.
+
+When you define any URL, you should also define the home page URL.
+
+The following code redirect the home URL to an app view.
+
+```python
+from django.contrib import admin
+from django.http import HttpResponseRedirect
+from django.urls import include, path
+
+
+def redirect_home(_request):
+    return HttpResponseRedirect("polls/")
+
+
+urlpatterns = [
+    path("", redirect_home),
+    path("polls/", include("polls.urls")),
+    path("admin/", admin.site.urls),
+]
+
 ```

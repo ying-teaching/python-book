@@ -284,12 +284,11 @@ When the RHS is a literal value, the LHS variable is _bound_ to the value.
 
 When the RHS is a variable, the LHS variable is _bound_ to the referred object in RHS. It creates an _alias_.
 
-- `numbers = [2, 1, 3, 4, 7]`: binds a label to a list object
+- `numbers1 = [1, 3, 5]`: binds a label to a list object
 - `numbers2 = numbers`: creates an alias of the object labelled by `numbers`
-- `name = "Trey`: binds a label to a string object.
+- `name = "Hello`: binds a label to a string object.
 
-![Variable Labels](../images/variable.png)
-[Image source](https://www.pythonmorsels.com/pointers/).
+![Variable Labels](../images/variable.drawio.svg)
 
 ### More Examples
 
@@ -514,23 +513,23 @@ print(f'Original alias: {original_alias}. Reversed names: {reversed_names}')
 Sharing mutable data could be dangerous because you may accidentally change the data that used by another variable. If you want to use and change data, it is a good idea to make a copy of the original data.
 
 ```python
-l1 = [1, 2, 3]
-l2 = l1
+list1 = [1, 2, 3]
+list2 = list1
 
-l3 = l1.copy()
+list3 = list1.copy()
 
-l1[2] = 'three'
+list1[2] = 'three'
 
-print(l1, l2, l3)
+print(list1, list2, list3)
 ```
 
-In the above code, we have `l1` and `l2` point to the same list and `l3` is a copy of `l1`. When `l1` changes, both `l1` and `l2` change but `l3` is not changed.
+In the above code, we have `list1` and `list2` point to the same list and `list3` is a copy of `list1`. When `list1` changes, both `list1` and `list2` change but `list3` is not changed.
 
-![Mutable list](../images/mutable-list.png)
+![Mutable list](../images/mutable_list.drawio.svg)
 
 ### Shallow Copy
 
-The copy of list is a shallow copy. If you have nested mutable data inside a list, it is still shared at the nested level. Below is an example where `l1` and `l2` have the same value because they refer to the same object. The third element of `l3` is changed because the nested list is a mutable object. The shallow copy only copies the reference to the third element that stays the same but the object value can be changed.
+The copy of list is a shallow copy. If you have nested mutable data inside a list, it is still shared at the nested level. Below is an example where `list1` and `list2` have the same value because they refer to the same object. The third element of `list3` is changed because the nested list is a mutable object. The shallow copy only copies the reference to the third element that stays the same but the object value can be changed.
 
 ```python
 list1 = [1, 2, [3, 4]]

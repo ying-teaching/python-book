@@ -5,7 +5,7 @@
 <meta content="chrome=1" http-equiv="X-UA-Compatible"/>
 <meta content="yes" name="apple-mobile-web-app-capable"/>
 <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/>
-<title>collection slides</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script><script type="module">
+<title>file slides</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script><script type="module">
   import mermaid from 'https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.2.3/mermaid.esm.min.mjs';
   mermaid.initialize({ startOnLoad: true });
 </script>
@@ -7440,55 +7440,13 @@ main {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Collection">Collection<a class="anchor-link" href="#Collection">¶</a></h1><p>People often need to deal with a collection of objects in a consistent way.</p>
-<p>Python provides three types of language constructs to support collection operation:</p>
-<ul>
-<li>built-in collection types that can contain multiple elements</li>
-<li>creating new collections from existing ones</li>
-<li>creating classes that contain data collection</li>
+<h1 id="File">File<a class="anchor-link" href="#File">¶</a></h1><ul>
+<li>Introduction</li>
+<li>File Operation</li>
+<li>Binary Data</li>
+<li>Record Operation</li>
+<li>More File Operations</li>
 </ul>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Data-Types">Data Types<a class="anchor-link" href="#Data-Types">¶</a></h2><ul>
-<li>sequence<ul>
-<li><code>str</code>: an immutable sequence of characters.</li>
-<li><code>list</code>: a mutable sequence of any objects.</li>
-<li><code>tuple</code>: an immutable sequence of objects.</li>
-</ul>
-</li>
-<li>set<ul>
-<li><code>set</code>: a mutable unordered collection of unique objects.</li>
-</ul>
-</li>
-<li>mapping<ul>
-<li><code>dict</code>: a mutable mapping of key and value pairs.</li>
-</ul>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Creating-New-Collections-From-Existing-Ones">Creating New Collections From Existing Ones<a class="anchor-link" href="#Creating-New-Collections-From-Existing-Ones">¶</a></h2><p>Python provides two convenient constructs to create new collections:</p>
-<ul>
-<li>List/set/dictionary comprehension</li>
-<li>Generator expression</li>
-</ul>
-<p>Many times, these constructs make your program simple and efficient.</p>
 </div>
 </div>
 </div>
@@ -7499,88 +7457,13 @@ main {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="1-String">1 String<a class="anchor-link" href="#1-String">¶</a></h2><p>A string is a sequence of characters.</p>
-<p>A string is an immutable object.</p>
-<p>A programmer creates a string literal by surrounding text with single or double quotes, such as <code>'MARY'</code>, <code>"MARY"</code>, <code>'41'</code>, or <code>"41"</code>.</p>
-<p>An empty string is a sequence type with 0 elements, created with a pair of single/double quotes. Ex: <code>my_str = ""</code> or <code>my_str=''</code>.</p>
-<p>Python use backslash <code>\</code> to escape special characters. For example: <code>"\n"</code> represents a newline character. It is also used to escape a slash or quotation symbols. For example: <code>"a slash \\ and an escaped \" double quotation mark.</code></p>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="1.1-Built-in-String-Operations">1.1 Built-in String Operations<a class="anchor-link" href="#1.1-Built-in-String-Operations">¶</a></h3><p>A programmer can access a character at a specific index using <code>alphabet[index]</code>. <code>index</code> starts from <code>0</code> and ends with <code>len(alphabet) - 1</code>.</p>
-<p>The <code>len()</code> built-in function can be used to find the length of a string (and any other sequence type).</p>
-<p>Use <code>+</code> to concatenate two strings.</p>
-<p>Use <code>in</code> to determine if a character or a substring exists in a string. It returns <code>True</code> or <code>False</code></p>
-<p>Use <code>for</code> loop to iterate every character.</p>
-</div>
-</div>
-</div>
-</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s2">"Hello World"</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">text</span><span class="p">))</span>  <span class="c1"># 11</span>
-
-<span class="nb">print</span> <span class="p">(</span><span class="n">text</span> <span class="o">+</span> <span class="s2">" to every one."</span><span class="p">)</span> <span class="c1"># Hello World to every one.</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s2">"H"</span> <span class="ow">in</span> <span class="n">text</span><span class="p">,</span> <span class="s2">"hi"</span> <span class="ow">in</span> <span class="n">text</span><span class="p">)</span> <span class="c1"># True False</span>
-
-<span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">text</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">char</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">" "</span><span class="p">)</span>    
-<span class="c1"># H e l l o   W o r l d </span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="1.2-Slicing">1.2 Slicing<a class="anchor-link" href="#1.2-Slicing">¶</a></h3><p>Python has a special slicing syntax <code>sequence[start:stop:step]</code> to get a subset of a sequence.</p>
+<h2 id="Introduction">Introduction<a class="anchor-link" href="#Introduction">¶</a></h2><p>Variables represent memory data that will be lost when the computer turns off. The memory is considered <code>primary storage</code> because it is manipulated by CPU instructions (programs) directly. To permanently store data, you use <code>secondary storage</code>, a hard driver or solid state disk (SSD).</p>
+<p>There are two common ways to store data in secondary storage:</p>
 <ul>
-<li><code>start</code>: optional, starting index of the slice.</li>
-<li><code>stop</code>: the last index (exclusive) of the slide or the number of items to get. It is optional with a default to <code>len(sequence)</code> if the <code>start</code> argument is specified.</li>
-<li><code>step</code>: optional, the step value with a default of <code>1</code>.</li>
+<li>file: store data in any structure/format you like.</li>
+<li>database:  store data that follows a certain well-defined structure.</li>
 </ul>
-<p>You can slice a string to get another string.</p>
-<p>You can also use slicing syntax in other sequence types that works similarly.</p>
-</div>
-</div>
-</div>
-</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s2">"hello world"</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">text</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span> <span class="c1"># regular index: "l"</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">text</span><span class="p">[</span><span class="mi">2</span><span class="p">:])</span> <span class="c1"># from index 2 to end: "llo world"</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">text</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">])</span> <span class="c1"># first three: "hel"</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">text</span><span class="p">[::</span><span class="mi">4</span><span class="p">])</span> <span class="c1"># every fourth character: "hor"</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">text</span><span class="p">[</span><span class="mi">3</span><span class="p">::</span><span class="mi">2</span><span class="p">])</span> <span class="c1"># from index 3, every other characters: "l ol"</span>
-</pre></div>
-</div>
+<p>The boundary between the two is not clear because databases use files to store its data and enforce a structure. Recently, the <a href="https://en.wikipedia.org/wiki/Document-oriented_database">document-oriented database</a> allows more flexibility in data structure.</p>
 </div>
 </div>
 </div>
@@ -7591,44 +7474,52 @@ main {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="1.3-Common-String-Methods">1.3 Common String Methods<a class="anchor-link" href="#1.3-Common-String-Methods">¶</a></h3><p>Because string is an immutable object, any method that changes the string content will create a new string.</p>
-<p>Following are some examples:</p>
+<h3 id="File-Types">File Types<a class="anchor-link" href="#File-Types">¶</a></h3><p>Files can be categorized by the access mode (<code>random</code> or <code>sequential</code>) or data encoding (text or binary). Access mode is the order mechanism used by Python to access file data.</p>
+<ul>
+<li>Random Access: you can go to any position and access the data there inside a file.</li>
+<li>Sequential Access: you read/write files sequentially from the beginning to the end. We cover the sequential access method because most large secondary storage devices support the sequential access.</li>
+</ul>
 </div>
 </div>
 </div>
-</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">hi</span> <span class="o">=</span> <span class="s2">"Hi"</span>
-<span class="n">text</span> <span class="o">=</span> <span class="s2">"hello world"</span>
-
-<span class="c1"># find the index of the first occurrence of a substring, -1 if not found</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">text</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">'o'</span><span class="p">))</span> <span class="c1"># 4</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">text</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">"alice"</span><span class="p">))</span> <span class="c1"># -1</span>
-
-<span class="c1"># Lower case, upper case and title case</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">hi</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span> <span class="c1"># hi</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">text</span><span class="o">.</span><span class="n">upper</span><span class="p">())</span> <span class="c1"># HELLO WORLD</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">text</span><span class="o">.</span><span class="n">title</span><span class="p">())</span> <span class="c1"># Hello World</span>
-
-<span class="c1"># split a string into a list by the specified separator string</span>
-<span class="c1"># default is white space</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">())</span> <span class="c1"># ["hello", "world"]</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"ll"</span><span class="p">))</span>  <span class="c1"># ["he", "o world"]</span>
-
-<span class="c1"># replace a substr with another substr</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">hi</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">'i'</span><span class="p">,</span> <span class="s1">'a'</span><span class="p">))</span> <span class="c1"># Ha</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">"world"</span><span class="p">,</span> <span class="s2">"alice"</span><span class="p">))</span> <span class="c1"># hello alice</span>
-
-<span class="c1"># join a list of strings together with the desired separator string</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">", "</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s2">"alice"</span><span class="p">,</span> <span class="s2">"bob"</span><span class="p">,</span> <span class="s2">"cindy"</span><span class="p">]))</span> <span class="c1"># alice, bob, cindy</span>
-</pre></div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Data-Encoding">Data Encoding<a class="anchor-link" href="#Data-Encoding">¶</a></h3><p>Data encoding is the method Python uses to interpret the file data.</p>
+<ul>
+<li>Text: a text file contains data encoded as a sequence of characters. The actual character can be represented by different coding format such as <code>ascii</code> or <code>Unicode</code>. Many text files use first two or three bytes to mark the encoding type. Python will handle this for you automatically and it works correctly most of the time.</li>
+<li>Binary: a binary file is treated as a sequence of bytes. It is up to the program to interpret the meaning of the data. Multi-media data such as video/audio/picture often use binary file.</li>
+</ul>
 </div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Files-are-Resources">Files are Resources<a class="anchor-link" href="#Files-are-Resources">¶</a></h3><p>Files and databases are stored in secondary storage.</p>
+<p>To access files or databases, Python creates some data objects in memory to represent a file or a database connection.</p>
+<p>These objects uses system resources such as memory, process (a running program is a process), file descriptor etc. Therefore files and databases are often called resources in programming language.</p>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Resource-Management">Resource Management<a class="anchor-link" href="#Resource-Management">¶</a></h3><p>The resource concept is important because each computer only has a limited amount of any resources. A typical computer has 1GB to 1TB memory, a maximum of <code>32_767</code> (x86) or <code>4_194_303</code> (x86_64) processes in Linux and a limit of <code>65_535</code> file descriptors in Linux.</p>
+<p>A program should return a resource after use to let other programs to use the resource. In terms of file operation, you should <code>close</code> a file after you <code>open</code> and use the file. It is easy to forget to <code>close</code> a file after using it and cause resource-leak.</p>
+<p>To prevent this from happening, you shouldn't manually <code>close</code> a file. Use the Python <code>with</code> statement when you open a file and Python will close the file automatically.</p>
 </div>
 </div>
 </div>
@@ -7639,63 +7530,10 @@ main {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="2-List">2 List<a class="anchor-link" href="#2-List">¶</a></h2><p>A <em>list</em> is a sequential container (similar to a string) object that contains a number of elements. The objects in an list are called <em>elements</em> or <em>items</em> of the list.</p>
-<p>It is a mutable object whose value is changed in place.</p>
-<p>List elements can be in different types, but it is a best practice to put same-type elements into a list.</p>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="2.1-Creating-A-List">2.1 Creating A List<a class="anchor-link" href="#2.1-Creating-A-List">¶</a></h3><p>There are two common ways to create a list.</p>
-<p>First, you can create a list literally by listing elements in brackets and separating by commas.</p>
-<p>Second, Python has a built-in <code>list()</code> function that can convert certain types of objects to lists.</p>
-</div>
-</div>
-</div>
-</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># create a list from literals</span>
-<span class="n">some_numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span> <span class="p">,</span><span class="mi">7</span><span class="p">]</span>
-<span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'Alice'</span><span class="p">,</span> <span class="s1">'Bob'</span><span class="p">,</span> <span class="s1">'Cindy'</span><span class="p">]</span>
-<span class="c1"># elements can be of different types - not recommended</span>
-<span class="n">some_data</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="s1">'Alice'</span><span class="p">,</span> <span class="mf">12.5</span><span class="p">]</span> 
-
-<span class="c1"># use list() function</span>
-<span class="n">generated_numbers</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
-<span class="n">letters</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="s1">'abc'</span><span class="p">)</span>
-
-<span class="c1"># print can print a list directly</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">generated_numbers</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">letters</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="2.2-Basic-Operations">2.2 Basic Operations<a class="anchor-link" href="#2.2-Basic-Operations">¶</a></h3><p>A list has a sequence of elements. A basic requirement is to access one element, all elements or some elements.</p>
-<ul>
-<li>one element: index</li>
-<li>all elements: loop</li>
-<li>some elements: slice</li>
+<h2 id="File-Operations">File Operations<a class="anchor-link" href="#File-Operations">¶</a></h2><ul>
+<li>Open</li>
+<li>Write</li>
+<li>Read</li>
 </ul>
 </div>
 </div>
@@ -7707,12 +7545,82 @@ main {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="2.2.1-Index">2.2.1 Index<a class="anchor-link" href="#2.2.1-Index">¶</a></h3><p>Each element in a list has an index associated with it, starting from <code>0</code>.</p>
-<p>The first element has an index of <code>0</code>, the second element has an index of <code>1</code>, and so on and so forth.</p>
-<p>If the index is out of range, Python raises an <code>IndexError</code> exception.</p>
-<p>The last element has an index of the list length minus <code>1</code>.</p>
-<p>You can use negative index numbers to access elements from the end of the list. For example, <code>-1</code> identifies the last element in a list, <code>-2</code> identifies the next to last element, and so on an so forth.</p>
-<p>The index syntax is to put an index in a pair of brackets, right after the list variable name.</p>
+<h3 id="Open-a-File">Open a File<a class="anchor-link" href="#Open-a-File">¶</a></h3><p>There are two ways to open a file.</p>
+<div class="highlight"><pre><span></span><span class="n">file_variable</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">mode</span><span class="p">)</span>
+<span class="k">with</span> <span class="n">file_variable</span><span class="p">:</span> 
+    <span class="c1"># read/write file operations</span>
+    <span class="o">...</span>
+</pre></div>
+<p>Or combine the <code>with</code> and <code>open</code> using:</p>
+<div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">mode</span><span class="p">)</span> <span class="k">as</span> <span class="n">file_variable</span><span class="p">:</span>
+    <span class="c1"># read/write file operations</span>
+    <span class="o">...</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Open-Multiple-Files">Open Multiple Files<a class="anchor-link" href="#Open-Multiple-Files">¶</a></h3><p>Similarly, there are two ways to open multiple files:</p>
+<div class="highlight"><pre><span></span><span class="n">file_variable1</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename1</span><span class="p">,</span> <span class="n">mode</span><span class="p">)</span>
+<span class="n">file_variable2</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename2</span><span class="p">,</span> <span class="n">mode</span><span class="p">)</span>
+<span class="k">with</span> <span class="n">file_variable1</span><span class="p">,</span> <span class="n">file_variable2</span><span class="p">:</span> 
+    <span class="c1"># read/write the two files</span>
+    <span class="o">...</span>
+</pre></div>
+<div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename1</span><span class="p">,</span> <span class="n">mode</span><span class="p">)</span> <span class="k">as</span> <span class="n">file1</span><span class="p">,</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename2</span><span class="p">,</span> <span class="n">mode</span><span class="p">)</span> <span class="k">as</span> <span class="n">file2</span><span class="p">:</span>
+    <span class="c1"># read/write the two files</span>
+    <span class="o">...</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Filename">Filename<a class="anchor-link" href="#Filename">¶</a></h3><p>The <code>filename</code> can be a filename with or without a path. If the filename doesn't have a path prefix, the path is the current path that you run the Python program.</p>
+<p>The path prefix is different in Windows and Linux/MacOS.</p>
+<ul>
+<li>In Windows, a path uses backslash to separate folders and is like <code>"C:\Users\Alice\tmp\data.txt"</code>.</li>
+<li>In Linux/MacOS, a path uses slash to separate folder and is like <code>"/users/alice/tmp/data.txt"</code>.</li>
+</ul>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Open-Mode">Open Mode<a class="anchor-link" href="#Open-Mode">¶</a></h3><p>There are several <code>mode</code> values in Python but the three most used modes are:</p>
+<ul>
+<li><code>'r'</code>: reading-only. You can only read data from the file. This is the default mode if you don't provide a <code>mode</code> argument.</li>
+<li><code>'w'</code>: writing. If the file already exits, erase its content. Otherwise, create a new file with the specified filename.</li>
+<li><code>'a'</code>: appending. All data written to the file will be appended to the end.</li>
+</ul>
+<p><strong>Warning</strong>: be careful when you use the <code>'w'</code> mode because it alway starts with an empty content. If the file already exists, the existing content will be erased.</p>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Write">Write<a class="anchor-link" href="#Write">¶</a></h3><p>Use the <code>write(data)</code> method of a file object to write <code>data</code> to a file. You write strings to a text file as the following.</p>
 </div>
 </div>
 </div>
@@ -7724,14 +7632,13 @@ main {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span> <span class="p">,</span><span class="mi">7</span><span class="p">]</span>
+<div class="highlight hl-python"><pre><span></span><span class="n">FILENAME</span> <span class="o">=</span> <span class="s1">'names.txt'</span>
+<span class="n">WRITE_MODE</span> <span class="o">=</span> <span class="s1">'w'</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">numbers</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">numbers</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">numbers</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">numbers</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">numbers</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">],</span> <span class="n">numbers</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">])</span>
-
-<span class="c1"># oops, IndexError if the index is out of range</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">numbers</span><span class="p">[</span><span class="mi">5</span><span class="p">])</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">FILENAME</span><span class="p">,</span> <span class="n">WRITE_MODE</span><span class="p">)</span> <span class="k">as</span> <span class="n">names_file</span><span class="p">:</span>
+    <span class="n">names_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">'Alice</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
+    <span class="n">names_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">'Bob</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
+    <span class="n">names_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">'Cindy</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -7744,9 +7651,63 @@ main {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="2.2.2-Unpack-a-List">2.2.2 Unpack a List<a class="anchor-link" href="#2.2.2-Unpack-a-List">¶</a></h3><p>You can unpack a tuple and assign its elements to different variables.</p>
-<p>You can prefix the last variable with a <code>*</code> to match multiple elements of a list.</p>
-<p>Use <code>_</code> if you don't need the elements.</p>
+<h3 id="Manual-Close-(Not-Recommended)">Manual Close (Not Recommended)<a class="anchor-link" href="#Manual-Close-(Not-Recommended)">¶</a></h3><p>The the above <code>with</code> statement will close the file automatically after the three write operation in its code block.</p>
+<p>If you don't use <code>with</code> statement, you must close the file in a <code>finally</code> clause.</p>
+<p>It is not recommended because the code will be more complicated and easy to introduce bugs. Following is an example:</p>
+</div>
+</div>
+</div>
+</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-python"><pre><span></span><span class="n">FILENAME</span> <span class="o">=</span> <span class="s1">'names.txt'</span>
+<span class="n">WRITE_MODE</span> <span class="o">=</span> <span class="s1">'w'</span>
+
+<span class="c1"># not recommended</span>
+<span class="n">names_file</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="k">try</span><span class="p">:</span> 
+    <span class="n">names_file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">FILENAME</span><span class="p">,</span> <span class="n">WRITE_MODE</span><span class="p">)</span> 
+
+    <span class="n">names_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">'Alice</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
+    <span class="n">names_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">'Bob</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
+    <span class="n">names_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">'Cindy</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
+<span class="k">finally</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">names_file</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">names_file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span> <span class="c1"># to prevent leaking resource</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Read">Read<a class="anchor-link" href="#Read">¶</a></h2><p>There are different ways to read text file content.</p>
+<ul>
+<li>Use <code>for</code> loop</li>
+<li>Use <code>readline</code></li>
+<li>Use <code>readlines</code></li>
+</ul>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Read-with-a-for-loop">Read with a <code>for</code> loop<a class="anchor-link" href="#Read-with-a-for-loop">¶</a></h3><p>To read the text file content whose lines are separated by <code>\n</code>, use a <code>for</code> loop that assigns each line to a variable. The line includes the ending <code>\n</code> character.</p>
 </div>
 </div>
 </div>
@@ -7758,18 +7719,12 @@ main {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
-<span class="n">first</span><span class="p">,</span> <span class="n">second</span><span class="p">,</span> <span class="o">*</span><span class="n">rest</span> <span class="o">=</span> <span class="n">numbers</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">first</span><span class="p">,</span> <span class="n">second</span><span class="p">,</span> <span class="n">rest</span><span class="p">)</span> <span class="c1"># 1 2 [3, 4, 5]</span>
+<div class="highlight hl-python"><pre><span></span><span class="n">FILENAME</span> <span class="o">=</span> <span class="s1">'names.txt'</span>
+<span class="n">READ_MODE</span> <span class="o">=</span> <span class="s1">'r'</span>
 
-<span class="n">first</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">third</span><span class="p">,</span> <span class="o">*</span><span class="n">_</span> <span class="o">=</span> <span class="n">numbers</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">first</span><span class="p">,</span> <span class="n">third</span><span class="p">)</span> <span class="c1"># 1, 3</span>
-
-<span class="n">first</span><span class="p">,</span> <span class="n">second</span><span class="p">,</span> <span class="o">*</span><span class="n">_</span> <span class="o">=</span> <span class="n">numbers</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">first</span><span class="p">,</span> <span class="n">second</span><span class="p">)</span> <span class="c1"># 1, 2</span>
-
-<span class="n">first</span><span class="p">,</span> <span class="o">*</span><span class="n">_</span><span class="p">,</span> <span class="n">last</span> <span class="o">=</span> <span class="n">numbers</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">first</span><span class="p">,</span> <span class="n">last</span><span class="p">)</span> <span class="c1"># 1, 5</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">FILENAME</span><span class="p">,</span> <span class="n">READ_MODE</span><span class="p">)</span> <span class="k">as</span> <span class="n">names_file</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">names_file</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -7782,13 +7737,12 @@ main {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="2.2.3-Accessing-All-Elements">2.2.3 Accessing All Elements<a class="anchor-link" href="#2.2.3-Accessing-All-Elements">¶</a></h3><p>You can loop (iterate) over a list to access all its elements.</p>
-<p>Both <code>for</code> and <code>while</code> loops can be used, but the Pythonic way is using <code>for</code> because it is less error-prone and simpler than <code>while</code> loop.</p>
-<p>When you need the element index, the Pythonic way is to use built-in <code>enumerate()</code> functions.</p>
+<h3 id="readline()"><code>readline()</code><a class="anchor-link" href="#readline()">¶</a></h3><p>The method returns an empty string <code>""</code> when it reaches the end of the file.</p>
+<p>To read the whole file, you read first and check the content in a <code>while</code> loop. Following the an example:</p>
 </div>
 </div>
 </div>
-</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7796,27 +7750,14 @@ main {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">numbers</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<div class="highlight hl-python"><pre><span></span><span class="n">FILENAME</span> <span class="o">=</span> <span class="s1">'names.txt'</span>
+<span class="n">READ_MODE</span> <span class="o">=</span> <span class="s1">'r'</span>
 
-<span class="c1"># use for</span>
-<span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="n">numbers</span><span class="p">:</span>
-    <span class="n">doubled</span> <span class="o">=</span> <span class="n">number</span> <span class="o">*</span> <span class="mi">2</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Double element </span><span class="si">{</span><span class="n">number</span><span class="si">}</span><span class="s1"> is </span><span class="si">{</span><span class="n">doubled</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
-
-<span class="c1"># use enumerator if you need the index</span>
-<span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">number</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">numbers</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Index: </span><span class="si">{</span><span class="n">index</span><span class="si">}</span><span class="s1">, Value: </span><span class="si">{</span><span class="n">number</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
-
-<span class="c1"># Not recommended</span>
-<span class="n">length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">length</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Index: </span><span class="si">{</span><span class="n">index</span><span class="si">}</span><span class="s1">, Value: </span><span class="si">{</span><span class="n">numbers</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
-
-<span class="c1"># Not recommended</span>
-<span class="n">index</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="k">while</span> <span class="n">index</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">numbers</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Index: </span><span class="si">{</span><span class="n">index</span><span class="si">}</span><span class="s1">, Value: </span><span class="si">{</span><span class="n">numbers</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
-    <span class="n">index</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">FILENAME</span><span class="p">,</span> <span class="n">READ_MODE</span><span class="p">)</span> <span class="k">as</span> <span class="n">names_file</span><span class="p">:</span>
+    <span class="n">line</span> <span class="o">=</span> <span class="n">names_file</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+    <span class="k">while</span> <span class="n">line</span> <span class="o">!=</span> <span class="s1">''</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s1">'</span><span class="se">\n</span><span class="s1">'</span><span class="p">))</span>
+        <span class="n">line</span> <span class="o">=</span> <span class="n">names_file</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -7829,11 +7770,11 @@ main {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="2.2.4-Slicing-a-List">2.2.4 Slicing a List<a class="anchor-link" href="#2.2.4-Slicing-a-List">¶</a></h3><p>A <code>slice</code> is a span of items taken from a list. It is used to select some elements from a list. To slice a list, you use the <code>list_name[start : end : step]</code> to specify the start index and end index of a list. Like the <code>range</code> syntax, it doesn't include the <code>end</code> index. Following are some examples:</p>
+<h3 id="readlines()"><code>readlines()</code><a class="anchor-link" href="#readlines()">¶</a></h3><p>The <code>readlines</code> method of a file object returns a list containing all lines of the file.</p>
 </div>
 </div>
 </div>
-</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7841,25 +7782,13 @@ main {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">days</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'Mon'</span><span class="p">,</span> <span class="s1">'Tue'</span><span class="p">,</span> <span class="s1">'Wed'</span><span class="p">,</span> <span class="s1">'Thu'</span><span class="p">,</span> <span class="s1">'Fri'</span><span class="p">,</span> <span class="s1">'Sat'</span><span class="p">,</span> <span class="s1">'Sun'</span><span class="p">]</span>
+<div class="highlight hl-python"><pre><span></span><span class="n">FILENAME</span> <span class="o">=</span> <span class="s1">'names.txt'</span>
+<span class="n">READ_MODE</span> <span class="o">=</span> <span class="s1">'r'</span>
 
-<span class="c1"># index from 0 to 5, excluding 5</span>
-<span class="n">weekday</span> <span class="o">=</span> <span class="n">days</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span> 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Weekdays are: </span><span class="si">{</span><span class="n">weekday</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
-
-<span class="c1"># default start is 0</span>
-<span class="n">weekday2</span> <span class="o">=</span> <span class="n">days</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span> 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Weekdays version 2 are: </span><span class="si">{</span><span class="n">weekday</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
-
-<span class="n">weekends</span> <span class="o">=</span> <span class="n">days</span><span class="p">[</span><span class="mi">5</span><span class="p">:</span><span class="mi">7</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Weekends are </span><span class="si">{</span><span class="n">weekends</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
-
-<span class="c1"># default end is the length</span>
-<span class="n">weekends2</span> <span class="o">=</span> <span class="n">days</span><span class="p">[</span><span class="mi">5</span><span class="p">:]</span> 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Weekends version 2 are </span><span class="si">{</span><span class="n">weekends</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
-
-<span class="n">odd_days</span> <span class="o">=</span> <span class="n">days</span><span class="p">[::</span><span class="mi">2</span><span class="p">]</span> 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Odd days are </span><span class="si">{</span><span class="n">odd_days</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">FILENAME</span><span class="p">,</span> <span class="n">READ_MODE</span><span class="p">)</span> <span class="k">as</span> <span class="n">names_file</span><span class="p">:</span>
+    <span class="n">lines</span> <span class="o">=</span> <span class="n">names_file</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s1">'</span><span class="se">\n</span><span class="s1">'</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -7872,24 +7801,28 @@ main {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="2.3-List-and-Built-in-Operations">2.3 List and Built-in Operations<a class="anchor-link" href="#2.3-List-and-Built-in-Operations">¶</a></h3><p>Python has several built-in operators and functions working with a list.</p>
+<h3 id="Which-is-the-best?">Which is the best?<a class="anchor-link" href="#Which-is-the-best?">¶</a></h3><p><code>readline()</code> is more complicated and is not recommended.</p>
+<p>The <code>readlines()</code> is similar to the <code>for line in name_file:</code> version, there is an important difference: the <code>readlines()</code> read all lines in one operation. If the file is very big, it may take a while before you can see the first print output. On the other side, <code>for line in name_file:</code> reads the text file line by line. It is often more efficient because you can start processing data once you have the first line.</p>
+<p>Therefore, it is recommended to use the first method: the <code>for</code> loop method to read text files that have many lines.</p>
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Binary-Data">Binary Data<a class="anchor-link" href="#Binary-Data">¶</a></h2><p>Python uses <strong>bytes</strong> to represent binary values. A bytes object is a sequence of byte values. There are many ways to create a bytes object:</p>
 <ul>
-<li>Operators<ul>
-<li><code>in</code>: check if an item is a list element.</li>
-<li><code>not in</code>: check if an item is not a list element.</li>
-<li><code>+</code>: combine two lists</li>
-<li><code>*</code>: repeat a list for a number of times</li>
-<li><code>del</code>: delete an element from a list</li>
+<li><code>bytes1 = bytes('hello world', 'ascii')</code>: a sequence of bytes from ascii chars.</li>
+<li><code>bytes2 = b'hello world'</code>: created from string literal, same as the above.</li>
+<li><code>bytes3 = b'hello \x31\x32</code>: from string and hexadecimal literals.</li>
+<li><code>bytes(100)</code>: a sequence of 100 bytes of <code>0</code>.</li>
+<li><code>bytes([1, 2, 3])</code>: three bytes from integers.</li>
 </ul>
-</li>
-<li>Functions<ul>
-<li><code>len</code>: get the length of a list</li>
-<li><code>min</code>: get the minimum element of a list</li>
-<li><code>max</code>: get the maximum element of a list</li>
-<li><code>sum</code>: get the sum of number elements of a list</li>
-</ul>
-</li>
-</ul>
+<p>The following is a script that reads a binary file:</p>
 </div>
 </div>
 </div>
@@ -7901,198 +7834,13 @@ main {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">days</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'Mon'</span><span class="p">,</span> <span class="s1">'Tue'</span><span class="p">,</span> <span class="s1">'Wed'</span><span class="p">,</span> <span class="s1">'Thu'</span><span class="p">,</span> <span class="s1">'Fri'</span><span class="p">,</span> <span class="s1">'Sat'</span><span class="p">,</span> <span class="s1">'Sun'</span><span class="p">]</span>
-<span class="n">weekday</span> <span class="o">=</span> <span class="n">days</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span> 
-<span class="n">today</span> <span class="o">=</span> <span class="s1">'Thu'</span>
+<div class="highlight hl-python"><pre><span></span><span class="n">READ_BINARY</span> <span class="o">=</span> <span class="s1">'rb'</span>
+<span class="n">filename</span> <span class="o">=</span> <span class="s1">'sample.jpg'</span>
 
-<span class="n">is_weekday</span> <span class="o">=</span> <span class="n">today</span> <span class="ow">in</span> <span class="n">weekday</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Today is </span><span class="si">{</span><span class="n">today</span><span class="si">}</span><span class="s1">. Is weekday: </span><span class="si">{</span><span class="n">is_weekday</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
-<span class="n">is_weekend</span> <span class="o">=</span> <span class="n">today</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">weekday</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Today is </span><span class="si">{</span><span class="n">today</span><span class="si">}</span><span class="s1">. Is weekend: </span><span class="si">{</span><span class="n">is_weekend</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
-
-<span class="n">tens</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span>
-<span class="n">hundreds</span> <span class="o">=</span> <span class="p">[</span><span class="mi">500</span><span class="p">,</span> <span class="mi">600</span><span class="p">,</span> <span class="mi">700</span><span class="p">]</span>
-<span class="nb">all</span> <span class="o">=</span> <span class="n">tens</span> <span class="o">+</span> <span class="n">hundreds</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">all</span><span class="p">)</span>
-
-<span class="n">repeated_tens</span> <span class="o">=</span> <span class="n">tens</span> <span class="o">*</span> <span class="mi">3</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">repeated_tens</span><span class="p">)</span>
-
-<span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span>
-<span class="n">length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span>
-<span class="n">smallest</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span>
-<span class="n">biggest</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span>
-<span class="n">total</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Length: </span><span class="si">{</span><span class="n">length</span><span class="si">}</span><span class="s1">, Min: </span><span class="si">{</span><span class="n">smallest</span><span class="si">}</span><span class="s1">, Max: </span><span class="si">{</span><span class="n">biggest</span><span class="si">}</span><span class="s1">, Sum: </span><span class="si">{</span><span class="n">total</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="2.4-List-Methods">2.4 List Methods<a class="anchor-link" href="#2.4-List-Methods">¶</a></h3><p>Lists have numerous methods that you can use to manipulate a list.</p>
-<p>You use <code>list_name.method_name()</code> to call a method that work on a list.</p>
-<p>It is important to differentiate an in-place modification and an operation that returns a new list. Both <code>+</code> and slicing return a new list.</p>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Method-Examples">Method Examples<a class="anchor-link" href="#Method-Examples">¶</a></h3><ul>
-<li><code>list_name.append(element)</code>: add an element to the end of the list.</li>
-<li><code>list_name.index(element)</code>: find the first index of an element, raise a <code>ValueError</code> if the item is not found. To avoid exception, use <code>element in list_name</code> to check the existence first.</li>
-<li><code>list_name.insert(index, element)</code>: insert an item at the specified index.</li>
-<li><code>list_name.sort()</code>: sort the items in the list.</li>
-</ul>
-<p>You can find more list methods in <a href="https://docs.python.org/3/tutorial/datastructures.html">Python List Document</a>.</p>
-</div>
-</div>
-</div>
-</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span>
-<span class="n">n2</span> <span class="o">=</span> <span class="n">numbers</span>
-<span class="n">n3</span> <span class="o">=</span> <span class="n">numbers</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span>
-<span class="n">numbers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span> 
-<span class="nb">print</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span> <span class="c1"># [3, 5, 7, 42]</span>
-
-<span class="k">if</span> <span class="p">(</span><span class="mi">5</span> <span class="ow">in</span> <span class="n">numbers</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">numbers</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span> <span class="c1"># 1</span>
-
-
-<span class="n">numbers</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span> <span class="c1"># [3, 50, 5, 7, 42]</span>
-
-<span class="n">numbers</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span> <span class="c1"># [3, 5, 7, 42, 50]</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">n2</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">n3</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="2.5-Nested-List">2.5 Nested List<a class="anchor-link" href="#2.5-Nested-List">¶</a></h3><p>A list can have other lists as its elements. There is nothing special for nested lists, you just use the index to access each element in a list. For example:</p>
-</div>
-</div>
-</div>
-</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]]</span>
-<span class="n">numbers</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
-<span class="k">del</span> <span class="n">numbers</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div></div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="2.6-List-as-Mutable-Argument">2.6 List as Mutable Argument<a class="anchor-link" href="#2.6-List-as-Mutable-Argument">¶</a></h3><p>Be <em>careful</em> when you pass a list as an argument to a function because the list is a mutable object.</p>
-<p>If the function changes the list value in the function body, the passed-in object changes because an argument is just an alias to the object.</p>
-<p>It is a best practice that you should not change a mutable argument in a function body. If there is a need, make a copy of the object.</p>
-<p>However, if elements of a list are mutable, for example, nested lists, you need a deep copy. Check <a href="https://docs.python.org/3/library/copy.html?highlight=deep%20copy">Python copy document</a> for more details.</p>
-</div>
-</div>
-</div>
-</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">report_sum</span><span class="p">(</span><span class="n">numbers</span><span class="p">):</span>
-    <span class="n">numbers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">numbers</span><span class="p">))</span>
-
-<span class="n">scores</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"before call scores are </span><span class="si">{</span><span class="n">scores</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-
-<span class="n">report_sum</span><span class="p">(</span><span class="n">scores</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"after call scores are </span><span class="si">{</span><span class="n">scores</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-
-<span class="k">def</span> <span class="nf">report_sum2</span><span class="p">(</span><span class="n">numbers</span><span class="p">):</span>
-    <span class="n">new_numbers</span> <span class="o">=</span> <span class="n">numbers</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-    <span class="n">new_numbers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">new_numbers</span><span class="p">))</span>
-
-<span class="n">scores</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"before call scores are </span><span class="si">{</span><span class="n">scores</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-
-<span class="n">report_sum2</span><span class="p">(</span><span class="n">scores</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"after call scores are </span><span class="si">{</span><span class="n">scores</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="2.7-A-Stack">2.7 A Stack<a class="anchor-link" href="#2.7-A-Stack">¶</a></h3><p>A stack is a data structure that stores elements in an last in, first out (LIFO) manner. For example, Python runtime uses stack to manage calls -- named as a <em>call stack</em>. A stack supports two basic methods:</p>
-<ul>
-<li><code>append</code> that adds an element to the top of a stack. The operation is often called <code>push</code></li>
-<li><code>pop</code> that pops an element from the top of a stack.</li>
-</ul>
-<p>When using a list to implement a stack, the <em>top</em> is the end of a list. You can <code>append</code> (also called push in stack) an element and <code>pop</code> an element. Both operate at the end of a list.</p>
-</div>
-</div>
-</div>
-</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
-<span class="n">numbers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">37</span><span class="p">)</span>
-<span class="n">numbers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
-<span class="n">top</span> <span class="o">=</span> <span class="n">numbers</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">top</span><span class="p">)</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">READ_BINARY</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">contents</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Contents of binary file </span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s1">:</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">contents</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -8105,9 +7853,11 @@ main {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="3-Tuple">3 Tuple<a class="anchor-link" href="#3-Tuple">¶</a></h2><p>A tuple consists of a number of values separated by commas.</p>
-<p>A tuple is an immutable object.</p>
-<p>Tuple is often used to represent a short sequence of data that have different data types. For example, returning multiple values as a tuple.</p>
+<h2 id="Record-Operation">Record Operation<a class="anchor-link" href="#Record-Operation">¶</a></h2><p>It is a convention for a text file to use <code>records</code> and <code>fields</code> to organize data.  A <code>record</code> is a complete set of data that describe an entity. A record consists a single piece or multiple pieces of data. A single piece of data is called a <code>field</code>. For example</p>
+<ul>
+<li>an employee entity has <code>id</code>, <code>name</code>, <code>department</code> to describe an employee information. The <code>id</code>, <code>name</code>, <code>department</code> are fields of a record. Each record has data for each employee.</li>
+<li>a student may have <code>name</code>, <code>score</code> to describe the testing score for a student. A course has multiple records and each record represents one student. The <code>name</code>, <code>score</code> are fields of a student record.</li>
+</ul>
 </div>
 </div>
 </div>
@@ -8118,10 +7868,38 @@ main {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Tuple-Operations">Tuple Operations<a class="anchor-link" href="#Tuple-Operations">¶</a></h3><p>The tuple operations are similar to the list operation, except that it doesn't support any write operation because it is immutable.</p>
-<p>You access tuple by index or slicing.</p>
-<p>You can unpack a tuple and assign its elements to different variables.</p>
-<p>You can use built-in operator (such as <code>+</code>, <code>==</code> etc) and built-in functions (such as <code>len()</code>, <code>max()</code>) and so on with tuple.</p>
+<h3 id="Processing-Records">Processing Records<a class="anchor-link" href="#Processing-Records">¶</a></h3><p>There are many ways to process record data in a text file. Two popular options are:</p>
+<ul>
+<li>a line as a record: each line represents a record. Use field delimiter to separate different files in a record.</li>
+<li>a line as a field: each line represents a field. Use the number of fields to determine the record boundary. For example, for the above employee record that has three fields of <code>id</code>, <code>name</code> and <code>department</code>, three lines form a record.</li>
+</ul>
+<p>Most applications use the method of <code>a line as a record</code> because it is more compact and easy to process.</p>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Fields">Fields<a class="anchor-link" href="#Fields">¶</a></h3><p>there are many different ways to delimit the fields in a line. The two most popular methods are:</p>
+<ul>
+<li>white space delimiter: it uses a white space character to separate different fields. The white space characters include <code> </code> (space), <code>\t</code> (horizontal tab), <code>\v</code> (vertical tab), <code>\f</code> (feed), <code>\r</code> (carriage return). The string method <a href="https://docs.python.org/3/library/stdtypes.html#str.split"><code>split()</code></a> can be used to split fields of a line. <code>\n</code> (new line) is also a white space character but it is used for record delimiter.</li>
+<li>comma separated value (CSV): this is the most common import and export format for spreadsheets and database. Python has a built-in <a href="https://docs.python.org/3/library/csv.html"><code>csv</code> module</a> to process csv files.</li>
+</ul>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Writing-Records">Writing Records<a class="anchor-link" href="#Writing-Records">¶</a></h3><p>Writing is simple because all you need is to write a string that has all the fields and ends with a new line using <code>write</code> method. You can separate fields using any white space character but one or more spaces are common.</p>
 </div>
 </div>
 </div>
@@ -8133,34 +7911,18 @@ main {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># create a tuple </span>
-<span class="n">person1</span> <span class="o">=</span> <span class="s2">"Alice"</span><span class="p">,</span> <span class="mi">19</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">person1</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="c1"># Alice</span>
+<div class="highlight hl-python"><pre><span></span><span class="n">FILENAME</span> <span class="o">=</span> <span class="s1">'scores.txt'</span>
+<span class="n">WRITE_MODE</span> <span class="o">=</span> <span class="s1">'w'</span>
 
-<span class="c1"># you can create a tuple in parentheses</span>
-<span class="n">person2</span> <span class="o">=</span> <span class="p">(</span><span class="s2">"Bob"</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">FILENAME</span><span class="p">,</span> <span class="n">WRITE_MODE</span><span class="p">)</span> <span class="k">as</span> <span class="n">names_file</span><span class="p">:</span>
+    <span class="n">names_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">'Alice 97</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
 
-<span class="n">person1</span> <span class="o">==</span> <span class="n">person2</span> <span class="c1"># False</span>
+    <span class="c1"># demo of writing variable data</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s1">'Bob'</span>
+    <span class="n">score</span> <span class="o">=</span> <span class="mi">93</span>
+    <span class="n">names_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="n">score</span><span class="si">}</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
 
-<span class="n">name</span><span class="p">,</span> <span class="n">age</span> <span class="o">=</span> <span class="n">person1</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">)</span> <span class="c1"># Alice, 19</span>
-
-<span class="c1"># an empty tuple</span>
-<span class="n">empty</span> <span class="o">=</span> <span class="p">()</span>
-
-<span class="c1"># a tuple with one element</span>
-<span class="n">one</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
-
-<span class="n">numbers</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">numbers</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="c1"># 1</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">numbers</span><span class="p">[::</span><span class="mi">2</span><span class="p">])</span> <span class="c1"># (1, 3, 5)</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">numbers</span><span class="p">))</span> <span class="c1"># 5</span>
-
-<span class="n">first</span><span class="p">,</span> <span class="n">second</span><span class="p">,</span> <span class="o">*</span><span class="n">rest</span> <span class="o">=</span> <span class="n">numbers</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">first</span><span class="p">,</span> <span class="n">second</span><span class="p">,</span> <span class="n">rest</span><span class="p">)</span>
-
-<span class="n">first</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">numbers</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">first</span><span class="p">)</span> <span class="c1"># 1</span>
+    <span class="n">names_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">'Cindy 95</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -8173,14 +7935,11 @@ main {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Tuple-Is-Immutable,-But">Tuple Is Immutable, But<a class="anchor-link" href="#Tuple-Is-Immutable,-But">¶</a></h3><p>Tuple is a collection of elements.</p>
-<p>Actually it contains a collection of element <em>references</em>. The number and the position of references are immutable.</p>
-<p>However, if the reference points to a mutable object such as a list, the list data can be changed.</p>
-<p>You can see that a tuple is an immutable structure, but its value may change.</p>
+<h3 id="Reading-Records">Reading Records<a class="anchor-link" href="#Reading-Records">¶</a></h3><p>Reading a record needs to get the fields from a record. The <code>str.split()</code> makes the task simple.</p>
 </div>
 </div>
 </div>
-</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8188,14 +7947,13 @@ main {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">alice</span> <span class="o">=</span> <span class="s2">"Alice"</span><span class="p">,</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
-<span class="n">alice</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">alice</span><span class="p">)</span> <span class="c1"># ('Alice', [3, 4, 5, 42])</span>
+<div class="highlight hl-python"><pre><span></span><span class="n">FILENAME</span> <span class="o">=</span> <span class="s1">'scores.txt'</span>
+<span class="n">READ_MODE</span> <span class="o">=</span> <span class="s1">'r'</span>
 
-<span class="c1"># however, you cannot using the assignment to change tuple element</span>
-<span class="c1"># both give TypeError:  you cannot using the assignment to change tuple element</span>
-<span class="n">alice</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"Bob"</span>
-<span class="n">alice</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">42</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">FILENAME</span><span class="p">,</span> <span class="n">READ_MODE</span><span class="p">)</span> <span class="k">as</span> <span class="n">names_file</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">names_file</span><span class="p">:</span>
+        <span class="n">name</span><span class="p">,</span> <span class="n">score</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Name: </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1">, Score: </span><span class="si">{</span><span class="n">score</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -8208,16 +7966,10 @@ main {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="4-Set">4 Set<a class="anchor-link" href="#4-Set">¶</a></h2><p>A set is an <em>unordered</em> collection of <em>unique</em> elements. Sets have the following properties:</p>
-<ul>
-<li>unordered: Elements in the set do not have a position or index.</li>
-<li>unique: No elements in the set share the same value.</li>
-<li>immutable elements: all elements are immutable.</li>
+<h2 id="More-File-Operations">More File Operations<a class="anchor-link" href="#More-File-Operations">¶</a></h2><ul>
+<li>Removing and Renaming Files</li>
+<li>UPdating Text Files</li>
 </ul>
-<p>Built-in operators and functions work with a set like a list or tuple.</p>
-<p>You can use <code>for</code> loop to iterate all elements of a set, though the order might change for different runs.</p>
-<p>But you don't access individual set elements as you do with a list or a tuple.</p>
-<p>You often use <code>in</code> operator to check membership. Set is unique in its support of many set operations like union, intersection, difference, and symmetric difference.</p>
 </div>
 </div>
 </div>
@@ -8228,95 +7980,7 @@ main {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="4.1-Create-a-Set">4.1 Create a Set<a class="anchor-link" href="#4.1-Create-a-Set">¶</a></h3><p>There are two ways to create a set:</p>
-<ul>
-<li>using a <code>{}</code> to include a sequence of object separated by <code>,</code></li>
-<li>using <code>set()</code> operation to create a set from another sequential data like a list or a tuple.<ul>
-<li>you can only use <code>set()</code> to create an empty set because <code>{}</code> is used for empty dictionary.</li>
-</ul>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">fruits</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"apple"</span><span class="p">,</span> <span class="s2">"orange"</span><span class="p">,</span> <span class="s2">"banana"</span><span class="p">}</span>
-
-<span class="n">numbers</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">}</span>  <span class="c1"># set removes duplicated elements</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span> <span class="c1"># 1, 2, 3, 5</span>
-
-<span class="n">odds</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">odds</span><span class="p">)</span> <span class="c1"># 1, 3, 5</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="4.2-Immutable-Elements-in-Set">4.2 Immutable Elements in Set<a class="anchor-link" href="#4.2-Immutable-Elements-in-Set">¶</a></h3><p>Set is kind of special because it is an mutable object but all its elements must be immutable.</p>
-<p>For example, the following code raises a <code>TypeError</code> because a list is a mutable object. Technically, Python cannot run <code>hash</code> operation on an mutable object.</p>
-<p>The tuple version works because a tuple is immutable.</p>
-</div>
-</div>
-</div>
-</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [5]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">odds</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
-<span class="n">evens</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
-
-<span class="c1"># TypeError because mutable object</span>
-<span class="n">my_set</span> <span class="o">=</span> <span class="p">{</span><span class="n">odds</span><span class="p">,</span> <span class="n">evens</span><span class="p">}</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># now it works</span>
-<span class="n">odds_2</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
-<span class="n">evens_2</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
-<span class="n">my_set</span> <span class="o">=</span> <span class="p">{</span><span class="n">odds_2</span><span class="p">,</span> <span class="n">evens_2</span><span class="p">}</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div></div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="4.3-Set-Operations">4.3 Set Operations<a class="anchor-link" href="#4.3-Set-Operations">¶</a></h3><p>Using <code>in</code> or <code>not in</code> operator to check membership.</p>
-<p>You can add or remove elements.</p>
-<p>Set supports most set operations like like union, intersection, difference, and symmetric difference.</p>
+<h3 id="Removing-and-Renaming-Files">Removing and Renaming Files<a class="anchor-link" href="#Removing-and-Renaming-Files">¶</a></h3><p>The built-in <a href="https://docs.python.org/3/library/os.html"><code>os</code> module</a> is used to provide operating system functions such as removing, renaming and checking existence of a file. Following is an example.</p>
 </div>
 </div>
 </div>
@@ -8328,38 +7992,30 @@ main {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">fruits</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"apple"</span><span class="p">,</span> <span class="s2">"orange"</span><span class="p">,</span> <span class="s2">"banana"</span><span class="p">}</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"apple"</span> <span class="ow">in</span> <span class="n">fruits</span><span class="p">)</span> <span class="c1"># True</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"kiwi"</span> <span class="ow">in</span> <span class="n">fruits</span><span class="p">)</span> <span class="c1"># False</span>
+<div class="highlight hl-python"><pre><span></span><span class="kn">import</span> <span class="nn">os</span> <span class="c1"># first import the module</span>
 
-<span class="n">fruits</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">'kiwi'</span><span class="p">)</span> 
-<span class="n">fruits</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">"apple"</span><span class="p">)</span> <span class="c1"># redundant, ignored </span>
-<span class="n">fruits</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">"apple"</span><span class="p">)</span>
+<span class="n">FILENAME1</span> <span class="o">=</span> <span class="s1">'test1.txt'</span>
+<span class="n">FILENAME2</span> <span class="o">=</span> <span class="s1">'test2.txt'</span>
+<span class="n">WRITE_MODE</span> <span class="o">=</span> <span class="s1">'w'</span>
 
-<span class="n">more_fruits</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"kiwi"</span><span class="p">,</span> <span class="s2">"pear"</span><span class="p">}</span>
+<span class="k">def</span> <span class="nf">checkExistence</span><span class="p">(</span><span class="n">location</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""check the existence of the two files"""</span>
+    <span class="n">isExist1</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">FILENAME1</span><span class="p">)</span>
+    <span class="n">isExist2</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">FILENAME2</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'[</span><span class="si">{</span><span class="n">location</span><span class="si">}</span><span class="s1">] </span><span class="si">{</span><span class="n">FILENAME1</span><span class="si">}</span><span class="s1"> exists: </span><span class="si">{</span><span class="n">isExist1</span><span class="si">}</span><span class="s1">, </span><span class="si">{</span><span class="n">FILENAME2</span><span class="si">}</span><span class="s1"> exists: </span><span class="si">{</span><span class="n">isExist2</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">fruits</span><span class="p">)</span> <span class="c1"># {'banana', 'kiwi', 'orange'}</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">more_fruits</span><span class="p">)</span> <span class="c1"># {'pear', 'kiwi'}</span>
+<span class="c1"># create a file first</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">FILENAME1</span><span class="p">,</span> <span class="n">WRITE_MODE</span><span class="p">)</span> <span class="k">as</span> <span class="n">names_file</span><span class="p">:</span>
+    <span class="n">names_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">'test message</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
+<span class="n">checkExistence</span><span class="p">(</span><span class="s1">'After create'</span><span class="p">)</span>
 
-<span class="c1"># union</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">fruits</span> <span class="o">|</span> <span class="n">more_fruits</span><span class="p">)</span> <span class="c1"># {'orange', 'banana', 'pear', 'kiwi'}</span>
-<span class="c1"># difference</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">fruits</span> <span class="o">-</span> <span class="n">more_fruits</span><span class="p">)</span> <span class="c1"># {'orange', 'banana'}</span>
+<span class="n">os</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">FILENAME1</span><span class="p">,</span> <span class="n">FILENAME2</span><span class="p">)</span>
+<span class="n">checkExistence</span><span class="p">(</span><span class="s1">'after rename'</span><span class="p">)</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">FILENAME2</span><span class="p">)</span>
+<span class="n">checkExistence</span><span class="p">(</span><span class="s1">'after remove'</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-</div>
-</div>
-</div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="5-Dictionary">5 Dictionary<a class="anchor-link" href="#5-Dictionary">¶</a></h2><p>A dictionary is an <em>unordered</em> collection of elements where each element has two parts: a key and a value. Or you can say that an element is a key-value pair.</p>
-<p>The key can be any object as long as it is <em>immutable</em>. Common key types include <code>int</code> and <code>string</code>.</p>
-<p>People use dictionaries to store key-value pairs thus it is easy to find out a value. For example, you use <code>student_id</code> to retrieve a student object.</p>
 </div>
 </div>
 </div>
@@ -8370,8 +8026,31 @@ main {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="5.1-Create-a-Dictionary">5.1 Create a Dictionary<a class="anchor-link" href="#5.1-Create-a-Dictionary">¶</a></h3><p>You use <code>{}</code> to create a dictionary. The <code>{}</code> creates an empty dictionary. You can use a dictionary variable as a boolean expression to check if it is empty. To create elements, create a sequence of <code>key: value</code> pairs separated by <code>,</code>.</p>
-<p>Another approach to create a dictionary is using the built-in <code>dict()</code> function. The argument is a sequence of key-value pairs. If the keys are simple string, you can call it using keyword arguments.</p>
+<h3 id="Updating-Text-Files">Updating Text Files<a class="anchor-link" href="#Updating-Text-Files">¶</a></h3><p>Update existing file content is tricky because the file content is stored in disk in a fixed format. The following three records:</p>
+<div class="highlight"><pre><span></span>Alice 97
+Bob 93
+Cindy 95
+</pre></div>
+<p>They are stored in a disk as <code>Alice 97\nBob 93\nCindy 95\n</code>. It is easy to change a field with a shorter one and leave some spaces. But changing a field to a longer one will move all later content to a different place.</p>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Updating-Pattern">Updating Pattern<a class="anchor-link" href="#Updating-Pattern">¶</a></h3><p>the pattern to update file is a multi-step task:</p>
+<ul>
+<li>open a source file for read</li>
+<li>open a temp file for write</li>
+<li>read data from the source file, make required changes and save to the temp file</li>
+<li>remove the source file</li>
+<li>rename the temp file to the name of the source file</li>
+</ul>
+<p>The following is an example to change Bob's score to <code>90</code> and change the name <code>Cindy</code> to <code>Cynthia</code>.</p>
 </div>
 </div>
 </div>
@@ -8383,412 +8062,29 @@ main {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">empty_dict</span> <span class="o">=</span> <span class="p">{}</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">empty_dict</span><span class="p">)</span>
+<div class="highlight hl-python"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
 
-<span class="n">students</span> <span class="o">=</span> <span class="p">{</span><span class="mi">90</span><span class="p">:</span> <span class="s1">'Alice'</span><span class="p">,</span> <span class="mi">27</span><span class="p">:</span> <span class="s1">'Bob'</span><span class="p">,</span> <span class="mi">50</span><span class="p">:</span> <span class="s1">'Cindy'</span><span class="p">}</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">students</span><span class="p">)</span>
+<span class="n">FILENAME</span> <span class="o">=</span> <span class="s1">'scores.txt'</span>
+<span class="n">TEMP_FILE</span> <span class="o">=</span> <span class="s1">'temp'</span>
+<span class="n">READ_MODE</span> <span class="o">=</span> <span class="s1">'r'</span>
+<span class="n">WRITE_MODE</span> <span class="o">=</span> <span class="s1">'w'</span>
 
-<span class="n">more_students</span> <span class="o">=</span> <span class="p">{</span><span class="mi">90</span><span class="p">:</span> <span class="s1">'Alice'</span><span class="p">,</span> <span class="mi">27</span><span class="p">:</span> <span class="s1">'Bob'</span><span class="p">,</span> <span class="mi">90</span><span class="p">:</span> <span class="s1">'Cindy'</span><span class="p">,</span> <span class="mi">200</span><span class="p">:</span> <span class="s1">'Mike'</span><span class="p">}</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">more_students</span><span class="p">)</span>
+<span class="n">source_file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">FILENAME</span><span class="p">,</span> <span class="n">READ_MODE</span><span class="p">)</span>
+<span class="n">temp_file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">TEMP_FILE</span><span class="p">,</span> <span class="n">WRITE_MODE</span><span class="p">)</span>
+<span class="k">with</span> <span class="n">source_file</span><span class="p">,</span> <span class="n">temp_file</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">source_file</span><span class="p">:</span>
+        <span class="n">name</span><span class="p">,</span> <span class="n">score</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+        
+        <span class="k">if</span> <span class="n">name</span> <span class="o">==</span> <span class="s1">'Bob'</span><span class="p">:</span>
+            <span class="n">score</span> <span class="o">=</span> <span class="mi">90</span>
+        
+        <span class="k">if</span> <span class="n">name</span> <span class="o">==</span> <span class="s1">'Cindy'</span><span class="p">:</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="s1">'Cynthia'</span>
+        
+        <span class="n">temp_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="n">score</span><span class="si">}</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
 
-
-<span class="c1"># use the dict() built-in function</span>
-<span class="n">students</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">([(</span><span class="mi">90</span><span class="p">,</span> <span class="s1">'alice'</span><span class="p">),</span>  <span class="p">(</span><span class="mi">27</span><span class="p">,</span>  <span class="s1">'bob'</span><span class="p">)])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">students</span><span class="p">)</span>
-
-<span class="n">my_dict</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">A</span><span class="o">=</span><span class="s1">'alice'</span><span class="p">,</span> <span class="n">B</span><span class="o">=</span><span class="s1">'Bob'</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">my_dict</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="5.2-Read-or-Write-a-Dictionary-Element">5.2 Read or Write a Dictionary Element<a class="anchor-link" href="#5.2-Read-or-Write-a-Dictionary-Element">¶</a></h3><p>You uses the <code>dictionary_name[key]</code> to access an individual element.</p>
-<p>You can read or update the value in the key-value pair. There is no way to change the key because it is immutable.</p>
-<p>Be careful, there are two cases that could be wrong in using dictionaries:</p>
-<ul>
-<li>A non exist key throws a <code>KeyError</code> exception. To avoid it, use <code>get</code> method with a specified default value. For example: <code>students.get(42, 'Unknown')</code></li>
-<li>when the <code>dictionary_name[key]</code> is on the left hand side, you set a new value for an existing key or create a new key-value pair if the key doesn't exist. Any typo in the key name could be a big bug.</li>
-</ul>
-</div>
-</div>
-</div>
-</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">students</span> <span class="o">=</span> <span class="p">{</span><span class="mi">90</span><span class="p">:</span> <span class="s1">'Alice'</span><span class="p">,</span> <span class="mi">27</span><span class="p">:</span> <span class="s1">'Bob'</span><span class="p">,</span> <span class="mi">50</span><span class="p">:</span> <span class="s1">'Cindy'</span><span class="p">}</span>
-
-<span class="c1"># read a value for a key</span>
-<span class="n">name_with_id_90</span> <span class="o">=</span> <span class="n">students</span><span class="p">[</span><span class="mi">90</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">name_with_id_90</span><span class="p">)</span>
-
-<span class="c1"># change a value for a key</span>
-<span class="n">students</span><span class="p">[</span><span class="mi">90</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'Mike'</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">students</span><span class="p">[</span><span class="mi">90</span><span class="p">])</span>
-
-<span class="c1"># add a new key-value pair because 97 doesn't exist</span>
-<span class="n">students</span><span class="p">[</span><span class="mi">97</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'Bill'</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">students</span><span class="p">)</span>
-
-<span class="c1"># reading a value for a non-exist key throws a KeyError exception</span>
-<span class="n">name_nobody</span> <span class="o">=</span> <span class="n">students</span><span class="p">[</span><span class="mi">404</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="5.3-Other-Operations">5.3 Other Operations<a class="anchor-link" href="#5.3-Other-Operations">¶</a></h3><p>The built-in <code>len</code> function tells how many elements in a dictionary.</p>
-<p>The <code>in</code> and <code>not in</code> operators test whether a key exists in a dictionary.</p>
-<p>The <code>del</code> operator delete a key-value pair from a dictionary if the specified key exists, otherwise, it throws a <code>KeyError</code> exception. The syntax is <code>del dictionary_name[key]</code>. To avoid exception, use <code>in</code> to make sure the key is there before <code>del</code>.</p>
-</div>
-</div>
-</div>
-</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">month_days</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'Jan'</span><span class="p">:</span> <span class="mi">31</span><span class="p">,</span> <span class="s1">'Apr'</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s1">'Jul'</span><span class="p">:</span> <span class="mi">31</span><span class="p">}</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'It has </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">month_days</span><span class="p">)</span><span class="si">}</span><span class="s1"> elements'</span><span class="p">)</span>
-
-<span class="k">if</span> <span class="s1">'Jan'</span> <span class="ow">in</span> <span class="n">month_days</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">'Jan is in the dictionary'</span><span class="p">)</span>
-
-<span class="k">if</span> <span class="s1">'Feb'</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">month_days</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">'Feb is not in the dictionary'</span><span class="p">)</span>
-
-
-<span class="k">if</span> <span class="s1">'Jan'</span> <span class="ow">in</span> <span class="n">month_days</span><span class="p">:</span>
-    <span class="k">del</span> <span class="n">month_days</span><span class="p">[</span><span class="s1">'Jan'</span><span class="p">]</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">month_days</span><span class="p">)</span>
-
-<span class="c1"># throw a KeyError exception because the key doesn't exist</span>
-<span class="k">del</span> <span class="n">month_days</span><span class="p">[</span><span class="s1">'Jan'</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">month_days</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="5.4-Iterate-a-Dictionary">5.4 Iterate a Dictionary<a class="anchor-link" href="#5.4-Iterate-a-Dictionary">¶</a></h3><ul>
-<li>You can use <code>for key in dictionary_name:</code> to iterate over all keys of a dictionary. Then you use <code>dictionary_name[key]</code> to access each value.</li>
-<li>The <code>items</code> method returns a sequence of key-value pairs. Therefore, you can use <code>for key, value in dictionary_name.items():</code> to iterate over a dictionary.</li>
-<li>The <code>values()</code> method returns all values. Don't assume any order of the return values!</li>
-<li>The <code>keys()</code> method returns all keys.</li>
-</ul>
-</div>
-</div>
-</div>
-</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">month_days</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"Jan"</span><span class="p">:</span> <span class="mi">31</span><span class="p">,</span> <span class="s2">"Apr"</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s2">"Jul"</span><span class="p">:</span> <span class="mi">31</span><span class="p">}</span>
-
-<span class="k">for</span> <span class="n">month</span> <span class="ow">in</span> <span class="n">month_days</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">month</span><span class="si">}</span><span class="s1"> has </span><span class="si">{</span><span class="n">month_days</span><span class="p">[</span><span class="n">month</span><span class="p">]</span><span class="si">}</span><span class="s1"> days'</span><span class="p">)</span>
-
-
-<span class="k">for</span> <span class="n">month</span><span class="p">,</span> <span class="n">days</span> <span class="ow">in</span> <span class="n">month_days</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">month</span><span class="si">}</span><span class="s1"> has </span><span class="si">{</span><span class="n">days</span><span class="si">}</span><span class="s1"> days'</span><span class="p">)</span>
-
-<span class="n">days_sequence</span> <span class="o">=</span> <span class="n">month_days</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
-<span class="k">for</span> <span class="n">days</span> <span class="ow">in</span> <span class="n">days_sequence</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">days</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">' '</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">()</span>
-
-<span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">month_days</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Month key is </span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s1">'</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">'; '</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="5.5-More-Methods">5.5 More Methods<a class="anchor-link" href="#5.5-More-Methods">¶</a></h3><p>The dictionary has more methods. The following is a list of commonly-used methods. Try them.</p>
-<ul>
-<li><code>clear</code>: clear all elements</li>
-<li><code>pop</code>: return the value and remove the key-value pair. For example: <code>month_days.pop("Jan")</code>.</li>
-<li><code>popitem</code>: remove the latest inserted element the dictionary, return the removed element. For example: <code>month_days.popitem()</code>.</li>
-</ul>
-<p>You can also use built-in <code>del</code> operator to remove a key-value pair without return value. For example: <code>del month_days["Jan"]</code></p>
-<p>Exercise: please write a phone book program that lets users to input and query phone book by first name or phone number. The search should be case-insensitive.</p>
-</div>
-</div>
-</div>
-</div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="6-Creating-New-Collections-From-Existing-Ones">6 Creating New Collections From Existing Ones<a class="anchor-link" href="#6-Creating-New-Collections-From-Existing-Ones">¶</a></h2><p>Python provides two convenient constructs to create new collections:</p>
-<ul>
-<li>List/set/dictionary comprehension: create a list/set/dictionary from an iterable object.</li>
-<li>Generator expression: create an iterable object from a sequence object.</li>
-</ul>
-<p>An <code>iterable</code> object is a collection object or something that you can apply the <code>for</code> loop. For example, <code>range(5)</code> is an iterable object.</p>
-<p>The advantage of <code>iterable</code> is that it is <strong>lazy</strong>, generating one value at a time. <code>range(1_000_000_000)</code> doesn't create one billion numbers when it is initialized, it generate one number in each <code>for</code> loop. Thus it doesn't need memory for all numbers.</p>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="6.1-Motivation">6.1 Motivation<a class="anchor-link" href="#6.1-Motivation">¶</a></h3><p>When you want to create a list from a sequence with simple computation, you can use a list comprehension to simplify the code.</p>
-<p>For example, to create a list of square roots from the first 5 integers, you can use either of the following code snippets:</p>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">math</span> 
-
-<span class="n">roots</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
-    <span class="n">roots</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">number</span><span class="p">))</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">roots</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
-
-<span class="n">numbers</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-
-<span class="c1"># you need to use list() to get the list result</span>
-<span class="n">roots</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">,</span> <span class="n">numbers</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">roots</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="6.2-List-Comprehension">6.2 List Comprehension<a class="anchor-link" href="#6.2-List-Comprehension">¶</a></h3><p>Python let you use list comprehension to simplify the code. The list comprehension has a syntax like <code>[expression for member in iterable]</code>.</p>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
-
-<span class="n">roots</span> <span class="o">=</span> <span class="p">[</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">number</span><span class="p">)</span> <span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)]</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">roots</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="6.3-Filtering-Elements">6.3 Filtering Elements<a class="anchor-link" href="#6.3-Filtering-Elements">¶</a></h3><p>You can use list comprehension with an additional <code>if condition</code> construct to filter out the elements.</p>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">lower_letters</span> <span class="o">=</span> <span class="p">[</span><span class="n">char</span> <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="s2">"Hello World"</span> <span class="k">if</span> <span class="n">char</span><span class="o">.</span><span class="n">islower</span><span class="p">()]</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">lower_letters</span><span class="p">)</span> <span class="c1"># ['e', 'l', 'l', 'o', 'o', 'r', 'l', 'd']</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="6.4-Set-and-Dictionary-Comprehensions">6.4 Set and Dictionary Comprehensions<a class="anchor-link" href="#6.4-Set-and-Dictionary-Comprehensions">¶</a></h3><p>Similar to a list comprehension, you can create a set or a dictionary from an iterable object.</p>
-<p>Just replace the square bracket <code>[]</code> with the curly braces <code>{}</code>.</p>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">lower_letters</span> <span class="o">=</span> <span class="p">{</span><span class="n">char</span> <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="s2">"Hello World"</span> <span class="k">if</span> <span class="n">char</span><span class="o">.</span><span class="n">islower</span><span class="p">()}</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">lower_letters</span><span class="p">)</span> <span class="c1"># {'d', 'e', 'r', 'l', 'o'}</span>
-
-
-<span class="n">squares</span> <span class="o">=</span> <span class="p">{</span> <span class="n">number</span><span class="p">:</span> <span class="n">number</span> <span class="o">*</span> <span class="n">number</span> <span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)}</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">squares</span><span class="p">)</span> <span class="c1"># {0: 0, 1: 1, 2: 4, 3: 9, 4: 16}</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="7-Generator-Object">7 Generator Object<a class="anchor-link" href="#7-Generator-Object">¶</a></h2><p>A generator object is an iterable object that you can use in a <code>for</code> loop.</p>
-<p>Python has a keyword <code>yield</code> that creates a <em>generator object</em> that returns one value in each iteration of the <code>for</code> loop.</p>
-<p>The following function is a <em>generator function</em> that returns a generator object.</p>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">squares</span><span class="p">(</span><span class="n">size</span><span class="p">):</span>
-    <span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">size</span><span class="p">):</span>
-        <span class="k">yield</span> <span class="n">number</span> <span class="o">*</span> <span class="n">number</span>
-
-
-<span class="n">five_squares</span> <span class="o">=</span> <span class="p">[</span><span class="n">square</span> <span class="k">for</span> <span class="n">square</span> <span class="ow">in</span> <span class="n">squares</span><span class="p">(</span><span class="mi">5</span><span class="p">)]</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">five_squares</span><span class="p">)</span> <span class="c1"># [0, 1, 4, 9, 16]</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="7.1-Why-Generator?">7.1 Why Generator?<a class="anchor-link" href="#7.1-Why-Generator?">¶</a></h3><p>The reason for having generator function and generator objects is the so-called <em>lazy</em> computation.</p>
-<p>Suppose that you have one billion data records, it is impossible or inefficient to load all records into the computer memory. The lazy computation that load and process one record at a time has many benefits:</p>
-<ul>
-<li>you can show some result/progress when the first item is processed.</li>
-<li>you don't need a large memory to hold all records.</li>
-<li>you might stop processing the rest of data for certain conditions.</li>
-</ul>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="7.2-Generator-Expression">7.2 Generator Expression<a class="anchor-link" href="#7.2-Generator-Expression">¶</a></h3><p>Instead of using a generator function, you can use a generator expression to create a generator object from an iterable object.</p>
-<p>The syntax is similar to list/set comprehension, just use <code>()</code> in place of <code>[]</code>.</p>
-<p>If the source iterable object is a generator object, the iterator expression is also a generator object that is computed one at a time.</p>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">squares</span> <span class="o">=</span> <span class="p">(</span><span class="n">number</span> <span class="o">*</span> <span class="n">number</span> <span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
-<span class="k">for</span> <span class="n">square</span> <span class="ow">in</span> <span class="n">squares</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">square</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">", "</span><span class="p">)</span> 
-
-<span class="c1"># output: 0, 1, 4, 9, 16, </span>
+<span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">FILENAME</span><span class="p">)</span>
+<span class="n">os</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">TEMP_FILE</span><span class="p">,</span> <span class="n">FILENAME</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
