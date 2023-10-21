@@ -7461,7 +7461,7 @@ main {
 </div>
 </div>
 </div>
-</div>
+</div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -7477,21 +7477,21 @@ main {
 </div>
 </div>
 </div>
-</div>
+</div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="1.2-Inheritance">1.2 Inheritance<a class="anchor-link" href="#1.2-Inheritance">¶</a></h3><p>Classes have the parent-child relationship. A <strong>subclass</strong> can inherits from one more <strong>superclasses</strong>. A superclass can be inherited by many subclasses.</p>
+<h3 id="1.2-Inheritance">1.2 Inheritance<a class="anchor-link" href="#1.2-Inheritance">¶</a></h3><p>Classes have the parent-child relationship. A <strong>subclass</strong> (or <strong>child class</strong>) can inherits from one or more <strong>superclasses</strong> (or <strong>parent class</strong>). A superclass can be inherited by many subclasses.</p>
 <p>This is called implementation inheritance because a subclass inherits all attributes and methods defined in its superclass code. A subclass can choose to override the inherited attributes and methods.</p>
 <p>Theoretically, inheritance reduces redundant code in its subclasses.</p>
 <p>Practically, inheritance, especially deep class hierarchy, creates strong coupling among classes. When there is a change, it is hard to change the involved classes.</p>
 </div>
 </div>
 </div>
-</div>
+</div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -7499,12 +7499,12 @@ main {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3 id="1.3-Encapsulation">1.3 Encapsulation<a class="anchor-link" href="#1.3-Encapsulation">¶</a></h3><p>The data (the attributes) and functions (the methods) are encapsulated inside a class. You only use methods and attributes, together called interfaces, to access instances.</p>
-<p>The implementation of attributes and methods could be changed without affecting its use if the class interface doesn't change.</p>
+<p>The implementation of attributes and methods could be changed without affecting its use if the class interface doesn't change. Python allows you to implement attributes using methods -- the so-called <strong>uniform access principle</strong>.</p>
 <p>Encapsulation is a desired objective. In practice, it is hard to define a flexible interface that works in different contents.</p>
 </div>
 </div>
 </div>
-</div>
+</div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -7521,7 +7521,7 @@ main {
 </div>
 </div>
 </div>
-</div>
+</div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -7553,7 +7553,7 @@ main {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [4]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">Rectangle</span><span class="p">:</span>
@@ -7568,7 +7568,7 @@ main {
 </div>
 </div>
 </div>
-</div>
+</div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -7578,7 +7578,7 @@ main {
 <h3 id="2.1-Explanation">2.1 Explanation<a class="anchor-link" href="#2.1-Explanation">¶</a></h3><p>The following is line-by-line explanation of the code.</p>
 <ul>
 <li><code>class Rectangle:</code>: defines a class named <code>Rectangle</code>.</li>
-<li><code>def __init__(self, length, width):</code>: the <code>__init__</code> is a special initialization method, also called a <code>constructor</code> method, it is used to create an instance of the class. The first parameter of all class methods should be <code>self</code>. It means the object being created. After the <code>self</code>, you can have zero, one or more parameters used to create an object for the class. Here we have two parameters.</li>
+<li><code>def __init__(self, length, width):</code>: the <code>__init__</code> is a special initialization method, also called a <code>initialization</code> method, it is used to initialize an instance of the class. The first parameter of all class methods should be <code>self</code>. It means the object being initialized. After the <code>self</code>, you can have zero, one or more parameters used to create an object for the class. Here we have two parameters.</li>
 <li><code>self.length = length</code>: this line create an attribute called <code>length</code> because the syntax of <code>self.length</code>.</li>
 <li><code>self.width = width</code>: this line create an attribute called <code>width</code> because the syntax of <code>self.width</code>.</li>
 <li><code>def area(self):</code>: this line defines a method called <code>area</code>. The first parameter must be <code>self</code> and it doesn't take other parameter.</li>
@@ -7594,7 +7594,7 @@ main {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="3-Instances">3 Instances<a class="anchor-link" href="#3-Instances">¶</a></h2><p>You use the class name and the parameters specified in <code>__init__</code> method to create an object. To call an object method or access an attribute, use the dot notations explained as the following:</p>
+<h2 id="3-Instances">3 Instances<a class="anchor-link" href="#3-Instances">¶</a></h2><p>You use the class name and the parameters specified in <code>__init__</code> method to create and initialize an object. To call an object method or access an attribute, use the dot notations explained as the following:</p>
 <ul>
 <li><code>rect = Rectangle(3, 5)</code>: create an instance of <code>Rectangle</code> with specified length and width. <code>rect</code> points to the newly created object.</li>
 <li><code>area = rect.area()</code>: The dot notation <code>rect.area()</code> is used to call a method of an object.</li>
@@ -7653,14 +7653,27 @@ main {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="3.2-OOP-Benefits">3.2 OOP Benefits<a class="anchor-link" href="#3.2-OOP-Benefits">¶</a></h3><ul>
+<h3 id="3.3-Instance-Method">3.3 Instance Method<a class="anchor-link" href="#3.3-Instance-Method">¶</a></h3><p>In the above code, <code>rectangle.area()</code> calls the <code>area()</code> instance method. Python will automatically pass the <code>rectangle</code> instance as the first argument to the method.</p>
+<p>Actually, it is a syntax sugar of <code>area2 = Rectangle.area(rectangle)</code>. This call matches the function header <code>def area(self):</code> but it is more verbose than the instance call syntax.</p>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="3.3-OOP-Benefits">3.3 OOP Benefits<a class="anchor-link" href="#3.3-OOP-Benefits">¶</a></h3><ul>
 <li>Encapsulation: the data (the attributes) and functions (the methods) are encapsulated inside a class. You only use methods (<code>rectangle.area()</code>) and attributes ()<code>rectangle.length</code> and <code>rectangle.width</code>), together called interfaces, to access data. The detail implementation could be changed without affecting its interfaces.</li>
 <li>Polymorphism: a function can work on different types. In the following example, the <code>print_area()</code> function can use any object that has an <code>area()</code> method. code using the class and its objects.</li>
+<li>Inheritance: a subclass reuses its superclass attributes/methods</li>
 </ul>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7701,7 +7714,7 @@ main {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7722,7 +7735,9 @@ main {
 
 <span class="k">class</span> <span class="nc">Circle</span><span class="p">(</span><span class="n">Shape</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">radius</span><span class="p">):</span>
-        <span class="n">Shape</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">color</span><span class="p">)</span>   <span class="c1"># you must call this as the first </span>
+        <span class="c1"># you must initialize parent first </span>
+        <span class="c1"># same as Shape.__init__(self, color)</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">color</span><span class="p">)</span>   
         <span class="bp">self</span><span class="o">.</span><span class="n">radius</span> <span class="o">=</span> <span class="n">radius</span>
 
     <span class="k">def</span> <span class="nf">area</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -7732,7 +7747,9 @@ main {
     <span class="c1"># a special method used to create an instance of this class</span>
     <span class="c1"># this method initialize instance attributes</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">length</span><span class="p">,</span> <span class="n">width</span><span class="p">):</span>
-        <span class="n">Shape</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">color</span><span class="p">)</span>
+        <span class="c1"># you must initialize parent first </span>
+        <span class="c1"># same as Shape.__init__(self, color)</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">color</span><span class="p">)</span>   
         <span class="bp">self</span><span class="o">.</span><span class="n">length</span> <span class="o">=</span> <span class="n">length</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">width</span> <span class="o">=</span> <span class="n">width</span>
 
@@ -7750,20 +7767,36 @@ main {
 </div>
 </div>
 </div>
-</div>
+</div></section></section><section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="5-Cautious-About-OOP">5 Cautious About OOP<a class="anchor-link" href="#5-Cautious-About-OOP">¶</a></h2><p>OO was popular because GUI applications were popular. These days, as computers have multiple cores and more code are developed for backend data processing, OO shows some disadvantages:</p>
+<h2 id="5-Cautious-About-OOP">5 Cautious About OOP<a class="anchor-link" href="#5-Cautious-About-OOP">¶</a></h2><p>OO was popular because it works well in business applications and GUI applications.</p>
+<p>These days, as computers have multiple cores and more code are developed for backend data processing, OO shows some disadvantages:</p>
 <ul>
 <li>combine data and function in a class is error prone because instances can be changed and shared by multiple threads. Like global data, it is dangerous. Immutable data are preferred this days.</li>
 <li>inheritance, especially multiple inheritance, is confusing and not used widely in data processing.</li>
 </ul>
-<p>It is nice to know the basic terms because OO had been popular for more than two decades and there are many legacy code. New applications, especially non-GUI applications, use more and more immutable data and functions (not object methods).</p>
-<p>Using functions to process immutable data, so-called functional programming, is the current trend.</p>
+<p>It is nice to know the basic terms because OO had been popular for more than two decades and there are many legacy code. New applications, especially data-intensive applications, use more and more immutable data and functions (not object methods).</p>
+<p>Using functions to process immutable data, so-called <strong>functional programming</strong>, is a popular choice for processing large amount of data.</p>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="5.1-More-Learning-Resources">5.1 More Learning Resources<a class="anchor-link" href="#5.1-More-Learning-Resources">¶</a></h3><ul>
+<li>For beginners: <a href="https://www.youtube.com/watch?v=0iyB0_qPvWk">Object-Oriented Programming is Good*</a></li>
+<li>For experienced: <a href="https://www.youtube.com/watch?v=TbP2B1ijWr8">Object Oriented Programming is not what I thought</a></li>
+<li>For more experienced/curious: <a href="https://www.youtube.com/watch?v=cgVVZMfLjEI">4 Programming Paradigms In 40 Minutes</a></li>
+</ul>
 </div>
 </div>
 </div>

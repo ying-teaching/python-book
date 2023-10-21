@@ -20,7 +20,7 @@ There are many reasons for class and the object-oriented programming paradigm. S
 
 ### 1.2 Inheritance
 
-Classes have the parent-child relationship. A __subclass__ can inherits from one more __superclasses__. A superclass can be inherited by many subclasses.
+Classes have the parent-child relationship. A **subclass** (or **child class**) can inherits from one or more **superclasses** (or **parent class**). A superclass can be inherited by many subclasses.
 
 This is called implementation inheritance because a subclass inherits all attributes and methods defined in its superclass code. A subclass can choose to override the inherited attributes and methods.
 
@@ -30,11 +30,11 @@ Practically, inheritance, especially deep class hierarchy, creates strong coupli
 
 ### 1.3 Encapsulation
 
-The data (the attributes) and functions (the methods) are encapsulated inside a class. You only use methods and attributes, together called interfaces, to access instances. 
+The data (the attributes) and functions (the methods) are encapsulated inside a class. You only use methods and attributes, together called interfaces, to access instances.
 
-The implementation of attributes and methods could be changed without affecting its use if the class interface doesn't change.
+The implementation of attributes and methods could be changed without affecting its use if the class interface doesn't change. Python allows you to implement attributes using methods -- the so-called **uniform access principle**.
 
-Encapsulation is a desired objective. In practice, it is hard to define a flexible interface that works in different contents. 
+Encapsulation is a desired objective. In practice, it is hard to define a flexible interface that works in different contents.
 
 ### 1.4 Polymorphism
 
@@ -51,14 +51,13 @@ For example:
 
 In addition to OOP, classes are used to define new data types, primarily for three purposes:
 
-- composite data that consists of a collection of attributes. It is often called __data classes__. The purpose is to make it easy to use the composite data and its parts.
+- composite data that consists of a collection of attributes. It is often called **data classes**. The purpose is to make it easy to use the composite data and its parts.
 - stateful objects. Some object operations are stateful, i.e., each method call may return different results because the internal states may change in a method call. A user interface is a typical stateful object. People avoid stateful objects in multi-thread computation because it may introduce subtle concurrent bugs.
 - combination of data and relevant operations. For example, a complex number and common complex number operations are defined in a `complex` class. Usually the class data is immutable to distinguish it from a stateful object.
 
 ## 2 Define a Class
 
 You use the `class` statement to define a class. Following is an example:
-
 
 ```python
 class Rectangle:
@@ -68,6 +67,7 @@ class Rectangle:
 
     def area(self):
         return self.length * self.width
+
 ```
 
 ### 2.1 Explanation
@@ -75,46 +75,49 @@ class Rectangle:
 The following is line-by-line explanation of the code.
 
 - `class Rectangle:`: defines a class named `Rectangle`.
--  `def __init__(self, length, width):`: the `__init__` is a special initialization method, also called a `constructor` method, it is used to create an instance of the class. The first parameter of all class methods should be `self`. It means the object being created. After the `self`, you can have zero, one or more parameters used to create an object for the class. Here we have two parameters.
+- `def __init__(self, length, width):`: the `__init__` is a special initialization method, also called a `initialization` method, it is used to initialize an instance of the class. The first parameter of all class methods should be `self`. It means the object being initialized. After the `self`, you can have zero, one or more parameters used to create an object for the class. Here we have two parameters.
 - `self.length = length`: this line create an attribute called `length` because the syntax of `self.length`.
 - `self.width = width`: this line create an attribute called `width` because the syntax of `self.width`.
-- `def area(self):`: this line defines a method called `area`. The first parameter must be `self` and it doesn't take other parameter. 
+- `def area(self):`: this line defines a method called `area`. The first parameter must be `self` and it doesn't take other parameter.
 - `return self.length * self.width`: the method body of `area` method. Inside the class methods, use `self.attribute_name` to refer the object's attribute.
 
 ## 3 Instances
 
-You use the class name and the parameters specified in `__init__` method to create an object. To call an object method or access an attribute, use the dot notations explained as the following:
+You use the class name and the parameters specified in `__init__` method to create and initialize an object. To call an object method or access an attribute, use the dot notations explained as the following:
 
 - `rect = Rectangle(3, 5)`: create an instance of `Rectangle` with specified length and width. `rect` points to the newly created object.
 - `area = rect.area()`: The dot notation `rect.area()` is used to call a method of an object.
 - `print(f'Length: {rect.length}, width: {rect.width}, area: {area}')`: print the result. Use not notation `rect.length` and `rect.width` to access object's properties.
 
-
 ```python
 rectangle = Rectangle(3, 5)
 area = rectangle.area()
 print(f'Length: {rectangle.length}, width: {rectangle.width}, area: {area}')
-```
 
+```
 
 ### 3.1 Change Attribute
 
 You can use the attribute to change the object by putting the attribute in the left hand side of an assignment. For example:
 
-
-
 ```python
 rectangle.width = 7
 area = rectangle.area()
 print(f'Length: {rectangle.length}, width: {rectangle.width}, area: {area}')
+
 ```
 
-### 3.2 OOP Benefits
+### 3.3 Instance Method
+
+In the above code, `rectangle.area()` calls the `area()` instance method. Python will automatically pass the `rectangle` instance as the first argument to the method.
+
+Actually, it is a syntax sugar of `area2 = Rectangle.area(rectangle)`. This call matches the function header `def area(self):` but it is more verbose than the instance call syntax.
+
+### 3.3 OOP Benefits
 
 - Encapsulation: the data (the attributes) and functions (the methods) are encapsulated inside a class. You only use methods (`rectangle.area()`) and attributes ()`rectangle.length` and `rectangle.width`), together called interfaces, to access data. The detail implementation could be changed without affecting its interfaces.
 - Polymorphism: a function can work on different types. In the following example, the `print_area()` function can use any object that has an `area()` method. code using the class and its objects.
-
-
+- Inheritance: a subclass reuses its superclass attributes/methods
 
 ```python
 import math
@@ -122,9 +125,9 @@ import math
 class Circle:
     def __init__(self, radius):
         self.radius = radius
-    
+
     def area(self):
-        return math.pi * self.radius ** 2 
+        return math.pi * self.radius ** 2
 
 def print_area(shape):
     print(shape.area())
@@ -139,8 +142,7 @@ print_area(rectangle)
 
 ## 4 Inheritance
 
-When multiple classes share some common attributes or methods, you can define a base class or a parent class and put common attributes/methods in it. When another class inherits the base class, the subclass/child class will have all the properties/methods defined in its parent class. For example, assume that both `Rectangle` and `Circle` have a `color` attribute , you can define a base class `Shape`. 
-
+When multiple classes share some common attributes or methods, you can define a base class or a parent class and put common attributes/methods in it. When another class inherits the base class, the subclass/child class will have all the properties/methods defined in its parent class. For example, assume that both `Rectangle` and `Circle` have a `color` attribute , you can define a base class `Shape`.
 
 ```python
 import math
@@ -156,7 +158,9 @@ class Shape:
 
 class Circle(Shape):
     def __init__(self, color, radius):
-        Shape.__init__(self, color)   # you must call this as the first 
+        # you must initialize parent first
+        # same as Shape.__init__(self, color)
+        super().__init__(color)
         self.radius = radius
 
     def area(self):
@@ -166,7 +170,9 @@ class Rectangle(Shape):
     # a special method used to create an instance of this class
     # this method initialize instance attributes
     def __init__(self, color, length, width):
-        Shape.__init__(self, color)
+        # you must initialize parent first
+        # same as Shape.__init__(self, color)
+        super().__init__(color)
         self.length = length
         self.width = width
 
@@ -184,11 +190,19 @@ circle.do_something()
 
 ## 5 Cautious About OOP
 
-OO was popular because GUI applications were popular. These days, as computers have multiple cores and more code are developed for backend data processing, OO shows some disadvantages:
+OO was popular because it works well in business applications and GUI applications.
 
-- combine data and function in a class is error prone because instances can be changed and shared by multiple threads. Like global data, it is dangerous. Immutable data are preferred this days. 
+These days, as computers have multiple cores and more code are developed for backend data processing, OO shows some disadvantages:
+
+- combine data and function in a class is error prone because instances can be changed and shared by multiple threads. Like global data, it is dangerous. Immutable data are preferred this days.
 - inheritance, especially multiple inheritance, is confusing and not used widely in data processing.
 
-It is nice to know the basic terms because OO had been popular for more than two decades and there are many legacy code. New applications, especially non-GUI applications, use more and more immutable data and functions (not object methods).
+It is nice to know the basic terms because OO had been popular for more than two decades and there are many legacy code. New applications, especially data-intensive applications, use more and more immutable data and functions (not object methods).
 
-Using functions to process immutable data, so-called functional programming, is the current trend.
+Using functions to process immutable data, so-called **functional programming**, is a popular choice for processing large amount of data.
+
+### 5.1 More Learning Resources
+
+- For beginners: [Object-Oriented Programming is Good\*](https://www.youtube.com/watch?v=0iyB0_qPvWk)
+- For experienced: [Object Oriented Programming is not what I thought](https://www.youtube.com/watch?v=TbP2B1ijWr8)
+- For more experienced/curious: [4 Programming Paradigms In 40 Minutes](https://www.youtube.com/watch?v=cgVVZMfLjEI)
