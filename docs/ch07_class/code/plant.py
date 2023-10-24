@@ -1,7 +1,7 @@
 """An OO programming demo
 Your garden may have plants and some flowers. 
 A plant has a name and a cost.
-A flower si a plant with an extra color attribute.
+A flower is a plant with an extra color attribute.
 Both plant and flower have a print_info method that prints their attributes.
 
 The application asks a user to input a plant or a flower and 
