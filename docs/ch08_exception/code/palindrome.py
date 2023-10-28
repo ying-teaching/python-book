@@ -1,13 +1,12 @@
 # words is a list
 if __name__ == "__main__":
     count = int(input("Please enter a count: "))
+    words = ""
     for _ in range(count):
-        words = []
         word = input("Please enter a word: ")
-        words.append(word)
+        words += word.strip()
 
-    reverse = words[:]
-    reverse.reverse()
+    reverse = words[::-1]
     if reverse == words:
         print("Yes")
     else:
