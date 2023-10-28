@@ -7586,7 +7586,7 @@ main {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Traceback">Traceback<a class="anchor-link" href="#Traceback">¶</a></h2><p>A non-trivial Python program usually has many functions. Staring from the <code>main</code> function, a function calls one or more functions that call other functions, and so on and so forth. The calls are represented like a call stack where a caller is below the called function.</p>
+<h2 id="Traceback">Traceback<a class="anchor-link" href="#Traceback">¶</a></h2><p>A non-trivial Python program usually has many functions. Starting from the <code>main</code> function, a function calls one or more functions that call other functions, and so on and so forth. The calls are represented like a call stack where a caller is below the called function.</p>
 <p>An exception might be raised deeply in a function call. Python tries to give a list of functions involved in the exception, from the top most function to the exception location.</p>
 <p>Because the trace message shows the call stack in a reverse order, it is called <strong>traceback</strong>.</p>
 </div>
@@ -7685,7 +7685,7 @@ ValueError: invalid literal for int() with base 10: 'Six'
 </div>
 </div>
 </div>
-</div>
+</div></section></section><section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -7703,7 +7703,7 @@ ValueError: invalid literal for int() with base 10: 'Six'
 </div>
 </div>
 </div>
-</div>
+</div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -7857,6 +7857,7 @@ ValueError: invalid literal for int() with base 10: 'Six'
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3 id="Catch-Multiple-Types-and-All">Catch Multiple Types and All<a class="anchor-link" href="#Catch-Multiple-Types-and-All">¶</a></h3><p>Often the error handling is a mix of catching specific types and a catch-all.</p>
+<p>The order matters. Python will try to match the exception sequentially.</p>
 <p>You can use <code>sys.exc_info()</code> to get error information.</p>
 </div>
 </div>
@@ -7896,13 +7897,13 @@ ValueError: invalid literal for int() with base 10: 'Six'
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="else-and-finally"><code>else</code> and <code>finally</code><a class="anchor-link" href="#else-and-finally">¶</a></h2><p>In addition to catching exception, you want to run some statements for two scenarios:</p>
 <ul>
-<li>if there is no exception: for example, write to a file only if there is no exceptions.</li>
+<li>if there is no exception: for example, write to success message only if there is no exceptions.</li>
 <li>regardless of exception raised or not: it is very common that you want to do some cleanup tasks regardless no matter an exception is raised or not. For example, you should always close a file after use.</li>
 </ul>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7998,7 +7999,7 @@ ValueError: invalid literal for int() with base 10: 'Six'
 </div>
 </div>
 </div>
-</div>
+</div></section></section><section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">

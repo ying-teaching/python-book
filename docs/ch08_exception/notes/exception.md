@@ -7,9 +7,6 @@
 - `else` and `finally`
 - `raise` Exception
 
-
-
-
 ## Two Kinds of Errors
 
 Python has two kinds of program errors: syntax errors and exceptions.
@@ -21,19 +18,19 @@ Python has two kinds of program errors: syntax errors and exceptions.
 
 When you learn Python, you often make many syntax errors because you are not familiar with the Python syntax (grammar). Typos and incorrect grammars are common reasons for syntax errors.
 
-
 ```python
 for element in [1, 2, 3] # Expected :
     print(element)
 
 iff 6 > 5: print('hi') # unknown identifier iff
+
 ```
 
 ### Exception Error
 
 Even if all statements in a program are syntactically correct, Python may still fails to execute the program because something is wrong.
 
-These execution time errors are called `exceptions`,  `runtime exceptions` or `runtime errors`.
+These execution time errors are called `exceptions`, `runtime exceptions` or `runtime errors`.
 
 When an exception happens and you don't handle it, the program crashes with an error message printed.
 
@@ -50,17 +47,17 @@ When an exception happens and you don't handle it, the program crashes with an e
 
 ### Exception Example 1
 
-In Python, a statement __`raises`__ an exception when something is wrong in execution. The code after the statement is not executed.  
-
+In Python, a statement **`raises`** an exception when something is wrong in execution. The code after the statement is not executed.
 
 ```python
 dividend = 42
 divisor = 0
 quotient = dividend / divisor
 print(quotient)
+
 ```
 
-The statement `dividend / divisor` is syntactically correct. However, dividing by 0 is undefined in math therefore a `ZeroDivisionError` happens. Python prints a message `ZeroDivisionError: division by zero` and stops execution at the statement that causes the exception. 
+The statement `dividend / divisor` is syntactically correct. However, dividing by 0 is undefined in math therefore a `ZeroDivisionError` happens. Python prints a message `ZeroDivisionError: division by zero` and stops execution at the statement that causes the exception.
 
 ### Exception Example 2
 
@@ -72,12 +69,11 @@ The `prin("hi")` statement raises a `NameError` exception because it could't fin
 
 ## Traceback
 
-A non-trivial Python program usually has many functions. Staring from the `main` function, a function calls one or more functions that call other functions, and so on and so forth. The calls are represented like a call stack where a caller is below the called function.
+A non-trivial Python program usually has many functions. Starting from the `main` function, a function calls one or more functions that call other functions, and so on and so forth. The calls are represented like a call stack where a caller is below the called function.
 
 An exception might be raised deeply in a function call. Python tries to give a list of functions involved in the exception, from the top most function to the exception location.
 
-Because the trace message shows the call stack in a reverse order, it is called __traceback__.
-
+Because the trace message shows the call stack in a reverse order, it is called **traceback**.
 
 ```python
 def multiplyBy7():
@@ -86,6 +82,7 @@ def multiplyBy7():
     number = int(number_str)
 
 result = multiplyBy7()
+
 ```
 
 ### Stack Trace Message
@@ -114,7 +111,6 @@ For example, to avoid `ZeroDivisionError`, check the divisor first before a divi
 
 To avoid `FileNotFoundError`, check the existence of a file before read from it. Following is a code example.
 
-
 ```python
 import os
 
@@ -128,6 +124,7 @@ if os.path.isfile(filename):
         # process the file content here
 else:
     print(f'{filename} is not a valid file, please check that you input the correct filename.')
+
 ```
 
 ### For Unexpected
@@ -152,18 +149,17 @@ When an exception raise in a statement, Python handles it as the following:
 
 - if the statement is in a `try` statement, Python uses its `except` clause to handle the exception.
 - if there the statement is not inside a `try` statement or the exception doesn't match the `except` clause, Python checks the call stack to find if any caller function has a matched `try` statement.
-- if no caller function handles the exception, Python stops the program and prints traceback error message. This is a so-called __crash__.
+- if no caller function handles the exception, Python stops the program and prints traceback error message. This is a so-called **crash**.
 
 ### Catch All
 
 A `try` statement has a `try` clause and an `except` clause.
 
-Below the  `try:` clause, you can write statements in a code block that is protected by the try-clause.
+Below the `try:` clause, you can write statements in a code block that is protected by the try-clause.
 
 The statements in the `except` clause will be executed when an exception is raised in the protected clause.
 
 If there is no exception in the try-clause code block, the except-clause is skipped.
-
 
 ```python
 try:
@@ -172,6 +168,7 @@ try:
     1 / 0 # raise an exception
 except:
     print(f'Unexpected exception, blame its developer.')
+
 ```
 
 ### Catch One Type
@@ -180,38 +177,37 @@ You can only catch a specific type of exceptions in the except-clause. You can h
 
 If there is an exception raised, Python will check if the exception matches with the exception type specified in the `except ExceptionType as variable_name:` clause. If there is a match, the code block in the except clause will be executed. Otherwise, the exception is uncaught and Python uses its built-in exception handling mechanism.
 
-
 ```python
 FILENAME = 'test.txt'
 
 try:
-    with open(FILENAME) as file: 
+    with open(FILENAME) as file:
         pass # process file data here
 except OSError as error:
     print(f'Unable to open file {FILENAME}. Error message: {error}')
 
 print('After the handling code, program keeps running')
+
 ```
 
 ### Optional `as`
 
 A file cannot be opened for many reasons: not found, no permission, time out errors etc. The `OSError` can be used to catch these errors and display a user friendly message. If you don't need the error message, you can ignore the `as variable_name` in the except clause. The code will be the following:
 
-
 ```python
 FILENAME = 'test.txt'
 
 try:
-    with open(FILENAME) as file: 
+    with open(FILENAME) as file:
         pass # process file data here
 except OSError:
     print(f'Unable to open file {FILENAME}')
+
 ```
 
 ### Catch Multiple Types
 
 If the code block in a try-clause has many operations, it could raise many different exceptions. You can use multiple except-clause to catch different exception types.
-
 
 ```python
 try:
@@ -222,14 +218,16 @@ except OSError as error:
     print(f"Unable to process {number_str}. Error message: {error}")
 except ValueError:
     print(f"Value error message")
+
 ```
 
 ### Catch Multiple Types and All
 
 Often the error handling is a mix of catching specific types and a catch-all.
 
-You can use `sys.exc_info()` to get error information. 
+The order matters. Python will try to match the exception sequentially.
 
+You can use `sys.exc_info()` to get error information.
 
 ```python
 import sys
@@ -245,15 +243,15 @@ except ValueError as error:
 except:
     error = sys.exc_info()[0] # to get error info
     print(f'Unexpected error: {error}')
+
 ```
 
 ## `else` and `finally`
 
 In addition to catching exception, you want to run some statements for two scenarios:
 
-- if there is no exception: for example, write to a file only if there is no exceptions.
+- if there is no exception: for example, write to success message only if there is no exceptions.
 - regardless of exception raised or not: it is very common that you want to do some cleanup tasks regardless no matter an exception is raised or not. For example, you should always close a file after use.
-
 
 ```python
 try:
@@ -265,6 +263,7 @@ else:
     print('executed when there is no exception.')
 finally:
     print('always execute the finally code block.')
+
 ```
 
 ## `raise` An Exception
@@ -275,7 +274,6 @@ If you cannot find an appropriate built-in exception type for the error, you can
 
 For example, in a division computation, you detect a divisor is `0` or an invalid number string, you may want to raise an exception because the program cannot run with this input.
 
-
 ```python
 def demo(count):
     if count == 0:
@@ -283,6 +281,7 @@ def demo(count):
     else:
         # continue process
         ...
+
 ```
 
 ### Customize Exception
@@ -291,8 +290,7 @@ You define an exception type for an application-specific error. If you write a l
 
 You should define a subclass of `Exception` for exception types. The type should have the `Exception` as its name postfix.
 
-For Example, if the correct argument must be positive in your function, you can define an exception type for error values not in the range. 
-
+For Example, if the correct argument must be positive in your function, you can define an exception type for error values not in the range.
 
 ```python
 class PositiveException(Exception):
@@ -318,9 +316,9 @@ demo(-1)
 
 As a beginner programmer, you need to understand the `try` statement and read other people's code.
 
-When you gain more experience, you will use it more. 
+When you gain more experience, you will use it more.
 
-Nonetheless, the best exception handling strategy is 
+Nonetheless, the best exception handling strategy is
 
 - check the possible errors to avoid exceptions.
 - if you don't know how to handle an exception in a function, ignore it.
