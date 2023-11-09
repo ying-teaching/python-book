@@ -41,9 +41,9 @@ The command creates a `todo_site` project folder with following folders and file
 
 ### Dev Server
 
-Django has a built-in WSGI web server for the development. You can run it with the initial project.
+Django has a built-in WSGI web server for the development. You can run it with the initial project. You should run all commands inside `todo_site` project folder (not the nested `todo_site` package folder). This is the folder that `manage.py` lives in. If you are in the wrong folder, Python couldn't find the `manage.py` file.
 
-Inside `todo_site` project folder (not the nested `my_site` package folder), run `python3 manage.py runserver`, you can check the initial web site at `http://127.0.0.1:8000/` or `http://locahost:8000/`.
+Run `python3 manage.py runserver`, you can check the initial web site at `http://127.0.0.1:8000/` or `http://locahost:8000/`.
 
 The built-in development server monitors file changes and rebuilt the project when there is a change in the project source code files.
 
@@ -59,7 +59,7 @@ An application consists of models, views, templates, static files, URLs, etc.
 
 For example, Django creates a default `admin` app during the project creation. Web administrators use the admin app to manage the web site.
 
-To create an app named `tasks`, run the command: `python3 manage.py startapp tasks`.
+To create an app named `tasks`, run the command: `python3 manage.py startapp tasks`. Again, make sure you run it from the project folder that `manage.py` lives in.
 
 ### The App Folder
 
@@ -138,10 +138,10 @@ Django uses `migration` to manage database schema changes. A migration consists 
 
 Django provides following commands to manage migrations:
 
-- `python3 manage.py showmigrations`: shows all migrations in a project.
 - `python3 manage.py makemigrations`: creates new migrations based on the changes detected to your models.
-- `python3 manage.py sqlmigrate app_label migration_name`: displays the SQL commands for the named migration.
 - `python3 manage.py migrate`: apply pending migrations to the database.
+- `python3 manage.py showmigrations`: shows all migrations in a project. Migrations are stored in the `migrations` subfolder inside the app folder.
+- `python3 manage.py sqlmigrate app_label migration_name`: displays the SQL commands for the named migration.
 
 ## Model
 
@@ -153,7 +153,7 @@ If you change a data model, Django can create updated migrations for the changes
 
 ### Creating Models
 
-In the `tasks` app, there is one models: `Task`. Adding following class definition in `tasks/models.py` file.
+In the `tasks` app, there is only one models: `Task`. Adding following class definition in `tasks/models.py` file.
 
 ```python
 from django.db import models
@@ -170,9 +170,9 @@ class Task(models.Model):
 
 Django creates table schema and database access API based on app model definitions.
 
-You need to add the `tasks` app to the list in the `INSTALLED_APPS` item in the project's `settings.py` file.
+You need to add the `tasks` app to the list in the `INSTALLED_APPS` item in the project's `settings.py` file. Just add `"tasks` as the first element in the `INSTALLED_APPS` list.
 
-Then create migration from the app models using command `python3 manage.py makemigrations tasks`. It creates a migration file in `polls/migrations/0001_initial.py` that has the migration code.
+Then in the project folder, create a migration from the app models using command `python3 manage.py makemigrations tasks`. It creates a migration file in `polls/migrations/0001_initial.py` that has the migration code.
 
 You can use the command `python3 manage.py sqlmigrate tasks 0001` to check the SQL statements that to be applied to the database.
 
@@ -190,9 +190,9 @@ A template defines static content and provides **blocks** that can be inherited 
 
 ### A Base Template
 
-In the project directory, create a `templates` directory and a `base.html` in it.
+In the project folder, create a `templates` directory and a `base.html` in it.
 
-Set `"DIRS": [BASE_DIR / "templates"],` in `TEMPLATES` item in project `settings.py` file. Django will search the directory for template files.
+Set `"DIRS": [BASE_DIR / "templates"],` in `TEMPLATES` item in project `settings.py` file. Django will search the directory for template files. The `BASE_DIR` is the project folder.
 
 The `base.html` uses [Bootstrap](https://getbootstrap.com/) to provide CSS styles for web page. It also provides many [icons](https://icons.getbootstrap.com/).
 
@@ -234,9 +234,9 @@ Tips: in VS Code, use `!` and a tab to create an initial page content.
 
 Each app can have many template files. The `"APP_DIRS": True,` in the `TEMPLATES` item of project setting file means you can define app templates in app's `templates` directory.
 
-Create `tasks/templates/tasks/task_list.html` with the following content. Django has conventions about directory structure and filename. Using a `<model_name>_list.html` saves a configuration in a view class that uses the template.
+Create `tasks/templates/tasks/task_list.html` with the following content. Django has conventions about directory structure and filename. Using a `<model_name>_list.html` saves a configuration in a view class that uses the template. Here the `<model_name>` is `task` because the model class is `Task`.
 
-```html
+```python
 {% extends "base.html" %}
 
 {% block content %}
@@ -244,11 +244,12 @@ Create `tasks/templates/tasks/task_list.html` with the following content. Django
 <h1>Todo Tasks</h1>
 
 {% endblock content %}
+
 ```
 
 ## View
 
-Typically, a Django view takes an HTTP requests, loads and processes application data, generates a HTTP response using a template, then returns a `HttpResponse` object or raises an exception.
+Typically, a Django view takes an HTTP requests as its input, loads and processes application data, generates a HTTP response using a template, then returns a `HttpResponse` object or raises an exception.
 
 There are three steps to create a view:
 
@@ -262,7 +263,7 @@ Django is famous for its simplicity and rich built-in features because it provid
 
 It is common to show a list of objects. Django has a so-called **generic view class** `ListView` as a super class for such views.
 
-The home view shows a list of tasks, the view definition in `tasks/views.py` is very simple. By specifying `model = Task`, the view gets tasks from database and render the `task_list.html` with list of tasks.
+The home view shows a list of tasks, the view definition in `tasks/views.py` is very simple. By specifying `model = Task`, the view gets tasks from database and render the `task_list.html` with list of tasks. If you don't use the `task_list.html` as the template name, you should set `template_name` class attribute to the customized template name.
 
 ```python
 from django.views.generic import ListView
@@ -323,7 +324,7 @@ class TaskForm(ModelForm):
 
 ### Form Template
 
-A form template uses a form class to create/update object.
+A form template uses a form class to create/update an instance of the specified model class.
 
 To make it simple, use `<model_name>_form.html` as the form template name.
 
@@ -360,7 +361,7 @@ It is not a surprise that Django provides four generic classes as base classes f
 
 - View
   - Define a `TaskCreateView` subclass of `CreateView` in `views.py`.
-  - Set its `model`, `form_class`, and `success_url`.
+  - Set its `model`, `form_class`, and `success_url`. By default, the view uses `<model_name>_form.html` as its template.
   - Use `reverse_lazy()` to get home URL at runtime.
 - Url
   - Add `path("create/", TaskCreateView.as_view(), name="task_create"),` to `urlpatterns` in `tasks/urls.py`
@@ -430,7 +431,7 @@ Add two components in `tasks/templates/tasks/task_list.html`:
 - Url
   - Add `path("tasks/<int:pk>/", TaskDetailView.as_view(), name="task_detail"),` to `urlpatterns` in `tasks/urls.py`
 - Link from home view
-  - Add a link in `tasks/templates/tasks/task_list.html` for each task.
+  - Add a link in `tasks/templates/tasks/task_list.html` for each task to open the task detail page.
 
 ```python
 from django.views.generic import DetailView
@@ -457,9 +458,9 @@ class TaskDetailView(DetailView):
 ```
 
 ```python
-<!-- add a link for each task before the <td> cell of task name  -->
+<!-- add a link for each task before the <td> cell of task name in tasks/task_list.html -->
 <a class="icon-link" href="{% url 'task_detail' task.pk %}">
-  <i class="bi bi-pencil"></i> </a>
+  <i class="bi bi-receipt"></i> </a>
 &nbsp;
 
 ```
@@ -468,7 +469,7 @@ class TaskDetailView(DetailView):
 
 - View
   - Define a `TaskUpdateView` subclass of `UpdateView` in `views.py`.
-  - Set its `model`, `form_class`, and `success_url`.
+  - Set its `model`, `form_class`, and `success_url`. By default, it uses form template `task_form.html`.
   - Use `reverse_lazy()` to get home URL at runtime.
 - Url
   - Add `path("tasks/<int:pk>/update/", TaskUpdateView.as_view(), name="task_update"),` to `urlpatterns` in `tasks/urls.py`.
@@ -485,6 +486,7 @@ class TaskUpdateView(UpdateView):
 ```
 
 ```python
+<!-- add a link for each task in tasks/task_detail.html -->
 {% extends "base.html" %}
 
 {% block content %}

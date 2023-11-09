@@ -7526,8 +7526,8 @@ main {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Dev-Server">Dev Server<a class="anchor-link" href="#Dev-Server">¶</a></h3><p>Django has a built-in WSGI web server for the development. You can run it with the initial project.</p>
-<p>Inside <code>todo_site</code> project folder (not the nested <code>my_site</code> package folder), run <code>python3 manage.py runserver</code>, you can check the initial web site at <code>http://127.0.0.1:8000/</code> or <code>http://locahost:8000/</code>.</p>
+<h3 id="Dev-Server">Dev Server<a class="anchor-link" href="#Dev-Server">¶</a></h3><p>Django has a built-in WSGI web server for the development. You can run it with the initial project. You should run all commands inside <code>todo_site</code> project folder (not the nested <code>todo_site</code> package folder). This is the folder that <code>manage.py</code> lives in. If you are in the wrong folder, Python couldn't find the <code>manage.py</code> file.</p>
+<p>Run <code>python3 manage.py runserver</code>, you can check the initial web site at <code>http://127.0.0.1:8000/</code> or <code>http://locahost:8000/</code>.</p>
 <p>The built-in development server monitors file changes and rebuilt the project when there is a change in the project source code files.</p>
 <p>To quit the server,  type <code>CONTROL-C</code> in the terminal.</p>
 </div>
@@ -7544,7 +7544,7 @@ main {
 <p>Each application is Python package that contains functions of subdomain the website.</p>
 <p>An application consists of models, views, templates, static files, URLs, etc.</p>
 <p>For example, Django creates a default <code>admin</code> app during the project creation. Web administrators use the admin app to manage the web site.</p>
-<p>To create an app named <code>tasks</code>, run the command: <code>python3 manage.py startapp tasks</code>.</p>
+<p>To create an app named <code>tasks</code>, run the command: <code>python3 manage.py startapp tasks</code>. Again, make sure you run it from the project folder that <code>manage.py</code> lives in.</p>
 </div>
 </div>
 </div>
@@ -7603,7 +7603,7 @@ main {
 </div>
 </div>
 </div>
-</div>
+</div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -7667,10 +7667,10 @@ main {
 <p>Django uses <code>migration</code> to manage database schema changes. A migration consists of SQL statements to create tables and data for an app. Whenever you change data models, Django can create a new migration for the changes.</p>
 <p>Django provides following commands to manage migrations:</p>
 <ul>
-<li><code>python3 manage.py showmigrations</code>: shows all migrations in a project.</li>
 <li><code>python3 manage.py makemigrations</code>: creates new migrations based on the changes detected to your models.</li>
-<li><code>python3 manage.py sqlmigrate app_label migration_name</code>: displays the SQL commands for the named migration.</li>
 <li><code>python3 manage.py migrate</code>: apply pending migrations to the database.</li>
+<li><code>python3 manage.py showmigrations</code>: shows all migrations in a project. Migrations are stored in the <code>migrations</code> subfolder inside the app folder.</li>
+<li><code>python3 manage.py sqlmigrate app_label migration_name</code>: displays the SQL commands for the named migration.</li>
 </ul>
 </div>
 </div>
@@ -7695,7 +7695,7 @@ main {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Creating-Models">Creating Models<a class="anchor-link" href="#Creating-Models">¶</a></h3><p>In the <code>tasks</code> app, there is one models: <code>Task</code>. Adding following class definition in <code>tasks/models.py</code> file.</p>
+<h3 id="Creating-Models">Creating Models<a class="anchor-link" href="#Creating-Models">¶</a></h3><p>In the <code>tasks</code> app, there is only one models: <code>Task</code>. Adding following class definition in <code>tasks/models.py</code> file.</p>
 </div>
 </div>
 </div>
@@ -7727,8 +7727,8 @@ main {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3 id="Install-the-App">Install the App<a class="anchor-link" href="#Install-the-App">¶</a></h3><p>Django creates table schema and database access API based on app model definitions.</p>
-<p>You need to add the <code>tasks</code> app to the list in the <code>INSTALLED_APPS</code> item in the project's <code>settings.py</code> file.</p>
-<p>Then create migration from the app models using command <code>python3 manage.py makemigrations tasks</code>. It creates a migration file in <code>polls/migrations/0001_initial.py</code> that has the migration code.</p>
+<p>You need to add the <code>tasks</code> app to the list in the <code>INSTALLED_APPS</code> item in the project's <code>settings.py</code> file. Just add <code>"tasks</code> as the first element in the <code>INSTALLED_APPS</code> list.</p>
+<p>Then in the project folder, create a migration from the app models using command <code>python3 manage.py makemigrations tasks</code>. It creates a migration file in <code>polls/migrations/0001_initial.py</code> that has the migration code.</p>
 <p>You can use the command <code>python3 manage.py sqlmigrate tasks 0001</code> to check the SQL statements that to be applied to the database.</p>
 <p>Finally, run <code>python3 manage.py migrate</code> to apply the migration that creates the database tables.</p>
 </div>
@@ -7755,8 +7755,8 @@ main {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="A-Base-Template">A Base Template<a class="anchor-link" href="#A-Base-Template">¶</a></h3><p>In the project directory, create a <code>templates</code> directory and a <code>base.html</code> in it.</p>
-<p>Set <code>"DIRS": [BASE_DIR / "templates"],</code> in <code>TEMPLATES</code> item in project <code>settings.py</code> file. Django will search the directory for template files.</p>
+<h3 id="A-Base-Template">A Base Template<a class="anchor-link" href="#A-Base-Template">¶</a></h3><p>In the project folder, create a <code>templates</code> directory and a <code>base.html</code> in it.</p>
+<p>Set <code>"DIRS": [BASE_DIR / "templates"],</code> in <code>TEMPLATES</code> item in project <code>settings.py</code> file. Django will search the directory for template files. The <code>BASE_DIR</code> is the project folder.</p>
 <p>The <code>base.html</code> uses <a href="https://getbootstrap.com/">Bootstrap</a> to provide CSS styles for web page. It also provides many <a href="https://icons.getbootstrap.com/">icons</a>.</p>
 <p>It defines a <code>content</code> block that can be replaced by other templates.</p>
 <p>Tips: in VS Code, use <code>!</code> and a tab to create an initial page content.</p>
@@ -7810,21 +7810,27 @@ main {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3 id="The-Home-Template">The Home Template<a class="anchor-link" href="#The-Home-Template">¶</a></h3><p>Each app can have many template files. The <code>"APP_DIRS": True,</code> in the <code>TEMPLATES</code> item of project setting file means you can define app templates in app's <code>templates</code> directory.</p>
-<p>Create <code>tasks/templates/tasks/task_list.html</code> with the following content. Django has conventions about directory structure and filename. Using a <code>&lt;model_name&gt;_list.html</code> saves a configuration in a view class that uses the template.</p>
+<p>Create <code>tasks/templates/tasks/task_list.html</code> with the following content. Django has conventions about directory structure and filename. Using a <code>&lt;model_name&gt;_list.html</code> saves a configuration in a view class that uses the template. Here the <code>&lt;model_name&gt;</code> is <code>task</code> because the model class is <code>Task</code>.</p>
 </div>
 </div>
 </div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>{% extends "base.html" %}</p>
-<p>{% block content %}</p>
-<h1>Todo Tasks</h1>
-<p>{% endblock content %}</p>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-python"><pre><span></span><span class="p">{</span><span class="o">%</span> <span class="n">extends</span> <span class="s2">"base.html"</span> <span class="o">%</span><span class="p">}</span>
+
+<span class="p">{</span><span class="o">%</span> <span class="n">block</span> <span class="n">content</span> <span class="o">%</span><span class="p">}</span>
+
+<span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="n">Todo</span> <span class="n">Tasks</span><span class="o">&lt;/</span><span class="n">h1</span><span class="o">&gt;</span>
+
+<span class="p">{</span><span class="o">%</span> <span class="n">endblock</span> <span class="n">content</span> <span class="o">%</span><span class="p">}</span>
+</pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -7835,7 +7841,7 @@ main {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="View">View<a class="anchor-link" href="#View">¶</a></h2><p>Typically, a Django view takes an HTTP requests, loads and processes application data, generates a HTTP response using a template, then returns a <code>HttpResponse</code> object or raises an exception.</p>
+<h2 id="View">View<a class="anchor-link" href="#View">¶</a></h2><p>Typically, a Django view takes an HTTP requests as its input, loads and processes application data, generates a HTTP response using a template, then returns a <code>HttpResponse</code> object or raises an exception.</p>
 <p>There are three steps to create a view:</p>
 <ul>
 <li>create a template that is used to render the response.</li>
@@ -7854,7 +7860,7 @@ main {
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3 id="The-Home-View">The Home View<a class="anchor-link" href="#The-Home-View">¶</a></h3><p>Django is famous for its simplicity and rich built-in features because it provides many functions and classes for common tasks.</p>
 <p>It is common to show a list of objects. Django has a so-called <strong>generic view class</strong> <code>ListView</code> as a super class for such views.</p>
-<p>The home view shows a list of tasks, the view definition in <code>tasks/views.py</code> is very simple. By specifying <code>model = Task</code>, the view gets tasks from database and render the <code>task_list.html</code> with list of tasks.</p>
+<p>The home view shows a list of tasks, the view definition in <code>tasks/views.py</code> is very simple. By specifying <code>model = Task</code>, the view gets tasks from database and render the <code>task_list.html</code> with list of tasks. If you don't use the <code>task_list.html</code> as the template name, you should set <code>template_name</code> class attribute to the customized template name.</p>
 </div>
 </div>
 </div>
@@ -7960,7 +7966,7 @@ main {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Form-Template">Form Template<a class="anchor-link" href="#Form-Template">¶</a></h3><p>A form template uses a form class to create/update object.</p>
+<h3 id="Form-Template">Form Template<a class="anchor-link" href="#Form-Template">¶</a></h3><p>A form template uses a form class to create/update an instance of the specified model class.</p>
 <p>To make it simple, use <code>&lt;model_name&gt;_form.html</code> as the form template name.</p>
 <p>Create <code>tasks/templates/tasks/task_form.html</code>.</p>
 </div>
@@ -8019,7 +8025,7 @@ main {
 <h3 id="Create-Operation">Create Operation<a class="anchor-link" href="#Create-Operation">¶</a></h3><ul>
 <li>View<ul>
 <li>Define a <code>TaskCreateView</code> subclass of <code>CreateView</code> in <code>views.py</code>.</li>
-<li>Set its <code>model</code>, <code>form_class</code>, and <code>success_url</code>.</li>
+<li>Set its <code>model</code>, <code>form_class</code>, and <code>success_url</code>. By default, the view uses <code>&lt;model_name&gt;_form.html</code> as its template.</li>
 <li>Use <code>reverse_lazy()</code> to get home URL at runtime.</li>
 </ul>
 </li>
@@ -8031,7 +8037,7 @@ main {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8134,7 +8140,7 @@ main {
 </ul>
 </li>
 <li>Link from home view<ul>
-<li>Add a link in <code>tasks/templates/tasks/task_list.html</code> for each task.</li>
+<li>Add a link in <code>tasks/templates/tasks/task_list.html</code> for each task to open the task detail page.</li>
 </ul>
 </li>
 </ul>
@@ -8191,9 +8197,9 @@ main {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-python"><pre><span></span><span class="o">&lt;</span><span class="err">!</span><span class="o">--</span> <span class="n">add</span> <span class="n">a</span> <span class="n">link</span> <span class="k">for</span> <span class="n">each</span> <span class="n">task</span> <span class="n">before</span> <span class="n">the</span> <span class="o">&lt;</span><span class="n">td</span><span class="o">&gt;</span> <span class="n">cell</span> <span class="n">of</span> <span class="n">task</span> <span class="n">name</span>  <span class="o">--&gt;</span>
+<div class="highlight hl-python"><pre><span></span><span class="o">&lt;</span><span class="err">!</span><span class="o">--</span> <span class="n">add</span> <span class="n">a</span> <span class="n">link</span> <span class="k">for</span> <span class="n">each</span> <span class="n">task</span> <span class="n">before</span> <span class="n">the</span> <span class="o">&lt;</span><span class="n">td</span><span class="o">&gt;</span> <span class="n">cell</span> <span class="n">of</span> <span class="n">task</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">tasks</span><span class="o">/</span><span class="n">task_list</span><span class="o">.</span><span class="n">html</span> <span class="o">--&gt;</span>
 <span class="o">&lt;</span><span class="n">a</span> <span class="n">class</span><span class="o">=</span><span class="s2">"icon-link"</span> <span class="n">href</span><span class="o">=</span><span class="s2">"{</span><span class="si">% u</span><span class="s2">rl 'task_detail' task.pk %}"</span><span class="o">&gt;</span>
-  <span class="o">&lt;</span><span class="n">i</span> <span class="n">class</span><span class="o">=</span><span class="s2">"bi bi-pencil"</span><span class="o">&gt;&lt;/</span><span class="n">i</span><span class="o">&gt;</span> <span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">i</span> <span class="n">class</span><span class="o">=</span><span class="s2">"bi bi-receipt"</span><span class="o">&gt;&lt;/</span><span class="n">i</span><span class="o">&gt;</span> <span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span>
 <span class="o">&amp;</span><span class="n">nbsp</span><span class="p">;</span>
 </pre></div>
 </div>
@@ -8210,7 +8216,7 @@ main {
 <h3 id="Update-Operation">Update Operation<a class="anchor-link" href="#Update-Operation">¶</a></h3><ul>
 <li>View<ul>
 <li>Define a <code>TaskUpdateView</code> subclass of <code>UpdateView</code> in <code>views.py</code>.</li>
-<li>Set its <code>model</code>, <code>form_class</code>, and <code>success_url</code>.</li>
+<li>Set its <code>model</code>, <code>form_class</code>, and <code>success_url</code>. By default, it uses form template <code>task_form.html</code>.</li>
 <li>Use <code>reverse_lazy()</code> to get home URL at runtime.</li>
 </ul>
 </li>
@@ -8250,7 +8256,8 @@ main {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-python"><pre><span></span><span class="p">{</span><span class="o">%</span> <span class="n">extends</span> <span class="s2">"base.html"</span> <span class="o">%</span><span class="p">}</span>
+<div class="highlight hl-python"><pre><span></span><span class="o">&lt;</span><span class="err">!</span><span class="o">--</span> <span class="n">add</span> <span class="n">a</span> <span class="n">link</span> <span class="k">for</span> <span class="n">each</span> <span class="n">task</span> <span class="ow">in</span> <span class="n">tasks</span><span class="o">/</span><span class="n">task_detail</span><span class="o">.</span><span class="n">html</span> <span class="o">--&gt;</span>
+<span class="p">{</span><span class="o">%</span> <span class="n">extends</span> <span class="s2">"base.html"</span> <span class="o">%</span><span class="p">}</span>
 
 <span class="p">{</span><span class="o">%</span> <span class="n">block</span> <span class="n">content</span> <span class="o">%</span><span class="p">}</span>
 
