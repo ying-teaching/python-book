@@ -5,6 +5,10 @@ hide:
 
 # Professional Python Programming
 
+What really separates world-class performers from everybody else is deliberate practice. - [Geoff Covin](https://geoffcolvin.com/books/talent-is-overrated/)
+
+Nobody can learn swimming or playing tennis only from books. A good book is about what to practice and how to practice.
+
 ## Why Another Python Book?
 
 > Programming today is a race between software engineers striving to build bigger and better idiot-proof programs, and the Universe trying to produce bigger and better idiots. So far, the Universe is winning. - Rick Cook
