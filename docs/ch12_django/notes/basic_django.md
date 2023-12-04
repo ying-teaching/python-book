@@ -161,7 +161,7 @@ In `polls/urls.py` file, the `path()` function maps URLs to views or defines nes
 
 The code `path("", views.index, name="index")` maps the empty string to the `views.index` view. The path has a name of `index`.
 
-# The `include()` Function and the `ROOT_URLCONF`
+### The `include()` Function and the `ROOT_URLCONF`
 
 In project's `urls.py` file, the `include()` function allows nested paths. You use `include()` when you include other URL patterns from an app.
 
