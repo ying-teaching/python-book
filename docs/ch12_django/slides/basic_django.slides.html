@@ -8690,6 +8690,27 @@ main {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Default-Names">Default Names<a class="anchor-link" href="#Default-Names">¶</a></h3><p>The generic views have a naming convention. If you follow the naming convention, the view class can be simplified to have the minimum configuration: a model name or a data query function.</p>
+<p>For example, if you rename the <code>index.html</code> to <code>question_list.html</code> for a list of model data, rename the <code>detail.html</code> to <code>question_detail.html</code> for a model detail data, the corresponding view code becomes:</p>
+<div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">IndexView</span><span class="p">(</span><span class="n">generic</span><span class="o">.</span><span class="n">ListView</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">get_queryset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Return the last five published questions."""</span>
+        <span class="k">return</span> <span class="n">Question</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">order_by</span><span class="p">(</span><span class="s2">"-publish_date"</span><span class="p">)[:</span><span class="mi">5</span><span class="p">]</span>
+
+
+<span class="k">class</span> <span class="nc">DetailView</span><span class="p">(</span><span class="n">generic</span><span class="o">.</span><span class="n">DetailView</span><span class="p">):</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">Question</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3 id="The-Home-URL">The Home URL<a class="anchor-link" href="#The-Home-URL">¶</a></h3><p>Django provides a default home page if you don't define any URLs.</p>
 <p>When you define any URL, you should also define the home page URL.</p>
 <p>The following code redirect the home URL to an app view.</p>

@@ -126,9 +126,7 @@ from django.http import HttpResponse
 def index(request):
     return HttpResponse("Hello, World!")
 
-```
 
-```python
 # polls/urls.py
 from django.urls import path
 
@@ -136,9 +134,6 @@ from . import views
 
 urlpatterns = [path("", views.index, name="index"),]
 
-```
-
-```python
 # my_site/urls.py
 from django.contrib import admin
 from django.urls import include, path
@@ -147,7 +142,6 @@ urlpatterns = [
     path("polls/", include("polls.urls")),
     path("admin/", admin.site.urls),
 ]
-
 ```
 
 ### The `path()` and `include()` Function
@@ -799,6 +793,24 @@ urlpatterns = [
     path("<int:pk>/results/", ResultsView.as_view(), name="results"),
     path("<int:question_id>/vote/", vote, name="vote"),
 ]
+
+```
+
+### Default Names
+
+The generic views have a naming convention. If you follow the naming convention, the view class can be simplified to have the minimum configuration: a model name or a data query function.
+
+For example, if you rename the `index.html` to `question_list.html` for a list of model data, rename the `detail.html` to `question_detail.html` for a model detail data, the corresponding view code becomes:
+
+```python
+class IndexView(generic.ListView):
+    def get_queryset(self):
+        """Return the last five published questions."""
+        return Question.objects.order_by("-publish_date")[:5]
+
+
+class DetailView(generic.DetailView):
+    model = Question
 
 ```
 
