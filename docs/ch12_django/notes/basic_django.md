@@ -1,9 +1,12 @@
 # Basic Django
 
+This tutorial is based on the official [Django Getting Started](https://docs.djangoproject.com/en/4.2/intro/). It add some explanation and hopefully it is easier to understand than the official document.
+
 - Getting Started
 - Database
 - Model
 - View
+- Template
 - Form
 - Generic View
 
@@ -63,13 +66,9 @@ The creating app command creates a `polls` folder that has the following files:
 
 ### Application Configuration
 
-Create an `app.py` inside the application package.
+The `apps.py` inside the application package defines `PollsConfig` class that is a subclass of `AppConfig`.
 
-Defines a subclass of `AppConfig`
-
-Configure settings such as `name`, `verbose_name` in the configuration class.
-
-Then add the `polls` app to the `INSTALLED_APPS` in the `setting.py` file in the project's main package.
+The generated default Configure settings assign `name` (the app name) and `default_auto_field` (the auto generated database primary key) in the configuration class.
 
 ```python
 from django.apps import AppConfig
@@ -81,6 +80,23 @@ class PollsConfig(AppConfig):
 
 ```
 
+### Add a New App
+
+To let Django manage all apps' data models, add the `polls` app to the `INSTALLED_APPS` in the `setting.py` file in the project's main package.∏
+
+```python
+INSTALLED_APPS = [
+    "polls",
+    "django.contrib.admin",
+    "django.contrib.auth",
+    "django.contrib.contenttypes",
+    "django.contrib.sessions",
+    "django.contrib.messages",
+    "django.contrib.staticfiles",
+]
+
+```
+
 ### What's a View
 
 In Django, a view is associated with a URL pattern, i.e., Django maps URL patterns to views.
@@ -88,6 +104,7 @@ In Django, a view is associated with a URL pattern, i.e., Django maps URL patter
 If a specific HTTP URL matches a view's URL pattern, the view usually performs the following functions:
 
 - processes HTTP requests.
+- fetches model data from a backend database.
 - performs business logic based on request arguments.
 - uses templates to render the response content.
 - returns responses in different format such as HTML, JSON, or others.
@@ -96,9 +113,9 @@ If a specific HTTP URL matches a view's URL pattern, the view usually performs t
 
 As a tradition, you want to say "Hello World!" to an HTTP request. There are three basic steps:
 
-- create a view that return a message as an HTTP response.
-- map an app-specific URL to the view.
-- include the app-specific URL map in the root URL mapping.
+- creating a view that return a message as an HTTP response. Because it returns a simple text message, it doesn't use a template file.
+- creating a `urls.py` file that maps an app-specific URL to the view.
+- including the app-specific URL map in the root URL mapping.
 
 If you run the dev server and access `http://127.0.0.1:8000/polls/`, you should see the message "Hello World!".
 
@@ -117,9 +134,7 @@ from django.urls import path
 
 from . import views
 
-urlpatterns = [
-    path("", views.index, name="index"),
-]
+urlpatterns = [path("", views.index, name="index"),]
 
 ```
 
@@ -137,30 +152,34 @@ urlpatterns = [
 
 ### The `path()` and `include()` Function
 
-The `path()` function maps URLs to views or defines nested URL patterns. It has two required arguments and two optional arguments.
+In `polls/urls.py` file, the `path()` function maps URLs to views or defines nested URL patterns. It has two required arguments and two optional arguments.
 
 - `route`: is a string that contains a URL pattern.
 - `view`: is the view use to process the URL request.
 - `kwargs`: are arbitrary keyword arguments passed to the view.
-- `name`: is the name of this URL path. Then this path is used elsewhere, you can use the name to refer the path.
+- `name`: is the name of this URL path. When this path is used elsewhere, you can use the name to refer the path.
 
 The code `path("", views.index, name="index")` maps the empty string to the `views.index` view. The path has a name of `index`.
 
-The `include()` function allows nested paths. Except the built-in `admin.site.urls`, you use `include()` when you include other URL patterns.
+# The `include()` Function and the `ROOT_URLCONF`
+
+In project's `urls.py` file, the `include()` function allows nested paths. You use `include()` when you include other URL patterns from an app.
 
 The `path("polls/", include("polls.urls")),` puts all polls url patterns defined in `polls/urls.py` under the `polls/` path.
 
 The `ROOT_URLCONF = "my_site.urls"` in `my_site/settings.py` specifies the URL configuration file for the root path. Django starts path matching from the this file.
 
+For the configuration changes, you need to rerun `python3 manage.py runserver` to see the changes.
+
 ## Database
 
 Django uses relational database to store application data that is defined by models.
 
-A model defines the table schema.
+A model defines a table schema.
 
 Django provides built-in CRUD operations for data.
 
-Django supports a number of relational database engines. You can change database setup in the project `settings.py` file.
+Django supports a number of relational database engines. You can change database setup `DATABASES` in the project `settings.py` file.
 
 ### Database Setup
 
@@ -170,6 +189,19 @@ The `my_site/settings.py` has two database configuration entries in the `default
 
 - `ENGINE`: default is `'django.db.backends.sqlite3'`. Other popular choices are `'django.db.backends.postgresql'` or `'django.db.backends.mysql'`.
 - `NAME`: it is a database-specific setting. For SQLite, it is the database file path. For other databases, it is that database name that requires additional settings such as `USER`, `PASSWORD`, `HOST`, `PORT` and so on to build the connection string.
+
+```python
+# Database
+# https://docs.djangoproject.com/en/4.2/ref/settings/#databases
+
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": BASE_DIR / "db.sqlite3",
+    }
+}
+
+```
 
 ### Migrations
 
@@ -205,7 +237,7 @@ To initialize database for built-in apps who use models, run `python3 manage.py 
 
 For those who are familiar with database administration, you can use `django-admin dbshell` or `python3 manage.py dbshell` to run the command-line client for the specified database engine.
 
-For SQLite, this runs `sqlite3` command line client, also called a _shell_.
+For SQLite, it actually runs `sqlite3` command line client, also called a _shell_.
 
 ## Model
 
@@ -256,15 +288,40 @@ class Choice(models.Model):
 
 ```
 
-### Install the App
+### Create The Migrations
 
 Django creates table schema and database access API based on app model definitions.
 
-You need to add the configuration class of polls app, i.e., `"polls.apps.PollsConfig",` to top of the list in the `INSTALLED_APPS` item in the project setting file.
+You need to add the new app to the list in the `INSTALLED_APPS` item in the project setting file.
 
 Then create migration from the app models using command `python3 manage.py makemigrations polls`. It creates a migration file in `polls/migrations/0001_initial.py` that has the migration code.
 
 You can use the command `python3 manage.py sqlmigrate polls 0001` to check the SQL statements that to be applied to the database.
+
+```python
+BEGIN;
+--
+-- Create model Question
+--
+CREATE TABLE "polls_question"
+("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT,
+"question_text" varchar(200) NOT NULL,
+"publish_date" datetime NOT NULL);
+--
+-- Create model Choice
+--
+CREATE TABLE "polls_choice"
+("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT,
+"choice_text" varchar(200) NOT NULL,
+"votes" integer NOT NULL, "question_id" bigint NOT NULL REFERENCES
+"polls_question" ("id") DEFERRABLE INITIALLY DEFERRED);
+
+CREATE INDEX "polls_choice_question_id_c5b4b260" ON "polls_choice" ("question_id");
+COMMIT;
+
+```
+
+### Apply the Migration
 
 Finally, run `python3 manage.py migrate` to apply the migration that creates the database tables.
 
@@ -283,22 +340,22 @@ from django.utils import timezone
 # create an object, save to database, query its attributes
 q = Question(question_text="How are you?", publish_date=timezone.now())
 q.save()
-q.id   # 1
-q.question_text # "How are you?"
+q.id  # 1
+q.question_text  # "How are you?"
 
 # update the record with new question text
 q.question_text = "How old are you?"
 q.save()
 
 # get all questions in the database
-Question.objects.all() # <QuerySet [<How old are you?>]>
+Question.objects.all()  # <QuerySet [<How old are you?>]>
 
 # query by id
 q = Question.objects.get(pk=1)
-q.was_published_recently() # True
+q.was_published_recently()  # True
 
 # the choice table can be accessed from a question
-q.choice_set.all() # <QuerySet []>
+q.choice_set.all()  # <QuerySet []>
 
 # create three choices
 c1 = q.choice_set.create(choice_text="28", votes=0)
@@ -306,18 +363,19 @@ c2 = q.choice_set.create(choice_text="35", votes=0)
 c3 = q.choice_set.create(choice_text="15", votes=0)
 
 # query choice attribute
-c3.question # <Question: How old are you?>
+c3.question  # <Question: How old are you?>
 
 # query choices from its question
-q.choice_set.all() # <QuerySet [<Choice: 28>, <Choice: 35>, <Choice: 15>]>
+q.choice_set.all()  # <QuerySet [<Choice: 28>, <Choice: 35>, <Choice: 15>]>
 
-q.choice_set.count() # 3
+q.choice_set.count()  # 3
 
 # delete one, it returns the number of objects deleted and a dictionary with the number of deletions per object type.
-c2.delete() # (1, {'polls.Choice': 1})
+c2.delete()  # (1, {'polls.Choice': 1})
 
 # how many left
-q.choice_set.count() # 2
+q.choice_set.count()  # 2
+
 ```
 
 ### Django Admin
@@ -326,7 +384,7 @@ Django provides the ``django.contrib.admin` app to administrate the project. Thi
 
 You need to create a administrator account to use it.
 
-Run `python manage.py createsuperuser` to create an account by filling username, email address and password.
+Run `python3 manage.py createsuperuser` to create an account by filling username, email address and password.
 
 Then you can access the internal admin site using `http://localhost:8000/admin`. By default, you can only manage users and groups after login.
 
@@ -334,7 +392,7 @@ Then you can access the internal admin site using `http://localhost:8000/admin`.
 
 To let administrator to manage your app models, you need to register the models.
 
-In `polls/admin.py`, add following lines and you can manage the registered models.
+In `polls/admin.py`, add following lines and you can manage the registered models. Django provides simple (ugly?) pages to let you perform CRUD on the data models.
 
 ```python
 # polls/admin.py
@@ -351,7 +409,7 @@ admin.site.register([Question, Choice])
 
 A Django view processes requests and returns a `HttpResponse` object or raises an exception. To generate response content, it may use a template system. Django comes with a default template engine but you can use other engines.
 
-From a developer's point of view, a view is a function or class that create Web pages.
+From a developer's point of view, a view is a function or class that create a Web page. Django transforms your code into a page consisting of HTML, CSS, and JavaScript.
 
 ### Create Views
 
@@ -397,13 +455,21 @@ urlpatterns = [
 
 ```
 
-### Django Template
+## Django Template
 
 A template has static content and placeholders or logic controls of dynamic data. A template uses special syntax for data display and logic controls.
 
-By default, Django find templates in the `templates` directory of each app. It is a best practice to put a template in a folder in the `templates` directory because you may have utility templates such as layouts. For example, the path for polls app's `index.html` template file is `templates/polls/index.html`. You use the name `polls/index.html` to load the template into a view.
+By default, Django find templates in the `templates` directory of each app. It is a best practice to put a template in a folder in the `templates` directory because you may have different types of templates such as layouts and view templates.
 
-Django use **template expression** `{{ }}` for data output and **template tag** `{% %}` for rendering logic. The data is also called the _context_ of the template. The `templates/polls/index.html` uses the `latest_question_list` context to create the HTML content.
+It is a good idea for all views' templates into a folder that has the same name as the app. For example, the path for the `index.html` template file of the `polls` app is `templates/polls/index.html`. You use the name `polls/index.html` to load the template into a view.
+
+### Template Syntax
+
+A template has special syntax to create view content. It is a small programming language by itself - so-called **domain-specific language (DSL)**.
+
+Django uses **template tag** `{% %}` for rendering logic (conditions and loops).
+
+It uses **template expression** `{{ }}` for data output and The data is also called the _context_ of the template. The `templates/polls/index.html` uses a context named `latest_question_list` to create the HTML content.
 
 ```python
 <!-- polls/templates/polls/index.html -->
@@ -422,6 +488,12 @@ Django use **template expression** `{{ }}` for data output and **template tag** 
 ### The `index` View
 
 The `index` view fetches data from database and render the template into HTML response page.
+
+It uses Django's model API to fetch data and create a context for its template.
+
+Then it loads a template and renders a page using the context and request data.
+
+You can check the view output in `http://localhost:8000/polls/`.
 
 ```python
 from django.http import HttpResponse
@@ -479,9 +551,13 @@ The detail view uses a `polls/detail.html` template whose context is, not a surp
 
 ```
 
-### Rasing an Error
+### The Detail View Class
+
+As usually, the view needs to fetch the model data and apply it to its template.
 
 However, if Django couldn't find the question for the specified id, it makes sense to raise a 404 exception to let the user know that the requested object is not found.
+
+The call `get_object_or_404` throws an exception if it couldn't find the required data.
 
 Try both `http://localhost:8000/polls/1/` and `http://localhost:8000/polls/2023/`.
 
@@ -536,8 +612,10 @@ The polls app creates a form in `detail` view to submit vote for a question.
 
 It specifies the target path using the template tag `{% url 'polls:vote' question.id %}`. The view is specified with a special syntax of `'polls:vote'`.
 
+You can check the newly created form in `http://localhost:8000/polls/1/`.
+
 ```python
-<!-- polls/template/polls/detail.html -->
+<!-- polls/templates/polls/detail.html -->
 <form action="{% url 'polls:vote' question.id %}" method="post">
   {% csrf_token %}
   <fieldset>
@@ -564,9 +642,9 @@ It specifies the target path using the template tag `{% url 'polls:vote' questio
 
 The `detail` view defines a form submitted to the `vote` view for a question.
 
-Because the input field has a name `"choice"`, you can fetch the value using this name `request.POST["choice]`.
+Because the input field has a name `"choice"`, you can fetch the value using this name `request.POST["choice"]`.
 
-A user may click `Back` button in Browser after submission, it is a best practice to alway return an `HttpResponseRedirect` after successfully dealing with posted data.
+It is a best practice to alway return an `HttpResponseRedirect` after successfully dealing with posted data.
 
 The `HttpResponseRedirect` uses a redirect URL. When you need a URL from a view name, you can use `reverse()` function. The `reverse("polls:results", args=(question.id,))`
 
@@ -606,7 +684,7 @@ def vote(request, question_id):
 
 ### The `results` Template
 
-The `results` template defines the content of the view. Django template comes with a `pluralize` **filter** that you can apply to an object to transform its value. It adds a plural suffix, often `"s"` if the value is not `1`, `"1"`, or an object of length `1`
+The `results` template defines the content of the result view. Django template comes with a `pluralize` **filter** that you can apply to an object to transform its value. It adds a plural suffix, often `"s"` if the value is not `1`, `"1"`, or an object of length `1`
 
 ```python
 <!-- polls/templates/polls/results.html -->
@@ -661,6 +739,8 @@ The `detail` view and `results` view display the details of an object. You defin
 Both generic views will retrieve the objects from database and apply them to the corresponding templates.
 
 You can customize the generic views by define methods in your views. For example, the `IndexView` fetches the list of objects in a specific order.
+
+You need to update URL mappings to make them work.
 
 ```python
 # polls/views.py
