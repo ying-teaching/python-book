@@ -288,7 +288,7 @@ When the RHS is a variable, the LHS variable is _bound_ to the referred object i
 - `numbers2 = numbers`: creates an alias of the object labelled by `numbers`
 - `name = "Hello`: binds a label to a string object.
 
-![Variable Labels](../images/variable.png)
+![Variable Labels](../images/variable_labels.drawio.svg)
 
 ### More Examples
 
