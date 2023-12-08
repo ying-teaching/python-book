@@ -288,7 +288,7 @@ When the RHS is a variable, the LHS variable is _bound_ to the referred object i
 - `numbers2 = numbers`: creates an alias of the object labelled by `numbers`
 - `name = "Hello`: binds a label to a string object.
 
-![Variable Labels](../images/variable.drawio.svg)
+![Variable Labels](../images/variable.png)
 
 ### More Examples
 
@@ -525,7 +525,7 @@ print(list1, list2, list3)
 
 In the above code, we have `list1` and `list2` point to the same list and `list3` is a copy of `list1`. When `list1` changes, both `list1` and `list2` change but `list3` is not changed.
 
-![Mutable list](../images/mutable_list.drawio.svg)
+![Mutable list](../images/mutable-list.png)
 
 ### Shallow Copy
 
