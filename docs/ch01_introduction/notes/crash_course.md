@@ -486,15 +486,20 @@ A function is a self-contained block of code that can take inputs (_parameters_)
 Sometimes, you see Python code like the following:
 
 ```python
+import math
+
+
 def get_circumference(radius):
     diameter = 2 * radius
     circumference = math.pi * diameter
     return circumference
 
+
 if __name__ == "__main__":
     radius = 1.234
     circumference = get_circumference(radius)
-    print(f"The circumference of radius {radius:.2f} is {circumference:.4f}."))
+    print(f"The circumference of radius {radius:.2f} is {circumference:.4f}.")
+
 ```
 
 The body of `if` statement is executed only when you run the Python script file directly. For example, if the code file name is `circumference.py`, run `python3 circumference` will show the print output. If you import the file and uses its functions in another Python file, the body is not executed and there is not print output.
