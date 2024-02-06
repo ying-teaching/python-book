@@ -1,6 +1,10 @@
 # Python Crash Course
 
-This is a crash course of Python that shows the essential computation constructs in Python. Most other programming languages also have these basic constructs. This section gives you a basic idea of what programs look like. Don't worry if it raises more questions (it should), more details will be covered in the following sections.
+This is a crash course of Python that shows the essential computation constructs in Python. Most other programming languages also have these basic constructs. This section gives you a basic idea of what programs look like. Don't worry if it raises more questions (it should), more details will be covered in the following sections and most questions should be addressed.
+
+In the book [Coders: The Making of a New Tribe and the Remaking of the World](https://www.goodreads.com/en/book/show/40406806), Clive Thompson described programmers' life as "constant frustration and burst of joy". It is a common journey for most new programmers. When you study hard and practice enough, you evolve into a professional programmer and your life becomes a canvas painted with constant happiness and burst of joy.
+
+Welcome on board, programmers!
 
 ## 1 Hello World
 
@@ -12,7 +16,8 @@ In Python, it is a single line:
 print("Hello World!")
 ```
 
-Without any programming experience, you can guess that it prints the `"Hello World!"` message, though not to a printer but to a computer console. In the above code, `print` is a function. A function, like a computer, process its input and performs some tasks. A function name followed by a pair of parentheses is a function call – the computer runs/executes the function. The string `"Hello World!"` is the input to the print function.
+Without any programming experience, you can guess that it prints the `"Hello World!"` message, though not to a printer but to a computer console. In the above code, `print` is a function. A function, like a computer, processes its input and performs some tasks. A function name followed by a pair of parentheses is a function call – the computer runs/executes the function. The string `"Hello World!"` is the input to the print function.
+
 A string is written inside a pair of single or double quotes. Therefore, a pair of single quotes also works: `print('Hello World!')`.
 
 Compare the Python code to a Java Version of "Hello World!":
@@ -147,13 +152,13 @@ print(log-value)
 
 ## 4 More Python Functions
 
-There are three types of sources for Python functions:
+Python is famous for its rich functions. There are three types of sources for Python functions:
 
 - Built-in: they are essential functions that are part of the Python programming language. You can call these functions directly.
 - Standard library: these are common functions that come with Python installation but you must import them before use them.
 - Installation packages: you need to download and install them online first, then import them before use. For example, all AI packages.
 
-### 4.1 Built- in Functions
+### 4.1 Built-in Functions
 
 These are functions that are already available as part of the Python programming language, so you can use them directly in your code.
 
@@ -174,6 +179,10 @@ Example:
 - The `math` module offers various mathematical functions, and the
 - The `random` module is used for random number generation.
 - Modules like `os`, `io` help with file and directory operations, while `subprocess` allows running system commands.
+
+### 4.3 Installation Packages
+
+Python is used in many domains and the standard Python installation can only include a small number of functions. Most domain-specific functions such as `OpenCV` (image processing), `NumPy` (numerical computation), and `Pandas` (data analysis) are provided as packages that you can download from the Internet. Python installation provides a package management tool called `pip` that you can use to download packages. Then you `import` the package functions to use them in your applications.
 
 ## 5 Comparison and Logic Operations
 
@@ -256,6 +265,8 @@ circumference = pi * diameter
 print(circumference)
 ```
 
+In Python, every data has a type. A type defines the valid operations associated with the data. For example, you can divide two numbers but cannot divide a number by a string. In the above code, `input` function returns a string. To get a float number from a string, you call the `float` function that converts a string into a float number. Of course, if the string is an invalid number such as `"abc"`, the program crashes.
+
 ### 7.2 `f-string`
 
 For the above simple program, we can make some changes and make it as a better Output,By adding `f-string`(formatted String Literals).
@@ -276,6 +287,7 @@ The above program can be revised with formatted output like the following:
 
 ```python
 import math
+
 # display a message and take user input
 radius_input = input("Please input radius: ")
 # convert input text into a float number
@@ -471,6 +483,22 @@ A function is a self-contained block of code that can take inputs (_parameters_)
 5. Function Body: A code block within the function definition. It contains the instructions and logic that define the function's behavior.
 6. Return Value: The result or output of a function call. It's the value that the function sends back to the caller when the function completes its execution.
 
+Sometimes, you see Python code like the following:
+
+```python
+def get_circumference(radius):
+    diameter = 2 * radius
+    circumference = math.pi * diameter
+    return circumference
+
+if __name__ == "__main__":
+    radius = 1.234
+    circumference = get_circumference(radius)
+    print(f"The circumference of radius {radius:.2f} is {circumference:.4f}."))
+```
+
+The body of `if` statement is executed only when you run the Python script file directly. For example, if the code file name is `circumference.py`, run `python3 circumference` will show the print output. If you import the file and uses its functions in another Python file, the body is not executed and there is not print output.
+
 ## 11 Objects
 
 In Python, all data are objects. Every object has a type that determines the valid operations of the object. You can use built-in function `type()` to get an object’s type. For example:
@@ -487,10 +515,12 @@ An object may contain data that is called an _attribute_. You use a dot notation
 For example, the `math` module is an object that has an object called `pi`.
 
 ```python
-print("hi".title())  # Hi
-
 import math
 
+# call method
+print("hi".title())  # Hi
+
+# access attribute
 print(math.pi)  # 3.141592653589793
 ```
 
