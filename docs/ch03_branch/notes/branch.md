@@ -10,7 +10,7 @@
 There are two type of activities happening all the time:
 
 - You need to take different actions for different conditions. You take umbrella with you when it rains. A doctor writes different prescriptions for different symptoms and so on and so forth.
-- You often repeat an operation until certain conditions are met. For example, keep running for one hour, lift 100lbs for 12 times, etc.
+- You often repeat an operation until certain conditions are met. For example, keep running for one hour, lift 100lb for 12 times, etc.
 
 In both types, you need to control activities based on certain conditions. Python has four compound statements for _normal_ control flow purpose:
 
