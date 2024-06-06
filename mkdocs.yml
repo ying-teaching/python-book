@@ -39,11 +39,13 @@ nav:
           - 'Chapter 9 Module': ch09_module/notes/module.md
           - 'Chapter 10 File': ch10_file/notes/file.md
           - 'Chapter 11: Data Model': ch11_data_model/notes/data_model.md
-      - 'Part III. Algorithm Thinking':
+      - 'Part III. Algorithmic Thinking':
           - 'Chapter 12: A Web Site':
               - ch12_django/notes/django_crash_course.md
               - ch12_django/notes/basic_django.md
               - ch12_django/notes/advanced_django.md
+          - 'Chapter 13: LLM From Scratch':
+              - ch13/notes/data_analysis.md
   - Slides: slides.md
   - Code: code.md
   - Appendix:
