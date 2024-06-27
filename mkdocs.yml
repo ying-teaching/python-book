@@ -50,13 +50,12 @@ nav:
   - Code: code.md
   - Appendix:
       - 'Development Tools':
-          - 'Command Line Interface': appendix/command_line.md
-          - 'Python Installation': appendix/install_python.md
-          - 'VS Code': appendix/vscode_python.md
-          - 'Git and GitHub': appendix/git_and_github.md
+          - 'Command Line Interface': appendix/tools/command_line.md
+          - 'Python Installation': appendix/tools/install_python.md
+          - 'VS Code': appendix/tools/vscode_python.md
+          - 'Git and GitHub': appendix/tools/git_and_github.md
       - 'Learn Programming':
-          - 'Learn Programming': appendix/misc/learn_programming.md
-          - 'Rust and Cryptography': appendix/misc/rust_cryptography.md
+          - 'Learn Programming': appendix/learn_programming/learn_programming.md
 
 markdown_extensions:
   # Python Markdown
