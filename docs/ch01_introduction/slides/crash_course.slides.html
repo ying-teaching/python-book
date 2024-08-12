@@ -6,7 +6,7 @@
 <meta content="yes" name="apple-mobile-web-app-capable"/>
 <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/>
 <title>crash_course slides</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script><script type="module">
-  import mermaid from 'https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.2.3/mermaid.esm.min.mjs';
+  import mermaid from 'https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.7.0/mermaid.esm.min.mjs';
   mermaid.initialize({ startOnLoad: true });
 </script>
 <!-- General and theme style sheets -->
@@ -7455,7 +7455,7 @@ main {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="Say-%22Hello-World!%22">Say "Hello World!"<a class="anchor-link" href="#Say-%22Hello-World!%22">¶</a></h2><p>It is a tradition (since C programming language book)  to display <code>"Hello World!"</code> in a computer console (terminal).</p>
-<p>`print`` is a Python built-in function name. A function performs some tasks.</p>
+<p><code>print</code> is a Python built-in function name. A function performs some tasks.</p>
 <p>Here it prints the message (a string)  <code>"Hello World!"</code> to the console.</p>
 </div>
 </div>
@@ -7918,7 +7918,7 @@ A pair of single quotes also works: <code>print('Hello World!')</code>.</p>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div></section></section><section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8362,7 +8362,10 @@ require(
             history: true,
             transition: "slide",
             slideNumber: "",
-            plugins: [RevealNotes]
+            plugins: [RevealNotes],
+            width: 960,
+			      height: 700,
+
         });
 
         var update = function(event){
