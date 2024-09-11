@@ -208,7 +208,7 @@ print(cat_names)
 
 ### Objects Created at Runtime
 
-Create objects from user input / network / function call.
+Create objects from user input / network.
 
 Function call inputs (parameters) are alias of its arguments
 
@@ -369,7 +369,7 @@ In programming, it is often important to distinguish an object and its reference
 
 An object is a single piece of data that has a unique identity and a fixed type.
 
-An object may have many references. A variable is a reference to an object.
+An object may have many references. A variable is a reference to an object. The variable's name is an identifier (a programmer-defined name) to the object.
 
 In most computation, data, object and value are interchangeable because a valid computation only cares about the value.
 
