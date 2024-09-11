@@ -23,7 +23,7 @@ The Jupyter Notebook files are used to create two types of files:
 
 To add slide type to a cell, open the command palette (Cmd+Shift+P) and select `Switch Slide Type`. It is better to add a key shortcut `Ctrl + Shift + S` for the operation.
 
-To create the initial content files and HTML slides files from notebook files, define shell function `nbm()`, `nbs()` and `nbss()` in shell initialization script. For example, add them to `~/.zshrc` for `zsh`. Run these commands in the the `.ipynb` file folder.
+To create the initial content files and HTML slides files from notebook files, define shell function `nbm()`, `nbs()` and `nbss()` in shell initialization script. For example, add them to `~/.zshrc` for `zsh`. Run these commands in the the `.ipynb` file folder. To use the `jupyter` command, please activate the Python environment by `source .venv/bin/activate`.
 
 ```sh
 # create markdown files
