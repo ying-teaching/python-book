@@ -254,10 +254,10 @@ Why the difference matters? In most cases, the lazy is better than the eager ver
 students = ['Alice', 'Bob', 'Cindy']
 
 for index in range(len(students)):
-    print(f'Index {index}: {name}')
+    print(f'Index {index}, Name: {students[index]}')
 
 for (index, name) in enumerate(students):
-    print(f'Index {index}: {name}')
+    print(f'Index {index}, Name: {name}')
 ```
 
 ## Continue and Break
