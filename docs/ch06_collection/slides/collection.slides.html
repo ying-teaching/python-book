@@ -6,7 +6,7 @@
 <meta content="yes" name="apple-mobile-web-app-capable"/>
 <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/>
 <title>collection slides</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script><script type="module">
-  import mermaid from 'https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.2.3/mermaid.esm.min.mjs';
+  import mermaid from 'https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.7.0/mermaid.esm.min.mjs';
   mermaid.initialize({ startOnLoad: true });
 </script>
 <!-- General and theme style sheets -->
@@ -7483,6 +7483,80 @@ main {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Comparison">Comparison<a class="anchor-link" href="#Comparison">¶</a></h2><table>
+<thead>
+<tr>
+<th>Features</th>
+<th>List</th>
+<th>Tuple</th>
+<th>Dictionary</th>
+<th>Set</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Eample</td>
+<td>[1, 2, 3]</td>
+<td>('apple', 3)</td>
+<td>{'name': 'Alice', 'age': 7}</td>
+<td>{2, 4}</td>
+</tr>
+<tr>
+<td>Mutable?</td>
+<td>Mutable</td>
+<td>Immutable</td>
+<td>Mutable</td>
+<td>Mutable</td>
+</tr>
+<tr>
+<td>Mutable element?</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Key: No, Value: yes</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Ordered?</td>
+<td>Ordered</td>
+<td>Ordered</td>
+<td>Preserves order since Python 3.7</td>
+<td>Unordered</td>
+</tr>
+<tr>
+<td>Search time</td>
+<td>O(n)</td>
+<td>O(n)</td>
+<td>O(1)</td>
+<td>O(1)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="When-to-use-which?">When to use which?<a class="anchor-link" href="#When-to-use-which?">¶</a></h2><ul>
+<li>List: a mutable sequence of ordered data</li>
+<li>Tuple: an immutable sequence of ordered data</li>
+<li>Dictonary: accessing data by its key</li>
+<li>Set: a collection of unique, unordered data</li>
+</ul>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="Creating-New-Collections-From-Existing-Ones">Creating New Collections From Existing Ones<a class="anchor-link" href="#Creating-New-Collections-From-Existing-Ones">¶</a></h2><p>Python provides two convenient constructs to create new collections:</p>
 <ul>
 <li>List/set/dictionary comprehension</li>
@@ -7951,8 +8025,10 @@ main {
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3 id="Method-Examples">Method Examples<a class="anchor-link" href="#Method-Examples">¶</a></h3><ul>
 <li><code>list_name.append(element)</code>: add an element to the end of the list.</li>
+<li><code>list.extend(iterable)</code>: extend the list from an iterable object. An <code>iterable</code> object is a collection object that you can apply the <code>for</code> loop. For example, <code>range(5)</code> is an iterable object.</li>
 <li><code>list_name.index(element)</code>: find the first index of an element, raise a <code>ValueError</code> if the item is not found. To avoid exception, use <code>element in list_name</code> to check the existence first.</li>
 <li><code>list_name.insert(index, element)</code>: insert an item at the specified index.</li>
+<li><code>list.pop()</code>: remove the last element, <code>list.pop(index)</code>, remove the element at the <code>index</code> position.</li>
 <li><code>list_name.sort()</code>: sort the items in the list.</li>
 </ul>
 <p>You can find more list methods in <a href="https://docs.python.org/3/tutorial/datastructures.html">Python List Document</a>.</p>
@@ -8772,7 +8848,7 @@ main {
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3 id="7.2-Generator-Expression">7.2 Generator Expression<a class="anchor-link" href="#7.2-Generator-Expression">¶</a></h3><p>Instead of using a generator function, you can use a generator expression to create a generator object from an iterable object.</p>
 <p>The syntax is similar to list/set comprehension, just use <code>()</code> in place of <code>[]</code>.</p>
-<p>If the source iterable object is a generator object, the iterator expression is also a generator object that is computed one at a time.</p>
+<p>If the source iterable object is a generator object, the iterator expression is also a generator object that is computed one at a time - a <strong>lazy</strong> operation.</p>
 </div>
 </div>
 </div>
@@ -8819,7 +8895,10 @@ require(
             history: true,
             transition: "slide",
             slideNumber: "",
-            plugins: [RevealNotes]
+            plugins: [RevealNotes],
+            width: 960,
+			      height: 700,
+
         });
 
         var update = function(event){
