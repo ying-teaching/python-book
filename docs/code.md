@@ -15,6 +15,11 @@ hide:
 - [Turtle Hit Target](ch05_function/code/hit_target.py){:target="\_blank"}
 - [Fibonacci Sequence](ch05_function/code/fib.py){:target="\_blank"}
 
+## Chapter 5 Collections
+
+- [Flip Coin](ch06_collection/code/flig_coin.py.md)
+- [Course Enrollment](ch06_collection/code/courses.py.md)
+
 ## Chapter 7 Class
 
 - [Plant Class](ch07_class/code/plant.py)

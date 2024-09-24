@@ -1,6 +1,9 @@
+# Course enrollment
+
+```python
 """
 A simple course enrollment application that uses a dictionary
-where the keys are course names and values are sets of 
+where the keys are course names and values are sets of
 enrolled student names.
 """
 
@@ -87,3 +90,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+```

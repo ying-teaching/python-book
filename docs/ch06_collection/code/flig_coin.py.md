@@ -1,3 +1,6 @@
+# Flip coin
+
+```python
 import random
 
 SIDES = ("Head", "Tail")
@@ -28,3 +31,4 @@ def coin_flip_game():
 # Run the game
 if __name__ == "__main__":
     coin_flip_game()
+```
