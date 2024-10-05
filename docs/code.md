@@ -7,22 +7,23 @@ hide:
 
 ## Chapter 4 Loop
 
-- [Turtle demo](ch04_loop/code/turtle_demo.py){:target="\_blank"}
-- [Guess Number](ch04_loop/code/guess_number.py){:target="\_blank"}
+- [Turtle demo](https://github.com/ying-teaching/python-book/blob/main/docs/ch04_loop/code/turtle_demo.py){:target="\_blank"}
+- [Guess Number](https://github.com/ying-teaching/python-book/blob/main/docs/ch04_loop/code/guess_number.py){:target="\_blank"}
 
 ## Chapter 5 Function
 
-- [Turtle Hit Target](ch05_function/code/hit_target.py){:target="\_blank"}
-- [Fibonacci Sequence](ch05_function/code/fib.py){:target="\_blank"}
+- [Turtle Hit Target](https://github.com/ying-teaching/python-book/blob/main/docs/ch05_function/code/hit_target.py){:target="\_blank"}
+- [Fibonacci Sequence](https://github.com/ying-teaching/python-book/blob/main/docs/ch05_function/code/fib.py){:target="\_blank"}
 
 ## Chapter 6 Collections
 
-- [Flip Coin](ch06_collection/code/flig_coin.py.md)
-- [Course Enrollment](ch06_collection/code/courses.py.md)
+- [Flip Coin](https://github.com/ying-teaching/python-book/blob/main/docs/ch06_collection/code/flip_coin.py){:target="\_blank"}
+
+- [Course Enrollment](https://github.com/ying-teaching/python-book/blob/main/docs/ch06_collection/code/courses.py){:target="\_blank"}
 
 ## Chapter 7 Class
 
-- [Plant Class](ch07_class/code/plant.py)
+- [Plant Class](https://github.com/ying-teaching/python-book/blob/main/docs/ch07_class/code/plant.py){:target="\_blank"}
 
 ## Chapter 8 Exception
 
