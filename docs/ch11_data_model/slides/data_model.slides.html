@@ -6,7 +6,7 @@
 <meta content="yes" name="apple-mobile-web-app-capable"/>
 <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/>
 <title>data_model slides</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script><script type="module">
-  import mermaid from 'https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.2.3/mermaid.esm.min.mjs';
+  import mermaid from 'https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.7.0/mermaid.esm.min.mjs';
   mermaid.initialize({ startOnLoad: true });
 </script>
 <!-- General and theme style sheets -->
@@ -7440,10 +7440,23 @@ main {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Python-Data-Model">Python Data Model<a class="anchor-link" href="#Python-Data-Model">¶</a></h1><blockquote>
-<p>Coding like poetry should be short and concise. ―Santosh Kalwar</p>
+<h1 id="Python">Python<a class="anchor-link" href="#Python">¶</a></h1><p>The first sentence of <a href="https://docs.python.org/3/tutorial/index.html">The Python Tutorial</a></p>
+<blockquote>
+<p>Python is an easy to learn, powerful programming language.</p>
 </blockquote>
-<ul>
+<p>Part of the reason for this cliam is that <a href="https://docs.python.org/3/reference/datamodel.html">Python Data Model</a> defines the interfaces of the building blocks (constructs) of the language itself.</p>
+<p>Why? What? How?</p>
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Python-Data-Model">Python Data Model<a class="anchor-link" href="#Python-Data-Model">¶</a></h2><ul>
 <li>Overview</li>
 <li>Special Methods</li>
 <li>Number and Boolean Value</li>
@@ -7481,9 +7494,9 @@ main {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Motivation">Motivation<a class="anchor-link" href="#Motivation">¶</a></h3><p>There are three basic requirements in design of data operations:</p>
+<h3 id="Motivation">Motivation<a class="anchor-link" href="#Motivation">¶</a></h3><p>There are three basic requirements in the design of a programming language:</p>
 <ul>
-<li>Consistent: it is easy to predict the behaviors of a new construct instance.</li>
+<li>Consistent: it is easy to predict the behaviors of a construct.</li>
 <li>Composable: constructs can be selected and assembled in various combinations to enable desired behaviors.</li>
 <li>Open: developers can create new types that work in the same way as the built-in types and standard library types.</li>
 </ul>
@@ -7497,12 +7510,22 @@ main {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Language-Constructs">Language Constructs<a class="anchor-link" href="#Language-Constructs">¶</a></h3><p>Python language constructs can be classified into four categories:</p>
-<ul>
+<h3 id="Language-Constructs">Language Constructs<a class="anchor-link" href="#Language-Constructs">¶</a></h3><ul>
+<li>Data<ul>
+<li>Built-in types and new types (Classes)</li>
+<li>Atomic types and composite types (sequence, mapping, and set)</li>
+</ul>
+</li>
+<li>Operations<ul>
 <li>built-in operators such as <code>+</code>, <code>-</code>, <code>&gt;=</code>, list index <code>[]</code>, function call <code>()</code>, and so on.</li>
 <li>built-in functions such as <code>len()</code>, <code>repr()</code>, <code>bool()</code>, etc.</li>
-<li>specific syntax such as <code>for</code> loop statement and <code>with</code> context manager statement.</li>
-<li>built-in types and new type definitions (<code>class</code>).</li>
+</ul>
+</li>
+<li>Program Control Structure: specific syntax for statements, branches and loops. For example:<ul>
+<li><code>for</code> loop statement</li>
+<li><code>with</code> context manager statement.</li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -7514,7 +7537,7 @@ main {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="What-is-Python-Data-Model?">What is Python Data Model?<a class="anchor-link" href="#What-is-Python-Data-Model?">¶</a></h3><p>Python <em>data model</em> is the set of APIs that defines the interfaces of language constructs that satisfies the three basic requirements:</p>
+<h3 id="What-is-Python-Data-Model?">What is Python Data Model?<a class="anchor-link" href="#What-is-Python-Data-Model?">¶</a></h3><p>Python <em>data model</em> is the set of APIs that defines the interfaces of the language constructs that satisfies the three basic requirements:</p>
 <ul>
 <li>consistent: it is standardized by Python language specification and PEPs.</li>
 <li>Composable: the APIs work well with each other.</li>
@@ -7524,7 +7547,7 @@ main {
 </div>
 </div>
 </div>
-</div>
+</div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -7541,6 +7564,26 @@ main {
 <li><a href="https://en.wikibooks.org/wiki/Python_Programming/Idioms">Python Programming/Idioms</a></li>
 <li><a href="https://intermediate-and-advanced-software-carpentry.readthedocs.io/en/latest/idiomatic-python.html">Idiomatic Python</a></li>
 </ul>
+</div>
+</div>
+</div>
+</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># to  create  a list of squares of numbers from 0 to 9</span>
+<span class="n">result2</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="n">result2</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span> <span class="o">*</span> <span class="n">i</span><span class="p">)</span>
+
+<span class="c1"># using list comprehension - a common idiom in python</span>
+<span class="n">result1</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="o">*</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span>
+</pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -7651,18 +7694,18 @@ main {
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span>
-    
+
     <span class="k">def</span> <span class="fm">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
         <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">+</span> <span class="n">other</span><span class="o">.</span><span class="n">x</span>
         <span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">+</span> <span class="n">other</span><span class="o">.</span><span class="n">y</span>
         <span class="k">return</span> <span class="n">Vector</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-    
+
     <span class="c1"># scalar multiplication</span>
     <span class="k">def</span> <span class="fm">__mul__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">number</span><span class="p">):</span>
         <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">*</span> <span class="n">number</span>
         <span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">*</span> <span class="n">number</span>
         <span class="k">return</span> <span class="n">Vector</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-    
+
     <span class="c1"># a string representation</span>
     <span class="c1"># the x!r conversion flag means `repr(x)`</span>
     <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -7674,7 +7717,7 @@ main {
 <span class="n">point_3</span> <span class="o">=</span> <span class="n">point_1</span> <span class="o">+</span> <span class="n">point_2</span>
 <span class="n">point_4</span> <span class="o">=</span> <span class="n">point_3</span> <span class="o">*</span> <span class="mi">10</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">point_3</span><span class="p">,</span> <span class="n">point_4</span><span class="p">)</span> <span class="c1"># Vector(5, 9) Vector(50, 90)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">point_3</span><span class="p">,</span> <span class="n">point_4</span><span class="p">)</span>  <span class="c1"># Vector(5, 9) Vector(50, 90)</span>
 </pre></div>
 </div>
 </div>
@@ -7688,7 +7731,7 @@ main {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3 id="Boolean-Value">Boolean Value<a class="anchor-link" href="#Boolean-Value">¶</a></h3><p>Any Python object can be used in a boolean context or be an operand of built-in <code>bool()</code> function. Boolean context include conditions in <code>if</code> or <code>while</code> statement, or as operands of <code>and</code>, <code>or</code>, and <code>not</code> logical operators. Every object is either <em>truthy</em> or <em>falsy</em> in a boolean context.</p>
-<p>By default, any instance of a new type is truthy unless either <code>__bool__()</code> or <code>__len__()</code> method is defined in the type. In a boolean context or a call of <code>bool()</code>, the <code>__bool()__</code>  method is called. If the <code>__bool__()</code> method is not defined, Python calls <code>__len__()</code> method. If the result is 0, it is falsy or <code>False</code>. Otherwise, it is truthy or <code>True</code>.</p>
+<p>By default, any instance of a new type is <code>truthy</code> unless either <code>__bool__()</code> or <code>__len__()</code> method is defined in the type. In a boolean context or a call of <code>bool()</code>, the <code>__bool()__</code>  method is called. If the <code>__bool__()</code> method is not defined, Python calls <code>__len__()</code> method. If the result is 0, it is falsy or <code>False</code>. Otherwise, it is truthy or <code>True</code>.</p>
 <p>The <code>Vector</code> type has an additional <code>__bool__()</code> method in the following code:</p>
 </div>
 </div>
@@ -7706,23 +7749,21 @@ main {
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_x</span> <span class="o">=</span> <span class="n">x</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_y</span> <span class="o">=</span> <span class="n">y</span>
-    
+
     <span class="k">def</span> <span class="fm">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
         <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_x</span> <span class="o">+</span> <span class="n">other</span><span class="o">.</span><span class="n">_x</span>
         <span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_y</span> <span class="o">+</span> <span class="n">other</span><span class="o">.</span><span class="n">_y</span>
         <span class="k">return</span> <span class="n">Vector</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-    
+
     <span class="c1"># scalar multiplication</span>
     <span class="k">def</span> <span class="fm">__mul__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">number</span><span class="p">):</span>
         <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_x</span> <span class="o">*</span> <span class="n">number</span>
         <span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_y</span> <span class="o">*</span> <span class="n">number</span>
         <span class="k">return</span> <span class="n">Vector</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-    
-    <span class="c1"># a string representation</span>
-    <span class="c1"># the x!r conversion flag means `repr(x)`</span>
+
     <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="sa">f</span><span class="s2">"Vector(</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_x</span><span class="si">!r}</span><span class="s2">, </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_y</span><span class="si">!r}</span><span class="s2">)"</span>
-    
+
     <span class="k">def</span> <span class="fm">__bool__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="nb">bool</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_x</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">bool</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_y</span><span class="p">)</span>
 
@@ -7730,7 +7771,7 @@ main {
 <span class="n">point_1</span> <span class="o">=</span> <span class="n">Vector</span><span class="p">()</span>
 <span class="n">point_2</span> <span class="o">=</span> <span class="n">Vector</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="nb">bool</span><span class="p">(</span><span class="n">point_1</span><span class="p">),</span> <span class="nb">bool</span><span class="p">(</span><span class="n">point_2</span><span class="p">))</span> <span class="c1"># False True</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">bool</span><span class="p">(</span><span class="n">point_1</span><span class="p">),</span> <span class="nb">bool</span><span class="p">(</span><span class="n">point_2</span><span class="p">))</span>  <span class="c1"># False True</span>
 </pre></div>
 </div>
 </div>
@@ -7749,7 +7790,11 @@ main {
 <li><code>__iter__()</code> to support <code>for</code>, unpacking, and other iteration operations.</li>
 <li><code>__contains__</code> to support <code>in</code> operator.</li>
 </ul>
-<p>Except <code>set</code>, all collection types support getting a value by a key (an index or any immutable object) using syntax <code>obj[key]</code>. It is equivalent to <code>type(obj).__getitem__(obj, key)</code>. The <code>__getitem__</code> can also be used to support iteration without defining <code>__iter__</code> method.</p>
+<p>Except <code>set</code>, all collection types support getting a value by a key (an index or any immutable object) using syntax <code>obj[key]</code>.</p>
+<ul>
+<li>It is equivalent to <code>type(obj).__getitem__(obj, key)</code>.</li>
+<li>The <code>__getitem__</code> can also be used to support iteration without defining <code>__iter__</code> method.</li>
+</ul>
 <p>By implementing the corresponding special methods, a new type can emulate a built-in collection type the works well in a Pythonic style.</p>
 </div>
 </div>
@@ -7766,6 +7811,7 @@ main {
 
 <span class="n">Item</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s2">"Item"</span><span class="p">,</span> <span class="s2">"name quantity"</span><span class="p">)</span>
 
+
 <span class="k">class</span> <span class="nc">ShoppingList</span><span class="p">:</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">items</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">items</span> <span class="o">=</span> <span class="n">items</span>
@@ -7773,10 +7819,10 @@ main {
 
     <span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">items</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
-    
+
     <span class="k">def</span> <span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">items</span><span class="p">)</span>
-    
+
     <span class="k">def</span> <span class="fm">__contains__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">names</span>
 
@@ -7787,13 +7833,50 @@ main {
 <span class="n">my_list</span> <span class="o">=</span> <span class="n">ShoppingList</span><span class="p">([</span><span class="n">milk</span><span class="p">,</span> <span class="n">banana</span><span class="p">,</span> <span class="n">bread</span><span class="p">])</span>
 
 <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">my_list</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">item</span><span class="p">)</span> <span class="c1"># print each item</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>  <span class="c1"># print each item</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"There are </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">my_list</span><span class="p">)</span><span class="si">}</span><span class="s2"> items."</span><span class="p">)</span> <span class="c1"># There are 3 items.</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"There are </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">my_list</span><span class="p">)</span><span class="si">}</span><span class="s2"> items."</span><span class="p">)</span>  <span class="c1"># There are 3 items.</span>
 
 <span class="n">has_milk</span> <span class="o">=</span> <span class="s2">"Milk"</span> <span class="ow">in</span> <span class="n">my_list</span>
 <span class="n">has_chip</span> <span class="o">=</span> <span class="s2">"Chip"</span> <span class="ow">in</span> <span class="n">my_list</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">has_milk</span><span class="p">,</span> <span class="n">has_chip</span><span class="p">)</span>  <span class="c1"># True False</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># to improve for loop</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">namedtuple</span>
+
+<span class="n">Item</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s2">"Item"</span><span class="p">,</span> <span class="s2">"name quantity"</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">ShoppingList</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">items</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">items</span> <span class="o">=</span> <span class="n">items</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="n">name</span> <span class="k">for</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">_</span><span class="p">)</span> <span class="ow">in</span> <span class="n">items</span><span class="p">]</span>
+
+    <span class="c1"># __getitem__ method is for indexing</span>
+    <span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">items</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+
+    <span class="c1"># more efficient than __getitem__ for iteration</span>
+    <span class="k">def</span> <span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">iter</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">items</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">items</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__contains__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">names</span>
 </pre></div>
 </div>
 </div>
@@ -7820,13 +7903,14 @@ main {
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">Counter</span><span class="p">:</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">start</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">step</span> <span class="o">=</span> <span class="mi">1</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_count</span> <span class="o">=</span> <span class="n">start</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_step</span> <span class="o">=</span> <span class="n">step</span>
 
     <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_count</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_step</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_count</span>
+
 
 <span class="n">counter</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">counter</span><span class="p">())</span>  <span class="c1"># Output: 1</span>
@@ -7865,6 +7949,68 @@ main {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Why-Meta-Programming">Why Meta Programming<a class="anchor-link" href="#Why-Meta-Programming">¶</a></h2><ul>
+<li>Simple</li>
+<li>Powerful</li>
+</ul>
+<p>For example:  the <code>@dataclass</code> decorator provides a simple way to create classes that mainly hold data.</p>
+</div>
+</div>
+</div>
+</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Without @dataclass</span>
+<span class="k">class</span> <span class="nc">Person</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">age</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">age</span>
+
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">"Person(name=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">, age=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">age</span><span class="si">}</span><span class="s2">)"</span>
+
+    <span class="k">def</span> <span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">Person</span><span class="p">):</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">name</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">age</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">age</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># both __repr__ and __eq__ methods are defined</span>
+<span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span>
+
+
+<span class="nd">@dataclass</span>
+<span class="k">class</span> <span class="nc">Person</span><span class="p">:</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">age</span><span class="p">:</span> <span class="nb">int</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="Instance-and-Attributes">Instance and Attributes<a class="anchor-link" href="#Instance-and-Attributes">¶</a></h2><ul>
 <li>Instance creation and destruction: <code>__new__</code>, and <code>__del__</code>. You use these methods to customize instance creation, initialization and deletion.</li>
 <li>Attribute management: <code>__init__</code>, <code>__getattribute__</code>, <code>__getattr__</code>, <code>__setattr__</code>, <code>property</code> and descriptor. You use these methods to control the <code>.</code> attribute access behavior of a class and its instances.</li>
@@ -7879,10 +8025,10 @@ main {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="The-__init__(self,-...)-Method">The <code>__init__(self, ...)</code> Method<a class="anchor-link" href="#The-__init__(self,-...)-Method">¶</a></h3><p>Most classes define the <code>__init(self, ...)__</code> method to set attributes of an instance of the class. There are some questions for this method:</p>
+<h3 id="The-__init__(self,-...)-Method">The <code>__init__(self, ...)</code> Method<a class="anchor-link" href="#The-__init__(self,-...)-Method">¶</a></h3><p>Most classes define the <code>__init__(self, ...)</code> method to set attributes of an instance of the class. There are some questions for this method:</p>
 <ul>
 <li>When is it called? You might know the answer: it is called when you create an instance by calling a <code>cls(...)</code> where <code>cls</code> is a class name. You almost never call this method directly.</li>
-<li>The <code>__init__(self, ...)__</code> returns nothing, how could Python create the instance? It is not clear.</li>
+<li>The <code>__init__(self, ...)</code> returns nothing, how could Python create the instance? It is not clear.</li>
 <li>Where does the first argument <code>self</code> come from? It is not clear.</li>
 </ul>
 <p>There is more to explain about the instance creation.</p>
@@ -7932,15 +8078,15 @@ main {
         <span class="n">instance</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__new__</span><span class="p">(</span><span class="bp">cls</span><span class="p">)</span>
         <span class="n">instance</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">.</span><span class="n">title</span><span class="p">()</span>
         <span class="k">return</span> <span class="n">instance</span>
-    
+
     <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span>
-    
+
 
 <span class="n">name1</span> <span class="o">=</span> <span class="n">Name</span><span class="p">(</span><span class="s2">"alice"</span><span class="p">)</span>
 <span class="n">name2</span> <span class="o">=</span> <span class="n">Name</span><span class="p">(</span><span class="s2">"BOB"</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">name1</span><span class="p">,</span> <span class="n">name2</span><span class="p">)</span> <span class="c1"># Alice Bob</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">name1</span><span class="p">,</span> <span class="n">name2</span><span class="p">)</span>  <span class="c1"># Alice Bob</span>
 </pre></div>
 </div>
 </div>
@@ -7953,7 +8099,7 @@ main {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Property">Property<a class="anchor-link" href="#Property">¶</a></h3><p>A property let you use a set of methods as a normal data attribute. It is Pythonic way to implement <em>getter</em> and <em>setter</em> methods to customize the attribute behavior.</p>
+<h3 id="Property">Property<a class="anchor-link" href="#Property">¶</a></h3><p>A property let you use a set of methods as a normal data attribute. It is Pythonic way to implement <code>getter</code> and <code>setter</code> methods to customize the attribute behavior.</p>
 <p>The advantage of using methods behind a data attribute are:</p>
 <ul>
 <li>Uniform access: you can use a simple data attribute or methods without change its usage.</li>
@@ -7978,22 +8124,19 @@ main {
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">radius</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_radius</span> <span class="o">=</span> <span class="n">radius</span>
 
-    <span class="c1"># this is the getter method</span>
-    <span class="nd">@property</span>
+    <span class="nd">@property</span>  <span class="c1"># this is the getter method</span>
     <span class="k">def</span> <span class="nf">radius</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_radius</span>
 
-    <span class="c1"># this is the setter method</span>
-    <span class="nd">@radius</span><span class="o">.</span><span class="n">setter</span>
+    <span class="nd">@radius</span><span class="o">.</span><span class="n">setter</span>  <span class="c1"># this is the setter method</span>
     <span class="k">def</span> <span class="nf">radius</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">value</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"Radius cannot be negative"</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_radius</span> <span class="o">=</span> <span class="n">value</span>
 
-    <span class="c1"># calculated value</span>
-    <span class="nd">@property</span>
+    <span class="nd">@property</span>  <span class="c1"># calculated read-only value</span>
     <span class="k">def</span> <span class="nf">area</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_radius</span> <span class="o">**</span> <span class="mi">2</span>
+        <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_radius</span><span class="o">**</span><span class="mi">2</span>
 
 
 <span class="n">circle</span> <span class="o">=</span> <span class="n">Circle</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
@@ -8057,23 +8200,23 @@ main {
         <span class="bp">self</span><span class="o">.</span><span class="n">storage_name</span> <span class="o">=</span> <span class="n">attribute_name</span>
 
     <span class="k">def</span> <span class="fm">__get__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instance</span><span class="p">,</span> <span class="n">owner</span><span class="p">):</span>
-        <span class="c1"># this is low level function that </span>
+        <span class="c1"># this is a low level function that</span>
         <span class="c1"># must directly manipulate object mapping.</span>
         <span class="k">return</span> <span class="n">instance</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">storage_name</span><span class="p">]</span>
-    
+
     <span class="k">def</span> <span class="fm">__set__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instance</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">value</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"Value cannot be negative"</span><span class="p">)</span>
         <span class="n">instance</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">storage_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
 
+
 <span class="k">class</span> <span class="nc">Size</span><span class="p">:</span>
 
     <span class="c1"># define a class attribute with a descriptor instance</span>
-    <span class="c1"># the attribute is actually stored/accessed in </span>
-    <span class="c1"># an instance of Size</span>
+    <span class="c1"># the attribute is actually stored/accessed in an instance of Size</span>
     <span class="n">width</span> <span class="o">=</span> <span class="n">PositiveNumber</span><span class="p">()</span>
     <span class="n">length</span> <span class="o">=</span> <span class="n">PositiveNumber</span><span class="p">()</span>
-    
+
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">length</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">width</span> <span class="o">=</span> <span class="n">width</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">length</span> <span class="o">=</span> <span class="n">length</span>
@@ -8084,12 +8227,12 @@ main {
 
 
 <span class="n">desk_size</span> <span class="o">=</span> <span class="n">Size</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">desk_size</span><span class="o">.</span><span class="n">area</span><span class="p">)</span> 
+<span class="nb">print</span><span class="p">(</span><span class="n">desk_size</span><span class="o">.</span><span class="n">area</span><span class="p">)</span>
 
 <span class="n">desk_size</span><span class="o">.</span><span class="n">length</span> <span class="o">=</span> <span class="mi">10</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">desk_size</span><span class="o">.</span><span class="n">area</span><span class="p">)</span>
 
-<span class="n">desk_size</span><span class="o">.</span><span class="n">length</span> <span class="o">=</span> <span class="o">-</span> <span class="mi">1</span> <span class="c1"># ValueError: Value cannot be negative</span>
+<span class="n">desk_size</span><span class="o">.</span><span class="n">length</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>  <span class="c1"># ValueError: Value cannot be negative</span>
 </pre></div>
 </div>
 </div>
@@ -8118,10 +8261,24 @@ main {
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="Class-Creation">Class Creation<a class="anchor-link" href="#Class-Creation">¶</a></h2><p>Python provides several approaches to customize class creation in frameworks or libraries.</p>
 <ul>
-<li>`<strong>init_subclass</strong>``: allow a base class to customize its subclass behaviors.</li>
+<li><code>__init_subclass__</code>: allow a base class to customize its subclass behaviors.</li>
 <li>class decorator: it takes a class as an argument and returns a - decorated class with desired behavior.</li>
 <li>metaclass: define the behavior and structure of other classes.</li>
 </ul>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -8145,7 +8302,7 @@ main {
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">Vector</span><span class="p">:</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span>
 </pre></div>
@@ -8206,12 +8363,12 @@ main {
 </div>
 </div>
 </div>
-</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">VectorBase</span><span class="p">:</span>
@@ -8228,9 +8385,11 @@ main {
     <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
         <span class="k">return</span> <span class="sa">f</span><span class="s2">"Vector(</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="si">}</span><span class="s2">)"</span>
 
+
 <span class="k">class</span> <span class="nc">Vector</span><span class="p">(</span><span class="n">VectorBase</span><span class="p">):</span>
     <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="n">y</span> <span class="o">=</span> <span class="mi">0</span>
+
 
 <span class="n">v0</span> <span class="o">=</span> <span class="n">Vector</span><span class="p">()</span>
 <span class="n">v1</span> <span class="o">=</span> <span class="n">Vector</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
@@ -8238,8 +8397,21 @@ main {
 <span class="n">v0</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">7</span>
 <span class="n">v1</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="mi">17</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">v0</span><span class="p">,</span> <span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">)</span> <span class="c1"># Vector(7, 0) Vector(2, 17) Vector(10, 20)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">v0</span><span class="p">,</span> <span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">)</span>  <span class="c1"># Vector(7, 0) Vector(2, 17) Vector(10, 20)</span>
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>Vector(7, 0) Vector(2, 17) Vector(10, 20)
+</pre>
 </div>
 </div>
 </div>
@@ -8251,7 +8423,7 @@ main {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Class-Decorator">Class Decorator<a class="anchor-link" href="#Class-Decorator">¶</a></h3><p>Similar to function decorator, a class decorator takes a class as an argument and returns a new class to replace the decorated class. Because it can be applied to any class, it is more flexible and more complex than the <code>_init_subclass__()</code> approach. <code>@dataclass</code> is a class decorator defined in standard library. It customizes class attributes such as instance attributes, <code>__init__()</code>, <code>__repr__()</code>, <code>__eq__()</code>, and so on.</p>
+<h3 id="Class-Decorator">Class Decorator<a class="anchor-link" href="#Class-Decorator">¶</a></h3><p>A class decorator takes a class as an argument and returns a new class to replace the decorated class. Because it can be applied to any class, it is more flexible and more complex than the <code>_init_subclass__()</code> approach. <code>@dataclass</code> is a class decorator defined in standard library. It customizes class attributes such as instance attributes, <code>__init__()</code>, <code>__repr__()</code>, <code>__eq__()</code>, and so on.</p>
 <p>For the case of the <code>Vector</code> class, the class decorator logic is similar to the <code>VectorBase</code>.</p>
 </div>
 </div>
@@ -8272,15 +8444,17 @@ main {
     <span class="k">def</span> <span class="nf">_init</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">args</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">args</span>
-    
+
     <span class="nb">setattr</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="s2">"__init__"</span><span class="p">,</span> <span class="n">_init</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="bp">cls</span>
+
 
 <span class="nd">@vector_class</span>
 <span class="k">class</span> <span class="nc">Vector</span><span class="p">(</span><span class="n">VectorBase</span><span class="p">):</span>
     <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="n">y</span> <span class="o">=</span> <span class="mi">0</span>
+
 
 <span class="n">v0</span> <span class="o">=</span> <span class="n">Vector</span><span class="p">()</span>
 <span class="n">v1</span> <span class="o">=</span> <span class="n">Vector</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
@@ -8288,7 +8462,7 @@ main {
 <span class="n">v0</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">7</span>
 <span class="n">v1</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="mi">17</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">v0</span><span class="p">,</span> <span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">)</span> <span class="c1"># Vector(7, 0) Vector(2, 17) Vector(10, 20)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">v0</span><span class="p">,</span> <span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">)</span>  <span class="c1"># Vector(7, 0) Vector(2, 17) Vector(10, 20)</span>
 </pre></div>
 </div>
 </div>
@@ -8348,7 +8522,7 @@ main {
 
         <span class="k">def</span> <span class="nf">_repr</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
             <span class="k">return</span> <span class="sa">f</span><span class="s2">"Vector(</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="si">}</span><span class="s2">)"</span>
-        
+
         <span class="nb">setattr</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="s2">"__init__"</span><span class="p">,</span> <span class="n">_init</span><span class="p">)</span>
         <span class="nb">setattr</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="s2">"__repr__"</span><span class="p">,</span> <span class="n">_repr</span><span class="p">)</span>
 
@@ -8357,13 +8531,14 @@ main {
     <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="n">y</span> <span class="o">=</span> <span class="mi">0</span>
 
+
 <span class="n">v0</span> <span class="o">=</span> <span class="n">Vector</span><span class="p">()</span>
 <span class="n">v1</span> <span class="o">=</span> <span class="n">Vector</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
 <span class="n">v2</span> <span class="o">=</span> <span class="n">Vector</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
 <span class="n">v0</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">7</span>
 <span class="n">v1</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="mi">17</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">v0</span><span class="p">,</span> <span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">)</span> <span class="c1"># Vector(7, 0) Vector(2, 17) Vector(10, 20)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">v0</span><span class="p">,</span> <span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">)</span>  <span class="c1"># Vector(7, 0) Vector(2, 17) Vector(10, 20)</span>
 </pre></div>
 </div>
 </div>
@@ -8411,7 +8586,10 @@ require(
             history: true,
             transition: "slide",
             slideNumber: "",
-            plugins: [RevealNotes]
+            plugins: [RevealNotes],
+            width: 960,
+			      height: 700,
+
         });
 
         var update = function(event){
