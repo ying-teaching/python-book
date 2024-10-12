@@ -137,35 +137,28 @@ As an example, the following code defines a new `Vector` type that works well wi
 
 
 ```python
-class Vector:
+class Value:
 
-    def __init__(self, x=0, y=0):
-        self.x = x
-        self.y = y
+    def __init__(self, data):
+        self.data = data
+
+    def __repr__(self):
+        return f"Value(data={self.data})"
 
     def __add__(self, other):
-        x = self.x + other.x
-        y = self.y + other.y
-        return Vector(x, y)
+        out = self.data + other.data
+        return Value(out)
 
-    # scalar multiplication
-    def __mul__(self, number):
-        x = self.x * number
-        y = self.y * number
-        return Vector(x, y)
-
-    # a string representation
-    # the x!r conversion flag means `repr(x)`
-    def __repr__(self):
-        return f"Vector({self.x!r}, {self.y!r})"
+    def __mul__(self, other):
+        out = self.data * other.data
+        return Value(out)
 
 
-point_1 = Vector(2, 4)
-point_2 = Vector(3, 5)
-point_3 = point_1 + point_2
-point_4 = point_3 * 10
+a = Value(2.0)
+b = Value(3.0)
+c = Value(-2.0)
 
-print(point_3, point_4)  # Vector(5, 9) Vector(50, 90)
+print(a + b * c)
 ```
 
 ### Boolean Value
@@ -174,38 +167,91 @@ Any Python object can be used in a boolean context or be an operand of built-in 
 
 By default, any instance of a new type is `truthy` unless either `__bool__()` or `__len__()` method is defined in the type. In a boolean context or a call of `bool()`, the `__bool()__`  method is called. If the `__bool__()` method is not defined, Python calls `__len__()` method. If the result is 0, it is falsy or `False`. Otherwise, it is truthy or `True`.
 
-The `Vector` type has an additional `__bool__()` method in the following code:
+Additionally, it is also a good idea to let `Value` add or multiple regular numbers.
+
+The `Value` type has an additional `__bool__()` method in the following code:
 
 
 ```python
-class Vector:
+class Value:
 
-    def __init__(self, x=0, y=0):
-        self._x = x
-        self._y = y
-
-    def __add__(self, other):
-        x = self._x + other._x
-        y = self._y + other._y
-        return Vector(x, y)
-
-    # scalar multiplication
-    def __mul__(self, number):
-        x = self._x * number
-        y = self._y * number
-        return Vector(x, y)
+    def __init__(self, data):
+        self.data = data
 
     def __repr__(self):
-        return f"Vector({self._x!r}, {self._y!r})"
+        return f"Value(data={self.data})"
+
+    def __add__(self, other):
+        other = other if isinstance(other, Value) else Value(other)
+        out = self.data + other.data
+        return Value(out)
+
+    def __mul__(self, other):
+        other = other if isinstance(other, Value) else Value(other)
+        out = self.data * other.data
+        return Value(out)
 
     def __bool__(self):
-        return bool(self._x) or bool(self._y)
+        return bool(self.data)
 
 
-point_1 = Vector()
-point_2 = Vector(3, 5)
+a = Value(0)
+b = Value(3)
 
-print(bool(point_1), bool(point_2))  # False True
+print(bool(a), bool(b), (1 + a) * b)  # False True
+```
+
+
+```python
+class Value:
+    # more methods for built-in operators
+    def __neg__(self):  # -self
+        return self * -1
+
+    def __radd__(self, other):  # other + self
+        return self + other
+
+    def __sub__(self, other):  # self - other
+        return self + (-other)
+
+    def __rsub__(self, other):  # other - self
+        return other + (-self)
+
+    def __rmul__(self, other):  # other * self
+        return self * other
+
+    def __truediv__(self, other):  # self / other
+        return self * other**-1
+
+    def __rtruediv__(self, other):  # other / self
+        return other * self**-1
+
+    def __init__(self, data):
+        self.data = data
+
+    def __repr__(self):
+        return f"Value(data={self.data})"
+
+    def __add__(self, other):
+        other = other if isinstance(other, Value) else Value(other)
+        out = self.data + other.data
+        return Value(out)
+
+    def __mul__(self, other):
+        other = other if isinstance(other, Value) else Value(other)
+        out = self.data * other.data
+        return Value(out)
+
+    def __bool__(self):
+        return bool(self.data)
+```
+
+
+```python
+a = Value(0)
+b = Value(3)
+
+print(bool(a), bool(b), 2 * (1 + a) - b)
 ```
 
 ## Collection
@@ -610,9 +656,6 @@ v1.y = 17
 
 print(v0, v1, v2)  # Vector(7, 0) Vector(2, 17) Vector(10, 20)
 ```
-
-    Vector(7, 0) Vector(2, 17) Vector(10, 20)
-
 
 ### Class Decorator
 
