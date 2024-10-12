@@ -37,9 +37,4 @@ nbm() {
 nbs() {
   jupyter nbconvert *.ipynb --to slides --SlidesExporter.reveal_scroll=True
 }
-
-nball() {
-  nbm
-  nbs
-}
 ```
