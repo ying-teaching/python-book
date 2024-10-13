@@ -45,7 +45,7 @@ nav:
                       - ch12_django/notes/basic_django.md
                       - ch12_django/notes/advanced_django.md
                 - 'Chapter 13: LLM From Scratch':
-                      - ch13/notes/nn.md
+                      - ch13_llm/notes/nn.md
     - Slides: slides.md
     - Code: code.md
     - Appendix:
