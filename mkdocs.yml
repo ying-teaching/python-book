@@ -4,92 +4,92 @@ repo_url: https://github.com/ying-teaching/python-book
 repo_name: 'GitHub'
 
 theme:
-  name: material
-  features:
-    - navigation.instant
-    - navigation.tabs
-    - navigation.tabs.sticky
-    - navigation.sections
-    - navigation.top
-    - navigation.footer
+    name: material
+    features:
+        - navigation.instant
+        - navigation.tabs
+        - navigation.tabs.sticky
+        - navigation.sections
+        - navigation.top
+        - navigation.footer
 
 exclude_docs: |
-  *.ipynb
+    *.ipynb
 
 nav:
-  - Home: index.md
-  - Book:
-      - 'Part I. Fundamental Python Programming':
-          - 'Chapter 1: Introduction':
-              - ch01_introduction/notes/introduction.md
-              - ch01_introduction/notes/crash_course.md
-          - 'Chapter 2: Variable and Expression':
-              - ch02_variable/notes/variables.md
-              - ch02_variable/notes/expression_statement.md
-              - ch02_variable/notes/turtle_introduction.md
-          - 'Chapter 3: Branch': ch03_branch/notes/branch.md
-          - 'Chapter 4: Loop': ch04_loop/notes/loop.md
-          - 'Chapter 5: Function': ch05_function/notes/function.md
-          - 'Chapter 6 Collection': ch06_collection/notes/collection.md
-          - 'Chapter 7 Class':
-              - ch07_class/notes/basic_class.md
-              - ch07_class/notes/advanced_class.md
-      - 'Part II. Advanced Python Programming':
-          - 'Chapter 8 Exception': ch08_exception/notes/exception.md
-          - 'Chapter 9 Module': ch09_module/notes/module.md
-          - 'Chapter 10 File': ch10_file/notes/file.md
-          - 'Chapter 11: Data Model': ch11_data_model/notes/data_model.md
-      - 'Part III. Algorithmic Thinking':
-          - 'Chapter 12: A Web Site':
-              - ch12_django/notes/django_crash_course.md
-              - ch12_django/notes/basic_django.md
-              - ch12_django/notes/advanced_django.md
-          - 'Chapter 13: LLM From Scratch':
-              - ch13/notes/data_analysis.md
-  - Slides: slides.md
-  - Code: code.md
-  - Appendix:
-      - 'Development Tools':
-          - 'Command Line Interface': appendix/tools/command_line.md
-          - 'Python Installation': appendix/tools/install_python.md
-          - 'VS Code': appendix/tools/vscode_python.md
-          - 'Git and GitHub': appendix/tools/git_and_github.md
-      - 'Learn Programming':
-          - 'Learn Programming': appendix/learn_programming/learn_programming.md
+    - Home: index.md
+    - Book:
+          - 'Part I. Fundamental Python Programming':
+                - 'Chapter 1: Introduction':
+                      - ch01_introduction/notes/introduction.md
+                      - ch01_introduction/notes/crash_course.md
+                - 'Chapter 2: Variable and Expression':
+                      - ch02_variable/notes/variables.md
+                      - ch02_variable/notes/expression_statement.md
+                      - ch02_variable/notes/turtle_introduction.md
+                - 'Chapter 3: Branch': ch03_branch/notes/branch.md
+                - 'Chapter 4: Loop': ch04_loop/notes/loop.md
+                - 'Chapter 5: Function': ch05_function/notes/function.md
+                - 'Chapter 6 Collection': ch06_collection/notes/collection.md
+                - 'Chapter 7 Class':
+                      - ch07_class/notes/basic_class.md
+                      - ch07_class/notes/advanced_class.md
+          - 'Part II. Advanced Python Programming':
+                - 'Chapter 8 Exception': ch08_exception/notes/exception.md
+                - 'Chapter 9 Module': ch09_module/notes/module.md
+                - 'Chapter 10 File': ch10_file/notes/file.md
+                - 'Chapter 11: Data Model': ch11_data_model/notes/data_model.md
+          - 'Part III. Algorithmic Thinking':
+                - 'Chapter 12: A Web Site':
+                      - ch12_django/notes/django_crash_course.md
+                      - ch12_django/notes/basic_django.md
+                      - ch12_django/notes/advanced_django.md
+                - 'Chapter 13: LLM From Scratch':
+                      - ch13/notes/nn.md
+    - Slides: slides.md
+    - Code: code.md
+    - Appendix:
+          - 'Development Tools':
+                - 'Command Line Interface': appendix/tools/command_line.md
+                - 'Python Installation': appendix/tools/install_python.md
+                - 'VS Code': appendix/tools/vscode_python.md
+                - 'Git and GitHub': appendix/tools/git_and_github.md
+          - 'Learn Programming':
+                - 'Learn Programming': appendix/learn_programming/learn_programming.md
 
 markdown_extensions:
-  # Python Markdown
-  - abbr
-  - admonition
-  - attr_list
-  - def_list
-  - footnotes
-  - md_in_html
-  - toc:
-      permalink: true
+    # Python Markdown
+    - abbr
+    - admonition
+    - attr_list
+    - def_list
+    - footnotes
+    - md_in_html
+    - toc:
+          permalink: true
 
-  # Python Markdown Extensions
-  - pymdownx.arithmatex:
-      generic: true
-  - pymdownx.betterem:
-      smart_enable: all
-  - pymdownx.caret
-  - pymdownx.details
-  - pymdownx.emoji:
-      emoji_index: !!python/name:material.extensions.emoji.twemoji
-      emoji_generator: !!python/name:material.extensions.emoji.to_svg
-  - pymdownx.highlight
-  - pymdownx.inlinehilite
-  - pymdownx.keys
-  - pymdownx.mark
-  - pymdownx.smartsymbols
-  - pymdownx.superfences
-  - pymdownx.tabbed:
-      alternate_style: true
-  - pymdownx.tasklist:
-      custom_checkbox: true
-  - pymdownx.tilde
+    # Python Markdown Extensions
+    - pymdownx.arithmatex:
+          generic: true
+    - pymdownx.betterem:
+          smart_enable: all
+    - pymdownx.caret
+    - pymdownx.details
+    - pymdownx.emoji:
+          emoji_index: !!python/name:material.extensions.emoji.twemoji
+          emoji_generator: !!python/name:material.extensions.emoji.to_svg
+    - pymdownx.highlight
+    - pymdownx.inlinehilite
+    - pymdownx.keys
+    - pymdownx.mark
+    - pymdownx.smartsymbols
+    - pymdownx.superfences
+    - pymdownx.tabbed:
+          alternate_style: true
+    - pymdownx.tasklist:
+          custom_checkbox: true
+    - pymdownx.tilde
 
 copyright: Copyright &copy; 2023 Ying Liu
 extra:
-  generator: false
+    generator: false
