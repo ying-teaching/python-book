@@ -12,11 +12,11 @@ Why? What? How?
 
 - Overview
 - Special Methods
-- Number and Boolean Value
-- Collection
-- Callable
-- Metaprogramming
-  - Instance and Attribute
+  - Scalar Value: Number and Boolean
+  - Collection
+  - Syntax: Callable and Loop
+- meta-programming
+  - Attribute
   - Class
 
 ## Overview
@@ -71,7 +71,20 @@ Every Python developers should be familiar with common Python idioms. Following 
 - [Python Programming/Idioms](https://en.wikibooks.org/wiki/Python_Programming/Idioms)
 - [Idiomatic Python](https://intermediate-and-advanced-software-carpentry.readthedocs.io/en/latest/idiomatic-python.html)
 
+### Common Python Idioms: List Comprehension and Generator Expression
+
+As described in [Python Docs](https://docs.python.org/3/howto/functional.html#generator-expressions-and-list-comprehensions), two common operations on an iterator’s output are
+
+- performing some operation on every element
+- selecting a subset of elements that meet some condition.
+
+List comprehensions and generator expressions (short form: `listcomp` and `genexp`) are a concise notation for such operations, borrowed from the functional programming language `Haskell`.
+
+- use `liscomp` for small data collection that can be created in one call.
+- use `genexps` for large data sets or you don't need all the values at once.
+
 ```python
+# list comprehension: create a list all at once
 # to  create  a list of squares of numbers from 0 to 9
 result1 = []
 for i in range(10):
@@ -81,13 +94,34 @@ for i in range(10):
 result2 = [i * i for i in range(10)]
 ```
 
-## Special Methods
+```python
+# using a generator expression: computes the values as necessary (lazy evaluation)
+
+weights = [0.1, 0.2, 0]
+inputs = [8.5, 0.65, 1.2]
+bias = 2
+
+sum1 = 0
+for weight, input in zip(weights, inputs):
+    sum1 += weight * input
+
+sum1 += bias
+
+# using a generator expression, generate a pair each time when needed
+# good for large data sets or you don't need all the values at once
+wi_in_gen = (weight * input for weight, input in zip(weights, inputs))
+sum2 = sum(wi_in_gen, bias)
+
+print(sum1, sum2)  # 2.98 2.98
+```
+
+## Python Data Model: Special Methods
 
 The Python data model is a set of APIs. The APIs are defined as a set of standard *special methods*.
 
-All special methods follow a special naming style: starting and ending with double underscores: `__*__`. They are known as *dunder* (double underscore) methods.
+All special methods follow a special naming style: starting and ending with double underscores: `__*__`. They are known as `dunder` (double underscore) methods.
 
-Developers *should not* create or use any dunder identifier not standardized by the language reference because they are subject to breakage without warning in future Python versions.
+Developers *should not* create or use any `dunder` identifier not standardized by the language reference because they are subject to breakage without warning in future Python versions.
 
 In a Python interpreter, built-in functions, operators, and special syntax invoke these special class methods to perform data operations.
 
@@ -133,8 +167,7 @@ If a new type defines the corresponding methods, an instance of the type can be 
 
 ### `+` and `*` Operators
 
-As an example, the following code defines a new `Vector` type that works well with `+` and
-`*`. It also defines `__repr__` to have a better string representation of the data.
+As an example, the following code defines a `Value` type that works well with `+` and `*`. It also defines `__repr__` to have a better string representation of the data.
 
 ```python
 class Value:
@@ -161,13 +194,15 @@ c = Value(-2.0)
 print(a + b * c)
 ```
 
-### Boolean Value
+### Boolean Value and Operation with Scalar Values
 
 Any Python object can be used in a boolean context or be an operand of built-in `bool()` function. Boolean context include conditions in `if` or `while` statement, or as operands of `and`, `or`, and `not` logical operators. Every object is either *truthy* or *falsy* in a boolean context.
 
 By default, any instance of a new type is `truthy` unless either `__bool__()` or `__len__()` method is defined in the type. In a boolean context or a call of `bool()`, the `__bool()__`  method is called. If the `__bool__()` method is not defined, Python calls `__len__()` method. If the result is 0, it is falsy or `False`. Otherwise, it is truthy or `True`.
 
-The `Value` type has an additional `__bool__()` method in the following code. Additionally it let `Value` with scalar numbers.
+The `Value` type defines a `__bool__()` method in the following code.
+
+Additionally it let `Value` with scalar numbers.
 
 ```python
 class Value:
@@ -195,11 +230,11 @@ class Value:
 a = Value(0)
 b = Value(3)
 
-print(bool(a), bool(b), (1 + a) * b)  # False True
+print(bool(a), bool(b), (a + 1) * b)  # False True Value(data=3.0)
 ```
 
 ```python
-# how about 2 + a or  3 * b
+# how about 2 + a,  3 * b, a - b
 class Value:
 
     def __init__(self, data):
@@ -210,19 +245,16 @@ class Value:
 
     def __add__(self, other):
         other = other if isinstance(other, Value) else Value(other)
-        out = Value(self.data + other.data, (self, other), "+")
+        out = Value(self.data + other.data)
         return out
 
     def __mul__(self, other):
         other = other if isinstance(other, Value) else Value(other)
-        out = Value(self.data * other.data, (self, other), "*")
+        out = Value(self.data * other.data)
         return out
 
     def __rmul__(self, other):  # other * self
         return self * other
-
-    def __truediv__(self, other):  # self / other
-        return self * other**-1
 
     def __neg__(self):  # -self
         return self * -1
@@ -232,13 +264,12 @@ class Value:
 
     def __radd__(self, other):  # other + self
         return self + other
-```
 
-```python
+
 a = Value(0)
 b = Value(3)
 
-print(bool(a), bool(b), 2 * (1 + a) - b)
+print(bool(a), bool(b), 2 * (1 + a) - b)  # False True Value(data=6.0)
 ```
 
 ## Collection
@@ -331,41 +362,48 @@ class Counter:
         self._count = start
         self._step = step
 
-    def __call__(self):
-        self._count += self._step
+    def __call__(self, addition=0):
+        self._count += self._step + addition
         return self._count
 
 
 counter = Counter()
 print(counter())  # Output: 1
-print(counter())  # Output: 2
+print(counter(3))  # Output: 5
 
 counter = Counter(10, 7)
 print(counter())  # Output: 17
-print(counter())  # Output: 24
+print(counter(3))  # Output: 27
 ```
 
 ## Meta-programming: Code That Generates Code
 
 Python has a set of special methods that can be used to customize the class definition. These methods include:
 
-- Instance creation and destruction
-- Attribute management
-- Class creation: `__init_subclass__`, class decorator, metaclass, and so on.
+- Customize instance creation
+  - Instance creation
+  - Attribute management
+- Advanced: customize class creation
+  - Class creation: `__init_subclass__`
+  - Class decorator
+  - `metaclass`
 
-These are advanced topics that customize the class behavior - so-called *meta-programming*. In meta-programming, classes are objects that are created and customized at runtime.
+In meta-programming, instances and classes are objects that are created and customized at runtime.
 
-Python tools/frameworks such as `@dataclass` and Django uses meta-programming to make it easy to develop application. An application developer rarely use them directly but it is better to know the concepts.
+Python tools/frameworks such as `PyTorch` and `Django` use meta-programming to make it easy to develop application. An application developer don't use them often but it is better to know the concepts.
 
-## Why Meta Programming
+### Why Meta Programming
 
-- Simple
-- Powerful
+- Simple: writing less code
+- Powerful: expressive code
 
-For example:  the `@dataclass` decorator provides a simple way to create classes that mainly hold data.
+For example, in data analysis, one needs a simple way to create classes that mainly hold data. The data class should have good string representation and be able to tell their equality.
+
+### Without `@dataclass``
+
+The following code use type hints for better readability.
 
 ```python
-# Without @dataclass
 class Person:
     def __init__(self, name: str, age: int):
         self.name = name
@@ -380,6 +418,8 @@ class Person:
         return self.name == other.name and self.age == other.age
 ```
 
+### With `@dataclass`
+
 ```python
 # both __repr__ and __eq__ methods are defined
 from dataclasses import dataclass
@@ -389,16 +429,24 @@ from dataclasses import dataclass
 class Person:
     name: str
     age: int
+
+
+alice = Person("Alice", 30)
+bob = Person("Bob", 30)
+alice2 = Person("Alice", 30)
+
+print(alice)  # Person(name=Alice, age=30)
+print(alice == bob)  # false
 ```
 
 ## Instance and Attributes
 
-- Instance creation and destruction: `__new__`, and `__del__`. You use these methods to customize instance creation, initialization and deletion.
+- Instance creation: `__new__`. You use it to customize instance creation and initialization.
 - Attribute management: `__init__`, `__getattribute__`, `__getattr__`, `__setattr__`, `property` and descriptor. You use these methods to control the `.` attribute access behavior of a class and its instances.
 
 ### The `__init__(self, ...)` Method
 
-Most classes define the `__init__(self, ...)` method to set attributes of an instance of the class. There are some questions for this method:
+Most classes only define the `__init__(self, ...)` method to set attributes of an instance of the class. There are some questions for this method:
 
 - When is it called? You might know the answer: it is called when you create an instance by calling a `cls(...)` where `cls` is a class name. You almost never call this method directly.
 - The `__init__(self, ...)` returns nothing, how could Python create the instance? It is not clear.
@@ -552,52 +600,110 @@ desk_size.length = -1  # ValueError: Value cannot be negative
 
 ### Dynamic Attributes
 
-The `__getattribute__(self, name)` and `__getattr__(self, name)` are called when the `name` attribute is not found in the current object. Therefore, they are used to define dynamic (computed) attribute value or raise `AttributeError` if the requested name is invalid.
+Dynamic attributes are useful when you need to store additional data with an object, but the attribute names are not known until runtime.
+
+All defined attributes are usually stored in the object's `__dict__` that is a dictionary.
+
+The special method `__getattr__(self, name)` is called when the `name` attribute is not found in the current object. Therefore, it can be used to define dynamic (computed) attribute value or raise `AttributeError` if the requested name is invalid.
 
 The `__setattr__(self, name, value)` method is called whenever an attribute is assigned a value on an instance. You can define this method in your class to control and customize the behavior of attribute assignment.
 
 Both *property* and *descriptor* use these attribute management methods to create the read/write attributes. If possible, you should use property to define dynamic attributes because it is the simplest. Descriptor is the choice if multiple classes/attributes have the same logic. Django `models` is a descriptor.
 
-The attribute management special methods are rarely needed in applications.
+```python
+class DynamicConfig:
+    def __init__(self, config_dict):
+        self.config_dict = config_dict
 
-## Class Creation
+    def __getattr__(self, name):
+        if name in self.config_dict:
+            return self.config_dict[name]
+        else:
+            raise AttributeError(f"Config attribute '{name}' not found")
 
-Python provides several approaches to customize class creation in frameworks or libraries.
 
-- `__init_subclass__`: allow a base class to customize its subclass behaviors.
+# Create a dynamic config object
+config = DynamicConfig({"database": "mysql", "host": "localhost", "port": 3306})
+
+# Access dynamic attributes
+print(config.database)  # Output: mysql
+print(config.host)  # Output: localhost
+print(config.port)  # Output: 3306
+
+# Try accessing a non-existent attribute
+try:
+    print(config.username)
+except AttributeError as e:
+    print(e)  # Output: Config attribute 'username' not found
+```
+
+## Too Much Redundancy
+
+Python is famous for its simplicity. But the following object-oriented programming code is horrible because
+
+- each attribute is repeated THREE times
+- each attributed is repeated the fourth time in `__repr__`
+- each attributed is repeated the fifth time in `__eq__`
+
+```python
+class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    def __repr__(self):
+        return f"Person(name={self.name}, age={self.age})"
+
+    # Create an __eq__ method that compares the attributes
+    def __eq__(self, other):
+        return (self.name == other.name) and (self.age == other.age)
+```
+
+### Class Attribute May
+
+Class is an also `object` in Python - it has class attributes that each attribute name is typed ONCE.
+
+However
+
+- The class attributes are not initialized in `__init__(self, ...)` method.
+- Class attributes are shared by all its instances.
+
+```python
+class Person:
+    name = None  # better syntax using type hint: name: str
+    age = None  # better syntax using type hint: age: int
+
+    def __repr__(self) -> str:
+        return f"Person(name={self.name}, age={self.age})"
+
+
+# all instances share the same class attributes
+alice = Person()
+bob = Person()
+Person.name = "Alice"
+Person.age = 30
+bob.name = "Bob"  # it creates a new instance attribute
+
+print(alice, bob)  # Person(name=Alice, age=30) Person(name=Bob, age=30)
+```
+
+## The Solution: Customize Class Creation
+
+Python provides three approaches to customize class creation in frameworks or libraries.
+
+- allow a base class to customize its subclass behaviors.
 - class decorator: it takes a class as an argument and returns a - decorated class with desired behavior.
 - metaclass: define the behavior and structure of other classes.
 
-### A Redundancy Problem
-
-Python is famous for its simplicity. But the following object-oriented programming code is not simple because you need to type each attribute name three times.
-
-```python
-class Vector:
-    def __init__(self, x=0, y=0) -> None:
-        self.x = x
-        self.y = y
-```
-
-Python supports class attributes that each attribute name is typed once like the following.
-
-```python
-class Vector:
-    x = 0
-    y = 0
-```
-
-However, class attributes are shared by all instances. Is it possible to use the simple class attribute syntax to create instance attribute? Python meta-programming provides multiple approaches.
-
-### `_init_subclass__`
+### Solution one: Base Class and `_init_subclass__`
 
 This special method is defined in a base class to customize the creation of its subclasses. There are two basic tasks to create instance attributes from the subclass' class attributes:
 
 - in `__init_subclass__`, copy each subclass' class attribute as an instance attribute.
-- in `__init__`, reset the instance attributes if a caller provides vector attribute values.
+- it can define other methods inherited by its sub classes
 
 ```python
-class VectorBase:
+class MyDataClassBase:
     def __init_subclass__(cls):
         super().__init_subclass__()
         for name, value in cls.__dict__.items():
@@ -605,120 +711,135 @@ class VectorBase:
                 setattr(cls, name, value)
 
     def __init__(self, *args):
-        if args:
-            self.x, self.y = args
+        self.name, self.age = args
 
-    def __repr__(self) -> str:
-        return f"Vector({self.x}, {self.y})"
+    def __repr__(self):
+        return f"Person(name={self.name}, age={self.age})"
 
-
-class Vector(VectorBase):
-    x = 0
-    y = 0
+    # Create an __eq__ method that compares the attributes
+    def __eq__(self, other):
+        return (self.name == other.name) and (self.age == other.age)
 
 
-v0 = Vector()
-v1 = Vector(2, 3)
-v2 = Vector(10, 20)
-v0.x = 7
-v1.y = 17
-
-print(v0, v1, v2)  # Vector(7, 0) Vector(2, 17) Vector(10, 20)
+class Person(MyDataClassBase):
+    name: str
+    age: int
 ```
 
-### Class Decorator
+```python
+alice = Person("Alice", 30)
+bob = Person("Bob", 20)
+alice2 = Person("Alice", 30)
+
+print(alice)  # Person(name=Alice, age=30)
+print(alice == bob)  # false
+```
+
+### Solution 2: Class Decorator
 
 A class decorator takes a class as an argument and returns a new class to replace the decorated class. Because it can be applied to any class, it is more flexible and more complex than the `_init_subclass__()` approach. `@dataclass` is a class decorator defined in standard library. It customizes class attributes such as instance attributes, `__init__()`, `__repr__()`, `__eq__()`, and so on.
 
 For the case of the `Vector` class, the class decorator logic is similar to the `VectorBase`.
 
 ```python
-def vector_class(cls):
+def MyDataClass(cls):
     for name, value in cls.__dict__.items():
         if not name.startswith("__"):
             setattr(cls, name, value)
 
     def _init(self, *args):
-        if args:
-            self.x, self.y = args
+        self.name, self.age = args
 
+    def _repr(self):
+        return f"Person(name={self.name}, age={self.age})"
+
+    # Create an __eq__ method that compares the attributes
+    def _eq(self, other):
+        return (self.name == other.name) and (self.age == other.age)
+
+    # Add the __eq__ method to the class
     setattr(cls, "__init__", _init)
+    setattr(cls, "__repr__", _repr)
+    setattr(cls, "__eq__", _eq)
 
     return cls
 
 
-@vector_class
-class Vector:
-    x = 0
-    y = 0
-
-    def __str__(self):
-        return f"Vector({self.x}, {self.y})"
-
-
-v0 = Vector()
-v1 = Vector(2, 3)
-v2 = Vector(10, 20)
-v0.x = 7
-v1.y = 17
-
-print(v0, v1, v2)
+@MyDataClass
+class Person:
+    name: str
+    age: int
 ```
 
-### Metaclass
+```python
+alice = Person("Alice", 30)
+bob = Person("Bob", 20)
+alice2 = Person("Alice", 30)
 
- Metaclass is the most advanced and most capable approach to customize class creation. However, it is the most complex one that should be avoided if other approaches work for you. If you are not sure whether you need it, you don't.
+print(alice)  # Person(name=Alice, age=30)
+print(alice == bob)  # false
+```
 
- A metaclass is a class whose instances are classes -- a class' class, thus the name metaclass. It is essentially a class factory.
+### Solution 3: Metaclass
 
- By default, a class is an instance of `type` - the default built-in metaclass. You can define new metaclass and set it as a metaclass for a class using the `metaclass` argument like `class MyClass(BaseClass, metaclass=MyMetaClass): ...`
+Metaclass is the most advanced and most capable approach to customize class creation. However, it is the most complex one that should be avoided if other approaches work for you. If you are not sure whether you need it, you don't.
+
+A metaclass is a class whose instances are classes -- a class' class, thus the name metaclass. It is essentially a class factory.
+
+You can metaclass for a class using the `metaclass` argument like `class MyClass(metaclass=MyMetaClass): ...`
 
 ### `__new__()` and `__init__()`
 
-When Python sees a class definition like `class MyClass(BaseClass, metaclass=MyMetaClass): ...`, it calls `MyMetaClass.__new__()` to create a new class.
+When Python sees a class definition like `class MyClass(metaclass=MyMetaClass): ...`, it first calls `MyMetaClass.__new__()` to create a new class. Then it calls `MyMetaClass.__init__()` to set the new class attributes.
 
-An interesting fact is that every metaclass is a subclass of `type`. After customization, a metaclass calls `super().__new__(...)` to let `type` create the new class.
-
-Then it calls `MyMetaClass.__init__()` to set the new class attributes. This method has the following arguments:
+The `MyMetaClass.__init__()` method has the following arguments:
 
 - `cls`: the new class created by the `__new__()` method.
 - `name`: the name of the new class.
 - `bases`: a tuple consists of base classes of the new class.
 - `attributes`: a mapping represents the attributes of the new class.
 
-For the simple purpose of reducing boilerplate code of the `Vector` class, the logic is similar to other examples. Again, it is for demo purpose, you probably never need to use it in your application development or data analysis career.
+For the simple purpose of reducing boilerplate code of the `Person` class, the logic is similar to other examples. Again, it is for demo purpose, you probably never need to use it in your application development or data analysis career.
 
 ```python
-class VectorMeta(type):
+class MyDataClassMeta(type):
     def __init__(cls, name, bases, attributes):
         super().__init__(name, bases, attributes)
         for name, value in attributes.items():
             if not name.startswith("__"):
                 setattr(cls, name, value)
 
-        def _init(self, *args):
-            if args:
-                self.x, self.y = args
+        # Create an __init__ method that initializes the attributes
+        def init(self, *args):
+            self.name, self.age = args
 
-        def _repr(self) -> str:
-            return f"Vector({self.x}, {self.y})"
+        # Create a __repr__ method that returns a string representation of the object
+        def repr(self):
+            return f"Person(name={self.name}, age={self.age})"
 
-        setattr(cls, "__init__", _init)
-        setattr(cls, "__repr__", _repr)
+        # Create an __eq__ method that compares the attributes
+        def eq(self, other):
+            return (self.name == other.name) and (self.age == other.age)
+
+        # Add the __eq__ method to the class
+        setattr(cls, "__init__", init)
+        setattr(cls, "__repr__", repr)
+        setattr(cls, "__eq__", eq)
 
 
-class Vector(metaclass=VectorMeta):
-    x = 0
-    y = 0
+# Create a data class using the meta class
+class Person(metaclass=MyDataClassMeta):
+    name: str
+    age: int
+```
 
+```python
+alice = Person("Alice", 30)
+bob = Person("Bob", 20)
+alice2 = Person("Alice", 30)
 
-v0 = Vector()
-v1 = Vector(2, 3)
-v2 = Vector(10, 20)
-v0.x = 7
-v1.y = 17
-
-print(v0, v1, v2)  # Vector(7, 0) Vector(2, 17) Vector(10, 20)
+print(alice)  # Person(name=Alice, age=30)
+print(alice == bob)  # false
 ```
 
 ## Summary
@@ -729,4 +850,7 @@ Python languages constructs are consistent, composable and open. You can define 
 - built-in functions such as `len()`, `repr()`, `bool()`, etc.
 - specific syntax such as `for` loop statement and `with` context manager statement.
 
-Additionally, you can even customize the class creation at runtime using meta-programming that make your code simple and powerful.
+You can customize new types using meta-programming that make your code simple and powerful.
+
+- For attributes: `@property`, descriptor, dynamic attributes
+- For class: Base class, class decorator, metaclass.
