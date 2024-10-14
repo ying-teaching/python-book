@@ -7512,20 +7512,22 @@ main {
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3 id="Language-Constructs">Language Constructs<a class="anchor-link" href="#Language-Constructs">¶</a></h3><ul>
 <li>Data<ul>
-<li>Built-in types and new types (Classes)</li>
 <li>Atomic types and composite types (sequence, mapping, and set)</li>
+<li>Built-in types and new types (Classes)</li>
 </ul>
 </li>
 <li>Operations<ul>
 <li>built-in operators such as <code>+</code>, <code>-</code>, <code>&gt;=</code>, list index <code>[]</code>, function call <code>()</code>, and so on.</li>
 <li>built-in functions such as <code>len()</code>, <code>repr()</code>, <code>bool()</code>, etc.</li>
+<li>user defined functions</li>
 </ul>
 </li>
 <li>Program Control Structure: specific syntax for statements, branches and loops. For example:<ul>
-<li><code>for</code> loop statement</li>
-<li><code>with</code> context manager statement.</li>
+<li><code>for</code> loop statement or <code>with</code> context manager statement.</li>
+<li>work with user defined types</li>
 </ul>
 </li>
+<li>Meta programming: write code that generate code</li>
 </ul>
 </div>
 </div>
@@ -7576,12 +7578,12 @@ main {
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># to  create  a list of squares of numbers from 0 to 9</span>
-<span class="n">result2</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">result1</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
-    <span class="n">result2</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span> <span class="o">*</span> <span class="n">i</span><span class="p">)</span>
+    <span class="n">result1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span> <span class="o">*</span> <span class="n">i</span><span class="p">)</span>
 
 <span class="c1"># using list comprehension - a common idiom in python</span>
-<span class="n">result1</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="o">*</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span>
+<span class="n">result2</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="o">*</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span>
 </pre></div>
 </div>
 </div>
@@ -7725,8 +7727,7 @@ main {
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3 id="Boolean-Value">Boolean Value<a class="anchor-link" href="#Boolean-Value">¶</a></h3><p>Any Python object can be used in a boolean context or be an operand of built-in <code>bool()</code> function. Boolean context include conditions in <code>if</code> or <code>while</code> statement, or as operands of <code>and</code>, <code>or</code>, and <code>not</code> logical operators. Every object is either <em>truthy</em> or <em>falsy</em> in a boolean context.</p>
 <p>By default, any instance of a new type is <code>truthy</code> unless either <code>__bool__()</code> or <code>__len__()</code> method is defined in the type. In a boolean context or a call of <code>bool()</code>, the <code>__bool()__</code>  method is called. If the <code>__bool__()</code> method is not defined, Python calls <code>__len__()</code> method. If the result is 0, it is falsy or <code>False</code>. Otherwise, it is truthy or <code>True</code>.</p>
-<p>Additionally, it is also a good idea to let <code>Value</code> add or multiple regular numbers.</p>
-<p>The <code>Value</code> type has an additional <code>__bool__()</code> method in the following code:</p>
+<p>The <code>Value</code> type has an additional <code>__bool__()</code> method in the following code. Additionally it let <code>Value</code> with scalar numbers.</p>
 </div>
 </div>
 </div>
@@ -7777,28 +7778,8 @@ main {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">Value</span><span class="p">:</span>
-    <span class="c1"># more methods for built-in operators</span>
-    <span class="k">def</span> <span class="fm">__neg__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>  <span class="c1"># -self</span>
-        <span class="k">return</span> <span class="bp">self</span> <span class="o">*</span> <span class="o">-</span><span class="mi">1</span>
-
-    <span class="k">def</span> <span class="fm">__radd__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>  <span class="c1"># other + self</span>
-        <span class="k">return</span> <span class="bp">self</span> <span class="o">+</span> <span class="n">other</span>
-
-    <span class="k">def</span> <span class="fm">__sub__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>  <span class="c1"># self - other</span>
-        <span class="k">return</span> <span class="bp">self</span> <span class="o">+</span> <span class="p">(</span><span class="o">-</span><span class="n">other</span><span class="p">)</span>
-
-    <span class="k">def</span> <span class="fm">__rsub__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>  <span class="c1"># other - self</span>
-        <span class="k">return</span> <span class="n">other</span> <span class="o">+</span> <span class="p">(</span><span class="o">-</span><span class="bp">self</span><span class="p">)</span>
-
-    <span class="k">def</span> <span class="fm">__rmul__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>  <span class="c1"># other * self</span>
-        <span class="k">return</span> <span class="bp">self</span> <span class="o">*</span> <span class="n">other</span>
-
-    <span class="k">def</span> <span class="fm">__truediv__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>  <span class="c1"># self / other</span>
-        <span class="k">return</span> <span class="bp">self</span> <span class="o">*</span> <span class="n">other</span><span class="o">**-</span><span class="mi">1</span>
-
-    <span class="k">def</span> <span class="fm">__rtruediv__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>  <span class="c1"># other / self</span>
-        <span class="k">return</span> <span class="n">other</span> <span class="o">*</span> <span class="bp">self</span><span class="o">**-</span><span class="mi">1</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># how about 2 + a or  3 * b</span>
+<span class="k">class</span> <span class="nc">Value</span><span class="p">:</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">data</span>
@@ -7808,16 +7789,28 @@ main {
 
     <span class="k">def</span> <span class="fm">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
         <span class="n">other</span> <span class="o">=</span> <span class="n">other</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">Value</span><span class="p">)</span> <span class="k">else</span> <span class="n">Value</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
-        <span class="n">out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">+</span> <span class="n">other</span><span class="o">.</span><span class="n">data</span>
-        <span class="k">return</span> <span class="n">Value</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="n">Value</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">+</span> <span class="n">other</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">),</span> <span class="s2">"+"</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">out</span>
 
     <span class="k">def</span> <span class="fm">__mul__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
         <span class="n">other</span> <span class="o">=</span> <span class="n">other</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">Value</span><span class="p">)</span> <span class="k">else</span> <span class="n">Value</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
-        <span class="n">out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">data</span>
-        <span class="k">return</span> <span class="n">Value</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="n">Value</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">),</span> <span class="s2">"*"</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">out</span>
 
-    <span class="k">def</span> <span class="fm">__bool__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="nb">bool</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+    <span class="k">def</span> <span class="fm">__rmul__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>  <span class="c1"># other * self</span>
+        <span class="k">return</span> <span class="bp">self</span> <span class="o">*</span> <span class="n">other</span>
+
+    <span class="k">def</span> <span class="fm">__truediv__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>  <span class="c1"># self / other</span>
+        <span class="k">return</span> <span class="bp">self</span> <span class="o">*</span> <span class="n">other</span><span class="o">**-</span><span class="mi">1</span>
+
+    <span class="k">def</span> <span class="fm">__neg__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>  <span class="c1"># -self</span>
+        <span class="k">return</span> <span class="bp">self</span> <span class="o">*</span> <span class="o">-</span><span class="mi">1</span>
+
+    <span class="k">def</span> <span class="fm">__sub__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>  <span class="c1"># self - other</span>
+        <span class="k">return</span> <span class="bp">self</span> <span class="o">+</span> <span class="p">(</span><span class="o">-</span><span class="n">other</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__radd__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>  <span class="c1"># other + self</span>
+        <span class="k">return</span> <span class="bp">self</span> <span class="o">+</span> <span class="n">other</span>
 </pre></div>
 </div>
 </div>
@@ -7994,7 +7987,7 @@ main {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Metaprogramming">Metaprogramming<a class="anchor-link" href="#Metaprogramming">¶</a></h2><p>Python has a set of special methods that can be used to customize the class definition. These methods include:</p>
+<h2 id="Metaprogramming:-Code-That-Generates-Code">Metaprogramming: Code That Generates Code<a class="anchor-link" href="#Metaprogramming:-Code-That-Generates-Code">¶</a></h2><p>Python has a set of special methods that can be used to customize the class definition. These methods include:</p>
 <ul>
 <li>Instance creation and destruction</li>
 <li>Attribute management</li>
@@ -8213,6 +8206,8 @@ main {
 <span class="n">area</span> <span class="o">=</span> <span class="n">circle</span><span class="o">.</span><span class="n">area</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Radius </span><span class="si">{</span><span class="n">radius</span><span class="si">}</span><span class="s2"> has an area of </span><span class="si">{</span><span class="n">area</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 <span class="c1"># output: Radius 10 has an area of 314.1592653589793</span>
+
+<span class="n">circle</span><span class="o">.</span><span class="n">radius</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>  <span class="c1"># ValueError: Radius cannot be negative</span>
 </pre></div>
 </div>
 </div>
@@ -8328,20 +8323,6 @@ main {
 <li>class decorator: it takes a class as an argument and returns a - decorated class with desired behavior.</li>
 <li>metaclass: define the behavior and structure of other classes.</li>
 </ul>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-</div>
 </div>
 </div>
 </div>
@@ -8501,9 +8482,12 @@ main {
 
 
 <span class="nd">@vector_class</span>
-<span class="k">class</span> <span class="nc">Vector</span><span class="p">(</span><span class="n">VectorBase</span><span class="p">):</span>
+<span class="k">class</span> <span class="nc">Vector</span><span class="p">:</span>
     <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="n">y</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">"Vector(</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="si">}</span><span class="s2">)"</span>
 
 
 <span class="n">v0</span> <span class="o">=</span> <span class="n">Vector</span><span class="p">()</span>
@@ -8512,7 +8496,7 @@ main {
 <span class="n">v0</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">7</span>
 <span class="n">v1</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="mi">17</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">v0</span><span class="p">,</span> <span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">)</span>  <span class="c1"># Vector(7, 0) Vector(2, 17) Vector(10, 20)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">v0</span><span class="p">,</span> <span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -8525,7 +8509,7 @@ main {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Metaclass">Metaclass<a class="anchor-link" href="#Metaclass">¶</a></h3><p>Metaclass is the most advanced and most capable approach to customize class creation. However, it is the most complex one that should be avoided if other approaches work for you. It you are not sure whether you need it, you don't.</p>
+<h3 id="Metaclass">Metaclass<a class="anchor-link" href="#Metaclass">¶</a></h3><p>Metaclass is the most advanced and most capable approach to customize class creation. However, it is the most complex one that should be avoided if other approaches work for you. If you are not sure whether you need it, you don't.</p>
 <p>A metaclass is a class whose instances are classes -- a class' class, thus the name metaclass. It is essentially a class factory.</p>
 <p>By default, a class is an instance of <code>type</code> - the default built-in metaclass. You can define new metaclass and set it as a metaclass for a class using the <code>metaclass</code> argument like <code>class MyClass(BaseClass, metaclass=MyMetaClass): ...</code></p>
 </div>

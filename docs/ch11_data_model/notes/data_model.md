@@ -4,11 +4,11 @@ The first sentence of [The Python Tutorial](https://docs.python.org/3/tutorial/i
 
 > Python is an easy to learn, powerful programming language.
 
-Part of the reason for this cliam is that [Python Data Model](https://docs.python.org/3/reference/datamodel.html) defines the interfaces of the building blocks (constructs) of the language itself.
+Part of the reason for this claim is that [Python Data Model](https://docs.python.org/3/reference/datamodel.html) defines the interfaces of the building blocks (constructs) of the language itself.
 
 Why? What? How?
 
-##  Python Data Model
+## Python Data Model
 
 - Overview
 - Special Methods
@@ -37,14 +37,16 @@ There are three basic requirements in the design of a programming language:
 ### Language Constructs
 
 - Data
-    - Built-in types and new types (Classes)
-    - Atomic types and composite types (sequence, mapping, and set)
+  - Atomic types and composite types (sequence, mapping, and set)
+  - Built-in types and new types (Classes)
 - Operations
-    - built-in operators such as `+`, `-`, `>=`, list index `[]`, function call `()`, and so on.
-    - built-in functions such as `len()`, `repr()`, `bool()`, etc.
+  - built-in operators such as `+`, `-`, `>=`, list index `[]`, function call `()`, and so on.
+  - built-in functions such as `len()`, `repr()`, `bool()`, etc.
+  - user defined functions
 - Program Control Structure: specific syntax for statements, branches and loops. For example:
-    - `for` loop statement
-    - `with` context manager statement.
+  - `for` loop statement or `with` context manager statement.
+  - work with user defined types
+- Meta programming: write code that generate code
 
 ### What is Python Data Model?
 
@@ -69,15 +71,14 @@ Every Python developers should be familiar with common Python idioms. Following 
 - [Python Programming/Idioms](https://en.wikibooks.org/wiki/Python_Programming/Idioms)
 - [Idiomatic Python](https://intermediate-and-advanced-software-carpentry.readthedocs.io/en/latest/idiomatic-python.html)
 
-
 ```python
 # to  create  a list of squares of numbers from 0 to 9
-result2 = []
+result1 = []
 for i in range(10):
-    result2.append(i * i)
+    result1.append(i * i)
 
 # using list comprehension - a common idiom in python
-result1 = [i * i for i in range(10)]
+result2 = [i * i for i in range(10)]
 ```
 
 ## Special Methods
@@ -102,7 +103,7 @@ In a Python interpreter, built-in functions, operators, and special syntax invok
 
 `+` invokes the `__add__()` method on its left operand. If the first operand doesn't define the `__add__()` method, it invokes `__radd__()` method of the right operand. If both are not defined, it returns `NotImplemented` exception.
 
-`==` invokes the `__eq__()` method. By default, object implements __eq__() by using `is` that checks if two references point to the same object. In most cases, this is not what you want and you should implement the `__eq__()` method. 
+`==` invokes the `__eq__()` method. By default, object implements __eq__() by using `is` that checks if two references point to the same object. In most cases, this is not what you want and you should implement the `__eq__()` method.
 
 `self[key]` invokes `self.__getitem__(self, key)` for sequence type where `key` is an integer and mapping type where `key` is any immutable value.
 
@@ -135,7 +136,6 @@ If a new type defines the corresponding methods, an instance of the type can be 
 As an example, the following code defines a new `Vector` type that works well with `+` and
 `*`. It also defines `__repr__` to have a better string representation of the data.
 
-
 ```python
 class Value:
 
@@ -167,10 +167,7 @@ Any Python object can be used in a boolean context or be an operand of built-in 
 
 By default, any instance of a new type is `truthy` unless either `__bool__()` or `__len__()` method is defined in the type. In a boolean context or a call of `bool()`, the `__bool()__`  method is called. If the `__bool__()` method is not defined, Python calls `__len__()` method. If the result is 0, it is falsy or `False`. Otherwise, it is truthy or `True`.
 
-Additionally, it is also a good idea to let `Value` add or multiple regular numbers.
-
-The `Value` type has an additional `__bool__()` method in the following code:
-
+The `Value` type has an additional `__bool__()` method in the following code. Additionally it let `Value` with scalar numbers.
 
 ```python
 class Value:
@@ -201,30 +198,9 @@ b = Value(3)
 print(bool(a), bool(b), (1 + a) * b)  # False True
 ```
 
-
 ```python
+# how about 2 + a or  3 * b
 class Value:
-    # more methods for built-in operators
-    def __neg__(self):  # -self
-        return self * -1
-
-    def __radd__(self, other):  # other + self
-        return self + other
-
-    def __sub__(self, other):  # self - other
-        return self + (-other)
-
-    def __rsub__(self, other):  # other - self
-        return other + (-self)
-
-    def __rmul__(self, other):  # other * self
-        return self * other
-
-    def __truediv__(self, other):  # self / other
-        return self * other**-1
-
-    def __rtruediv__(self, other):  # other / self
-        return other * self**-1
 
     def __init__(self, data):
         self.data = data
@@ -234,18 +210,29 @@ class Value:
 
     def __add__(self, other):
         other = other if isinstance(other, Value) else Value(other)
-        out = self.data + other.data
-        return Value(out)
+        out = Value(self.data + other.data, (self, other), "+")
+        return out
 
     def __mul__(self, other):
         other = other if isinstance(other, Value) else Value(other)
-        out = self.data * other.data
-        return Value(out)
+        out = Value(self.data * other.data, (self, other), "*")
+        return out
 
-    def __bool__(self):
-        return bool(self.data)
+    def __rmul__(self, other):  # other * self
+        return self * other
+
+    def __truediv__(self, other):  # self / other
+        return self * other**-1
+
+    def __neg__(self):  # -self
+        return self * -1
+
+    def __sub__(self, other):  # self - other
+        return self + (-other)
+
+    def __radd__(self, other):  # other + self
+        return self + other
 ```
-
 
 ```python
 a = Value(0)
@@ -262,13 +249,12 @@ Python built-in collection types include `str`, `list`, `tuple`, `range`, `set`,
 - `__iter__()` to support `for`, unpacking, and other iteration operations.
 - `__contains__` to support `in` operator.
 
-Except `set`, all collection types support getting a value by a key (an index or any immutable object) using syntax `obj[key]`. 
+Except `set`, all collection types support getting a value by a key (an index or any immutable object) using syntax `obj[key]`.
 
 - It is equivalent to `type(obj).__getitem__(obj, key)`.
 - The `__getitem__` can also be used to support iteration without defining `__iter__` method.
 
 By implementing the corresponding special methods, a new type can emulate a built-in collection type the works well in a Pythonic style.
-
 
 ```python
 from collections import namedtuple
@@ -306,7 +292,6 @@ has_chip = "Chip" in my_list
 print(has_milk, has_chip)  # True False
 ```
 
-
 ```python
 # to improve for loop
 from collections import namedtuple
@@ -340,7 +325,6 @@ Both functions, classes, and methods are *callable* in Python: you append a pair
 
 It is often used to implement function-like behavior for a class instance. For example, the following class allows each instance to have a different count start and step.
 
-
 ```python
 class Counter:
     def __init__(self, start=0, step=1):
@@ -361,7 +345,7 @@ print(counter())  # Output: 17
 print(counter())  # Output: 24
 ```
 
-## Metaprogramming
+## Meta-programming: Code That Generates Code
 
 Python has a set of special methods that can be used to customize the class definition. These methods include:
 
@@ -369,19 +353,16 @@ Python has a set of special methods that can be used to customize the class defi
 - Attribute management
 - Class creation: `__init_subclass__`, class decorator, metaclass, and so on.
 
-These are advanced topics that customize the class behavior - so-called *metaprogramming*. In metaprogramming, classes are objects that are created and customized at runtime.
+These are advanced topics that customize the class behavior - so-called *meta-programming*. In meta-programming, classes are objects that are created and customized at runtime.
 
-Python tools/frameworks such as `@dataclass` and Django uses metaprogramming to make it easy to develop application. An application developer rarely use them directly but it is better to know the concepts.
+Python tools/frameworks such as `@dataclass` and Django uses meta-programming to make it easy to develop application. An application developer rarely use them directly but it is better to know the concepts.
 
 ## Why Meta Programming
 
 - Simple
 - Powerful
 
-For example:  the `@dataclass` decorator provides a simple way to create classes that mainly hold data. 
-
-
-
+For example:  the `@dataclass` decorator provides a simple way to create classes that mainly hold data.
 
 ```python
 # Without @dataclass
@@ -398,7 +379,6 @@ class Person:
             return False
         return self.name == other.name and self.age == other.age
 ```
-
 
 ```python
 # both __repr__ and __eq__ methods are defined
@@ -426,7 +406,6 @@ Most classes define the `__init__(self, ...)` method to set attributes of an ins
 
 There is more to explain about the instance creation.
 
-
 ### Instance Creation
 
 There are two steps to create an instance of a class:
@@ -434,7 +413,7 @@ There are two steps to create an instance of a class:
 - `__new__()` static method creates a new instance. It is the *constructor* method. Its first argument is a class, often named as `cls`. It returns a new instance that is passed to the next initialization step.
 - `__init()__` instance *initializer* method that set the attributes of an instance. Its first argument is the newly created instance, often named as `self`. It has no return value.
 
-All classes are subclass of the `object` base class. If a class doesn't define any of the method, Python calls the default implementation defined in the `object` base class. 
+All classes are subclass of the `object` base class. If a class doesn't define any of the method, Python calls the default implementation defined in the `object` base class.
 
 ### `__new__()` Use Cases
 
@@ -445,8 +424,6 @@ You rarely need to define `__new__()`. It is often used to develop frameworks or
 It is also used in a metaclass in order to customize class creation.
 
 Following is an example that create a `Name` instance that has titled string. The first char is an uppercase one. Because `str` is immutable, you cannot change it in `__init__()` method.
-
-
 
 ```python
 class Name:
@@ -474,7 +451,6 @@ The advantage of using methods behind a data attribute are:
 - Uniform access: you can use a simple data attribute or methods without change its usage.
 - Getter and setter control: you can validate, transform the attribute access behaviors.
 - Computed properties: a method allows to calculate and/or cache the result.
-
 
 ```python
 import math
@@ -510,11 +486,13 @@ radius = circle.radius
 area = circle.area
 print(f"Radius {radius} has an area of {area}")
 # output: Radius 10 has an area of 314.1592653589793
+
+circle.radius = -1  # ValueError: Radius cannot be negative
 ```
 
 ### Descriptor
 
-Descriptors are used to customize the behavior of getting, setting, or deleting an attribute's value. Descriptors provide a general mechanism to control attribute access in Python classes. 
+Descriptors are used to customize the behavior of getting, setting, or deleting an attribute's value. Descriptors provide a general mechanism to control attribute access in Python classes.
 
 A Python property is actually a specific implementation of the descriptor that often used to decorate class methods. It can also be used as a typical descriptor that is defined as a class attribute.
 
@@ -528,7 +506,6 @@ To create a descriptor, you typically define one or more of the following method
 - `__get__(self, instance, owner)`: This method is called when you access the attribute's value. The parameters are descriptor instance, the instance of the object it's accessed on, and the class of that object. You should return the value you want to provide for the attribute.
 - `__set__(self, instance, value)`: This method is called when you set the attribute's value. The parameters are the descriptor instance, the instance of the object it's set on, and the new value. You can implement custom logic to handle the setting of the value.
 - `__delete__(self, instance)`: This method is called when you delete the attribute. It is rarely used.
-
 
 ```python
 class PositiveNumber:
@@ -591,15 +568,9 @@ Python provides several approaches to customize class creation in frameworks or 
 - class decorator: it takes a class as an argument and returns a - decorated class with desired behavior.
 - metaclass: define the behavior and structure of other classes.
 
-
-```python
-
-```
-
 ### A Redundancy Problem
 
 Python is famous for its simplicity. But the following object-oriented programming code is not simple because you need to type each attribute name three times.
-
 
 ```python
 class Vector:
@@ -610,14 +581,13 @@ class Vector:
 
 Python supports class attributes that each attribute name is typed once like the following.
 
-
 ```python
 class Vector:
     x = 0
     y = 0
 ```
 
-However, class attributes are shared by all instances. Is it possible to use the simple class attribute syntax to create instance attribute? Python metaprogramming provides multiple approaches.
+However, class attributes are shared by all instances. Is it possible to use the simple class attribute syntax to create instance attribute? Python meta-programming provides multiple approaches.
 
 ### `_init_subclass__`
 
@@ -625,7 +595,6 @@ This special method is defined in a base class to customize the creation of its 
 
 - in `__init_subclass__`, copy each subclass' class attribute as an instance attribute.
 - in `__init__`, reset the instance attributes if a caller provides vector attribute values.
-
 
 ```python
 class VectorBase:
@@ -661,8 +630,7 @@ print(v0, v1, v2)  # Vector(7, 0) Vector(2, 17) Vector(10, 20)
 
 A class decorator takes a class as an argument and returns a new class to replace the decorated class. Because it can be applied to any class, it is more flexible and more complex than the `_init_subclass__()` approach. `@dataclass` is a class decorator defined in standard library. It customizes class attributes such as instance attributes, `__init__()`, `__repr__()`, `__eq__()`, and so on.
 
-For the case of the `Vector` class, the class decorator logic is similar to the `VectorBase`. 
-
+For the case of the `Vector` class, the class decorator logic is similar to the `VectorBase`.
 
 ```python
 def vector_class(cls):
@@ -680,9 +648,12 @@ def vector_class(cls):
 
 
 @vector_class
-class Vector(VectorBase):
+class Vector:
     x = 0
     y = 0
+
+    def __str__(self):
+        return f"Vector({self.x}, {self.y})"
 
 
 v0 = Vector()
@@ -691,12 +662,12 @@ v2 = Vector(10, 20)
 v0.x = 7
 v1.y = 17
 
-print(v0, v1, v2)  # Vector(7, 0) Vector(2, 17) Vector(10, 20)
+print(v0, v1, v2)
 ```
 
 ### Metaclass
 
- Metaclass is the most advanced and most capable approach to customize class creation. However, it is the most complex one that should be avoided if other approaches work for you. It you are not sure whether you need it, you don't.
+ Metaclass is the most advanced and most capable approach to customize class creation. However, it is the most complex one that should be avoided if other approaches work for you. If you are not sure whether you need it, you don't.
 
  A metaclass is a class whose instances are classes -- a class' class, thus the name metaclass. It is essentially a class factory.
 
@@ -706,7 +677,7 @@ print(v0, v1, v2)  # Vector(7, 0) Vector(2, 17) Vector(10, 20)
 
 When Python sees a class definition like `class MyClass(BaseClass, metaclass=MyMetaClass): ...`, it calls `MyMetaClass.__new__()` to create a new class.
 
-An interesting fact is that every metaclass is a subclass of `type`. After customization, a metaclass calls `super().__new__(...)` to let `type` create the new class. 
+An interesting fact is that every metaclass is a subclass of `type`. After customization, a metaclass calls `super().__new__(...)` to let `type` create the new class.
 
 Then it calls `MyMetaClass.__init__()` to set the new class attributes. This method has the following arguments:
 
@@ -716,7 +687,6 @@ Then it calls `MyMetaClass.__init__()` to set the new class attributes. This met
 - `attributes`: a mapping represents the attributes of the new class.
 
 For the simple purpose of reducing boilerplate code of the `Vector` class, the logic is similar to other examples. Again, it is for demo purpose, you probably never need to use it in your application development or data analysis career.
-
 
 ```python
 class VectorMeta(type):
@@ -759,4 +729,4 @@ Python languages constructs are consistent, composable and open. You can define 
 - built-in functions such as `len()`, `repr()`, `bool()`, etc.
 - specific syntax such as `for` loop statement and `with` context manager statement.
 
-Additionally, you can even customize the class creation at runtime using metaprogramming that make your code simple and powerful.
+Additionally, you can even customize the class creation at runtime using meta-programming that make your code simple and powerful.
