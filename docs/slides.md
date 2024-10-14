@@ -48,6 +48,10 @@ hide:
 - [Basic Django](ch12_django/slides/basic_django.slides.html){:target="\_blank"}
 - [Advanced Django](ch12_django/slides/advanced_django.slides.html){:target="\_blank"}
 
-### Chapter 13 LLM
+### Chapter 13 Introduction to Neural Network
 
-- [Neural network from scratch](ch13_llm/slides/nn.slides.html){:target="\_blank"}
+- [Introduction to Neural Network](ch13_nn/slides/nn.slides.html){:target="\_blank"}
+
+### Chapter 14 Large Language Model
+
+- [Bigram Language Model](ch13_nn/slides/bigram.slides.html){:target="\_blank"}

@@ -44,8 +44,10 @@ nav:
                       - ch12_django/notes/django_crash_course.md
                       - ch12_django/notes/basic_django.md
                       - ch12_django/notes/advanced_django.md
-                - 'Chapter 13: LLM From Scratch':
-                      - ch13_llm/notes/nn.md
+                - 'Chapter 13: Introduction to Neural Network':
+                      - ch13_nn/notes/nn.md
+                - 'Chapter 14: Large Language Model':
+                      - ch14_llm/notes/bigram.md
     - Slides: slides.md
     - Code: code.md
     - Appendix:
