@@ -110,9 +110,24 @@ sum1 += bias
 # using a generator expression, generate a pair each time when needed
 # good for large data sets or you don't need all the values at once
 wi_in_gen = (weight * input for weight, input in zip(weights, inputs))
+
+# now all values are needed, one by one
 sum2 = sum(wi_in_gen, bias)
 
 print(sum1, sum2)  # 2.98 2.98
+```
+
+```python
+import random
+
+TEN_MILLION = 10**7
+# Generator expression to create one million random numbers between 1 and 100
+# just a generator expression, no numbers are generated yet
+random_numbers = (random.randint(1, 100) for _ in range(TEN_MILLION))
+
+# Display the first 10 numbers - only generate the first 10 numbers
+first_ten = [next(random_numbers) for _ in range(10)]
+print(first_ten)
 ```
 
 ## Python Data Model: Special Methods

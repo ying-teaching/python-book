@@ -7635,9 +7635,34 @@ main {
 <span class="c1"># using a generator expression, generate a pair each time when needed</span>
 <span class="c1"># good for large data sets or you don't need all the values at once</span>
 <span class="n">wi_in_gen</span> <span class="o">=</span> <span class="p">(</span><span class="n">weight</span> <span class="o">*</span> <span class="nb">input</span> <span class="k">for</span> <span class="n">weight</span><span class="p">,</span> <span class="nb">input</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">weights</span><span class="p">,</span> <span class="n">inputs</span><span class="p">))</span>
+
+<span class="c1"># now all values are needed, one by one</span>
 <span class="n">sum2</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">wi_in_gen</span><span class="p">,</span> <span class="n">bias</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">sum1</span><span class="p">,</span> <span class="n">sum2</span><span class="p">)</span>  <span class="c1"># 2.98 2.98</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+
+<span class="n">TEN_MILLION</span> <span class="o">=</span> <span class="mi">10</span><span class="o">**</span><span class="mi">7</span>
+<span class="c1"># Generator expression to create one million random numbers between 1 and 100</span>
+<span class="c1"># just a generator expression, no numbers are generated yet</span>
+<span class="n">random_numbers</span> <span class="o">=</span> <span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">TEN_MILLION</span><span class="p">))</span>
+
+<span class="c1"># Display the first 10 numbers - only generate the first 10 numbers</span>
+<span class="n">first_ten</span> <span class="o">=</span> <span class="p">[</span><span class="nb">next</span><span class="p">(</span><span class="n">random_numbers</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">first_ten</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -7651,8 +7676,8 @@ main {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="Python-Data-Model:-Special-Methods">Python Data Model: Special Methods<a class="anchor-link" href="#Python-Data-Model:-Special-Methods">¶</a></h2><p>The Python data model is a set of APIs. The APIs are defined as a set of standard <em>special methods</em>.</p>
-<p>All special methods follow a special naming style: starting and ending with double underscores: <code>__*__</code>. They are known as <em>dunder</em> (double underscore) methods.</p>
-<p>Developers <em>should not</em> create or use any dunder identifier not standardized by the language reference because they are subject to breakage without warning in future Python versions.</p>
+<p>All special methods follow a special naming style: starting and ending with double underscores: <code>__*__</code>. They are known as <code>dunder</code> (double underscore) methods.</p>
+<p>Developers <em>should not</em> create or use any <code>dunder</code> identifier not standardized by the language reference because they are subject to breakage without warning in future Python versions.</p>
 <p>In a Python interpreter, built-in functions, operators, and special syntax invoke these special class methods to perform data operations.</p>
 </div>
 </div>
@@ -8054,7 +8079,7 @@ main {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3 id="Why-Meta-Programming">Why Meta Programming<a class="anchor-link" href="#Why-Meta-Programming">¶</a></h3><ul>
-<li>Simple: writting less code</li>
+<li>Simple: writing less code</li>
 <li>Powerful: expressive code</li>
 </ul>
 <p>For example, in data analysis, one needs a simple way to create classes that mainly hold data. The data class should have good string representation and be able to tell their equality.</p>
@@ -8381,7 +8406,7 @@ main {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3 id="Dynamic-Attributes">Dynamic Attributes<a class="anchor-link" href="#Dynamic-Attributes">¶</a></h3><p>Dynamic attributes are useful when you need to store additional data with an object, but the attribute names are not known until runtime.</p>
-<p>All defined attributes are usally stored in the object's <code>__dict__</code> that is a dictionary.</p>
+<p>All defined attributes are usually stored in the object's <code>__dict__</code> that is a dictionary.</p>
 <p>The special method <code>__getattr__(self, name)</code> is called when the <code>name</code> attribute is not found in the current object. Therefore, it can be used to define dynamic (computed) attribute value or raise <code>AttributeError</code> if the requested name is invalid.</p>
 <p>The <code>__setattr__(self, name, value)</code> method is called whenever an attribute is assigned a value on an instance. You can define this method in your class to control and customize the behavior of attribute assignment.</p>
 <p>Both <em>property</em> and <em>descriptor</em> use these attribute management methods to create the read/write attributes. If possible, you should use property to define dynamic attributes because it is the simplest. Descriptor is the choice if multiple classes/attributes have the same logic. Django <code>models</code> is a descriptor.</p>
@@ -8481,12 +8506,12 @@ main {
 </div>
 </div>
 </div>
-</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [45]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">Person</span><span class="p">:</span>
@@ -8506,19 +8531,6 @@ main {
 
 <span class="nb">print</span><span class="p">(</span><span class="n">alice</span><span class="p">,</span> <span class="n">bob</span><span class="p">)</span>  <span class="c1"># Person(name=Alice, age=30) Person(name=Bob, age=30)</span>
 </pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Person(name=Alice, age=30) Person(name=Bob, age=30)
-</pre>
 </div>
 </div>
 </div>
@@ -8588,12 +8600,12 @@ main {
 </div>
 </div>
 </div>
-</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [43]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">alice</span> <span class="o">=</span> <span class="n">Person</span><span class="p">(</span><span class="s2">"Alice"</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
@@ -8603,20 +8615,6 @@ main {
 <span class="nb">print</span><span class="p">(</span><span class="n">alice</span><span class="p">)</span>  <span class="c1"># Person(name=Alice, age=30)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">alice</span> <span class="o">==</span> <span class="n">bob</span><span class="p">)</span>  <span class="c1"># false</span>
 </pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Person(name=Alice, age=30)
-False
-</pre>
 </div>
 </div>
 </div>
