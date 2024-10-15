@@ -144,7 +144,7 @@ In a Python interpreter, built-in functions, operators, and special syntax invok
 
 `len()` invokes the `__len__()` method to get the length/size of an object.
 
-`repr()` invokes the `__repr()` method to compute the string representation (serialized string) of an object. It is used by developer for debugging purpose.
+`repr()` invokes the `__repr__()` method to compute the string representation (serialized string) of an object. It is used by developer for debugging purpose.
 
 `str()`, `format()`, and `print()` invokes `__str__()` method to compute a user friendly representation of an object. The default implementation of `object` calls `object.__repr__()`.
 
@@ -211,9 +211,9 @@ print(a + b * c)
 
 ### Boolean Value and Operation with Scalar Values
 
-Any Python object can be used in a boolean context or be an operand of built-in `bool()` function. Boolean context include conditions in `if` or `while` statement, or as operands of `and`, `or`, and `not` logical operators. Every object is either *truthy* or *falsy* in a boolean context.
+Any Python object can be used in a boolean context or be an operand of built-in `bool()` function. Boolean context include conditions in `if` or `while` statement, or as operands of `and`, `or`, and `not` logical operators. Every object is either `truthy` or `falsy` in a boolean context.
 
-By default, any instance of a new type is `truthy` unless either `__bool__()` or `__len__()` method is defined in the type. In a boolean context or a call of `bool()`, the `__bool()__`  method is called. If the `__bool__()` method is not defined, Python calls `__len__()` method. If the result is 0, it is falsy or `False`. Otherwise, it is truthy or `True`.
+By default, any instance of a new type is `truthy` unless either `__bool__()` or `__len__()` method is defined in the type. In a boolean context or a call of `bool()`, the `__bool()__`  method is called. If the `__bool__()` method is not defined, Python calls `__len__()` method. If the result is 0, it is `falsy`(`False`). Otherwise, it is `truthy` (`True`).
 
 The `Value` type defines a `__bool__()` method in the following code.
 
@@ -321,12 +321,15 @@ class ShoppingList:
 
     def __contains__(self, name):
         return name in self.names
+```
 
-
+```python
 milk = Item("Milk", 1)
 banana = Item("Banana", 5)
 bread = Item("Bread", 2)
 my_list = ShoppingList([milk, banana, bread])
+
+print(my_list[0])  # Item(name='Milk', quantity=1)
 
 for item in my_list:
     print(item)  # print each item
@@ -373,22 +376,21 @@ It is often used to implement function-like behavior for a class instance. For e
 
 ```python
 class Counter:
-    def __init__(self, start=0, step=1):
+    def __init__(self, start=0):
         self._count = start
-        self._step = step
 
-    def __call__(self, addition=0):
-        self._count += self._step + addition
+    def __call__(self):
+        self._count += 1
         return self._count
 
 
 counter = Counter()
 print(counter())  # Output: 1
-print(counter(3))  # Output: 5
+print(counter())  # Output: 2
 
-counter = Counter(10, 7)
-print(counter())  # Output: 17
-print(counter(3))  # Output: 27
+counter = Counter(10)
+print(counter())  # Output: 11
+print(counter())  # Output: 12
 ```
 
 ## Meta-programming: Code That Generates Code
@@ -654,11 +656,7 @@ except AttributeError as e:
 
 ## Too Much Redundancy
 
-Python is famous for its simplicity. But the following object-oriented programming code is horrible because
-
-- each attribute is repeated THREE times
-- each attributed is repeated the fourth time in `__repr__`
-- each attributed is repeated the fifth time in `__eq__`
+Python is famous for its simplicity. But the following object-oriented programming code
 
 ```python
 class Person:
@@ -674,24 +672,32 @@ class Person:
         return (self.name == other.name) and (self.age == other.age)
 ```
 
-### Class Attribute May
+is horrible because
 
-Class is an also `object` in Python - it has class attributes that each attribute name is typed ONCE.
+- each attribute is repeated THREE times
+- each attributed is repeated the fourth time in `__repr__`
+- each attributed is repeated the fifth time in `__eq__`
+- both `__repr__` and `__eq__` have the same logic for all data classes: print and compare each attribute.
 
-However
+### Class Attributes Have Simple Syntax
 
-- The class attributes are not initialized in `__init__(self, ...)` method.
-- Class attributes are shared by all its instances.
+Class is an also `object` in Python - it has class attributes that are typed ONCE.
 
 ```python
 class Person:
-    name = None  # better syntax using type hint: name: str
-    age = None  # better syntax using type hint: age: int
+    name: str  # better syntax using type hint
+    age: int  # type hint
 
     def __repr__(self) -> str:
         return f"Person(name={self.name}, age={self.age})"
+```
 
+However
 
+- Class attributes are shared by all its instances.
+- Assigning the same attribute to an instance creates a new instance attribute
+
+```python
 # all instances share the same class attributes
 alice = Person()
 bob = Person()
@@ -702,97 +708,118 @@ bob.name = "Bob"  # it creates a new instance attribute
 print(alice, bob)  # Person(name=Alice, age=30) Person(name=Bob, age=30)
 ```
 
-## The Solution: Customize Class Creation
+## The Solution: Creating Instance Attributes from the Class Attributes
 
-Python provides three approaches to customize class creation in frameworks or libraries.
+Python provides three approaches to customize class/instance creation:
 
 - allow a base class to customize its subclass behaviors.
 - class decorator: it takes a class as an argument and returns a - decorated class with desired behavior.
 - metaclass: define the behavior and structure of other classes.
 
-### Solution one: Base Class and `_init_subclass__`
+### Solution 1: Base Class
 
-This special method is defined in a base class to customize the creation of its subclasses. There are two basic tasks to create instance attributes from the subclass' class attributes:
+The special method `_init_subclass__` is defined in a base class to customize the creation of its subclasses.
 
-- in `__init_subclass__`, copy each subclass' class attribute as an instance attribute.
-- it can define other methods inherited by its sub classes
+However, it is not recommended because inheritance a strong relationship - the chid class inherits everything from its parent class.
 
 ```python
-class MyDataClassBase:
-    def __init_subclass__(cls):
-        super().__init_subclass__()
-        for name, value in cls.__dict__.items():
-            if not name.startswith("__"):
-                setattr(cls, name, value)
+class DataClassBase:
 
-    def __init__(self, *args):
-        self.name, self.age = args
+    def __init_subclass__(cls) -> None:
+        attributes = [attr for attr in cls.__annotations__]
 
-    def __repr__(self):
-        return f"Person(name={self.name}, age={self.age})"
+        def _init(self, *args, **kwargs):
+            for attr, value in zip(attributes, args):
+                setattr(self, attr, value)
+            for attr, value in kwargs.items():
+                setattr(self, attr, value)
 
-    # Create an __eq__ method that compares the attributes
-    def __eq__(self, other):
-        return (self.name == other.name) and (self.age == other.age)
+        def _repr(self):
+            attrs = ", ".join(f"{attr}={getattr(self, attr)}" for attr in attributes)
+            return f"{cls.__name__}({attrs})"
 
+        def _eq(self, value: object) -> bool:
+            if not isinstance(value, self.__class__):
+                return False
+            return self.__dict__ == value.__dict__
 
-class Person(MyDataClassBase):
-    name: str
-    age: int
+        setattr(cls, "__init__", _init)
+        setattr(cls, "__repr__", _repr)
+        setattr(cls, "__eq__", _eq)
 ```
 
 ```python
-alice = Person("Alice", 30)
-bob = Person("Bob", 20)
-alice2 = Person("Alice", 30)
+class Person(DataClassBase):
+    name: str
+    age: int
 
-print(alice)  # Person(name=Alice, age=30)
-print(alice == bob)  # false
+
+class Point(DataClassBase):
+    x: float
+    y: float
+
+
+alice = Person("Alice", 30)
+bob = Person("Bob", 25)
+print(alice, bob, alice == bob)
+
+p1 = Point(1.0, 2.0)
+p2 = Point(30.0, 50.0)
 ```
 
 ### Solution 2: Class Decorator
 
-A class decorator takes a class as an argument and returns a new class to replace the decorated class. Because it can be applied to any class, it is more flexible and more complex than the `_init_subclass__()` approach. `@dataclass` is a class decorator defined in standard library. It customizes class attributes such as instance attributes, `__init__()`, `__repr__()`, `__eq__()`, and so on.
+A class decorator takes a class as an argument and returns a new class to replace the decorated class. Because it can be applied to any class, it is more flexible and more complex than the base class approach. `@dataclass` is a class decorator defined in standard library. It customizes class attributes such as instance attributes, `__init__()`, `__repr__()`, `__eq__()`, and so on.
 
 For the case of the `Vector` class, the class decorator logic is similar to the `VectorBase`.
 
 ```python
 def MyDataClass(cls):
-    for name, value in cls.__dict__.items():
-        if not name.startswith("__"):
-            setattr(cls, name, value)
 
-    def _init(self, *args):
-        self.name, self.age = args
+    attributes = [attr for attr in cls.__annotations__]
+
+    def _init(self, *args, **kwargs):
+        for attr, value in zip(attributes, args):
+            setattr(self, attr, value)
+        for attr, value in kwargs.items():
+            setattr(self, attr, value)
 
     def _repr(self):
-        return f"Person(name={self.name}, age={self.age})"
+        attrs = ", ".join(f"{attr}={getattr(self, attr)}" for attr in attributes)
+        return f"{cls.__name__}({attrs})"
 
-    # Create an __eq__ method that compares the attributes
-    def _eq(self, other):
-        return (self.name == other.name) and (self.age == other.age)
+    def _eq(self, value: object) -> bool:
+        if not isinstance(value, self.__class__):
+            return False
+        return self.__dict__ == value.__dict__
 
-    # Add the __eq__ method to the class
     setattr(cls, "__init__", _init)
     setattr(cls, "__repr__", _repr)
     setattr(cls, "__eq__", _eq)
 
     return cls
+```
 
-
+```python
 @MyDataClass
 class Person:
     name: str
     age: int
-```
 
-```python
+
+@MyDataClass
+class Point:
+    x: float
+    y: float
+
+
 alice = Person("Alice", 30)
-bob = Person("Bob", 20)
-alice2 = Person("Alice", 30)
+bob = Person("Bob", 25)
+print(alice, bob, alice == bob)
 
-print(alice)  # Person(name=Alice, age=30)
-print(alice == bob)  # false
+p1 = Point(1.0, 2.0)
+p2 = Point(30.0, 50.0)
+print(p1, p2, p1 == p2)
 ```
 
 ### Solution 3: Metaclass
@@ -801,7 +828,7 @@ Metaclass is the most advanced and most capable approach to customize class crea
 
 A metaclass is a class whose instances are classes -- a class' class, thus the name metaclass. It is essentially a class factory.
 
-You can metaclass for a class using the `metaclass` argument like `class MyClass(metaclass=MyMetaClass): ...`
+A meta class is used in the `metaclass` argument `class MyClass(metaclass=MyMetaClass): ...`
 
 ### `__new__()` and `__init__()`
 
@@ -814,47 +841,68 @@ The `MyMetaClass.__init__()` method has the following arguments:
 - `bases`: a tuple consists of base classes of the new class.
 - `attributes`: a mapping represents the attributes of the new class.
 
-For the simple purpose of reducing boilerplate code of the `Person` class, the logic is similar to other examples. Again, it is for demo purpose, you probably never need to use it in your application development or data analysis career.
+For the simple purpose of reducing boilerplate code of the `Person` class, the logic is similar to other examples. Again, it is for demo purpose, you hardly need to use it in your application development or data analysis career.
 
 ```python
-class MyDataClassMeta(type):
-    def __init__(cls, name, bases, attributes):
-        super().__init__(name, bases, attributes)
-        for name, value in attributes.items():
-            if not name.startswith("__"):
-                setattr(cls, name, value)
+class DataClassMeta(type):
+    def __init__(cls, name, bases, dct):
+        # # Create the new class
+        # new_cls = super().__new__(cls, name, bases, dct)
 
-        # Create an __init__ method that initializes the attributes
-        def init(self, *args):
-            self.name, self.age = args
+        # Retrieve the annotations (declared fields and their types)
+        fields = cls.__annotations__
 
-        # Create a __repr__ method that returns a string representation of the object
-        def repr(self):
-            return f"Person(name={self.name}, age={self.age})"
+        # Define the __init__ method using the annotated fields
+        def __init__(self, *args, **kwargs):
+            for field_name in fields:
+                if field_name in kwargs:
+                    setattr(self, field_name, kwargs[field_name])
+                else:
+                    if args:
+                        setattr(self, field_name, args[0])
+                        args = args[1:]
 
-        # Create an __eq__ method that compares the attributes
-        def eq(self, other):
-            return (self.name == other.name) and (self.age == other.age)
+        # Define the __repr__ method for readable string representation
+        def __repr__(self):
+            field_values = ", ".join(
+                f"{field_name}={repr(getattr(self, field_name))}"
+                for field_name in fields
+            )
+            return f"{name}({field_values})"
 
-        # Add the __eq__ method to the class
-        setattr(cls, "__init__", init)
-        setattr(cls, "__repr__", repr)
-        setattr(cls, "__eq__", eq)
+        # Define the __eq__ method for comparison between instances
+        def __eq__(self, other):
+            if not isinstance(other, cls):
+                return False
+            return all(
+                getattr(self, field_name) == getattr(other, field_name)
+                for field_name in fields
+            )
 
-
-# Create a data class using the meta class
-class Person(metaclass=MyDataClassMeta):
-    name: str
-    age: int
+        # Attach the __init__, __repr__, and __eq__ methods to the new class
+        setattr(cls, "__init__", __init__)
+        setattr(cls, "__repr__", __repr__)
+        setattr(cls, "__eq__", __eq__)
 ```
 
 ```python
-alice = Person("Alice", 30)
-bob = Person("Bob", 20)
-alice2 = Person("Alice", 30)
+class Person(metaclass=DataClassMeta):
+    name: str
+    age: int
 
-print(alice)  # Person(name=Alice, age=30)
-print(alice == bob)  # false
+
+class Point(metaclass=DataClassMeta):
+    x: float
+    y: float
+
+
+alice = Person("Alice", 30)
+bob = Person("Bob", 25)
+print(alice, bob, alice == bob)
+
+p1 = Point(1.0, 2.0)
+p2 = Point(30.0, 50.0)
+print(p1, p2, p1 == p2)
 ```
 
 ## Summary
