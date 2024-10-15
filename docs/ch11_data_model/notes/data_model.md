@@ -846,13 +846,8 @@ For the simple purpose of reducing boilerplate code of the `Person` class, the l
 ```python
 class DataClassMeta(type):
     def __init__(cls, name, bases, dct):
-        # # Create the new class
-        # new_cls = super().__new__(cls, name, bases, dct)
-
-        # Retrieve the annotations (declared fields and their types)
         fields = cls.__annotations__
 
-        # Define the __init__ method using the annotated fields
         def __init__(self, *args, **kwargs):
             for field_name in fields:
                 if field_name in kwargs:
@@ -862,7 +857,6 @@ class DataClassMeta(type):
                         setattr(self, field_name, args[0])
                         args = args[1:]
 
-        # Define the __repr__ method for readable string representation
         def __repr__(self):
             field_values = ", ".join(
                 f"{field_name}={repr(getattr(self, field_name))}"
@@ -870,7 +864,6 @@ class DataClassMeta(type):
             )
             return f"{name}({field_values})"
 
-        # Define the __eq__ method for comparison between instances
         def __eq__(self, other):
             if not isinstance(other, cls):
                 return False
