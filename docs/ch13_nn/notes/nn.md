@@ -6,20 +6,20 @@ It explains how deep neural network (DNN) works under the hood.
 
 ## Introduction
 
-The library implements back-propagation algorithm that is used to efficiently
+The library implements backpropagation algorithm that is used to efficiently
 
 - evaluate the gradient of
 - a loss function with respect to
 - the weights of
 - a neural network.
 
-It improves the NN accuracy by iteratively tuning the weights of the neural network to minize the loss function.
+It improves the NN accuracy by iteratively tuning the weights of the neural network to minimize the loss function.
 
-Back-propagation is the mathematical core of a DNN library like `PyTorch`.
+Backpropagation is the mathematical core of a DNN library like `PyTorch`.
 
 Let's see a simple lib named [Micrograd](https://github.com/karpathy/micrograd).
 
-### Back-propagation
+### Backpropagation
 
 A calculation can be expressed as a series of expressions. For example:
 
@@ -30,7 +30,7 @@ e = c - d
 g = e ** 2
 ```
 
-`g.backward()` is the back-propagation. It starts at `g`, goes backward through its expression graph and recursively applies the calculus chain rule to evaluate the partial derivative of `g` with respect to the all internal nodes (`e`, `d`, and `c`) and inputs (`a` and `b`). The derivatives are stores in the `.grad` attribute of each value.
+`g.backward()` is the backpropagation. It starts at `g`, goes backward through its expression graph and recursively applies the calculus chain rule to evaluate the partial derivative of `g` with respect to the all internal nodes (`e`, `d`, and `c`) and inputs (`a` and `b`). The derivatives are stores in the `.grad` attribute of each value.
 
 A derivative tells how a value affects the expression result. It is the slope of growth of the value with regard to the result.
 
@@ -42,7 +42,7 @@ Though this made-up expression doesn't mean anything, it shows how deep neural n
 - The inputs for a DNN include input values and weights of DNN.
 - The output of a DNN is prediction or a loss function.
 
-For pedagogical reasons, Micrograd works on scalar values. A typical DNN works on multi-dimension data (called `tensor`s in PyTorch) for effecient parallel computation. They are fundamentally the same thing.
+For pedagogical reasons, Micrograd works on scalar values. A typical DNN works on multi-dimension data (called `tensor`s in PyTorch) for efficient parallel computation. They are fundamentally the same thing.
 
 Micrograd has an engine `engine.py` that has less than 100 lines of Python code. The `nn.py` defines a DNN consists of `Neuron`, `Layer` and `MLP`. It only has 60 lines of Python code.
 
@@ -394,6 +394,9 @@ def relu(self):
 Source: <https://machinelearningmastery.com/rectified-linear-activation-function-for-deep-learning-neural-networks/>
 
 ```python
+import math
+
+
 class Value:
 
     def __init__(self, data, _children=(), _op="", label=""):
@@ -471,6 +474,16 @@ class Value:
 
         return out
 
+    def relu(self):
+        out = Value(0 if self.data < 0 else self.data, (self,), "ReLU")
+
+        def _backward():
+            self.grad += (out.data > 0) * out.grad
+
+        out._backward = _backward
+
+        return out
+
     def exp(self):
         x = self.data
         out = Value(math.exp(x), (self,), "exp")
@@ -539,7 +552,7 @@ print(len(neuron.parameters()))
 
 - A `Layer` has a number of `Neuron`s, each `Neuron` is fully connected to all inputs.
 - Each `Neuron` evaluates its inputs independently.
-- It has a number of
+- It has a number of output is the number of neurons because each neuron has one output.
 
 How many parameters do we have?
 
@@ -590,70 +603,137 @@ class MLP:
 ```
 
 ```python
-x = [2.0, 3.0, -1.0]
-n = MLP(3, [4, 4, 1])
-o = n(x)
-print(o.data)
-print(len(n.parameters()))
+x = [2.0, 3.0]
+model = MLP(3, [4, 4, 1])
+out = model(x)
+print(out.data)
+print(len(model.parameters()))
 ```
 
-### Model Training
+## Model Training
 
 A NN is initialized with random parameters (weights and biases) when it is created.
 Then feed it with inputs and desired targets, based on the difference (a loss value) between its outputs (predicted values) and the desired targets, tune its parameters to minimize the loss value.
 
 For example, a batch usually have multiple inputs, first run forward pass:
 
-- for input `[2, 3, -1.0]`, the output should be `1.0` (might mean `YES`/`On`/`High`...)
-- for input `[3, -1, 0.5]`, the output should be `-1.0` (might mean `No`/`Off`/`Low`...)
+- for input `[1.61370966, -0.1246459]`, the output should be `1` (might mean `YES`/`On`/`High`...)
+- for input `[1.12211461,  0.08147717]`, the output should be `-1` (might mean `No`/`Off`/`Low`...)
 - ...
 
 Then, calculate the total loss of each batch, ran `loss.backward()` (the backward pass) to tune the parameters to minimize loss.
 
 ```python
-n = MLP(3, [4, 4, 1])
+np.random.seed(1337)
+random.seed(1337)
+
+model = MLP(2, [4, 4, 1])
 
 # forward pass
 xs = [
-    [2.0, 3.0, -1.0],
-    [3.0, -1.0, 0.5],
-    [0.5, 1.0, 1.0],
-    [1.0, 1.0, -1.0],
+    [2.0, 3.0],
+    [3.0, -1.0],
+    [0.5, 1.0],
+    [1.0, 1.0],
 ]
 ys = [1.0, -1.0, -1.0, 1.0]  # desired targets
 
-ypred = [n(x) for x in xs]
-print(ypred)
+scores = [model(x) for x in xs]
+losses = [(1 + -y * score).relu() for y, score in zip(ys, scores)]
+loss = sum(losses) / len(losses)
+
+# also get accuracy
+accuracies = [(y > 0) == (score.data > 0) for y, score in zip(ys, scores)]
+accuracy = sum(accuracies) / len(accuracies)
+
+print(ys, "prediction: ", [f"{score.data:.2f}" for score in scores])
+print(f"Loss: {loss.data:.4f}, Accuracy: {accuracy * 100:.2f}%")
+```
+
+## Demo: Training and Visualization
+
+[`scikit-datasets`](https://github.com/daviddiazvico/scikit-datasets) has some training datasets for machine learning projects.
+
+Use `pip install scikit-datasets` to install the datasets.
+
+```python
+from sklearn.datasets import make_moons
+
+np.random.seed(1337)
+random.seed(1337)
+
+xs, ys = make_moons(n_samples=100, noise=0.1)
+ys = 2 * ys - 1  # convert 0 to -1, and keep 1 as 1
+```
+
+```python
+plt.scatter(xs[:, 0], xs[:, 1], c=ys)
+```
+
+### Define a `loss` Function
+
+Define a `loss` function to measure the difference between predicted and the target. It is the optimization goal that is to be minimized. There are many loss functions.
+
+```python
+def calc_loss():
+
+    scores = [model(x) for x in xs]
+
+    # svm "max-margin" loss
+    losses = [(1 + -y * score).relu() for y, score in zip(ys, scores)]
+    loss = sum(losses) / len(losses)
+
+    # also get accuracy
+    accuracy = [(y > 0) == (score.data > 0) for y, score in zip(ys, scores)]
+    return loss, sum(accuracy) / len(accuracy)
 ```
 
 ### Tuning Parameter
 
-Define a `loss` function to measure the difference between predicted and the target. It is the optimization goal that is to be minimized. There are many loss functions.
-
-Staring from the `loss`, use back-propagation to calculate gradients.
+Staring from the `loss`, use backpropagation to calculate gradients.
 
 Don't forget resetting gradients to zero !! But why?
 
 Then adjust parameters to minimize the target.
 
 ```python
-for k in range(20):
+model = MLP(2, [16, 16, 1])
 
-    # forward pass
-    ypred = [n(x) for x in xs]
-    loss = sum((yout - ygt) ** 2 for ygt, yout in zip(ys, ypred))
+iterations = 21
+for iteration in range(iterations):
 
     # backward pass, don't forget resetting gradients to zero !!
-    for p in n.parameters():
-        p.grad = 0.0
+    loss, accuracy = calc_loss()
+
+    for parameter in model.parameters():
+        parameter.grad = 0.0
 
     loss.backward()
 
     # update
-    for p in n.parameters():
-        p.data -= 0.1 * p.grad
+    learning_rate = 1.0 - 0.9 * iteration / iterations
+    for parameter in model.parameters():
+        parameter.data -= learning_rate * parameter.grad
 
-    print(k, loss.data)
+    if iteration % 10 == 0:
+        print(f"step {iteration} loss {loss.data:.4f}, accuracy {accuracy*100:.2f}%")
+```
+
+```python
+h = 0.25
+x_min, x_max = xs[:, 0].min() - 1, xs[:, 0].max() + 1
+y_min, y_max = xs[:, 1].min() - 1, xs[:, 1].max() + 1
+xx, yy = np.meshgrid(np.arange(x_min, x_max, h), np.arange(y_min, y_max, h))
+Xmesh = np.c_[xx.ravel(), yy.ravel()]
+scores = [model(x) for x in Xmesh]
+Z = np.array([s.data > 0 for s in scores])
+Z = Z.reshape(xx.shape)
+
+fig = plt.figure()
+plt.contourf(xx, yy, Z, cmap=plt.cm.Spectral, alpha=0.8)
+plt.scatter(xs[:, 0], xs[:, 1], c=ys, s=40, cmap=plt.cm.Spectral)
+plt.xlim(xx.min(), xx.max())
+plt.ylim(yy.min(), yy.max())
 ```
 
 ## Summary
@@ -663,5 +743,5 @@ for k in range(20):
 - Repeat the following steps until the prediction is good enough.
   - The forward pass calculates prediction values.
   - The loss function measures the accuracy of the prediction. The lower the loss value, the better the prediction result.
-  - The backward (back-propagation) of the loss calculates the gradients of its neurons.
+  - The backward (backpropagation) of the loss calculates the gradients of its neurons.
   - Adjust parameters based on their gradients to decrease the loss value. The step size (learning rate) determines the amount the changes.

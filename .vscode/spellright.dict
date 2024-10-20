@@ -16,3 +16,6 @@ falsy
 metaclass
 Metaprogramming
 makemore
+backpropagation
+Backpropagation
+Micrograd
