@@ -35,7 +35,7 @@ class Data:
         """get the training data"""
         first_indexes, next_indexes = [], []
 
-        for name in self.names[:1]:
+        for name in self.names:
             chars = ["."] + list(name) + ["."]
             for first_char, next_char in zip(chars, chars[1:]):
                 first_index = self.char_to_int[first_char]

@@ -18,8 +18,8 @@ class Trainer:
             probabilities = self.model(first_indexes)
 
             num_inputs = len(first_indexes)
-            # nlls = torch.zeros(num_inputs)
 
+            # nlls = torch.zeros(num_inputs)
             # for index in range(num_inputs):
             #     first_index = first_indexes[index].item()
             #     next_index = next_indexes[index].item()
@@ -30,9 +30,8 @@ class Trainer:
 
             loss = -probabilities[torch.arange(num_inputs), next_indexes].log().mean()
 
-            if iteration % 1000 == 0:
-                print(f"Iteration {iteration} loss =  {loss.item():.6f}")
-                print(self.model.weights[0, :5].data)
+            if iteration % 10 == 0:
+                print(f"Iteration {iteration} loss =  {loss.item():.4f}")
 
             # backward pass
             self.model.weights.grad = None

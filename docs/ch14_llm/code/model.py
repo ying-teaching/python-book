@@ -23,11 +23,11 @@ class BigramLanguageModel:
         probabilities = counts / counts.sum(dim=1, keepdim=True)
         return probabilities
 
-    def generate_names(self, num_names, int_to_char):
+    def generate_names(self, num_names, int_to_char, start_end):
         generator = torch.Generator().manual_seed(MANUAL_SEED)
         for _ in range(num_names):
 
-            new_name = []
+            next_chars = []
             index = 0
 
             while True:
@@ -49,8 +49,9 @@ class BigramLanguageModel:
                     generator=generator,
                 ).item()
 
-                new_name.append(int_to_char[index])
-                if index == 0:
+                next_char = int_to_char[index]
+                next_chars.append(next_char)
+                if next_char == start_end:
                     break
 
-            print("".join(new_name))
+            print("".join(next_chars))
