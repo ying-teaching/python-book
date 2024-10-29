@@ -37,3 +37,7 @@ hide:
 
 - [Todo Site](https://github.com/ying-teaching/python-book/tree/main/docs/ch12_django/code/todo_site){:target="\_blank"}
 - [My Site](https://github.com/ying-teaching/python-book/tree/main/docs/ch12_django/code/my_site){:target="\_blank"}
+
+## Chapter 14 Large Language Model
+
+- [Best model and bigram model](https://github.com/ying-teaching/python-book/tree/main/docs/ch14_llm/code){:target="\_blank"}
