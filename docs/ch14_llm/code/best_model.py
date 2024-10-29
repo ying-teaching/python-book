@@ -37,9 +37,9 @@ def build_bigram_freq(names, char_to_int, vocab_size):
 
     for name in names:
         chars = [START_END] + list(name) + [START_END]
-        for first, next in zip(chars, chars[1:]):
+        for first, next_char in zip(chars, chars[1:]):
             first_index = char_to_int[first]
-            next_index = char_to_int[next]
+            next_index = char_to_int[next_char]
             bigram_freq[first_index, next_index] += 1
 
     return bigram_freq
